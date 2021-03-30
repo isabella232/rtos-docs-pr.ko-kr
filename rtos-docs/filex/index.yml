@@ -1,0 +1,31 @@
+### YamlMime:Landing
+title: Azure RTOS FileX 설명서
+summary: Azure RTOS FileX는 Azure RTOS ThreadX와 완전히 통합된 고성능의 FAT(파일 할당 테이블) 호환 파일 시스템으로, 지원되는 모든 프로세서에서 사용할 수 있습니다. Azure RTOS FileX는 Azure RTOS ThreadX와 마찬가지로 공간을 적게 차지하면서 고성능을 제공하도록 설계되었으므로 파일 관리 작업이 필요한 오늘날의 긴밀하게 포함된 애플리케이션에 적합합니다. FileX는 Azure RTOS LevelX를 통해 RAM, Azure RTOS USBX, SD 카드 및 NAND/NOR 플래시 메모리를 비롯한 대부분의 물리적 미디어를 지원합니다.
+metadata:
+  title: Azure RTOS FileX란?
+  description: Azure RTOS FileX는 Azure RTOS ThreadX와 완전히 통합된 고성능의 FAT(파일 할당 테이블) 호환 파일 시스템으로, 지원되는 모든 프로세서에서 사용할 수 있습니다. Azure RTOS FileX는 Azure RTOS ThreadX와 마찬가지로 공간을 적게 차지하면서 고성능을 제공하도록 설계되었으므로 파일 관리 작업이 필요한 오늘날의 긴밀하게 포함된 애플리케이션에 적합합니다. FileX는 Azure RTOS LevelX를 통해 RAM, Azure RTOS USBX, SD 카드 및 NAND/NOR 플래시 메모리를 비롯한 대부분의 물리적 미디어를 지원합니다.
+  services: rtos
+  ms.service: rtos
+  ms.topic: landing-page
+  author: philmea
+  ms.author: philmea
+  ms.date: 05/19/2020
+  ms.openlocfilehash: bf7fd9f842c363b753f8acd52f54b9f8e462616c
+  ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 03/22/2021
+  ms.locfileid: "104797547"
+landingContent:
+- title: Azure RTOS FileX 소개
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure RTOS FileX란?
+      url: overview-filex.md
+- title: Azure RTOS FileX 시작
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Azure RTOS FileX 사용자 가이드
+      url: about-this-guide.md
