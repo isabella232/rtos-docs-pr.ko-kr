@@ -1,0 +1,86 @@
+- name: Azure RTOS USBX 설명서
+  href: index.yml
+- name: USBX 개요
+  href: overview-usbx.md
+- name: USBX 디바이스 스택 사용자 가이드
+  items:
+    - name: 이 가이드의 내용
+      href: usbx-device-stack-about.md
+    - name: 챕터 1 - USBX 소개
+      href: usbx-device-stack-1.md
+    - name: 챕터 2 - USBX 설치
+      href: usbx-device-stack-2.md
+    - name: 챕터 3 - USBX 디바이스 스택의 기능 구성 요소
+      href: usbx-device-stack-3.md
+    - name: 챕터 4 - USBX 디바이스 서비스 설명
+      href: usbx-device-stack-4.md
+    - name: 챕터 5 - USBX 디바이스 클래스 고려 사항
+      href: usbx-device-stack-5.md
+- name: USBX 디바이스 스택 보충 자료
+  items:
+    - name: 챕터 1 - USBX 디바이스 스택 사용자 가이드 보충 자료 소개
+      href: usbx-device-stack-supplemental-1.md
+    - name: 챕터 2 - USBX 디바이스 클래스 고려 사항
+      href: usbx-device-stack-supplemental-2.md
+    - name: 챕터 3 - USBX DPUMP 클래스 고려 사항
+      href: usbx-device-stack-supplemental-3.md
+    - name: 챕터 4 - USBX Pictbridge 구현
+      href: usbx-device-stack-supplemental-4.md
+    - name: 챕터 5 - USBX OTG
+      href: usbx-device-stack-supplemental-5.md
+- name: USBX 호스트 스택 사용자 가이드
+  items:
+    - name: 이 가이드의 내용
+      href: usbx-host-stack-about.md
+    - name: 챕터 1 - USBX 소개
+      href: usbx-host-stack-1.md
+    - name: 챕터 2 - USBX 설치
+      href: usbx-host-stack-2.md
+    - name: 챕터 3 - USBX 호스트 스택의 기능 구성 요소
+      href: usbx-host-stack-3.md
+    - name: 챕터 4 - USBX 호스트 서비스 설명
+      href: usbx-host-stack-4.md
+    - name: 챕터 5 - USBX 호스트 클래스 API
+      href: usbx-host-stack-5.md
+    - name: 챕터 6 - USBX CDC-ECM 클래스 사용법
+      href: usbx-host-stack-6.md
+- name: USBX 호스트 스택 보충 자료
+  items:
+    - name: 챕터 1 - USBX 호스트 스택 사용자 가이드 보충 자료 소개
+      href: usbx-host-stack-supplemental-1.md
+    - name: 챕터 2 - USBX 호스트 클래스 API
+      href: usbx-host-stack-supplemental-2.md
+    - name: 챕터 3 - USBX DPUMP 클래스 고려 사항
+      href: usbx-host-stack-supplemental-3.md
+    - name: 챕터 4 - USBX Pictbridge 구현
+      href: usbx-host-stack-supplemental-4.md
+    - name: 챕터 5 - USBX OTG
+      href: usbx-host-stack-supplemental-5.md
+- name: USBX 리포지토리
+  href: 'https://github.com/azure-rtos/usbx/'
+- name: 관련 서비스
+  items:
+    - name: Defender for IoT - RTOS(미리 보기)
+      href: 'https://docs.microsoft.com/azure/defender-for-iot/iot-security-azure-rtos'
+- name: Microsoft Azure RTOS 구성 요소
+  items:
+    - name: Microsoft Azure RTOS
+      href: ../index.yml
+    - name: ThreadX
+      href: ../threadx/index.yml
+    - name: ThreadX Modules
+      href: ../threadx-modules/index.yml
+    - name: NetX Duo
+      href: ../netx-duo/index.yml
+    - name: NetX
+      href: ../netx/index.yml
+    - name: GUIX
+      href: ../guix/index.yml
+    - name: FileX
+      href: ../filex/index.yml
+    - name: LevelX
+      href: ../levelx/index.yml
+    - name: USBX
+      href: ../usbx/index.yml
+    - name: TraceX
+      href: ../tracex/index.yml

@@ -1,0 +1,31 @@
+### YamlMime:Landing
+title: Azure RTOS ThreadX 설명서
+summary: Azure RTOS ThreadX는 깊게 포함된 애플리케이션용으로 특별히 디자인된 고급 RTOS(실시간 운영 체제)입니다.
+metadata:
+  title: Azure RTOS ThreadX란?
+  description: Azure RTOS ThreadX는 깊게 포함된 애플리케이션용으로 특별히 디자인된 고급 RTOS(실시간 운영 체제)입니다.
+  services: rtos
+  ms.service: rtos
+  ms.topic: landing-page
+  author: philmea
+  ms.author: philmea
+  ms.date: 5/19/2020
+  ms.openlocfilehash: 0c1a69535f8d3b61702dd862801540b8d0bf35b3
+  ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 03/22/2021
+  ms.locfileid: "104797671"
+landingContent:
+- title: Azure RTOS ThreadX 소개
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure RTOS ThreadX란?
+      url: overview-threadx.md
+- title: Azure RTOS ThreadX 시작
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Azure RTOS ThreadX 사용자 가이드
+      url: about-this-guide.md

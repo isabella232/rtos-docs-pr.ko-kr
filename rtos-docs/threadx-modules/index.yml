@@ -1,0 +1,25 @@
+### YamlMime:Landing
+title: Azure RTOS ThreadX Modules 설명서
+summary: Azure RTOS ThreadX Modules 구성 요소는 애플리케이션의 상주 부분과 별도로 제작된 모듈을 애플리케이션이 동적으로 로드하는 데 필요한 인프라를 제공합니다.
+metadata:
+  title: Azure RTOS ThreadX Modules란?
+  description: Azure RTOS ThreadX Modules는 애플리케이션과 별도로 제작된, 동적으로 로드되는 모듈을 제공합니다.
+  services: rtos
+  ms.service: rtos
+  ms.topic: landing-page
+  author: philmea
+  ms.author: philmea
+  ms.date: 07/10/2020
+  ms.openlocfilehash: 40958716dfaa14813279fbce3b63d696e3dc21d2
+  ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 03/22/2021
+  ms.locfileid: "104797481"
+landingContent:
+- title: Azure RTOS ThreadX Modules 소개
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure RTOS ThreadX Modules란?
+      url: chapter1.md

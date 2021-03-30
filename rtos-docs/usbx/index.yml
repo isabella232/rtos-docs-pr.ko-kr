@@ -1,0 +1,33 @@
+### YamlMime:Landing
+title: Azure RTOS USBX 설명서
+summary: Azure RTOS USBX는 고성능의 USB 호스트, 디바이스 및 OTG(On-The-Go) 포함 스택입니다. Azure RTOS USBX는 Azure RTOS ThreadX와 완전히 통합되며 모든 Azure RTOS ThreadX 지원 프로세서에서 사용할 수 있습니다.
+metadata:
+  title: Azure RTOS USBX란?
+  description: Azure RTOS USBX는 고성능의 USB 호스트, 디바이스 및 OTG(On-The-Go) 포함 스택입니다. Azure RTOS USBX는 Azure RTOS ThreadX와 완전히 통합되며 모든 Azure RTOS ThreadX 지원 프로세서에서 사용할 수 있습니다.
+  services: rtos
+  ms.service: rtos
+  ms.topic: landing-page
+  author: philmea
+  ms.author: philmea
+  ms.date: 5/19/2020
+  ms.openlocfilehash: 05ff41048304d3cb66b74cbf342de664e8ad88ab
+  ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 03/22/2021
+  ms.locfileid: "104797690"
+landingContent:
+- title: Azure RTOS USBX 소개
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure RTOS USBX란?
+      url: overview-usbx.md
+- title: Azure RTOS USBX 시작
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Azure RTOS USBX 디바이스 스택 사용자 가이드
+      url: usbx-device-stack-about.md
+    - text: Azure RTOS USBX 호스트 스택 사용자 가이드
+      url: usbx-host-stack-about.md

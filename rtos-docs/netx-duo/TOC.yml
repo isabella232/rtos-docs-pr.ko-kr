@@ -1,0 +1,275 @@
+- name: Azure RTOS NetX Duo 설명서
+  href: index.yml
+- name: NetX Duo 개요
+  href: overview-netx-duo.md
+- name: NetX Duo 사용자 가이드
+  expanded: true
+  items:
+    - name: 이 가이드 정보
+      href: about-this-guide.md
+    - name: 챕터 1 - NetX Duo 소개
+      href: chapter1.md
+    - name: 챕터 2 - NetX Duo 설치 및 사용
+      href: chapter2.md
+    - name: 챕터 3 - NetX Duo의 기능 구성 요소
+      href: chapter3.md
+    - name: 챕터 4 - NetX Duo 서비스 설명
+      href: chapter4.md
+    - name: 챕터 5 - NetX Duo 네트워크 드라이버
+      href: chapter5.md
+    - name: 부록 A - NetX Duo 서비스
+      href: appendix-a.md
+    - name: 부록 B - NetX Duo 상수
+      href: appendix-b.md
+    - name: 부록 C - NetX Duo 데이터 형식
+      href: appendix-c.md
+    - name: 부록 D - BSD 호환 소켓 API
+      href: appendix-d.md
+    - name: 부록 E - ASCII 문자 코드
+      href: appendix-e.md
+- name: NetX Duo 추가 기능
+  items:
+    - name: NetX Duo AutoIP 사용자 가이드
+      items:
+        - name: 챕터 1 - NetX Duo AutoIP 소개
+          href: netx-duo-auto-ip/chapter1.md
+        - name: 챕터 2 - NetX Duo AutoIP 설치 및 사용
+          href: netx-duo-auto-ip/chapter2.md
+        - name: 챕터 3 - NetX Duo AutoIP 서비스 설명
+          href: netx-duo-auto-ip/chapter3.md
+    - name: NetX Duo BSD 서비스 사용자 가이드
+      items:
+        - name: 챕터 1 - NetX Duo BSD 소개
+          href: netx-duo-bsd/chapter1.md
+        - name: 챕터 2 - NetX Duo BSD 설치 및 사용
+          href: netx-duo-bsd/chapter2.md
+        - name: 챕터 3 - NetX Duo BSD 서비스
+          href: netx-duo-bsd/chapter3.md
+    - name: NetX Crypto 사용자 가이드
+      items:
+        - name: 챕터 1 - NetX Crypto 소개
+          href: ../netx/netx-crypto/chapter1.md
+        - name: 챕터 2 - NetX Crypto 설치 및 사용
+          href: ../netx/netx-crypto/chapter2.md
+        - name: 챕터 3 - NetX Crypto의 기능 구성 요소
+          href: ../netx/netx-crypto/chapter3.md
+        - name: 챕터 3 - NetX Crypto API 설명
+          href: ../netx/netx-crypto/chapter4.md
+    - name: NetX Duo DHCP 클라이언트 사용자 가이드
+      items:
+        - name: 챕터 1 - NetX Duo DHCP 클라이언트 소개
+          href: netx-duo-dhcp-client/chapter1.md
+        - name: 챕터 2 - NetX Duo DHCP 클라이언트 설치 및 사용
+          href: netx-duo-dhcp-client/chapter2.md
+        - name: 챕터 3 - NetX Duo DHCP 클라이언트 서비스 설명
+          href: netx-duo-dhcp-client/chapter3.md
+        - name: 부록 A - NetX Duo DHCP 클라이언트 서비스의 상태 복원 기능 설명
+          href: netx-duo-dhcp-client/appendixA.md
+    - name: NetX Duo DHCP 서버 사용자 가이드
+      items:
+        - name: 챕터 1 - NetX Duo DHCP 서버 소개
+          href: netx-duo-dhcp-server/chapter1.md
+        - name: 챕터 2 - NetX Duo DHCP 서버 설치 및 사용
+          href: netx-duo-dhcp-server/chapter2.md
+        - name: 챕터 3 - NetX Duo DHCP 서버 서비스 설명
+          href: netx-duo-dhcp-server/chapter3.md
+    - name: NetX Duo DHCPv6 클라이언트 사용자 가이드
+      items:
+        - name: 챕터 1 - NetX Duo DHCPv6 클라이언트 소개
+          href: netx-duo-dhcpv6-client/chapter1.md
+        - name: 챕터 2 - NetX Duo DHCPv6 클라이언트 설치 및 사용
+          href: netx-duo-dhcpv6-client/chapter2.md
+        - name: 챕터 3 - NetX Duo DHCPv6 구성 옵션
+          href: netx-duo-dhcpv6-client/chapter3.md
+        - name: 챕터 4 - NetX Duo DHCPv6 클라이언트 서비스
+          href: netx-duo-dhcpv6-client/chapter4.md
+        - name: 부록 A - 상태 복원 기능 설명
+          href: netx-duo-dhcpv6-client/appendix-a.md
+    - name: NetX Duo DHCPv6 서버 사용자 가이드
+      items:
+        - name: 챕터 1 - NetX Duo DHCPv6 서버 소개
+          href: netx-duo-dhcpv6-server/chapter1.md
+        - name: 챕터 2 - NetX Duo DHCPv6 서버 설치 및 사용
+          href: netx-duo-dhcpv6-server/chapter2.md
+        - name: 챕터 3 - NetX Duo DHCPv6 서버 구성 옵션
+          href: netx-duo-dhcpv6-server/chapter3.md
+        - name: 챕터 4 - NetX Duo DHCPv6 서버 서비스
+          href: netx-duo-dhcpv6-server/chapter4.md
+        - name: 부록 A - NetX Duo DHCPv6 옵션 코드
+          href: netx-duo-dhcpv6-server/appendix-a.md
+        - name: 부록 B- NetX Duo DHCPv6 서버 상태 코드
+          href: netx-duo-dhcpv6-server/appendix-b.md
+        - name: 부록 C - NetX Duo DHCPv6 고유 식별자(DUID)
+          href: netx-duo-dhcpv6-server/appendix-c.md
+        - name: 부록 D - 고급 NetX Duo DHCPv6 서버 예제
+          href: netx-duo-dhcpv6-server/appendix-d.md
+    - name: NetX Duo DNS 사용자 가이드
+      items:
+        - name: 챕터 1 - NetX Duo DNS 클라이언트 소개
+          href: netx-duo-dns/chapter1.md
+        - name: 챕터 2 - NetX Duo DNS 클라이언트 설치 및 사용
+          href: netx-duo-dns/chapter2.md
+        - name: 챕터 3 - NetX Duo DNS 클라이언트 서비스 설명
+          href: netx-duo-dns/chapter3.md
+    - name: NetX Duo FTP 사용자 가이드
+      items:
+        - name: 챕터 1 - NetX Duo FTP 소개
+          href: netx-duo-ftp/chapter1.md
+        - name: 챕터 2 - FTP 설치 및 사용
+          href: netx-duo-ftp/chapter2.md
+        - name: 챕터 3 - FTP 서비스 설명
+          href: netx-duo-ftp/chapter3.md
+    - name: NetX Duo HTTP 사용자 가이드
+      items:
+        - name: 챕터 1 - NetX Duo HTTP 소개
+          href: netx-duo-http/chapter1.md
+        - name: 챕터 2 - NetX Duo HTTP 설치 및 사용
+          href: netx-duo-http/chapter2.md
+        - name: 챕터 3 - NetX HTTP 서비스 설명
+          href: netx-duo-http/chapter3.md
+    - name: NetX Duo mDNS/DNS-SD 사용자 가이드
+      items:
+        - name: 챕터 1 - NetX Duo mDNS/DNS-SD 소개
+          href: netx-duo-mdns/chapter1.md
+        - name: 챕터 2 - mDNS 설치 및 사용
+          href: netx-duo-mdns/chapter2.md
+        - name: 챕터 3 - 내부 서비스 캐시 설명
+          href: netx-duo-mdns/chapter3.md
+        - name: 챕터 4 - mDNS 서비스 설명
+          href: netx-duo-mdns/chapter4.md
+    - name: NetX Duo MQTT 클라이언트 사용자 가이드
+      items:
+        - name: 챕터 1 - NetX Duo MQTT 클라이언트 소개
+          href: netx-duo-mqtt/chapter1.md
+        - name: 챕터 2 - NetX Duo MQTT 클라이언트 설치 및 사용
+          href: netx-duo-mqtt/chapter2.md
+        - name: 챕터 3 - NetX Duo MQTT 클라이언트 서비스 설명
+          href: netx-duo-mqtt/chapter3.md
+    - name: NetX Duo NAT 사용자 가이드
+      items:
+        - name: 챕터 1 - NetX Duo NAT 소개
+          href: chapter1.md
+        - name: 챕터 2 - NAT 설치 및 사용
+          href: chapter2.md
+        - name: 챕터 3 - NAT 구성 옵션
+          href: chapter3.md
+        - name: 챕터 4 - NAT 서비스 설명
+          href: chapter4.md
+    - name: NetX Duo POP3 클라이언트 사용자 가이드
+      items:
+        - name: 챕터 1 - NetX Duo POP3 클라이언트 소개
+          href: netx-duo-pop3-client/chapter1.md
+        - name: 챕터 2 - NetX Duo POP3 클라이언트 설치 및 사용
+          href: netx-duo-pop3-client/chapter2.md
+        - name: 챕터 3 - POP3 클라이언트 서비스 설명
+          href: netx-duo-pop3-client/chapter3.md
+    - name: NetX Duo PPP 사용자 가이드
+      items:
+        - name: 챕터 1 - NetX Duo PPP 소개
+          href: netx-duo-ppp/chapter1.md
+        - name: 챕터 2 - NetX Duo PPP 설치 및 사용
+          href: netx-duo-ppp/chapter2.md
+        - name: 챕터 3 - NetX Duo PPP 서비스 설명
+          href: netx-duo-ppp/chapter3.md
+    - name: NetX Duo SMTP 클라이언트 사용자 가이드
+      items:
+        - name: 챕터 1 - NetX Duo SMTP 클라이언트 소개
+          href: netx-duo-smtp-client/chapter1.md
+        - name: 챕터 2 - NetX Duo SMTP 클라이언트 설치 및 사용
+          href: netx-duo-smtp-client/chapter2.md
+        - name: 챕터 3 - SMTP 클라이언트 서비스의 클라이언트 설명
+          href: netx-duo-smtp-client/chapter3.md
+    - name: NetX Duo SNMP 사용자 가이드
+      items:
+        - name: 챕터 1 - NetX Duo SNMP 소개
+          href: netx-duo-snmp/chapter1.md
+        - name: 챕터 2 - NetX Duo SNMP 에이전트 설치 및 사용
+          href: netx-duo-snmp/chapter2.md
+        - name: 챕터 3 - NetX Duo SNMP 에이전트 서비스 설명
+          href: netx-duo-snmp/chapter3.md
+    - name: NetX Duo SNTP 클라이언트
+      items:
+        - name: 챕터 1 - NetX Duo SNTP 클라이언트 소개
+          href: netx-duo-sntp-client/chapter1.md
+        - name: 챕터 2 - NetX Duo SNTP 클라이언트 설치 및 사용
+          href: netx-duo-sntp-client/chapter2.md
+        - name: 챕터 3 - NetX Duo SNTP 클라이언트 서비스 설명
+          href: netx-duo-sntp-client/chapter3.md
+        - name: 부록 A - NetX Duo SNTP 치명적인 오류 코드
+          href: netx-duo-sntp-client/appendix-a.md
+    - name: NetX Duo Telnet 사용자 가이드
+      items:
+        - name: 챕터 1 - NetX Duo Telnet 소개
+          href: netx-duo-telnet/chapter1.md
+        - name: 챕터 2 - NetX Duo Telnet 설치 및 사용
+          href: netx-duo-telnet/chapter2.md
+        - name: 챕터 3 - NetX Duo Telnet 서비스 설명
+          href: netx-duo-telnet/chapter3.md
+    - name: NetX Duo TFTP
+      items:
+        - name: 챕터 1 - NetX Duo TFTP 소개
+          href: netx-duo-tftp/chapter1.md
+        - name: 챕터 2 - NetX Duo TFTP 설치 및 사용
+          href: netx-duo-tftp/chapter2.md
+        - name: 챕터 3 - NetX Duo TFTP 서비스 설명
+          href: netx-duo-tftp/chapter3.md
+    - name: NetX Duo Web HTTP 및 HTTPS 사용자 가이드
+      items:
+        - name: 챕터 1 - NetX Duo HTTP 및 HTTPS 소개
+          href: netx-duo-web-http/chapter1.md
+        - name: 챕터 2 - NetX Duo HTTP 및 HTTPS 설치 및 사용
+          href: netx-duo-web-http/chapter2.md
+        - name: 챕터 3 - HTTP 서비스 설명
+          href: netx-duo-web-http/chapter3.md
+    - name: NetX Secure DTLS 사용자 가이드
+      items:
+        - name: 챕터 1 - NetX Secure DTLS 소개
+          href: netx-secure-dtls/chapter1.md
+        - name: 챕터 2 - NetX Secure DTLS 설치 및 사용
+          href: netx-secure-dtls/chapter2.md
+        - name: 챕터 3 - NetX Secure DTLS의 기능 설명
+          href: netx-secure-dtls/chapter3.md
+        - name: 챕터 4 - NetX Secure DTLS 서비스 설명
+          href: netx-secure-dtls/chapter4.md
+        - name: 부록 A - NetX Secure DTLS 반환/오류 코드
+          href: netx-secure-dtls/appendix-a.md
+    - name: NetX Secure TLS 사용자 가이드
+      items:
+        - name: 챕터 1 - NetX Secure 소개
+          href: netx-secure-tls/chapter1.md
+        - name: 챕터 2 - NetX Secure 설치 및 사용
+          href: netx-secure-tls/chapter2.md
+        - name: 챕터 3 - NetX Secure의 기능 설명
+          href: netx-secure-tls/chapter3.md
+        - name: 챕터 4 - NetX Secure 서비스 설명
+          href: netx-secure-tls/chapter4.md
+        - name: 부록 A - NetX Secure 반환/오류 코드
+          href: netx-secure-tls/appendix-a.md
+- name: NetX Duo 리포지토리
+  href: 'https://github.com/azure-rtos/netxduo'
+- name: 관련 서비스
+  items:
+    - name: Defender for IoT - RTOS(미리 보기)
+      href: 'https://docs.microsoft.com/azure/defender-for-iot/iot-security-azure-rtos'
+- name: Microsoft Azure RTOS 구성 요소
+  items:
+    - name: Microsoft Azure RTOS
+      href: ../index.yml
+    - name: ThreadX
+      href: ../threadx/index.yml
+    - name: ThreadX Modules
+      href: ../threadx-modules/index.yml
+    - name: NetX Duo
+      href: ../netx-duo/index.yml
+    - name: NetX
+      href: ../netx/index.yml
+    - name: GUIX
+      href: ../guix/index.yml
+    - name: FileX
+      href: ../filex/index.yml
+    - name: LevelX
+      href: ../levelx/index.yml
+    - name: USBX
+      href: ../usbx/index.yml
+    - name: TraceX
+      href: ../tracex/index.yml

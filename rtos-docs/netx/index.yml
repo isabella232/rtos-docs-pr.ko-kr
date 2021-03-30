@@ -1,0 +1,31 @@
+### YamlMime:Landing
+title: Azure RTOS NetX 설명서
+summary: Azure RTOS NetX는 고성능으로 구현된 TCP/IP 프로토콜 표준으로, Azure RTOS ThreadX와 완전히 통합되며 지원되는 모든 프로세서에 사용할 수 있습니다.
+metadata:
+  title: Azure RTOS NetX란?
+  description: Azure RTOS NetX는 고성능으로 구현된 TCP/IP 프로토콜 표준으로, Azure RTOS ThreadX와 완전히 통합되며 지원되는 모든 프로세서에 사용할 수 있습니다.
+  services: rtos
+  ms.service: rtos
+  ms.topic: landing-page
+  author: philmea
+  ms.author: philmea
+  ms.date: 5/19/2020
+  ms.openlocfilehash: e8af2831320e21bd0e3a197125f97991b14125b8
+  ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 03/22/2021
+  ms.locfileid: "104797511"
+landingContent:
+- title: Azure RTOS NetX 소개
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure RTOS NetX란?
+      url: overview-netx.md
+- title: Azure RTOS NetX 시작
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Azure RTOS NetX 사용자 가이드
+      url: about-this-guide.md
