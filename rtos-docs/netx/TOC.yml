@@ -1,0 +1,159 @@
+- name: NetX 설명서
+  href: index.yml
+- name: NetX 개요
+  href: overview-netx.md
+- name: NetX 사용자 가이드
+  expanded: true
+  items:
+    - name: 이 가이드 정보
+      href: about-this-guide.md
+    - name: 챕터 1 - NetX 소개
+      href: chapter1.md
+    - name: 챕터 2 - NetX 설치 및 사용
+      href: chapter2.md
+    - name: 챕터 3 - NetX의 기능 구성 요소
+      href: chapter3.md
+    - name: 챕터 4 - NetX 서비스 설명
+      href: chapter4.md
+    - name: 챕터 5 - NetX 네트워크 드라이버
+      href: chapter5.md
+    - name: 부록 A - NetX 서비스
+      href: appendix-a.md
+    - name: 부록 B - NetX 상수
+      href: appendix-b.md
+    - name: 부록 C - NetX 데이터 형식
+      href: appendix-c.md
+    - name: 부록 D - BSD 호환 소켓 API
+      href: appendix-d.md
+    - name: 부록 E - ASCII 문자 코드
+      href: appendix-e.md
+- name: NetX 추가 기능
+  items:
+    - name: NetX AutoIP 사용자 가이드
+      items:
+        - name: 챕터 1 - NetX AutoIP 소개
+          href: netx-auto-ip/chapter1.md
+        - name: 챕터 2 - NetX AutoIP 설치 및 사용
+          href: netx-auto-ip/chapter2.md
+        - name: 챕터 3 - NetX AutoIP 서비스 설명
+          href: netx-auto-ip/chapter3.md
+    - name: NetX BSD 사용자 가이드
+      items:
+        - name: 챕터 1 - NetX BSD 소개
+          href: netx-bsd/chapter1.md
+        - name: 챕터 2 - NetX BSD 설치 및 사용
+          href: netx-bsd/chapter2.md
+        - name: 챕터 3 - NetX BSD 서비스
+          href: netx-bsd/chapter3.md
+    - name: NetX DHCP 클라이언트
+      items:
+        - name: 챕터 1 - NetX DHCP 클라이언트 소개
+          href: netx-dhcp-client/chapter1.md
+        - name: 챕터 2 - NetX DHCP 클라이언트 설치 및 사용
+          href: netx-dhcp-client/chapter2.md
+        - name: 챕터 3 - NetX DHCP 클라이언트 서비스 설명
+          href: netx-dhcp-client/chapter3.md
+        - name: 부록 A - 상태 복원 기능 설명
+          href: netx-dhcp-client/appendix-a.md
+    - name: NetX DHCP 서버 사용자 가이드
+      items:
+        - name: 챕터 1 - NetX DHCP 서버 소개
+          href: netx-dhcp-server/chapter1.md
+        - name: 챕터 2 - NetX DHCP 서버 설치 및 사용
+          href: netx-dhcp-server/chapter2.md
+        - name: 챕터 3 - NetX DHCP 서버 서비스 설명
+          href: netx-dhcp-server/chapter3.md
+    - name: NetX DNS 클라이언트 사용자 가이드
+      items:
+        - name: 챕터 1 - NetX DNS 클라이언트 소개
+          href: netx-dns/chapter1.md
+        - name: 챕터 2 - NetX DNS 클라이언트 설치 및 사용
+          href: netx-dns/chapter2.md
+        - name: 챕터 3 - NetX DNS 클라이언트 서비스 설명
+          href: netx-dns/chapter3.md
+    - name: NetX FTP 사용자 가이드
+      items:
+        - name: 챕터 1 - NetX FTP 소개
+          href: netx-ftp/chapter1.md
+        - name: 챕터 2 - NetX FTP 설치 및 사용
+          href: netx-ftp/chapter2.md
+        - name: 챕터 3 - NetX FTP 서비스 설명
+          href: netx-ftp/chapter3.md
+    - name: NetX HTTP
+      items:
+        - name: 챕터 1 - NetX HTTP 소개
+          href: netx-http/chapter1.md
+        - name: 챕터 2 - NetX HTTP 설치 및 사용
+          href: netx-http/chapter2.md
+        - name: 챕터 3 - NetX HTTP 서비스 설명
+          href: netx-http/chapter3.md
+    - name: NetX LWM2M 사용자 가이드
+      items:
+        - name: 챕터 1 - NetX LWM2M 소개
+          href: netx-lwm2m/chapter1.md
+        - name: 챕터 2 - NetX LWM2M 설치 및 사용
+          href: netx-lwm2m/chapter2.md
+        - name: 챕터 3 - NetX LWM2M의 기능 설명
+          href: netx-lwm2m/chapter3.md
+        - name: 챕터 4 - NetX LWM2M 서비스 설명
+          href: netx-lwm2m/chapter4.md
+    - name: NetX POP3 클라이언트 사용자 가이드
+      items:
+        - name: 챕터 1 - NetX POP3 소개
+          href: netx-pop3-client/chapter1.md
+        - name: 챕터 2 - NetX POP3 클라이언트 설치 및 사용
+          href: netx-pop3-client/chapter2.md
+        - name: 챕터 3 - NetX POP3 클라이언트 서비스 설명
+          href: netx-pop3-client/chapter3.md
+    - name: NetX PPP 사용자 가이드
+      items:
+        - name: 챕터 1 - NetX PPP(지점 간 프로토콜) 소개
+          href: netx-ppp/chapter1.md
+        - name: 챕터 2 - NetX PPP(지점 간 프로토콜) 설치 및 사용
+          href: netx-ppp/chapter2.md
+        - name: 챕터 3 - NetX PPP(지점 간 프로토콜) 서비스 설명
+          href: netx-ppp/chapter3.md
+    - name: NetX PPPoE 클라이언트 사용자 가이드
+      items:
+        - name: 챕터 1 - NetX PPPoE 클라이언트 소개
+          href: netx-pppoe-client/chapter1.md
+        - name: 챕터 2 - NetX PPPoE 클라이언트 설치 및 사용
+          href: netx-pppoe-client/chapter2.md
+        - name: 챕터 3 - NetX PPPoE 클라이언트 서비스 설명
+          href: netx-pppoe-client/chapter3.md
+    - name: NetX PPPoE 서버 사용자 가이드
+      items:
+        - name: 챕터 1 - NetX PPPoE 서버 소개
+          href: netx-pppoe-server/chapter1.md
+        - name: 챕터 2 - NetX PPPoE 서버 설치 및 사용
+          href: netx-pppoe-server/chapter2.md
+        - name: 챕터 3 - NetX PPPoE 서버 서비스 설명
+          href: netx-pppoe-server/chapter3.md
+- name: NetX 리포지토리
+  href: 'https://github.com/azure-rtos/netx'
+- name: 관련 서비스
+  items:
+    - name: Defender for IoT - RTOS(미리 보기)
+      href: /azure/asc-for-iot
+- name: Microsoft 구성 요소
+  items:
+    - name: Microsoft Azure RTOS
+      href: ../index.yml
+    - name: ThreadX
+      href: ../threadx/index.yml
+    - name: ThreadX Modules
+      href: ../threadx-modules/index.yml
+    - name: NetX Duo
+      href: ../netx-duo/index.yml
+    - name: NetX
+      href: ../netx/index.yml
+    - name: GUIX
+      href: ../guix/index.yml
+    - name: FileX
+      href: ../filex/index.yml
+    - name: LevelX
+      href: ../levelx/index.yml
+    - name: USBX
+      href: ../usbx/index.yml
+    - name: TraceX
+      href: ../tracex/index.yml

@@ -1,0 +1,31 @@
+### YamlMime:Landing
+title: Azure RTOS LevelX 설명서
+summary: Azure RTOS LevelX는 포함된 애플리케이션에 NAND 및 NOR 플래시 마모 평준화 기능을 제공합니다.
+metadata:
+  title: Azure RTOS LevelX란?
+  description: Azure RTOS LevelX는 포함된 애플리케이션에 NAND 및 NOR 플래시 마모 평준화 기능을 제공합니다.
+  services: rtos
+  ms.service: rtos
+  ms.topic: landing-page
+  author: philmea
+  ms.author: philmea
+  ms.date: 07/10/2020
+  ms.openlocfilehash: 27ce4d34d53b2a6daec651dd83c648024aad0291
+  ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 03/22/2021
+  ms.locfileid: "104797529"
+landingContent:
+- title: Azure RTOS LevelX 소개
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure RTOS LevelX란?
+      url: chapter1.md
+- title: Azure RTOS LevelX 설치 및 사용
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Azure RTOS LevelX 사용자 가이드
+      url: chapter2.md

@@ -1,0 +1,93 @@
+- name: Azure RTOS GUIX 설명서
+  href: index.yml
+- name: GUIX 개요
+  href: overview-guix.md
+- name: GUIX Studio 빠른 시작 가이드
+  href: guix-studio-quick-start.md
+- name: GUIX 사용자 가이드
+  expanded: true
+  items:
+    - name: 이 가이드의 내용
+      href: about-guix.md
+    - name: 챕터 1 - GUIX 소개
+      href: chapter-1.md
+    - name: 챕터 2 - GUIX 설치 및 사용
+      href: chapter-2.md
+    - name: 챕터 3 - GUIX의 기능 개요
+      href: chapter-3.md
+    - name: 챕터 4 - GUIX 서비스 설명
+      href: chapter-4.md
+    - name: 챕터 5 - GUIX 디스플레이 드라이버
+      href: chapter-5.md
+    - name: GUIX 예제
+      href: guix-example.md
+    - name: 부록 A - GUIX 색 정의
+      href: appendix-a.md
+    - name: 부록 B - GUIX 색 형식
+      href: appendix-b.md
+    - name: 부록 C - GUIX 위젯 스타일
+      href: appendix-c.md
+    - name: '부록 D - GUIX 브러시, 캔버스 및 그라데이션 특성'
+      href: appendix-d.md
+    - name: 부록 E - GUIX 이벤트 설명
+      href: appendix-e.md
+    - name: 부록 F - GUIX RTOS 바인딩 서비스
+      href: appendix-f.md
+    - name: 부록 G - GUIX 글꼴 구조
+      href: appendix-g.md
+    - name: 부록 H - GUIX 빌드 시간 구성 플래그
+      href: appendix-h.md
+    - name: 부록 I - GUIX 정보 구조
+      href: appendix-i.md
+- name: GUIX Studio 사용자 가이드
+  items:
+    - name: GUIX Studio 정보
+      href: about-guix-studio.md
+    - name: 챕터 1 - GUIX Studio 소개
+      href: guix-studio-1.md
+    - name: 챕터 2 - GUIX Studio 설치 및 사용
+      href: guix-studio-2.md
+    - name: 챕터 3 - GUIX Studio 설명
+      href: guix-studio-3.md
+    - name: 챕터 4 - GUIX Studio 리소스
+      href: guix-studio-4.md
+    - name: 챕터 5 - GUIX Studio 화면 디자이너
+      href: guix-studio-5.md
+    - name: 챕터 6 - GUIX Studio 생성 코드
+      href: guix-studio-6.md
+    - name: 챕터 7 - 화면 흐름 정의
+      href: guix-studio-7.md
+    - name: 챕터 8 - 특정 위젯 유형 편집에 관한 참고 사항
+      href: guix-studio-8.md
+    - name: 챕터 9 - GUIX Studio 명령줄
+      href: guix-studio-9.md
+    - name: 챕터 10 - 간단한 예제 프로젝트
+      href: guix-studio-10.md
+- name: GUIX 리포지토리
+  href: 'https://github.com/azure-rtos/guix'
+- name: 관련 서비스
+  items:
+    - name: Defender for IoT - RTOS(미리 보기)
+      href: 'https://docs.microsoft.com/azure/defender-for-iot/iot-security-azure-rtos'
+- name: Microsoft Azure RTOS 구성 요소
+  items:
+    - name: Microsoft Azure RTOS
+      href: ../index.yml
+    - name: ThreadX
+      href: ../threadx/index.yml
+    - name: ThreadX Modules
+      href: ../threadx-modules/index.yml
+    - name: NetX Duo
+      href: ../netx-duo/index.yml
+    - name: NetX
+      href: ../netx/index.yml
+    - name: GUIX
+      href: ../guix/index.yml
+    - name: FileX
+      href: ../filex/index.yml
+    - name: LevelX
+      href: ../levelx/index.yml
+    - name: USBX
+      href: ../usbx/index.yml
+    - name: TraceX
+      href: ../tracex/index.yml

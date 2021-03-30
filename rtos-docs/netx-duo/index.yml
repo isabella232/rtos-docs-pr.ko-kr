@@ -1,0 +1,31 @@
+### YamlMime:Landing
+title: Azure RTOS NetX Duo 설명서
+summary: Azure RTOS NetX Duo는 긴밀하게 포함된 실시간 및 IoT 애플리케이션을 위해 특별히 설계된 고급, 산업용 TCP/IP 네트워크 스택입니다.
+metadata:
+  title: Azure RTOS NetX Duo란?
+  description: Azure RTOS NetX Duo는 긴밀하게 포함된 실시간 및 IoT 애플리케이션을 위해 특별히 설계된 고급, 산업용 TCP/IP 네트워크 스택입니다.
+  services: rtos
+  ms.service: rtos
+  ms.topic: landing-page
+  author: philmea
+  ms.author: philmea
+  ms.date: 5/19/2020
+  ms.openlocfilehash: 6eca4b135a5cfa3413fc0828de4caeffa734d90a
+  ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 03/22/2021
+  ms.locfileid: "104797553"
+landingContent:
+- title: Azure RTOS NetX Duo 소개
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure RTOS NetX Duo란?
+      url: overview-netx-duo.md
+- title: Azure RTOS NetX Duo 시작
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Azure RTOS NetX Duo 사용자 가이드
+      url: about-this-guide.md
