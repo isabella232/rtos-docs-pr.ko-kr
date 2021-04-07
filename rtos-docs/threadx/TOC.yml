@@ -27,6 +27,14 @@
       href: appendix-c.md
     - name: 부록 D - ASCII 문자 코드
       href: appendix-d.md
+- name: ARMv8-M용 ThreadX 사용 설명서 부록
+  items:
+    - name: 챕터 1 - ARMv8-M용 Azure RTOS ThreadX 소개
+      href: ./user-guide-armv8m/chapter1.md
+    - name: 챕터 2 - ARMv8-M용 ThreadX 지원 설치
+      href: ./user-guide-armv8m/chapter2.md
+    - name: 챕터 3 - ARMv8-M용 ThreadX API
+      href: ./user-guide-armv8m/chapter3.md
 - name: ThreadX SMP 사용자 가이드
   items:
     - name: 이 가이드 정보
@@ -51,6 +59,12 @@
       href: ./threadx-smp/appendix-c.md
     - name: 부록 D - ASCII 문자 코드
       href: ./threadx-smp/appendix-d.md
+- name: ARMv8-M용 ThreadX 실행 프로필 키트 사용 설명서 부록
+  items:
+    - name: 챕터 1 - 실행 프로필 키트 소개
+      href: ./epk_user_guide/chapter1.md
+    - name: 챕터 2 - 실행 프로필 키트 API 참조
+      href: ./epk_user_guide/chapter2.md
 - name: ThreadX 리포지토리
   href: 'https://github.com/azure-rtos/threadx'
 - name: 관련 서비스
