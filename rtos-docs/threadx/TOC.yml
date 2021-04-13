@@ -59,12 +59,6 @@
       href: ./threadx-smp/appendix-c.md
     - name: 부록 D - ASCII 문자 코드
       href: ./threadx-smp/appendix-d.md
-- name: ARMv8-M용 ThreadX 실행 프로필 키트 사용 설명서 부록
-  items:
-    - name: 챕터 1 - 실행 프로필 키트 소개
-      href: ./epk_user_guide/chapter1.md
-    - name: 챕터 2 - 실행 프로필 키트 API 참조
-      href: ./epk_user_guide/chapter2.md
 - name: ThreadX 리포지토리
   href: 'https://github.com/azure-rtos/threadx'
 - name: 관련 서비스
