@@ -1,17 +1,17 @@
 ---
 title: 1장 - Azure RTOS USBX 디바이스 스택 소개
-description: USBX는 딥 임베디드 애플리케이션을 위한 모든 기능을 갖춘 USB 스택입니다. 이 장에서는 USBX를 소개하고 해당 애플리케이션과 이점을 설명합니다.
+description: USBX는 딥 임베디드 애플리케이션을 위한 모든 기능을 갖춘 USB 스택입니다. 이 장에서는 USBX를 소개하고 그 이점과 애플리케이션을 설명합니다.
 author: philmea
 ms.author: philmea
 ms.date: 5/19/2020
 ms.service: rtos
 ms.topic: article
-ms.openlocfilehash: 6965303f1fbf19212b9f7ff20f811a71fb207f54
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 8b1e08130d4531fd82629378761cd5b1752f0a07
+ms.sourcegitcommit: 60ad844b58639d88830f2660ab0c4ff86b92c10f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104813440"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106550289"
 ---
 # <a name="chapter-1---introduction-to-azure-rtos-usbx-device-stack"></a>1장 - Azure RTOS USBX 디바이스 스택 소개
 
