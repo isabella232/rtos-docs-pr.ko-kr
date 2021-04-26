@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 03a10aeb65017befaf5e7b440046dbff9f9252ef
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: dc7775cdde8f1aa89ca650561713f54ac6c069eb
+ms.sourcegitcommit: 60ad844b58639d88830f2660ab0c4ff86b92c10f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104812025"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106550221"
 ---
 # <a name="appendix-i---guix-information-structures"></a>부록 I - GUIX 정보 구조 
 
@@ -27,10 +27,7 @@ typedef struct GX_BIDI_TEXT_INFO_STRUCT
     GX_VALUE  gx_bidi_text_info_display_width;
 } GX_BIDI_TEXT_INFO;
 ```
-
-### <a name="members"></a>멤버
-
-|                                    |                                                            |
+| 구성원 | Description |
 | ---------------------------------- | ---------------------------------------------------------- |
 | **gx_bidi_text_info_text**               | 순서를 다시 정렬할 텍스트입니다. |
 | **gx_bidi_text_info_font**               | 텍스트를 표시하는 데 사용되는 글꼴입니다. 줄 바꿈이 필요하지 않은 경우 GX_NULL로 설정합니다. |
@@ -49,9 +46,7 @@ typedef struct GX_BIDI_RESOLVED_TEXT_INFO_STRUCT
 } GX_BIDI_RESOLVED_TEXT_INFO;
 ```
 
-### <a name="members"></a>멤버
-
-|                                    |                                                            |
+| 구성원 | Description |
 | ---------------------------------- | ---------------------------------------------------------- |
 | **gx_bidi_resolved_text_info_text**             | 정렬된 양방향 텍스트 배열에 대한 포인터입니다. |
 | **gx_bidi_resolved_text_info_total_lines**      | 한 단락에 대해 확인된 양방향 텍스트의 전체 줄입니다. |
@@ -73,9 +68,8 @@ typedef struct GX_CIRCULAR_GAUGE_INFO_STRUCT
     GX_RESOURCE_ID  gx_circular_gauge_info_needle_pixelmap;
 } GX_CIRCULAR_GAUGE_INFO;
 ```
-### <a name="members"></a>멤버
 
-|                                                  |                                              |
+| 구성원 | Description |
 | ------------------------------------------------ | -------------------------------------------- |
 | **gx_circular_gauge_info_animation_steps**       | 현재 니들 각도에서 새로 할당된 니들 각도로 이동할 때 니들이 이동하는 총 단계입니다. |
 | **gx_circular_gauge_info_animation_delay**       | 애니메이션 단계 간에 지연될 GUIX 시계 틱 수입니다. |
@@ -112,9 +106,7 @@ typedef struct GX_LINE_CHART_INFO_STRUCT
 } GX_LINE_CHART_INFO;
 ```
 
-### <a name="members"></a>멤버
-
-|                                    |                                                            |
+| 구성원 | Description |
 | ---------------------------------- | ---------------------------------------------------------- |
 | **gx_line_chart_min_val**          | 스케일링을 계산하는 데 사용되는 최소 데이터 값입니다.
 | **gx_line_chart_max_val**          | 스케일링을 계산하는 데 사용되는 최대 데이터 값입니다. |
@@ -140,9 +132,7 @@ typedef struct GX_MOUSE_CURSOR_INFO_STRUCT
 } GX_MOUSE_CURSOR_INFO;
 ```
 
-### <a name="members"></a>멤버
-
-|                                    |                                                            |
+| 구성원 | Description |
 | ---------------------------------- | ---------------------------------------------------------- |
 | **gx_mouse_cursor_image_id**       | 마우스 이미지의 리소스 ID입니다. |
 | **gx_mouse_cursor_hotspot_x**      | 마우스 이미지의 왼쪽에서 마우스 이미지 핫스팟까지의 오프셋입니다. |
@@ -160,9 +150,7 @@ typedef struct GX_PEN_CONFIGURATION_STRUCT
 }GX_PEN_CONFIGURATION;
 ```
 
-### <a name="members"></a>멤버
-
-|                                              |                                                  |
+| 구성원 | Description |
 | -------------------------------------------- | ------------------------------------------------ |
 | **gx_pen_configuration_min_drag_dist**       | 긋기 이벤트를 트리거할 GUIX 타이머 틱당 최소 끌기 거리입니다. GX_FIXED_VAL_MAKE를 호출하여 고정 소수점 데이터 형식 값을 만듭니다. |
 | **gx_pen_configuration_max_pen_speed_ticks** | 긋기 이벤트를 트리거하기 위한 GUIX 타이머 틱의 최대 끌기 속도입니다. | 
@@ -180,9 +168,7 @@ typedef struct GX_PIXELMAP_SLIDER_INFO_STRUCT
 } GX_PIXELMAP_SLIDER_INFO;
 ```
 
-### <a name="members"></a>멤버
-
-|                                                       |                                          |
+| 구성원 | Description |
 | ----------------------------------------------------- | ---------------------------------------- |
 | **gx_pixelmap_slider_info_lower_background_pixelmap** | 니들 앞 배경을 채우기 위한 pixelmap의 리소스 ID입니다. 상단 배경 pixelmap을 설정하지 않은 경우 니들의 전후 배경을 채우는 데 사용됩니다. |
 | **gx_pixelmap_slider_info_upper_background_pixelmap** | 니들 뒤 배경을 채우기 위한 pixelmap의 리소스 ID입니다. |
@@ -206,9 +192,7 @@ typedef struct GX_PROGRESS_BAR_INFO_STRUCT
 } GX_PROGRESS_BAR_INFO;
 ```
 
-### <a name="members"></a>멤버
-
-|                                              |                                                  |
+| 구성원 | Description |
 | -------------------------------------------- | ------------------------------------------------ |
 | **gx_progress_bar_info_min_val**             | 보고된 최소 값 |
 | **gx_progress_bar_info_max_val**             | 보고된 최대 값 |
@@ -242,9 +226,7 @@ typedef struct GX_RADIAL_PROGRESS_BAR_INFO_STRUCT
 } GX_RADIAL_PROGRESS_BAR_INFO;
 ```
 
-### <a name="members"></a>멤버
-
-|                                                   |                                              |
+| 구성원 | Description |
 | ------------------------------------------------- | -------------------------------------------- |
 | **gx_radial_progress_bar_info_xcenter**           | X좌표의 위젯 위치입니다. |
 | **gx_radial_progress_bar_info_ycenter**           | Y좌표의 위젯 위치입니다.  |
@@ -281,9 +263,7 @@ typedef struct GX_RADIAL_SLIDER_INFO_STRUCT
 } GX_RADIAL_SLIDER_INFO;
 ```
 
-### <a name="members"></a>멤버
-
-|                                               |                                                  |
+| 구성원 | Description |
 | --------------------------------------------- | ------------------------------------------------ |
 **gx_radial_slider_info_xcenter**               | 슬라이더 위젯 왼쪽에서 슬라이더 니들의 회전 중심까지의 거리입니다. |
 | **gx_radial_slider_info_ycenter**             | 슬라이더 위젯 위쪽에서 슬라이더 니들의 회전 중심까지의 거리입니다. |
@@ -311,9 +291,7 @@ typedef struct GX_RECTANGLE_STRUCT
 } GX_RECTANGLE;
 ```
 
-### <a name="members"></a>멤버
-
-|                                  |                         |
+| 구성원 | Description |
 | -------------------------------- | ------------------------|
 | **gx_rectangle_left**            | 사각형의 왼쪽입니다.   |  
 | **gx_rectangle_top**             | 사각형의 위쪽입니다.    | 
@@ -334,9 +312,7 @@ typedef struct GX_RICH_TEXT_FONTS_STRUCT
 } GX_RICH_TEXT_FONTS;
 ```
 
-### <a name="members"></a>멤버
-
-|                                    |                                                            |
+| 구성원 | Description |
 | ---------------------------------- | ---------------------------------------------------------- |
 | **gx_rich_text_fonts_normal_id**   | 일반 텍스트 글꼴의 리소스 ID입니다. |
 | **gx_rich_text_fonts_bold_id**     | 굵은 텍스트 글꼴의 리소스 ID입니다. |
@@ -357,9 +333,7 @@ typedef struct GX_SCROLL_INFO_STRUCT
 } GX_SCROLL_INFO;
 ```
 
-### <a name="members"></a>멤버
-
-|                         |                               |
+| 구성원 | Description |
 | ----------------------- | ----------------------------- |
 | **gx_scroll_value**     | 현재 스크롤 위치       |
 | **gx_scroll_minimum**   | 보고된 최소 위치     |
@@ -389,9 +363,7 @@ typedef struct GX_SCROLLBAR_APPEARANCE_STRUCT
 } GX_SCROLLBAR_APPEARANCE;
 ```
 
-### <a name="members"></a>멤버
-
-|                                          |                                                       |
+| 구성원 | Description |
 | ---------------------------------------- | ----------------------------------------------------- |
 | **gx_scroll_width**                      | 스크롤 막대 위젯의 너비(픽셀)입니다. |
 | **gx_scroll_thumb_width**                | 스크롤 막대에서 밀어 이동되는 엄지 단추의 너비(픽셀)입니다. 이 값은 일반적으로 전체 스크롤 막대 너비보다 더 작은 수의 픽셀입니다. |
@@ -426,9 +398,7 @@ typedef struct GX_SLIDER_INFO_STRUCT
 } GX_SLIDER_INFO;
 ```
 
-### <a name="members"></a>멤버
-
-|                                         |                                                        |
+| 구성원 | Description |
 | --------------------------------------- | ------------------------------------------------------ |
 | **gx_slider_info_min_val**              | 보고된 최소 값 |
 | **gx_slider_info_max_val**              | 보고된 최대 값 |
@@ -456,9 +426,7 @@ typedef struct GX_SPRITE_FRAME_STRUCT
 } GX_SPRITE_FRAME;
 ```
 
-### <a name="members"></a>멤버
-
-|                                          |                                                       |
+| 구성원 | Description |
 | ---------------------------------------- | ----------------------------------------------------- |
 | **gx_sprite_frame_pixelmap**             | 이 프레임에 대해 표시할 pixelmap의 리소스 ID입니다. 이 ID는 0일 수 있습니다. |
 | **gx_sprite_frame_x_offset**             | pixelmap을 표시할 왼쪽 스프라이트 위젯에서의 오프셋 |

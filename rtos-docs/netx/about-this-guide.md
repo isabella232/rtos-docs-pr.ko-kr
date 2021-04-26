@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 8e1c23892c4360ddc8783b04ae8f23e371899f1d
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 01077e3315e87b918cdfd47423d8e0c1b6bbdbbd
+ms.sourcegitcommit: 60ad844b58639d88830f2660ab0c4ff86b92c10f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104811736"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106550272"
 ---
 # <a name="about-the-azure-rtos-netx-user-guide"></a>Azure RTOS NetX 사용자 가이드 정보
 
@@ -47,7 +47,7 @@ ms.locfileid: "104811736"
 
 다음은 Azure RTOS NetX 서비스 호출 데이터 형식 및 관련된 의미의 목록입니다.
 
-| <!-- -->    | <!-- -->    |
+| 데이터 형식 | Description  |
 | --------- | ------------------------------------------------------------------------------------------------------------------------------------- |
 | **UINT**  | 부호 없는 기본 정수입니다. 이 형식은 32비트의 부호 없는 데이터를 지원해야 합니다. 그러나 가장 편리한 부호 없는 데이터 형식에 매핑됩니다. |
 | **ULONG** | 부호 없는 long 형식입니다. 이 형식은 32비트의 부호 없는 데이터를 지원해야 합니다.                                                                      |
