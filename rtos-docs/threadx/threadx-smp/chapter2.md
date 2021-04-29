@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 53d73789d93cac7bed241a54b1dde20b8610ef13
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: cc352ebd7965c84c341d25dfa7bff2671dfb5e66
+ms.sourcegitcommit: 60ad844b58639d88830f2660ab0c4ff86b92c10f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104811383"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106550255"
 ---
 # <a name="chapter-2---installation--use-of-azure-rtos-threadx-smp"></a>2장 - Azure RTOS ThreadX SMP 설치 및 사용
 
@@ -23,7 +23,7 @@ ms.locfileid: "104811383"
 
 일반적으로 대상 다운로드는 개발 도구의 디버거 내에서 수행됩니다. 다운로드 후 디버거는 대상 실행 제어(이동, 중지, 중단점 등)뿐만 아니라 메모리 및 프로세서 레지스터에 대한 액세스를 제공해야 합니다.
 
-대부분의 개발 도구 디버거는 JTAG(IEEE 1149.1) 및 BDM(백그라운드 디버그 모드)과 같은 OCD(온칩 디버그) 연결을 통해 대상 하드웨어와 통신합니다. 디버거는 ICE(In-Circuit Emulation) 연결을 통해 대상 하드웨어와 통신하기도 합니다. OCD 및 ICE 연결 둘 다 대상 상주 소프트웨어에 대한 침입이 최소화된 강력한 솔루션을 제공합니다.
+대부분의 개발 도구 디버거는 JTAG(IEEE 1149.1) 및 BDM(백그라운드 디버그 모드)과 같은 OCD(온-칩 디버그) 연결을 통해 대상 하드웨어와 통신합니다. 또한 디버거는 ICE(회로 내 에뮬레이션) 연결을 통해 대상 하드웨어와 통신합니다. OCD 및 ICE 연결 둘 다 대상 상주 소프트웨어에 대한 침입이 최소화된 강력한 솔루션을 제공합니다.
 
 호스트에서 사용되는 리소스의 경우에는 ThreadX SMP에 대한 소스 코드를 ASCII 형식으로 전달하고 호스트 컴퓨터의 하드 디스크에 약 1MB의 공간이 필요합니다.
 
@@ -51,7 +51,7 @@ ThreadX SMP에는 대상에서 2~20KB의 ROM(읽기 전용 메모리)이 필요�
 
 대상 프로세서와 개발 도구에 대한 정보를 비롯하여 ThreadX SMP 포트에 대한 특정 정보가 포함된 텍스트 파일입니다.
 
-|                 |                     |
+| 도구 | Description |
 | -------------- | ------------------------------------------------------------------------------------------------- |
 | **tx_api.h**  | 모든 시스템 등식, 데이터 구조 및 서비스 프로토타입이 포함된 C 헤더 파일입니다.             |
 | **tx_port.h** | 모든 개발 도구 및 대상 특정 데이터 정의 및 구조를 포함하는 C 헤더 파일입니다. |
