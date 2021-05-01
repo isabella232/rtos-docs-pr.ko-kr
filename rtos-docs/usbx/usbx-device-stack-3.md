@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 5/19/2020
 ms.service: rtos
 ms.topic: article
-ms.openlocfilehash: a20fed71cbee8c50519be4a971eb191e0cc93915
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: dc57f3e0f6aa6731f4aaedee8169313ca7276cff
+ms.sourcegitcommit: 1aeca2f91960856d8cc24fef65f909639e527599
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104812241"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106082203"
 ---
 # <a name="chapter-3---functional-components-of-usbx-device-stack"></a>3장 - USBX 디바이스 스택의 기능 구성 요소
 
@@ -114,7 +114,8 @@ UCHAR device_framework_high_speed[] = {
     Byte 3 : Byte containing the length of the descriptor string
 */
 
-#define STRING_FRAMEWORK_LENGTH 38 UCHAR string_framework[] = {
+#define STRING_FRAMEWORK_LENGTH 38
+UCHAR string_framework[] = {
     /* Manufacturer string descriptor: Index 1 */
     0x09, 0x04, 0x01, 0x0c,
     0x45, 0x78, 0x70, 0x72, 0x65, 0x73, 0x20, 0x4c,

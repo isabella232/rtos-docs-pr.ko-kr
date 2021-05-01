@@ -1,17 +1,17 @@
 ---
 title: 2장 - Azure RTOS USBX 디바이스 스택 설치
-description: Azure RTOS USBX 디바이스 스택을 설치하는 방법과 설치하기 전에 고려해야 할 중요한 호스트 고려 사항을 알아봅니다.
+description: USBX 설치 방법을 알아봅니다.
 author: philmea
 ms.author: philmea
 ms.date: 5/19/2020
 ms.service: rtos
 ms.topic: article
-ms.openlocfilehash: dd58f77130fa252be9163bd70c29f7deee400d30
-ms.sourcegitcommit: 60ad844b58639d88830f2660ab0c4ff86b92c10f
+ms.openlocfilehash: 097fdd3c6f09c666ec3ad6eda9e5ba3fa159cb4d
+ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106549779"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104813266"
 ---
 # <a name="chapter-2---azure-rtos-usbx-device-stack-installation"></a>2장 - Azure RTOS USBX 디바이스 스택 설치
 
@@ -29,13 +29,13 @@ ms.locfileid: "106549779"
 
 디버깅은 일반적으로 프로그램 이미지 다운로드와 동일한 링크를 통해 수행됩니다. 대상에서 실행되는 소형 모니터 프로그램부터 BDM(Background Debug Monitor) 및 ICE(In-Circuit Emulator) 도구까지 다양한 디버거가 존재합니다. ICE 도구는 실제 대상 하드웨어에 대해 가장 강력한 디버깅을 제공합니다.
 
-### <a name="required-hard-disk-space"></a>필요한 하드 디스크 공간
+### <a name="required-hard-disk-space"></a>최소 하드 디스크 공간
 
 USBX의 소스 코드는 ASCII 형식으로 제공되며 호스트 컴퓨터의 하드 디스크에 약 500KB 공간이 필요합니다.
 
 ### <a name="target-considerations"></a>대상 고려 사항
 
-USBX에는 호스트 모드의 대상에 24KB에서 64KB 사이의 ROM(읽기 전용 메모리)이 필요합니다. 필요한 메모리 양은 사용된 컨트롤러 유형 및 USBX에 연결된 USB 클래스에 따라 달라집니다. 또한 USBX 글로벌 데이터 구조 및 메모리 풀에 대상의 32KB RAM(Random Access Memory)이 추가로 필요합니다. 이 메모리 풀은 USB의 예상 디바이스 수 및 USB 컨트롤러 유형에 따라 조정될 수 있습니다. USBX 디바이스 측에는 디바이스 컨트롤러 유형에 따라 약 10~12K의 ROM이 필요합니다. RAM 메모리 사용량은 디바이스에서 에뮬레이트되는 클래스 유형에 따라 달라집니다.
+USBX에는 호스트 모드의 대상에 24KB에서 64KB 사이의 ROM(읽기 전용 메모리)이 필요합니다. 필요한 메모리 양은 사용된 컨트롤러 유형 및 USBX에 연결된 USB 클래스에 따라 달라집니다. 또한 USBX 글로벌 데이터 구조 및 메모리 풀에 대상의 32KB RAM(Random Access Memory)이 추가로 필요합니다. 이 메모리 풀은 USB의 예상 디바이스 수 및 USB 컨트롤러 유형에 따라 조정될 수 있습니다. USBX 디바이스 측에는 디바이스 컨트롤러 유형에 따라 약 10-12K의 ROM이 필요합니다. RAM 메모리 사용량은 디바이스에서 에뮬레이트되는 클래스 유형에 따라 달라집니다.
 
 또한 USBX에는 ThreadX 세마포, 뮤텍스, 다중 스레드 보호를 위한 스레드, USB 버스 토폴로지 모니터링을 위한 I/O 일시 중단 및 정기적 처리가 필요합니다.
 
@@ -100,7 +100,7 @@ USBX 라이브러리를 빌드하는 데에는 몇 가지 구성 옵션이 있�
 
 ## <a name="source-code-tree"></a>소스 코드 트리
 
-USBX 파일은 여러 디렉터리에서 제공됩니다.
+USBX 파일은 여러 디렉터리에 제공됩니다.
 
 ![소스 코드 트리](media/usbx-device-stack/source-code-tree.png)
 

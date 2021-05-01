@@ -1,17 +1,17 @@
 ---
 title: 5장 - USBX OTG
-description: USBX는 하드웨어 디자인에서 OTG 규격 USB 컨트롤러를 사용할 수 있는 경우에 USB의 OTG 기능을 지원합니다.
+description: OTG 호환 USB 컨트롤러를 하드웨어 설계에서 사용할 수 있는 경우 USBX가 USB의 OTG 기능을 어떻게 지원하는지 알아봅니다.
 author: philmea
 ms.author: philmea
 ms.date: 5/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: da562fd843c6ef0fd17f0d979ca57bd37572748d
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 64a3c44f84b9ffca31d9e616d14d3d5d87c56bd7
+ms.sourcegitcommit: 60ad844b58639d88830f2660ab0c4ff86b92c10f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104812229"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106550323"
 ---
 # <a name="chapter-5---usbx-otg"></a>5장 - USBX OTG
 

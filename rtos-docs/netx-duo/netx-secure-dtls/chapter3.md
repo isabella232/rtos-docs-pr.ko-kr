@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 347bd83fa8c72ced2e8678a92ec5c5f8393c136d
-ms.sourcegitcommit: 60ad844b58639d88830f2660ab0c4ff86b92c10f
+ms.openlocfilehash: 468f1dc8a8334dc89064594b29dc8cfabd7d8fae
+ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106550204"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104811796"
 ---
 # <a name="chapter-3-functional-description-of-azure-rtos-netx-secure-dtls"></a>챕터 3: Azure RTOS NetX Secure DTLS의 기능 설명
 
@@ -46,7 +46,7 @@ TLS에 대한 전체 설명은 NetX Secure TLS 사용자 가이드의 챕터 3�
 
 TLS 레코드 헤더의 필드는 다음과 같이 정의됩니다.
 
-| TLS 헤더 필드 | 목적  |
+| TLS 헤더 필드 | 용도  |
 | ---------------- | --------- |
 | **8비트 메시지 유형** | 이 필드에는 전송되는 DTLS 레코드 형식이 포함됩니다. 유효한 형식은 다음과 같습니다.<br />- ChangeCipherSpec: 0x14<br />- 경고: 0x15<br />- 핸드셰이크: 0x16<br />- 애플리케이션 데이터: 0x17<br /> |
 | **16비트 프로토콜 버전** | 이 필드에는 DTLS 프로토콜 버전이 포함됩니다. 유효한 값은 다음과 같습니다.<br />- DTLS 1.1: 0xFEFD |
@@ -64,14 +64,14 @@ TLS 레코드 헤더의 필드는 다음과 같이 정의됩니다.
 
 DTLS 핸드셰이크 레코드 헤더의 필드는 다음과 같이 정의됩니다.
 
-| TLS 헤더 필드 | 목적  |
+| TLS 헤더 필드 | 용도 |
 | ---------------- | ------------------------------------------------ |
 | **8비트 메시지 유형** | 이 필드에는 전송되는 DTLS 레코드 형식이 포함됩니다. 유효한 형식은 다음과 같습니다.<br />- ChangeCipherSpec: 0x14<br />- 경고: 0x15<br />- 핸드셰이크: 0x16<br />- 애플리케이션 데이터: 0x17 |
 |  **16비트 Epoch** | 이 필드에는 암호화 상태가 바뀔 때마다(예: 새 세션 키를 생성하는 경우) 증가하는 카운터인 DTLS "epoch"가 포함됩니다. |
 |  **48비트 시퀀스 번호** | 이 필드에는 특정 레코드를 식별하는 시퀀스 번호가 포함됩니다. DTLS에서 레코드 순서를 유지하고 재전송이 필요한지 확인하는 데 사용됩니다. |
 |  **16비트 프로토콜 버전** | 이 필드에는 DTLS 프로토콜 버전이 포함됩니다. 유효한 값은 다음과 같습니다.<br />- DTLS 1.1: 0xFEFD |
 | **16비트 길이** | 이 필드에는 DTLS 레코드에 캡슐화된 데이터의 길이가 포함됩니다. |
-| **8비트 핸드셰이크 유형** | 이 필드는 핸드셰이크 메시지 유형을 포함합니다. 유효한 값은 다음과 같습니다.<br />- HelloRequest: 0x00<br />- ClientHello: 0x01<br />- ServerHello: 0x02<br />- Certificate: 0x0B<br />- ServerKeyExchange: 0x0C<br />- CertificateRequest: 0x0D<br />- ServerHelloDone: 0x0E<br />- CertificateVerify: 0x0F<br />- ClientKeyExchange: 0x10<br />- Finished: 0x14 |
+| **8비트 핸드셰이크 유형** | 이 필드는 핸드셰이크 메시지 유형을 포함합니다. 유효한 값은 다음과 같습니다.<br />- HelloRequest: 0x00<br />- ClientHello: 0x01<br />- ServerHello: 0x02<br />- Certificate: 0x0B<br />- ServerKeyExchange: 0x0C<br />- CertificateRequest: 0x0D<br />- ServerHelloDone: 0x0E<br />- CertificateVerify: 0x0F<br />- ClientKeyExchange: 0x10<br />- 완료됨 | 0x14 |
 | **24비트 길이** | 이 필드는 핸드셰이크 메시지 데이터의 길이를 포함합니다. |
 | **16비트 시퀀스 번호** | 이 필드에는 시퀀스 번호가 포함됩니다. |
 

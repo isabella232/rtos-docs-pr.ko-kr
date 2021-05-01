@@ -1,17 +1,17 @@
 ---
 title: 4장 - USBX Pictbridge 구현
-description: UBSX는 디바이스와 호스트 모두에서 전체 Pictbridge 구현을 지원합니다. Pictbridge는 두 측면에서 모두 USBX PIMA 클래스 위에 있습니다.
+description: UBSX는 호스트와 디바이스 모두에서 전체 Pictbridge 구현을 지원합니다. Pictbridge는 두 측면에서 모두 USBX PIMA 클래스 위에 있습니다.
 author: philmea
 ms.author: philmea
 ms.date: 5/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 4fdf1e46a7123c10d17e11d09c1b16c2f68f4a31
-ms.sourcegitcommit: 60ad844b58639d88830f2660ab0c4ff86b92c10f
+ms.openlocfilehash: 2ef1809dac046d49b15aba000cabed6c9fd458a3
+ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106550238"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104813369"
 ---
 # <a name="chapter-4---usbx-pictbridge-implementation"></a>4장 - USBX Pictbridge 구현
 
@@ -208,7 +208,7 @@ UINT ux_pictbridge_jobinfo_object_data_read(
     ULONG *actual_length)
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>설명
 
 이 함수는 DPS 클라이언트가 대상 Pictbridge 프린터에 인쇄하기 위해 데이터 블록을 검색해야 할 때 호출됩니다.
 
@@ -347,7 +347,7 @@ UINT ux_pictbridge_application_object_data_write(
     ULONG length);
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>설명
 
 이 함수는 DPS 서버에서 로컬 프린터로 인쇄하기 위해 DPS 클라이언트에서 데이터 블록을 검색해야 할 때 호출됩니다.
 
