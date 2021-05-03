@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: c9e91244856b322d53f85bdd572bd317a055776a
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: f70b8890be6b12f917ac1724a29559afab33b88d
+ms.sourcegitcommit: 0520b2afb6b7f8ae1ea48581e160459fc9292ca7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104811359"
+ms.lasthandoff: 04/30/2021
+ms.locfileid: "108297499"
 ---
 # <a name="chapter-4--description-of-azure-rtos-filex-services"></a>4장 - Azure RTOS FileX 서비스 설명
 
@@ -4105,6 +4105,9 @@ UINT fx_media_exFAT_format(
 
 > [!WARNING]
 > 이미 포맷된 미디어를 포맷하면 미디어의 파일과 디렉터리가 실제로 모두 지워집니다.
+
+> [!IMPORTANT]
+> *exFAT 볼륨 크기는 파티션의 크기(MBR 또는 GPT 레이아웃이 있는 경우) 또는 파티션 레이아웃이 없는 경우(MBR 또는 GPT 없음) 전체 디바이스의 크기와 일치해야 합니다. Windows에는 사용 가능한 섹터보다 적은 총 섹터 값으로 포맷된 경우 exFAT 디스크가 다시 인식되지 않는다는 제한이 있습니다.*
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
