@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 89761ec3438b1b16c1a603764bf7d4e1eac1b4ea
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 80ec22058ab64ed0c6258bb3d9364ec44f9a741b
+ms.sourcegitcommit: 4ebe7c51ba850951c6a9d0f15e22d07bb752bc28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104811766"
+ms.lasthandoff: 05/20/2021
+ms.locfileid: "110223395"
 ---
 # <a name="chapter-4---description-of-azure-rtos-netx-secure-services"></a>4장 - Azure RTOS NetX Secure 서비스 설명
 
@@ -480,11 +480,11 @@ UINT  nx_secure_tls_client_psk_set(NX_SECURE_TLS_SESSION *session_ptr,
 
 - **session_ptr** 이전에 만든 TLS 세션 인스턴스에 대한 포인터입니다.
 - **pre_shared_key** 실제 PSK 값입니다.
-- **psk_length** PSK 값의 길이입니다.
-- **psk_identity** 이 PSK 값을 식별하는 데 사용되는 문자열입니다.
-- **identity_length** PSK ID의 길이입니다.
-- **hint** TLS 서버에서 선택할 PSK 그룹을 나타내는 데 사용되는 문자열입니다.
-- **hint_length** 힌트 문자열의 길이입니다.
+- **psk_length** PSK 값의 길이
+- **psk_identity** 이 PSK 값을 식별하는 데 사용되는 문자열
+- **identity_length** PSK ID의 길이
+- **hint** TLS 서버에서 선택할 PSK 그룹을 나타내는 데 사용되는 문자열
+- **hint_length** 힌트 문자열의 길이
 
 ### <a name="return-values"></a>반환 값
 
@@ -540,7 +540,7 @@ VOID nx_secure_tls_initialize(VOID);
 
 없음
 
-### <a name="allowed-from"></a>허용 위치
+### <a name="allowed-from"></a>허용되는 위치
 
 초기화, 스레드
 
@@ -793,43 +793,6 @@ status =  nx_secure_tls_metadata_size_calculate(&nx_crypto_tls_ciphers,
 
 - nx_secure_tls_session_create
 
-## <a name="nx_secure_module_hash_compute"></a>nx_secure_module_hash_compute
-
-NetX Secure 라이브러리 루틴의 해시 값 계산
-
-### <a name="prototype"></a>프로토타입
-
-```C
-VOID nx_secure_module_hash_compute(VOID);
-```
-
-### <a name="description"></a>Description
-
-이 서비스는 NetX Secure TLS 모듈을 초기화합니다. 다른 NetX Secure 서비스에 액세스하려면 먼저 이 서비스를 호출해야 합니다.
-
-### <a name="parameters"></a>매개 변수
-
-없음
-
-### <a name="return-values"></a>반환 값
-
-없음
-
-### <a name="allowed-from"></a>허용 위치
-
-초기화, 스레드
-
-### <a name="example"></a>예제
-
-```C
-/* Initializes the TLS module. */
-Nx_secure_tls_initialize();
-```
-
-### <a name="see-also"></a>참고 항목
-
-- nx_secure_tls_session_create
-
 ## <a name="nx_secure_tls_packet_allocate"></a>nx_secure_tls_packet_allocate
 
 NetX Secure TLS 세션에 대한 패킷 할당
@@ -853,12 +816,12 @@ UINT  nx_secure_tls_packet_allocate(NX_SECURE_TLS_SESSION *session_ptr,
 
 - **session_ptr** TLS 세션 인스턴스에 대한 포인터입니다.
 - **pool_ptr** 패킷을 할당할 NX_PACKET_POOL에 대한 포인터입니다.
-- **packet_ptr** 새로 할당된 패킷에 대한 출력 포인터입니다.
-- **wait_option** 패킷 할당의 일시 중단 옵션입니다.
+- **packet_ptr** 새로 할당된 패킷에 대한 출력 포인터
+- **wait_option** 패킷 할당의 일시 중단 옵션
 
 ### <a name="return-values"></a>반환 값
 
-- **NX_SUCCESS**(0x00) 패킷을 할당했습니다.
+- **NX_SUCCESS** (0x00) 패킷을 할당했습니다.
 - **NX_SECURE_TLS_ALLOCATE_PACKET_FAILED**(0x111) 기본 패킷을 할당하지 못했습니다.
 - **NX_SECURE_TLS_SESSION_UNINITIALIZED**(0x101) 제공된 TLS 세션이 초기화되지 않았습니다.
 
@@ -913,11 +876,11 @@ UINT  nx_secure_tls_psk_add(NX_SECURE_TLS_SESSION *session_ptr,
 
 - **session_ptr** 이전에 만든 TLS 세션 인스턴스에 대한 포인터입니다.
 - **pre_shared_key** 실제 PSK 값입니다.
-- **psk_length** PSK 값의 길이입니다.
-- **psk_identity** 이 PSK 값을 식별하는 데 사용되는 문자열입니다.
-- **identity_length** PSK ID의 길이입니다.
-- **hint** TLS 서버에서 선택할 PSK 그룹을 나타내는 데 사용되는 문자열입니다.
-- **hint_length** 힌트 문자열의 길이입니다.
+- **psk_length** PSK 값의 길이
+- **psk_identity** 이 PSK 값을 식별하는 데 사용되는 문자열
+- **identity_length** PSK ID의 길이
+- **hint** TLS 서버에서 선택할 PSK 그룹을 나타내는 데 사용되는 문자열
+- **hint_length** 힌트 문자열의 길이
 
 ### <a name="return-values"></a>반환 값
 
@@ -2658,23 +2621,23 @@ UINT  nx_secure_tls_session_start(NX_SECURE_TLS_SESSION *session_ptr,
 
 ### <a name="return-values"></a>반환 값
 
-- **NX_SUCCESS**(0x00) TLS 세션을 초기화했습니다.
-- **NX_NOT_CONNECTED**(0x38) 기본 TCP 소켓이 더 이상 연결되어 있지 않습니다.
-- **NX_SECURE_TLS_UNRECOGNIZED_MESSAGE_TYPE**(0x102) 받은 TLS 메시지 유형이 올바르지 않습니다.
-- **NX_SECURE_TLS_UNSUPPORTED_CIPHER**(0x106) 원격 호스트에서 제공하는 암호화가 지원되지 않습니다.
-- **NX_SECURE_TLS_HANDSHAKE_FAILURE**(0x107) TLS 핸드셰이크 중 메시지 처리가 실패했습니다.
-- **NX_SECURE_TLS_HASH_MAC_VERIFY_FAILURE**(0x108) 들어오는 메시지가 해시 MAC 검사에 실패했습니다.
-- **NX_SECURE_TLS_TCP_SEND_FAILED**(0x109) 기본 TCP 소켓 보내기가 실패했습니다.
-- **NX_SECURE_TLS_INCORRECT_MESSAGE_LENGTH**(0x10A) 들어오는 메시지의 길이 필드가 올바르지 않습니다.
+- **NX_SUCCESS** (0x00) TLS 세션을 초기화했습니다.
+- **NX_NOT_CONNECTED** (0x38) 기본 TCP 소켓이 더 이상 연결되어 있지 않습니다.
+- **NX_SECURE_TLS_UNRECOGNIZED_MESSAGE_TYPE** (0x102) 받은 TLS 메시지 유형이 올바르지 않습니다.
+- **NX_SECURE_TLS_UNSUPPORTED_CIPHER** (0x106) 원격 호스트에서 제공하는 암호화가 지원되지 않습니다.
+- **NX_SECURE_TLS_HANDSHAKE_FAILURE** (0x107) TLS 핸드셰이크 중 메시지 처리가 실패했습니다.
+- **NX_SECURE_TLS_HASH_MAC_VERIFY_FAILURE** (0x108) 들어오는 메시지가 해시 MAC 검사에 실패했습니다.
+- **NX_SECURE_TLS_TCP_SEND_FAILED** (0x109) 기본 TCP 소켓 보내기가 실패했습니다.
+- **NX_SECURE_TLS_INCORRECT_MESSAGE_LENGTH** (0x10A) 들어오는 메시지의 길이 필드가 올바르지 않습니다.
 - **NX_SECURE_TLS_BAD_CIPHERSPEC**(0x10B) 들어오는 ChangeCipherSpec 메시지가 올바르지 않습니다.
 - **NX_SECURE_TLS_INVALID_SERVER_CERT**(0x10C) 들어오는 TLS 인증서를 원격 TLS 서버 식별에 사용할 수 없습니다.
 - **NX_SECURE_TLS_UNSUPPORTED_PUBLIC_CIPHER**(0x10D) 원격 호스트에서 제공하는 공개 키 암호가 지원되지 않습니다.
-- **NX_SECURE_TLS_NO_SUPPORTED_CIPHERS**(0x10E) NetX Secure TLS 스택에서 지원하는 암호 그룹이 없다고 원격 호스트에서 알렸습니다.
-- **NX_SECURE_TLS_UNKNOWN_TLS_VERSION**(0x10F) 받은 TLS 메시지의 헤더에 알 수 없는 TLS 버전이 있습니다.
-- **NX_SECURE_TLS_UNSUPPORTED_TLS_VERSION**(0x110) 받은 TLS 메시지의 헤더에 알고 있지만 지원되지 않는 TLS 버전이 있습니다.
-- **NX_SECURE_TLS_ALLOCATE_PACKET_FAILED**(0x111) 내부 TLS 패킷을 할당하지 못했습니다.
-- **NX_SECURE_TLS_INVALID_CERTIFICATE**(0x112) 원격 호스트에서 제공한 인증서가 올바르지 않습니다.
-- **NX_SECURE_TLS_ALERT_RECEIVED**(0x114) 원격 호스트가 오류를 알리는 경고를 보내고 TLS 세션을 종료했습니다.
+- **NX_SECURE_TLS_NO_SUPPORTED_CIPHERS** (0x10E) NetX Secure TLS 스택에서 지원하는 ciphersuite가 없다고 원격 호스트에서 알렸습니다.
+- **NX_SECURE_TLS_UNKNOWN_TLS_VERSION** (0x10F) 받은 TLS 메시지의 헤더에 알 수 없는 TLS 버전이 있습니다.
+- **NX_SECURE_TLS_UNSUPPORTED_TLS_VERSION** (0x110) 받은 TLS 메시지의 헤더에 알고 있지만 지원되지 않는 TLS 버전이 있습니다.
+- **NX_SECURE_TLS_ALLOCATE_PACKET_FAILED** (0x111) 내부 TLS 패킷을 할당하지 못했습니다.
+- **NX_SECURE_TLS_INVALID_CERTIFICATE** (0x112) 원격 호스트에서 제공한 인증서가 올바르지 않습니다.
+- **NX_SECURE_TLS_ALERT_RECEIVED** (0x114) 원격 호스트가 오류를 알리는 경고를 보내고 TLS 세션을 종료했습니다.
 - **NX_SECURE_TLS_MISSING_CRYPTO_ROUTINE**(0x13B) 암호 그룹 테이블의 항목에 NULL 함수 포인터가 있습니다.
 - **NX_SECURE_TLS_INAPPROPRIATE_FALLBACK**(0x146) 원격 TLS ClientHello는 대체 SCSV를 포함하며 버전 대체를 시도했습니다.
 - **NX_PTR_ERROR**(0x07) 잘못된 포인터를 사용하려고 했습니다.
