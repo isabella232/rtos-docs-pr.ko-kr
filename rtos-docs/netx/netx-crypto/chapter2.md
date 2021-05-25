@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 1616667c5efd73229ed69bcd4e5de5f80e5826f9
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: cd736cf6bbe15e1f407d1812072a4308435c8007
+ms.sourcegitcommit: c2f5da5d6c7b230799f8fbd77885e9940acfbab4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104811634"
+ms.lasthandoff: 05/21/2021
+ms.locfileid: "110236155"
 ---
 # <a name="chapter-2---installation-and-use-of-azure-rtos-netx-crypto"></a>2장 - Azure RTOS NetX Crypto 설치 및 사용
 
@@ -36,12 +36,12 @@ NetX Crypto를 독립 실행형 모드에서 사용하려면 이전에 언급한
 
 ## <a name="using-netx-crypto"></a>NetX Crypto 사용
 
-NetX Crypto를 사용하는 것은 쉽습니다. 기본적으로 애플리케이션 코드는 *nx_crypto.h* 를 포함해야 합니다.  *nx_crypto.h* 가 포함되면 애플리케이션 코드에서 이 가이드의 뒷부분에 지정된 NetX Crypto 함수 호출을 수행할 수 있습니다.
+이 챕터에서는 Azure RTOS NetX Crypto 구성 요소의 설치, 설정 및 사용법을 설명합니다. 기본적으로 애플리케이션 코드는 *nx_crypto.h* 를 포함해야 합니다.  *nx_crypto.h* 가 포함되면 애플리케이션 코드에서 이 가이드의 뒷부분에 지정된 NetX Crypto 함수 호출을 수행할 수 있습니다.
 
 ## <a name="configuration-options"></a>구성 옵션
 
 NetX Crypto를 빌드하기 위한 몇 가지 구성 옵션이 있습니다. 다음은 각각에 대해 자세히 설명된 모든 옵션의 목록입니다.
 
 - **NX_CRYPTO_MAX_RSA_MODULUS_SIZE**: 정의된 경우 이 옵션은 예상되는 최대 RSA 모듈러스(비트)를 제공합니다. 4096비트 모듈러스의 기본값은 4096입니다. 다른 값은 3072, 2048 또는 1024(권장하지 않음)일 수 있습니다.
-- **NX_CRYPTO_FIPS**: 정의된 경우 이 옵션을 사용하면 FIPS 규격 사용에 필요한 추가 보안 기능을 사용할 수 있습니다. FIPS가 아닌 빌드에는 이 옵션을 사용할 수 없습니다.
+- **NX_CRYPTO_SELF_TEST**: 정의되면 NetX Crypto 모듈에 대한 자체 테스트를 사용할 수 있습니다. 이제 **NX_CRYPTO_FIPS** 기호가 더 이상 사용되지 않으며 이름이 **NX_CRYPTO_SELF_TEST** 로 변경되었습니다.
 - **NX_CRYPTO_STANDALONE_ENABLE**: 정의 된 경우 NetX Crypto는 독립 실행형 모드(Azure RTOS 제외)에서 사용할 수 있습니다. 기본적으로 이 기호는 정의되어 있지 않습니다.

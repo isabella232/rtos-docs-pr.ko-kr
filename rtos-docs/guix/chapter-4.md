@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 7a17ab0d2500d021bb9397dbf673427362c45173
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: b07e275468484ccc905655dcd13197de42b2ac86
+ms.sourcegitcommit: 4ebe7c51ba850951c6a9d0f15e22d07bb752bc28
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104811268"
+ms.lasthandoff: 05/20/2021
+ms.locfileid: "110223412"
 ---
 # <a name="chapter-4---description-of-guix-services"></a>4장 - GUIX 서비스 설명
 
@@ -27,7 +27,7 @@ ms.locfileid: "104811268"
 | gx_accordion_menu_position          | 메뉴 항목 배치                                                                          |
 | gx_animation_canvas_define          | 후속 애니메이션에 사용할 캔버스의 애니메이션 컨트롤러에 메모리를 제공합니다. |
 | gx_animation_create                  | 애니메이션 컨트롤러 만들기                                                               |
-| gx_animation_delete                  | 애니메이션 컨트롤러 삭제                                                               |
+| gx_animation_delete                  | 애니메이션 컨트롤러 한 개 또는 여러 개 삭제 |
 | gx_animation_drag_disable           | 화면 끌기 애니메이션 후크 사용 안 함                                                           |
 | gx_animation_drag_enable            | 화면 끌기 애니메이션 후크 사용                                                            |
 | gx_animation_landing_speed_set     | 화면 끌기 애니메이션의 착륙 속도 설정                                                  |
@@ -128,6 +128,12 @@ ms.locfileid: "104811268"
 | gx_drop_list_open                        | 드롭 목록 열기                                                        |
 | gx_drop_list_pixelmap_set               | 드롭 목록에 pixelmap 설정                                             |
 | gx_drop_list_popup_set                  | 드롭 목록에 팝업 설정                                                |
+| gx_generic_scroll_wheel_children_position | 제네릭 스크롤 휠에 자식 배치 |
+| gx_generic_scroll_wheel_create| 제네릭 스크롤 휠 위젯 만들기 |
+| gx_generic_scroll_wheel_draw | 제네릭 스크롤 휠 위젯 그리기 |
+| gx_generic_scroll_wheel_event_process| 제네릭 스크롤 휠 이벤트 처리|
+| gx_generic_scroll_wheel_row_height_set| 제네릭 스크롤 휠의 행 높이 설정|
+| gx_generic_scroll_wheel_total_rows_set| 제네릭 스크롤 휠의 총 행 수 설정 |
 | gx_horizontal_list_children_position    | 가로 목록에 자식 위젯 배치                          |
 | gx_horizontal_list_create                | 가로 목록 만들기                                                |
 | gx_horizontal_list_event_process        | 가로 목록의 이벤트 처리                                      |
@@ -382,7 +388,7 @@ ms.locfileid: "104811268"
 | gx_text_scroll_wheel_event_process      | 텍스트 스크롤 휠 이벤트 처리                        |
 | gx_text_scroll_wheel_font_set          | 텍스트 스크롤 휠 글꼴 할당                         |
 | gx_text_scroll_wheel_text_color_set   | 텍스트 스크롤 휠 텍스트 색 할당                   |
-| gx_tree_view_create                    | 트리 뷰 만들기                          |
+| gx_tree_view_create                    | 트리 보기 만들기                          |
 | gx_tree_view_draw                      | 트리 뷰 그리기                              |
 | gx_tree_view_event_process            | 트리 뷰 이벤트 처리                     |
 | gx_tree-view_indentation_set           | 트리 뷰 들여쓰기 설정                   |
@@ -862,11 +868,11 @@ if (status == GX_SUCCESS)
 
 ### <a name="see-also"></a>참고 항목
 
-- gx_animation_create,
+- gx_animation_create
 - gx_animation_delete
-- gx_animation_drag_disable,
+- gx_animation_drag_disable
 - gx_animation_drag_enable
-- gx_animation_landing_speed_set,
+- gx_animation_landing_speed_set
 - gx_animation_start
 - gx_animation_stop
 
@@ -911,7 +917,7 @@ gx_system_animation_get(&animation);
 
 if (animation)
 {
-    status = gx_animation_create(&animation);
+    status = gx_animation_create(animation);
 }
 
 /* If status is GX_SUCCESS the new animation controller was successfully created and initialized. */
@@ -920,8 +926,81 @@ if (animation)
 
 ### <a name="see-also"></a>참고 항목
 
-- gx_animation_canvas_define,
+- gx_animation_canvas_define
 - gx_animation_delete
+- gx_animation_drag_disable
+- gx_animation_drag_enable
+- gx_animation_start
+- gx_animation_landing_speed_set
+- gx_animation_stop
+- gx_system_animation_get
+- gx_system_animation_free
+
+## <a name="gx_animation_delete"></a>gx_animation_delete
+
+애니메이션 컨트롤러 한 개 또는 여러 개 삭제
+
+### <a name="prototype"></a>프로토타입
+
+```C
+UINT gx_animation_delete(GX_ANIMATION *animation, GX_WIDGET *parent);
+```
+
+### <a name="description"></a>Description
+
+이 서비스는 입력 애니메이션 포인터가 설정된 경우 애니메이션 시퀀스를 삭제하고, 그렇지 않으면 지정된 부모 위젯에 속한 모든 애니메이션을 삭제합니다.
+
+### <a name="parameters"></a>매개 변수
+
+- **animation** 애니메이션 제어 블록에 대한 포인터
+- **parent** 부모 위젯에 대한 포인터
+
+
+### <a name="return-values"></a>반환 값
+
+- **GX_SUCCESS**(0x00) 애니메이션 컨트롤러를 삭제했습니다.
+- **GX_PTR_ERROR**(0x07) 포인터가 잘못되었습니다.
+
+### <a name="allowed-from"></a>허용되는 위치
+
+초기화, 스레드
+
+### <a name="example"></a>예제
+
+- 애니메이션 한 개 삭제
+
+```C
+GX_ANIMATION *animation;
+
+/* Allocate an animaton control from system pool */
+gx_system_animation_get(&animation);
+
+if (animation)
+{
+    /* Create an animation.  */
+    gx_animation_create(animation);
+
+    /* Delete an animation.  */
+    status = gx_animation_delete(animation, GX_NULL);
+}
+
+/* If status is GX_SUCCESS the animation controller was successfully deleted and returned back to system animation pool. */
+
+```
+
+- 애니메이션 여러 개 삭제
+```C
+
+status = gx_animation_delete(GX_NULL, parent);
+
+/* If status is GX_SUCCESS all the animations belong to the parent were successfully deleted. */
+
+```
+
+### <a name="see-also"></a>참고 항목
+
+- gx_animation_canvas_define,
+- gx_animation_create
 - gx_animation_drag_disable,
 - gx_animation_drag_enable
 - gx_animation_start
@@ -977,14 +1056,15 @@ status = gx_animation_drag_disable(&animation, animation_parent);
 
 ### <a name="see-also"></a>참고 항목
 
-- gx_animation_canvas_define,
-- gx__animation_create
+- gx_animation_canvas_define
+- gx_animation_create
+- gx_animation_delete
 - gx_animation_drag_enable
-- gx_animation_landing_speed_set,
-- gx__animation_start
+- gx_animation_landing_speed_set
+- gx_animation_start
 - gx_animation_stop
-- gx_system_animation_get,
-- gx__system_animation_free
+- gx_system_animation_get
+- gx_system_animation_free
 
 ## <a name="gx_animation_drag_enable"></a>gx_animation_drag_enable
 
@@ -1056,13 +1136,14 @@ status = gx_animation_drag_enable(&animation, animation_parent,
 
 ### <a name="see-also"></a>참고 항목
 
-- gx_animation_canvas_define,
-- gx__animation_create
-- gx_animation_drag_disable,
-- gx__animation_landing_speed_set
-- gx_animation_start,
-- gx__animation_stop,
-- gx__system_animation_get
+- gx_animation_canvas_define
+- gx_animation_create
+- gx_animation_delete
+- gx_animation_drag_disable
+- gx_animation_landing_speed_set
+- gx_animation_start
+- gx_animation_stop
+- gx_system_animation_get
 - gx_system_animation_free
 
 ## <a name="gx_animation_landing_speed_set"></a>gx_animation_landing_speed_set
@@ -1106,13 +1187,14 @@ status = gx_animation_landing_peed_set(&my_animation, 20);
 
 ### <a name="see-also"></a>참고 항목
 
-- gx_animation_canvas_define,
-- gx__animation_create
-- gx_animation_slide_disable,
-- gx__animation_slide_enable
-- gx_animation_start,
-- gx__animation_stop,
-- gx__system_animation_get
+- gx_animation_canvas_define
+- gx_animation_create
+- gx_animation_delete
+- gx_animation_slide_disable
+- gx_animation_slide_enable
+- gx_animation_start
+- gx_animation_stop
+- gx_system_animation_get
 - gx_system_animation_free
 
 ## <a name="gx_animation_start"></a>gx_animation_start
@@ -1236,12 +1318,13 @@ status = gx_animation_stop(&animation);
 
 ### <a name="see-also"></a>참고 항목
 
-- gx_animation_canvas_define,
-- gx__animation_create
-- gx_animation_drag_disable,
-- gx__animation_drag_enable
-- gx_animation_start,
-- gx__system_animation_get
+- gx_animation_canvas_define
+- gx_animation_create
+- gx_animation_delete
+- gx_animation_drag_disable
+- gx_animation_drag_enable
+- gx_animation_start
+- gx_system_animation_get
 - gx_system_animation_free
 
 ## <a name="gx_binres_language_count_get"></a>gx_binres_language_count_get
@@ -6842,6 +6925,405 @@ status = gx_drop_list_popup_get(&drop_list, &vertical_list)
 - gx_drop_list_open
 - gx_drop_list_pixelmap_set
 
+## <a name="gx_generic_scroll_wheel_children_position"></a>gx_generic_scroll_wheel_children_position
+### <a name="position-children-for-the-generic-scroll-wheel"></a>제네릭 스크롤 휠의 자식 배치
+
+### <a name="prototype"></a>프로토타입
+
+```C
+UINT gx_generic_scroll_wheel_children_position(
+    GX_GENERIC_SCROLL_WHEEL *wheel)
+```
+
+### <a name="description"></a>Description
+
+이 함수는 제네릭 스크롤 휠 행 높이에 따라 제네릭 스크롤 휠의 자식을 배치합니다. 이 함수는 제네릭 스크롤 휠이 표시될 때 기본적으로 호출됩니다.
+
+### <a name="parameters"></a>매개 변수
+
+- **wheel** 제네릭 스크롤 휠 제어 블록에 대한 포인터
+
+### <a name="return-values"></a>반환 값
+
+- **GX_SUCCESS**(0x00) 제네릭 스크롤 휠의 자식을 배치했습니다.
+- **GX_CALLER_ERROR**(0x11) 함수의 호출자가 잘못되었습니다.
+- **GX_PTR_ERROR**(0x07) 포인터가 잘못되었습니다.
+- **GX_INVALID_WIDGET**(0x12) 위젯이 잘못되었습니다.
+
+### <a name="allowed-from"></a>허용되는 위치
+
+초기화, 스레드
+
+### <a name="example"></a>예제
+
+```C
+/* Position children in the generic scroll wheel. */
+status = gx_generic_scroll_wheel_children_position (&wheel);
+
+/* If status is GX_SUCCESS the children in the generic scroll wheel are positioned. */
+```
+
+### <a name="see-also"></a>참고 항목
+
+- gx_scroll_wheel_create
+- gx_scroll_wheel_event_process
+- gx_scroll_wheel_gradient_alpha_set
+- gx_scroll_wheel_selected_background_set
+- gx_scroll_wheel_selected_get
+- gx_scroll_wheel_selected_set
+- gx_generic_scroll_wheel_create
+- gx_generic_scroll_wheel_draw
+- gx_generic_scroll_wheel_event_process
+- gx_generic_scroll_wheel_row_height_set
+- gx_generic_scroll_wheel_total_rows_set
+
+## <a name="gx_generic_scroll_wheel_create"></a>gx_generic_scroll_wheel_create
+
+
+제네릭 스크롤 휠 만들기
+
+### <a name="prototype"></a>프로토타입
+
+```C
+UINT gx_generic_scroll_wheel_create(
+    GX_GENERIC_SCROLL_WHEEL *wheel,
+    GX_CONST GX_CHAR *name,
+    GX_WIDGET *parent,
+    INT total_rows,
+    VOID (*callback)(GX_GENERIC_SCROLL_WHEEL *, GX_WIDGET *, INT),
+    ULONG style,
+    USHORT id,
+    GX_CONST GX_RECTANGLE *size);
+```
+
+### <a name="description"></a>Description
+
+이 서비스는 제네릭 스크롤 휠 위젯을 만듭니다.
+
+제네릭 스크롤 휠은 자식 위젯으로 구성된 스크롤 휠 위젯의 한 유형입니다. 다른 형식의 스크롤 휠 위젯도 사용할 수 있습니다. 스크롤 휠 위젯 계층 구조, 위젯 유형 및 위젯 파생에 대한 자세한 내용은 gx_scroll_wheel_create() API를 참조하세요.
+
+GX_GENERIC_SCROLL_WHEEL은 GX_SCROLL_WHEEL에서 파생되며 gx_scroll_wheel 서비스를 모두 지원합니다.
+
+모든 스크롤 휠 유형은 스크롤 휠이 스크롤될 때 부모에 대한 GX_EVENT_LIST_SELECT 이벤트를 생성합니다.
+
+### <a name="parameters"></a>매개 변수
+
+- **wheel** 제네릭 스크롤 휠 제어 블록에 대한 포인터
+- **name** 제네릭 스크롤 휠 위젯의 논리적 이름
+- **parent** 부모 위젯에 대한 포인터
+- **total_rows** 스크롤 휠의 총 행 수
+- **callback** 위젯 행을 만드는 콜백 함수. 총 행 수가 자식 수와 일치하는 경우에는 GX_NULL일 수 있습니다. 자식 수가 총 행 수보다 작거나 GX_STYLE_WRAP 스타일이 설정된 경우 위젯을 다시 사용하려면 이를 제공해야 합니다. 그리고 이 경우 자식 수가 표시 행 수보다 1개 더 많아야 합니다.
+- **style** 제네릭 스크롤 휠의 스타일. **부록 D** 에는 모든 위젯용으로 미리 정의된 일반 스타일과 위젯별 스타일이 나와 있습니다.
+- **id** 애플리케이션에서 정의한 제네릭 스크롤 휠의 ID
+- **size** 제네릭 스크롤 휠 위젯의 크기
+
+### <a name="return-values"></a>반환 값
+
+- **GX_SUCCESS**(0x00) 제네릭 스크롤 휠을 만들었습니다.
+- **GX_CALLER_ERROR**(0x11) 함수의 호출자가 잘못되었습니다.
+- **GX_PTR_ERROR**(0x07) 포인터가 잘못되었습니다.
+- **GX_ALREADY_CREATED**(0x13) 위젯이 이미 생성되었습니다.
+- **GX_INVALID_SIZE**(0x19) 위젯 제어 블록 크기가 잘못되었습니다.
+- **GX_INVALID_VALUE**(0x22) 행 수가 잘못되었습니다.
+- **GX_INVALID_WIDGET**(0x12) 부모 위젯이 잘못되었습니다.
+
+### <a name="allowed-from"></a>허용되는 위치
+
+초기화, 스레드
+
+### <a name="example"></a>예제
+
+```C
+
+/* Define visible rows.  */
+#define VISIBLE_ROWS 5
+
+/* Define row memory.  */
+GX_NUMERIC_PROMPT row_memory[VISIBLE_ROWS + 1];
+
+/* Define callback function.  */
+VOID row_create(GX_GENERIC_SCROLL_WHEEL *wheel, GX_WIDGET *widget, INT index)
+{
+GX_NUMERIC_PROMPT *row = (GX_PROMPT *)widget;
+GX_BOOL result;
+GX_RECTANGLE size;
+
+    gx_widget_created_test(widget, &result);
+
+    if(!result)
+    {
+        gx_numeric_prompt_create(row, "", wheel, 0, GX_STYLE_ENABLED, 0, &size);
+    }
+
+    gx_numeric_prompt_value_set(row, index);
+}
+
+/* Create "generic_wheel” with 20 rows.  */
+status = gx_generic_scroll_wheel_create(&generic_wheel, “generic_wheel”, &parent, 20, row_create,
+                                       GX_STYLE_ENABLED, WHEEL_ID, &size);
+
+/* If status is GX_SUCCESS the generic scroll wheel "generic_wheel”" has been created. */
+
+/* Create children for generic scroll wheel.  */
+for(index = 0; index <= VISIBLE_ROWS; index++)
+{
+    row_create(generic_wheel, (GX_WIDGET *)&row_memory[index], index);
+}
+```
+
+### <a name="see-also"></a>참고 항목
+
+- gx_scroll_wheel_create
+- gx_scroll_wheel_event_process
+- gx_scroll_wheel_gradient_alpha_set
+- gx_scroll_wheel_selected_background_set
+- gx_scroll_wheel_selected_get
+- gx_scroll_wheel_selected_set
+- gx_generic_scroll_wheel_children_position
+- gx_generic_scroll_wheel_draw
+- gx_generic_scroll_wheel_event_process
+- gx_generic_scroll_wheel_row_height_set
+- gx_generic_scroll_wheel_total_rows_set
+
+## <a name="gx_generic_scroll_wheel_draw"></a>gx_generic_scroll_wheel_draw
+### <a name="draw-window"></a>창 그리기
+
+### <a name="prototype"></a>프로토타입
+
+```C
+VOID gx_generic_scroll_wheel_draw(GX_GENERIC_SCROLL_WHEEL *wheel);
+```
+
+### <a name="description"></a>Description
+
+이 서비스는 제네릭 스크롤 휠을 그립니다. 일반적으로 캔버스를 새로 고치는 동안 내부적으로 호출되지만 사용자 지정 제네릭 스크롤 휠 그리기 함수에서 호출할 수도 있습니다.
+
+### <a name="parameters"></a>매개 변수
+
+- **wheel** 제네릭 스크롤 휠 제어 블록에 대한 포인터
+
+### <a name="return-values"></a>반환 값
+
+- **없음**
+
+### <a name="allowed-from"></a>허용되는 위치
+
+스레드
+
+### <a name="example"></a>예제
+
+```C
+/* Write a custom generic scroll wheel draw function. */
+
+VOID my_custom_generic_scroll_wheel_draw(GX_GENERIC_SCROLL_WHEEL *wheel)
+{
+    /* Call default generic scroll wheel draw. */
+    gx_generic_scroll_wheel_draw(wheel);
+
+    /* Add your own drawing here. */
+}
+```
+
+### <a name="see-also"></a>참고 항목
+
+- gx_scroll_wheel_create
+- gx_scroll_wheel_event_process
+- gx_scroll_wheel_gradient_alpha_set
+- gx_scroll_wheel_selected_background_set
+- gx_scroll_wheel_selected_get
+- gx_scroll_wheel_selected_set
+- gx_generic_scroll_wheel_children_position
+- gx_generic_scroll_wheel_create
+- gx_generic_scroll_wheel_event_process
+- gx_generic_scroll_wheel_row_height_set
+- gx_generic_scroll_wheel_total_rows_set
+
+## <a name="gx_generic_scroll_wheel_event_process"></a>gx_generic_scroll_wheel_event_process
+### <a name="process-generic-scroll-wheel-event"></a>제네릭 스크롤 휠 이벤트 처리
+
+### <a name="prototype"></a>프로토타입
+
+```C
+UINT gx_generic_scroll_wheel_event_process(
+    GX_GENERIC_SCROLL_WHEEL *wheel, 
+    GX_EVENT *event);
+```
+
+### <a name="description"></a>Description
+
+이 서비스는 창에 대한 이벤트를 처리합니다.
+
+### <a name="parameters"></a>매개 변수
+
+- **wheel** 제네릭 스크롤 휠 제어 블록에 대한 포인터
+- **event** 처리할 이벤트에 대한 포인터
+
+### <a name="return-values"></a>반환 값
+
+- **GX_SUCCESS**(0x00) 제네릭 스크롤 휠 이벤트를 처리했습니다.
+- **GX_CALLER_ERROR**(0x11) 함수의 호출자가 잘못되었습니다.
+- **GX_PTR_ERROR**(0x07) 포인터가 잘못되었습니다.
+- **GX_INVALID_WIDGET**(0x12) 위젯이 잘못되었습니다.
+
+### <a name="allowed-from"></a>허용되는 위치
+
+스레드
+
+### <a name="example"></a>예제
+
+```C
+/* Call generic generic scroll wheel event processing as part of custom event processing function. */
+
+UINT custom_generic_scroll_wheel_event_process(GX_GENERIC_SCROLL_WHEEL *wheel,
+                                               GX_EVENT *event)
+{
+    UINT status = GX_SUCCESS;
+
+    switch(event->gx_event_type)
+    {
+        case xyz:
+
+            /* Insert custom event handling here */
+            break;
+
+        default:
+
+            /* Pass all other events to the default generic scroll wheel
+            event processing */
+            status = gx_generic_scroll_wheel_event_process(wheel, event);
+            break;
+        }
+        return status;
+}
+```
+
+### <a name="see-also"></a>참고 항목
+
+- gx_scroll_wheel_create
+- gx_scroll_wheel_event_process
+- gx_scroll_wheel_gradient_alpha_set
+- gx_scroll_wheel_selected_background_set
+- gx_scroll_wheel_selected_get
+- gx_scroll_wheel_selected_set
+- gx_generic_scroll_wheel_children_position
+- gx_generic_scroll_wheel_create
+- gx_generic_scroll_wheel_draw
+- gx_generic_scroll_wheel_row_height_set
+- gx_generic_scroll_wheel_total_rows_set
+
+## <a name="gx_generic_scroll_wheel_row_height_set"></a>gx_generic_scroll_wheel_row_height_set
+
+
+각 휠 행의 행 높이 할당
+
+### <a name="prototype"></a>프로토타입
+
+```C
+UINT gx_generic_scroll_wheel_row_height_set(
+    GX_GENERIC_SCROLL_WHEEL *wheel,
+    GX_VALUE row_height);
+```
+
+### <a name="description"></a>Description
+
+이 서비스는 각 스크롤 휠 행의 행 높이를 할당합니다.
+
+### <a name="parameters"></a>매개 변수
+
+- **wheel** 제네릭 스크롤 휠 제어 블록에 대한 포인터
+- **row_height** 행 높이 값(픽셀)
+
+### <a name="return-values"></a>반환 값
+
+- **GX_SUCCESS**(0x00) 스크롤 휠 높이를 설정했습니다.
+- **GX_CALLER_ERROR**(0x11) 함수의 호출자가 잘못되었습니다.
+- **GX_PTR_ERROR**(0x07) 포인터가 잘못되었습니다.
+- **GX_INVALID_WIDGET**(0x12) 위젯이 잘못되었습니다.
+- **GX_INVALID_VALUE**(0x22) 행 높이가 잘못되었습니다.
+
+### <a name="allowed-from"></a>허용되는 위치
+
+초기화, 스레드
+
+### <a name="example"></a>예제
+
+```C
+status = gx_generic_scroll_wheel_row_height_set(&wheel, 40);
+
+/* if status == GX_SUCCESS the wheel row height has been set to 40
+pixels. */
+```
+
+### <a name="see-also"></a>참고 항목
+
+- gx_scroll_wheel_create
+- gx_scroll_wheel_event_process
+- gx_scroll_wheel_gradient_alpha_set
+- gx_scroll_wheel_selected_background_set
+- gx_scroll_wheel_selected_get
+- gx_scroll_wheel_selected_set
+- gx_generic_scroll_wheel_children_position
+- gx_generic_scroll_wheel_create
+- gx_generic_scroll_wheel_draw
+- gx_generic_scroll_wheel_event_process
+- gx_generic_scroll_wheel_total_rows_set
+
+## <a name="gx_generic_scroll_wheel_total_rows_set"></a>gx_generic_scroll_wheel_total_rows_set
+
+
+사용 가능한 스크롤 휠 행의 총수 할당
+
+### <a name="prototype"></a>프로토타입
+
+```C
+UINT gx_generic_scroll_wheel_total_rows_set(
+    GX_GENERIC_SCROLL_WHEEL *wheel,
+    INT total_rows);
+```
+
+### <a name="description"></a>Description
+
+이 서비스는 제네릭 스크롤 휠 행의 총 수를 할당하거나 변경합니다.
+
+### <a name="parameters"></a>매개 변수
+
+- **wheel** 제네릭 스크롤 휠 제어 블록에 대한 포인터
+- **total_rows** 사용자에게 제공할 휠 행의 총수
+
+### <a name="return-values"></a>반환 값
+
+- **GX_SUCCESS**(0x00) 제네릭 스크롤 휠 행의 총 수를 설정했습니다.
+- **GX_CALLER_ERROR**(0x11) 함수의 호출자가 잘못되었습니다.
+- **GX_PTR_ERROR**(0x07) 포인터가 잘못되었습니다.
+- **GX_INVALID_WIDGET**(0x12) 위젯이 잘못되었습니다.
+- **GX_INVALID_VALUE**(0x22) 총 행 수가 잘못되었습니다.
+
+### <a name="allowed-from"></a>허용되는 위치
+
+초기화, 스레드
+
+### <a name="example"></a>예제
+
+```C
+status = gx_generic_scroll_wheel_total_rows_set(&wheel, 20);
+
+/* if status == GX_SUCCESS the scroll wheel has been changed to
+display 20 total rows */
+```
+### <a name="see-also"></a>참고 항목
+
+- gx_scroll_wheel_create
+- gx_scroll_wheel_event_process
+- gx_scroll_wheel_gradient_alpha_set
+- gx_scroll_wheel_selected_background_set
+- gx_scroll_wheel_selected_get
+- gx_scroll_wheel_selected_set
+- gx_generic_scroll_wheel_children_position
+- gx_generic_scroll_wheel_create
+- gx_generic_scroll_wheel_draw
+- gx_generic_scroll_wheel_event_process
+- gx_generic_scroll_wheel_row_height_set
+
 ## <a name="gx_horizontal_list_children_position"></a>gx_horizontal_list_children_position
 
 
@@ -7841,7 +8323,7 @@ UINT gx_image_reader_create(
 
 ### <a name="allowed-from"></a>허용되는 위치
 
-초기화, 스레드
+초기화 및 스레드
 
 ### <a name="example"></a>예제
 
@@ -7900,7 +8382,7 @@ UINT gx_image_reader_palette_set(
 
 ### <a name="allowed-from"></a>허용되는 위치
 
-초기화, 스레드
+초기화 및 스레드
 
 ### <a name="example"></a>예제
 
@@ -7948,7 +8430,7 @@ UINT gx_image_reader_start(
 
 ### <a name="allowed-from"></a>허용되는 위치
 
-초기화, 스레드
+초기화 및 스레드
 
 ### <a name="example"></a>예제
 
@@ -14821,7 +15303,7 @@ VOID gx_radial_progress_bar_text_draw(GX_RADIAL_PROGRESS_BAR *progress_bar);
 
 ### <a name="allowed-from"></a>허용되는 위치
 
-초기화, 스레드
+초기화 및 스레드
 
 ### <a name="example"></a>예제
 
@@ -16460,9 +16942,9 @@ UINT gx_scroll_wheel_create(
 
 ### <a name="description"></a>Description
 
-이 서비스는 제네릭 스크롤 휠 위젯을 만듭니다.
+이 서비스는 기준 스크롤 휠 위젯을 만듭니다.
 
-제네릭 스크롤 휠은 *gx_numeric_scroll_wheel*** 및 *gx_string_ scroll_wheel***의 기준인 *gx_text_scroll_wheel***을 포함하여 모든 스크롤 휠 위젯 형식의 기준 위젯입니다. 기준 스크롤 휠 위젯은 모든 스크롤 휠 위젯 형식에 대한 이벤트 처리, 스크롤 애니메이션, 선택된 행 계산을 제공합니다.
+기준 스크롤 휠은 **gx_numeric_scroll_wheel** 및 **gx_string_ scroll_wheel** 위젯의 기준인 **gx_generic_scroll_wheel** 및 **gx_text_scroll_wheel** 을 포함하여 모든 스크롤 휠 위젯 형식의 기준 위젯입니다. 기준 스크롤 휠 위젯은 모든 스크롤 휠 위젯 형식에 대한 이벤트 처리, 스크롤 애니메이션, 선택된 행 계산을 제공합니다.
 
 애플리케이션에서는 일반적으로 제네릭 스크롤 휠 위젯 인스턴스를 만들지 않습니다. 이 위젯 형식은 그리기 함수를 제공하지 않기 때문입니다. 그러나 사용자 지정 스크롤 휠 위젯 형식을 만들어야 하는 애플리케이션을 지원하기 위해 이 API에 대한 액세스가 제공됩니다.
 
