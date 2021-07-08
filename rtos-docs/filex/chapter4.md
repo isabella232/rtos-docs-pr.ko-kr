@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: f70b8890be6b12f917ac1724a29559afab33b88d
-ms.sourcegitcommit: 0520b2afb6b7f8ae1ea48581e160459fc9292ca7
+ms.openlocfilehash: 39b31c1abae8613eb54382162504aaadc07ceebf
+ms.sourcegitcommit: 97f6724d6eee7b9c251a50c191911050c52b1c69
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2021
-ms.locfileid: "108297499"
+ms.lasthandoff: 06/11/2021
+ms.locfileid: "112025924"
 ---
 # <a name="chapter-4--description-of-azure-rtos-filex-services"></a>4장 - Azure RTOS FileX 서비스 설명
 
@@ -4120,6 +4120,9 @@ UINT fx_media_exFAT_format(
 - **hidden_sectors**: 미디어의 부팅 섹터 앞에 숨겨진 섹터 수입니다. 파티션이 여러 개 있는 경우 일반적입니다.
 - **total_sectors**: 미디어의 총 섹터 수입니다.
 - **bytes_per_sector**: 섹터당 바이트 수로, 일반적으로 512입니다. FileX에서는 32의 배수여야 합니다.
+> [!IMPORTANT]
+> *사양과 관련하여, 섹터당 바이트는 512, 1024, 2048 또는 4096 값만 사용할 수 있습니다.*
+
 - **sectors_per_cluster**: 각 클러스터의 섹터 수입니다. 클러스터는 FAT 파일 시스템의 최소 할당 단위입니다.
 - **volumne_serial_number**: 볼륨에 사용할 일련 번호입니다.
 - **boundary_unit**: 실제 데이터 영역 맞춤 크기입니다(섹터 수).
@@ -4360,6 +4363,9 @@ UINT fx_media_format(
 - **hidden_sectors**: 미디어의 부팅 섹터 앞에 숨겨진 섹터 수입니다. 파티션이 여러 개 있는 경우 일반적입니다.
 - **total_sectors**: 미디어의 총 섹터 수입니다.
 - **bytes_per_sector**: 섹터당 바이트 수로, 일반적으로 512입니다. FileX에서는 32의 배수여야 합니다.
+> [!IMPORTANT]
+> *사양과 관련하여, 섹터당 바이트는 512, 1024, 2048 또는 4096 값만 사용할 수 있습니다.*
+
 - **sectors_per_cluster**: 각 클러스터의 섹터 수입니다. 클러스터는 FAT 파일 시스템의 최소 할당 단위입니다.
 - **heads**: 실제 헤드 수입니다.
 - **sectors_per_track**: 트랙당 섹터 수입니다.

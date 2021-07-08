@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 53ffc900debd3bfaa1a38d792ddf294b2ce92461
-ms.sourcegitcommit: 60ad844b58639d88830f2660ab0c4ff86b92c10f
+ms.openlocfilehash: 2a53da048b18d35b6b15a4ad8d4138e1a2acd4e8
+ms.sourcegitcommit: 95f4ae0842a486fec8f10d1480203695faa9592d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106550306"
+ms.lasthandoff: 06/09/2021
+ms.locfileid: "111875252"
 ---
 # <a name="chapter-3---functional-overview-of-guix"></a>3장 - GUIX의 기능 개요
 
@@ -254,7 +254,9 @@ GUIX는 애플리케이션과 함께 상주합니다. 그 결과, GUIX의 정적
 
 ### <a name="static-memory-usage"></a>정적 메모리 사용량 
 
-대부분의 개발 도구는 애플리케이션 프로그램 이미지를 명령어, 상수, 초기화된 데이터, 초기화되지 않은 데이터, GUIX 스레드 스택이라는 5가지 기본 영역으로 나눕니다.     그림 X(X페이지)에서는 이러한 메모리 영역의 예를 보여 줍니다.
+대부분의 개발 도구는 애플리케이션 프로그램 이미지를 명령어, 상수, 초기화된 데이터, 초기화되지 않은 데이터, GUIX 스레드 스택이라는 5가지 기본 영역으로 나눕니다.      아래 그림은 이러한 메모리 영역의 가능한 레이아웃을 보여줍니다.
+
+![메모리 레이아웃](./media/guix/user-guide/memory-area-example.png)
 
 이것은 단지 예제일 뿐이라는 것을 이해해야 합니다. 실제 정적 메모리 레이아웃은 프로세서, 개발 도구, 기본 하드웨어 및 애플리케이션 자체에 따라 다릅니다.
 
@@ -685,7 +687,7 @@ Studio 위젯 속성 필드에서 "동적으로 할당" 옵션을 선택하면 S
 > [!IMPORTANT]
 > 동적으로 할당된 제어 블록을 사용하여 만든 위젯은 메모리 손실을 방지하기 위해 **GX_WIDGET_STYLE_DYNAMICALLY_ALLOCATED** 스타일 플래그를 사용하여 만들어야 합니다.
 
-### <a name="types"></a>형식
+### <a name="types"></a>유형
 
 GUIX는 다양한 기능을 갖춘 기본 제공 위젯 세트를 제공합니다. 앞에서 설명한 것처럼 모든 특수 위젯은 기본 위젯에서 파생됩니다. 다음은 GUIX의 기본 제공 위젯 목록입니다.
 

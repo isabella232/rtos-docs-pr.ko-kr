@@ -6,16 +6,16 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: cd736cf6bbe15e1f407d1812072a4308435c8007
-ms.sourcegitcommit: c2f5da5d6c7b230799f8fbd77885e9940acfbab4
+ms.openlocfilehash: 3323af5eaf31ac9c167966522df6477c82e99fdc
+ms.sourcegitcommit: c98e5360c9cedbe773af5a44f5163f563c85b570
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2021
-ms.locfileid: "110236155"
+ms.lasthandoff: 05/24/2021
+ms.locfileid: "110337009"
 ---
 # <a name="chapter-2---installation-and-use-of-azure-rtos-netx-crypto"></a>2장 - Azure RTOS NetX Crypto 설치 및 사용
 
-이 장에서는 Azure RTOS NetX Crypto 구성 요소의 설치, 설정 및 사용과 관련된 다양한 문제에 대해 설명합니다.
+이 챕터에서는 Azure RTOS NetX Crypto 구성 요소의 설치, 설정 및 사용법을 설명합니다.
 
 ## <a name="product-distribution"></a>제품 배포
 
@@ -36,7 +36,7 @@ NetX Crypto를 독립 실행형 모드에서 사용하려면 이전에 언급한
 
 ## <a name="using-netx-crypto"></a>NetX Crypto 사용
 
-이 챕터에서는 Azure RTOS NetX Crypto 구성 요소의 설치, 설정 및 사용법을 설명합니다. 기본적으로 애플리케이션 코드는 *nx_crypto.h* 를 포함해야 합니다.  *nx_crypto.h* 가 포함되면 애플리케이션 코드에서 이 가이드의 뒷부분에 지정된 NetX Crypto 함수 호출을 수행할 수 있습니다.
+애플리케이션 코드는 *nx_crypto.h* 를 포함해야 합니다.  *nx_crypto.h* 가 포함되면 애플리케이션 코드에서 이 가이드의 뒷부분에 지정된 NetX Crypto 함수 호출을 수행할 수 있습니다.
 
 ## <a name="configuration-options"></a>구성 옵션
 
