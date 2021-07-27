@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 5/19/2020
 ms.service: rtos
 ms.topic: overview
-ms.openlocfilehash: 6112ab5cb711ca1a5c83fd5cd4b43abc0302c6c5
-ms.sourcegitcommit: f9d8cf23becf96d5bd6d31dd54f89c48962fd09b
+ms.openlocfilehash: b40a57bf385ddcf623ff7cbe0d2e798c547227d7
+ms.sourcegitcommit: dbbec3ba6a7eb6097c7888b235c433a2efd6e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2021
-ms.locfileid: "111549336"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113754899"
 ---
 # <a name="overview-of-azure-rtos-netx-duo"></a>Azure RTOS NetX Duo 개요
 
@@ -30,6 +30,7 @@ Azure RTOS NetX Duo 임베디드 TCP/IP 네트워크 스택은 긴밀하게 포�
 * 최소 1.2KB, 300바이트의 RAM
 
 ### <a name="http-https"></a>HTTP, HTTPS
+NetX Duo는 다음 HTTP/HTTPS 프로토콜을 지원합니다.
 
 #### <a name="http-10"></a>HTTP 1.0
 
@@ -120,14 +121,8 @@ Azure RTOS NetX Duo 임베디드 TCP/IP 네트워크 스택은 긴밀하게 포�
 * 클라이언트 지원
 * 직관적인 SNTP API: *nx_sntp_\**
 
-### <a name="azure-rtos-netx-duo-api"></a>Azure RTOS NetX Duo API
+### <a name="legacy-code-support"></a>레거시 코드 지원
 
-* 직관적이고 일관성 있는 API
-* 명사-동사 명명 규칙
-* 빠르고 복사 없는 API 구현
-* 모든 API에는 Azure RTOS NetX로 쉽게 식별할 수 있도록 <i>nx_*</i>가 앞에 옵니다.
-* 차단 API에 선택적 스레드 시간 제한 적용
-* 자세한 내용은 [Azure RTOS NetX Duo 사용자 가이드](about-this-guide.md)를 참조하세요.
 * 레거시 소켓 코드 포팅을 위한 선택적 BSD 계층
 
 ### <a name="igmp"></a>IGMP
@@ -261,7 +256,6 @@ Azure RTOS NetX Duo는 안전합니다. 이 보안은 IPsec, SSL, TLS 및 DTLS�
 
 Microsoft Azure RTOS는 기본 MCU/MPU 하드웨어 보호 메커니즘을 사용하여 통신을 보호하고 코드 및 데이터 격리를 만드는 구성 요소를 OEM에 제공합니다. 디바이스가 특정 사용 사례에 따른 변화하는 보안 요구 사항을 완벽하게 충족하는지 확인하는 것은 궁극적으로 디바이스 빌더의 책임입니다.
 
-
 ## <a name="interoperability-verification"></a>상호 운용성 확인
 
 NetX Duo는 RFC 표준을 준수하며 대부분의 공급 업체에 대해 디바이스와의 완벽한 상호 운용성을 제공합니다.
@@ -274,7 +268,28 @@ Azure RTOS NetX Duo는 규정 준수 및 상호 운용성 테스트를 통과했
 
 NetX Duo는 긴밀하게 포함된 IoT 애플리케이션을 위한 가장 포괄적인 TCP/IP 네트워킹 중 하나입니다. 이 지원에는 다음과 같은 추가 기능형 프로토콜 제품이 포함됩니다.
 
-MQTT, CoAP, LWM2M, 6LoWPAN, SSL/TLS/DTLS, IPsec, AutoIP, DHCP, DNS, mDNS, DNS-SD, FTP, HTTP, IPsec, NAT, POP3, PPP, PPPoE, SMTP, SNMP v1/2/3, Telnet, TFTP
+* MQTT
+* CoAP
+* LWM2M
+* 6LoWPAN
+* SSL/TLS/DTLS
+* IPsec
+* AutoIP
+* DHCP
+* DNS
+* mDNS
+* DNS-SD
+* FTP
+* HTTP
+* IPsec
+* NAT
+* POP3
+* PPP
+* PPPoE
+* SMTP
+* SNMP v1/2/3
+* 텔넷
+* TFTP
 
 ## <a name="advanced-technology"></a>고급 기술
 
@@ -294,7 +309,13 @@ Azure RTOS NetX Duo는 다음을 포함하는 고급 기술입니다.
 
 ## <a name="related-services"></a>관련 서비스
 
-### <a name="azure-iot"></a>Azure IoT
+NetX Duo는 다음과 같은 추가 서비스를 제공합니다.
+
+* Azure IoT 미들웨어
+* Azure Defender
+* IoT Hub용 디바이스 업데이트.
+
+### <a name="azure-iot-middleware"></a>Azure IoT 미들웨어
 
 NetX Duo에는 Azure IoT 서비스에 쉽게 연결할 수 있도록 Azure RTOS와 Embedded C용 Azure SDK 사이의 바인딩 계층 역할을 하는 플랫폼별 라이브러리인 [ Azure RTOS용 Azure IoT 미들웨어](https://github.com/azure-rtos/netxduo/blob/master/addons/azure_iot/docs/README.md)가 포함되어 있습니다. Azure IoT 미들웨어의 목표는 다음과 같습니다.
 * 개발자가 애플리케이션에 필요한 스마트 클라이언트 인터페이스(IoTHub_Client, DeviceProvisioning_Client)를 제공합니다.

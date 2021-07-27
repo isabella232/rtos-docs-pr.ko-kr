@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 5/19/2020
 ms.service: rtos
 ms.topic: overview
-ms.openlocfilehash: 8f4a1578fcabdabfb213ced9c6593f6cffc964aa
-ms.sourcegitcommit: 19d50693d8f5287ba6938ae1d23eef88435ed7b1
+ms.openlocfilehash: 0a6ac2c7a76893d516b9beae9b893c9764de60ba
+ms.sourcegitcommit: dbbec3ba6a7eb6097c7888b235c433a2efd6e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108171406"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113754933"
 ---
 # <a name="overview-of-azure-rtos-guix-and-azure-rtos-guix-studio"></a>Azure RTOS GUIX 및 Azure RTOS GUIX Studio 개요
 
@@ -134,7 +134,7 @@ Azure RTOS GUIX 참조마다 참조 디자인의 모든 그래픽 요소를 정�
 
 모든 출력 파일을 생성하여 Azure RTOS GUIX에 대한 C 코드를 생성합니다. 그런 다음, 대상 애플리케이션을 다시 빌드하고 실행하여 수정된 참조 디자인을 관찰합니다.
 
-### <a name="memory-footprint"></a>메모리 공간
+### <a name="guix-memory-footprint"></a>GUIX 메모리 공간
 
 Azure RTOS GUIX는 캔버스에 필요한 메모리를 제외하고 기본 지원을 위한 13.2KB의 FLASH 및 4KB RAM의 매우 작은 최소 메모리 공간을 가지고 있습니다.
 

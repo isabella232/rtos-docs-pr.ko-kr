@@ -6,18 +6,19 @@ ms.author: philmea
 ms.date: 5/19/2020
 ms.service: rtos
 ms.topic: overview
-ms.openlocfilehash: 7c864c23f019e4841ddb3096fde663c8039baf44
-ms.sourcegitcommit: 19d50693d8f5287ba6938ae1d23eef88435ed7b1
+ms.openlocfilehash: 63fd212249da6154926684f9bc844d2c2a78e84e
+ms.sourcegitcommit: dbbec3ba6a7eb6097c7888b235c433a2efd6e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2021
-ms.locfileid: "108171321"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113754848"
 ---
 # <a name="overview-of-azure-rtos-netx"></a>Azure RTOS NetX 개요
 
 Azure RTOS NetX는 특별히 긴밀하게 포함된 실시간 및 IoT 애플리케이션용으로 설계된 산업용 TCP/IP IPv4 포함 네트워크 스택입니다. Azure RTOS NetX는 Microsoft의 원래 IPv4 네트워크 스택으로, 기본적으로 Azure RTOS의 하위 집합입니다. NetX는 IPv4, TCP, UDP 등의 핵심 네트워크 프로토콜과 함께 포함된 애플리케이션을 제공하고 더 높은 수준의 추가 기능 프로토콜을 완벽하게 제공합니다. Azure RTOS NetX는 적은 공간, 빠른 실행 및 뛰어난 사용 편의성을 제공하므로 가장 까다로운 포함된 IoT 애플리케이션에 적합합니다.
 
 ## <a name="api-protocols"></a>API 프로토콜
+Azure RTOS NetX는 다음을 지원합니다.
 
 ### <a name="telnet"></a>TELNET
 
@@ -153,7 +154,7 @@ Azure RTOS NetX는 특별히 긴밀하게 포함된 실시간 및 IoT 애플리�
 
 ## <a name="interoperability-verification"></a>상호 운용성 확인
 
-Azure RTOS NetX는 RFC 표준을 준수하며 대부분의 공급 업체에 대해 디바이스와의 완벽한 상호 운용성을 제공합니다. 또한 Azure RTOS NetX는 Azure RTOS NetX 코어 TCP/IP 프로토콜 구현에 업계 표준 IxANVL(자동화된 네트워크 유효성 검사 라이브러리)을 활용합니다.
+Azure RTOS NetX는 RFC 표준을 준수하며 대부분의 공급 업체의 디바이스와 완벽한 상호 운용성을 제공합니다. 또한 Azure RTOS NetX는 Azure RTOS NetX 코어 TCP/IP 프로토콜 구현에 업계 표준 IxANVL(자동화된 네트워크 유효성 검사 라이브러리)을 활용합니다.
 
 ## <a name="advanced-technology"></a>고급 기술
 

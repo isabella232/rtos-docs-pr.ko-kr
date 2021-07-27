@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 6/9/2020
 ms.service: rtos
 ms.topic: overview
-ms.openlocfilehash: 0fb861c2291046c2ac6edf1d03014996daa09a8e
-ms.sourcegitcommit: c1b00341e0c5ab71372f3d9cc4ee3bdd3702b805
+ms.openlocfilehash: 938619170ef51d354fa970134328c17407ae846a
+ms.sourcegitcommit: dbbec3ba6a7eb6097c7888b235c433a2efd6e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/10/2021
-ms.locfileid: "111988365"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113754865"
 ---
 # <a name="overview-of-azure-rtos-threadx"></a>Azure RTOS ThreadX 개요
 
@@ -165,13 +165,7 @@ Azure RTOS ThreadX는 심층 임베디드, 실시간 및 IoT 애플리케이션�
 * 시스템 수준 추적
 * 여러 표준으로 인증된 안전
 
-## <a name="most-deployed-rtos"></a>가장 많이 배포된 RTOS
-
-선도적인 M2M 시장 인텔리전스 회사인 VDC Research에 따르면 Azure RTOS ThreadX는 전 세계적으로 62억 개 이상의 배포를 보유하고 있습니다. Azure RTOS ThreadX의 인기는 신뢰도, 품질, 크기, 성능, 고급 기능, 사용 편의성 및 전반적인 출시 시간 이점에 대한 증거입니다.
-
-> *"우리는 회사 창립 이래 무선 및 IoT 시장에서 THREADX의 성장 궤적을 따라왔으며, THREADX의 광범위한 업계 채택에 점점 더 깊은 인상을 받았습니다."* – Chris Rommel, 부사장, VDC Research
-
-## <a name="small-footprint"></a>적은 메모리 공간
+## <a name="threadx-footprint"></a>ThreadX 공간
 
 Azure RTOS ThreadX는 매우 적은 2KB 명령 영역과 RAM 1KB의 최소 메모리 공간이 필요합니다. 이는 주로 계층화되지 않은 picokernel™ 아키텍처와 자동 크기 조정으로 인해 발생합니다. 자동 크기 조정은 애플리케이션에서 사용되는 서비스(및 지원 인프라)만 링크 타임에서 최종 이미지에 포함된다는 것을 의미합니다.
 
@@ -187,7 +181,7 @@ Azure RTOS ThreadX는 매우 적은 2KB 명령 영역과 RAM 1KB의 최소 메�
 |블록 메모리 서비스  |550  |
 |바이트 메모리 서비스  |900  |
 
-## <a name="fast-execution"></a>고속 실행
+## <a name="threadx-execution-speed"></a>ThreadX 실행 속도
 
 Azure RTOS ThreadX는 대부분의 인기 있는 프로세서에서 초소형 컨텍스트 전환을 달성하며 전반적으로 다른 상용 RTOS보다 훨씬 빠릅니다. Azure RTOS ThreadX는 속도가 빠를 뿐만 아니라 결정성도 뛰어납니다. 200개의 스레드가 준비되어 있든 단 한 개만 준비되어 있든 동일한 빠른 성능을 달성합니다.
 
@@ -276,31 +270,6 @@ Azure RTOS ThreadX MODULES라는 추가 기능 제품을 사용하면 하나 이
 Azure RTOS ThreadX 및 Azure RTOS ThreadX SMP 소스 코드는 MISRA-C:2004 및 MISRA C:2012를 준수합니다. MISRA C는 C 프로그래밍 언어를 사용하는 중요 시스템에 대한 프로그래밍 지침 세트입니다. 원래의 MISRA C 지침은 주로 자동차 분야를 대상으로 했지만, MISRA C는 이제 모든 안전 중요 분야에 적용할 수 있는 것으로 널리 인식되고 있습니다. Azure RTOS ThreadX는 MISRA-C:2004 및 MISRA C:2012의 모든 필수 및 의무 규칙을 준수합니다.
 
 :::image type="content" source="media/overview-threadx/misra-logo-certification.png" alt-text="Misra 인증":::
-
-## <a name="supports-most-popular-architectures"></a>대부분의 주요 아키텍처 지원
-
-Azure RTOS ThreadX는 완전한 테스트와 지원을 통해 다음과 같이 대부분의 주요 32/64비트 마이크로프로세서에서 실행되며, 바로 사용할 수 있습니다.
-
-* 아날로그 디바이스: SHARC, Blackfin, CM4xx
-* Andes Core: RISC-V
-* Ambiqmicro: Apollo MCU
-* ARM: ARM7, ARM9, ARM11, Cortex-M0/M3/M4/M7/A15/A5/A7/A8/A9/A5x 64-bi/A7x 64-bit/R4/R5, TrustZone ARMv8-M
-* Cadence: Xtensa, Diamond
-* CEVA: PSoC, PSoC 4, PSoC 5, PSoC 6, FM0+, FM3, MF4, WICED WiFi
-* Cypress: RISC-V
-* EnSilica: eSi-RISC
-* Infineon: XMC1000, XMC4000, TriCore
-* Intel & Intel FPGA: x36/Pentium, XScale, NIOS II, Cyclone, Arria 10
-* Microchip: AVR32, ARM7, ARM9, Cortex-M3/M4/M7, SAM3/4/7/9/A/C/D/E/G/L/SV, PIC24/PIC32
-* Microsemi: RISC-V
-* NXP: LPC, ARM7, ARM9, PowerPC, 68K, i.MX, ColdFire, Kinetis Cortex-M3/M4
-* Renesas: SH, HS, V850, RX, RZ, Synergy
-* Silicon Labs: EFM32
-* Synopsys: ARC 600, 700, ARC EM, ARC HS
-* ST: STM32, ARM7, ARM9, Cortex-M3/M4/M7
-* Tl: C5xxx, C6xxx, Stellaris, Sitara, Tiva-C
-* Wave Computing: MIPS32 4K, 24K, 34K, 1004K, MIPS64 5K, microAptiv, interAptiv, proAptiv, M-Class
-* Xilinx: MicroBlaze, PowerPC 405, ZYNQ, ZYNQ UltraSCALE
 
 ## <a name="supports-most-popular-tools"></a>가장 널리 사용되는 도구 지원
 

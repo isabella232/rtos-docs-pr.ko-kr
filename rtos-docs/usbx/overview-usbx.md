@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 5/19/2020
 ms.service: rtos
 ms.topic: overview
-ms.openlocfilehash: 87eb6ee9f8733db3201280d377aa832b87131871
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 3c214a49f7dd1af20c20f07412fb072dd785b16f
+ms.sourcegitcommit: dbbec3ba6a7eb6097c7888b235c433a2efd6e5b9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104813285"
+ms.lasthandoff: 07/14/2021
+ms.locfileid: "113754831"
 ---
 # <a name="overview-of-azure-rtos-usbx"></a>Azure RTOS USBX 개요
 
@@ -21,21 +21,13 @@ Azure RTOS USBX는 고성능의 USB 호스트, 디바이스 및 OTG(On-The-Go) �
 
 Azure RTOS USBX 호스트/디바이스 포함 USB 프로토콜 스택은 포함 수준이 높은 실시간 IoT 애플리케이션 전용으로 설계된 산업 등급 포함 USB 솔루션입니다. Azure RTOS USBX는 호스트, 디바이스, OTG 지원과, 광범위 클래스 지원을 제공합니다. Azure RTOS USBX는 ThreadX 실시간 운영 체제, Azure RTOS FileX 포함 FAT 호환 파일 시스템, Azure RTOS NetX 및 Azure RTOS NetX Duo 포함 TCP/IP 스택에 통합됩니다. 이뿐 아니라 Azure RTOS USBX는 매우 적은 메모리 공간에서 고속 실행과 뛰어난 사용 편의성을 구현하므로, USB 연결이 요구되는 가장 까다로운 포함된 IoT 애플리케이션에 적합합니다.
 
-### <a name="small-footprint"></a>적은 메모리 공간
+### <a name="usbx-memory-footprint"></a>USBX 메모리 공간
 
 Azure RTOS USBX는 Azure RTOS USBX 디바이스 CDC/ACM 지원을 위한 최소 메모리 공간이 10.5KB FLASH, 5.1KB RAM으로, 매우 적습니다. Azure RTOS USBX 호스트에서는 CDC/ACM 지원에 최소 18KB FLASH와 25KB RAM이 필요합니다.
 
 TCP 기능을 위해서는 추가적으로 10 ~ 13KB의 명령 영역 메모리가 필요합니다. Azure RTOS USBX RAM 사용량은 일반적으로 2.6KB에서 3.6KB까지이며, 애플리케이션에 의해 정의되는 패킷 풀 메모리를 포함합니다.
 
 ThreadX와 같이 Azure RTOS USBX의 크기는 애플리케이션에서 실제 사용하는 서비스에 따라 자동으로 조정됩니다. 이렇게 하면 사실상 복잡한 구성 및 빌드 매개 변수가 제거되어 개발자가 더 쉽게 작업을 수행할 수 있습니다.
-
-### <a name="fast-execution"></a>고속 실행
-
-빠른 속도를 위해 설계된 Azure RTOS USBX는 내부 함수 호출 계층화가 최소 수준이며, 캐시 및 DMA 사용률을 지원합니다. 이런 특징과 일반 성능 중심 디자인 철학으로 Azure RTOS USBX에서 가능한 가장 빠른 성능을 구현하고 있습니다.
-
-### <a name="simple-easy-to-use"></a>간단하고 손쉬운 사용
-
-Azure RTOS USBX는 사용이 간단합니다. Azure RTOS USBX API는 직관적이고 매우 기능적입니다. API 이름은 다른 파일 시스템에서 흔히 볼 수 있는 매우 축약된 이름의 알파벳 약자가 아니라 실제 단어로 구성됩니다. 모든 Azure RTOS USBX API에는 선행 "ux_"가 있으며 명사-동사 명명 규칙을 따릅니다. 또한 API 전체에 걸쳐 기능적 일관성이 있습니다. 예를 들어 일시 중단된 모든 API는 API에 대해 동일한 방식으로 작동하는 선택적 시간 제한이 있습니다.
 
 ### <a name="usb-interoperability-verification"></a>USB 상호 운용성 확인
 
@@ -70,46 +62,6 @@ Azure RTOS USBX의 호스트 및 디바이스는 사용자 지정 클래스를 �
 * ThreadX, Azure RTOS FileX 및 Azure RTOS NetX 완전 통합
 * 선택적 성능 메트릭
 * Azure RTOS TraceX 시스템 분석 지원
-
-### <a name="fastest-time-to-market"></a>가장 빠른 출시 시간
-
-Azure RTOS USBX는 기본 IP 및 UDP 지원을 위한 메모리 공간이 9 ~ 15KB로 매우 적습니다. Azure RTOS USBX는 설치, 학습, 사용, 디버그, 확인, 인증 및 유지 관리를 손쉽게 수행할 수 있습니다. 이 덕분에 Azure RTOS USBX는 포함된 IoT 디바이스에 가장 널리 사용되는 USB 솔루션 중 하나가 되었습니다. 일관적인 출시 시간 이점은 다음을 기반으로 합니다.
-
-* 품질 설명서 – Azure RTOS USBX 호스트 및 디바이스 사용자 가이드를 검토하고 직접 확인할 수 있습니다.
-* 전체 소스 코드 가용성
-* 사용하기 쉬운 API
-* 포괄적인 고급 기능 세트
-
-## <a name="one-simple-license"></a>하나의 간단한 라이선스
-
-사전에 사용이 허가된 디바이스에 배포하는 경우에는 소스 코드를 사용 및 테스트하는 데 비용이 들지 않으며 프로덕션 라이선스에 대한 비용도 부과되지 않습니다. 다른 모든 디바이스에는 간단한 연간 라이선스가 필요합니다.
-
-## <a name="full-highest-quality-source-code"></a>최고 품질의 전체 소스 코드
-
-오랜 시간을 통해 Azure RTOS NetX 소스 코드는 품질 및 이해 용이성의 기준을 정립했습니다. 또한 파일당 하나의 함수를 포함하는 규칙을 통해 손쉬운 소스 탐색을 제공합니다.
-
-### <a name="supports-most-popular-architectures"></a>대부분의 주요 아키텍처 지원
-
-Azure RTOS USBX는 완전한 테스트와 지원을 통해 다음과 같이 대부분의 주요 32/64비트 마이크로프로세서에서 실행되며, 바로 사용할 수 있습니다.
-
-* **아날로그 디바이스**: SHARC, Blackfin, CM4xx
-* **Andes Core**: RISC-V
-* **Ambiqmicro**: Apollo MCU
-* **ARM**: ARM7, ARM9, ARM11, Cortex-M0/M3/M4/M7/A15/A5/A7/A8/A9/A5x 64-bi/A7x 64비트/R4/R5, TrustZone ARMv8-M
-* **Cadence**: Xtensa, Diamond
-* **CEVA**: PSoC, PSoC 4, PSoC 5, PSoC 6, FM0+, FM3, MF4, WICED WiFi
-* **Cypress**: RISC-V
-* **EnSilica**: eSi-RISC
-* **Infineon**: XMC1000, XMC4000, TriCore
-* **Intel & Intel FPGA**: x36/Pentium, XScale, NIOS II, Cyclone, Arria 10
-* **Microchip**: AVR32, ARM7, ARM9, Cortex-M3/M4/M7, SAM3/4/7/9/A/C/D/E/G/L/SV, PIC24/PIC32
-* **Microsemi**: RISC-V
-* **NXP**: LPC, ARM7, ARM9, PowerPC, 68 K, i.MX, ColdFire, Kinetis Cortex-M3/M4
-* **Renesas**: SH, HS, V850, RX, RZ, Synergy Silicon Labs: EFM32
-* **Synopsys**: ARC 600, 700, ARC EM, ARC HS
-* **ST**: STM32, ARM7, ARM9, Cortex-M3/M4/M7
-* **Tl**: C5xxx, C6xxx, Stellaris, Sitara, Tiva-C
-* **Wave Computing**: MIPS32 4K, 24 K, 34 K, 1004 K, MIPS64 5K, microAptiv, interAptiv, proAptiv, M-Class **Xilinx**: MicroBlaze, PowerPC 405, ZYNQ, ZYNQ UltraSCALE
 
 ## <a name="azure-rtos-usbx-apis"></a>Azure RTOS USBX API
 
