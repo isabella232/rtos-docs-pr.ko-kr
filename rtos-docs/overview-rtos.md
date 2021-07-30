@@ -6,18 +6,18 @@ ms.author: philmea
 ms.date: 5/19/2020
 ms.service: rtos
 ms.topic: overview
-ms.openlocfilehash: b099a5f18accfbe467a2a8fa680c0c76666a9ff3
-ms.sourcegitcommit: dbbec3ba6a7eb6097c7888b235c433a2efd6e5b9
+ms.openlocfilehash: a6f9cfd772c81340a90b7dc217c0ccc160c7f957
+ms.sourcegitcommit: 7993d2c3b0711ae2c246561a0c8bf963d8e0324a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/14/2021
-ms.locfileid: "113754916"
+ms.lasthandoff: 07/24/2021
+ms.locfileid: "114661201"
 ---
 # <a name="what-is-microsoft-azure-rtos"></a>Microsoft Azure RTOS란?
 
 Azure RTOS는 MCU(마이크로 컨트롤러 단위)로 구동되는 IoT(사물 인터넷) 및 에지 디바이스의 RTOS(실시간 운영 체제)입니다. Azure RTOS는 대부분의 매우 제한된 디바이스(배터리 전원을 공급하고 64KB 미만의 플래시 메모리)를 지원하도록 설계되었습니다.
 
-Azure RTOS는 다양한 안전 표준에 대해 사전 인증을 받았습니다. 여기에는 IEC 61508 SIL 4, IEC 62304 클래스 C 및 ISO 26262 ASIL D 인증이 포함됩니다. 또한 Azure RTOS ThreadX는 DO-178 인증을 받았습니다.
+Azure RTOS는 다양한 안전 표준에 대해 사전 인증을 받았습니다. 여기에는 IEC 61508 SIL 4, IEC 62304 클래스 C 및 ISO 26262 ASIL D 인증이 포함됩니다.
 
 Azure RTOS는 TLS 및 DTLS를 통해 IPsec 및 소켓 계층 보안을 통해 전체 IP 계층 보안을 비롯하여 EAL4+ Common Criteria 보안 인증 환경을 제공합니다. 소프트웨어 암호화 라이브러리는 FIPS 140-2 인증을 달성했습니다. 또한 하드웨어 암호화 기능, ThreadX 모듈을 통한 메모리 보호 및 ARM의 TrustZone ARMv8-M 보안 기능에 대한 지원을 활용합니다.
 
