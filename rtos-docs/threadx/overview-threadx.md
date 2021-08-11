@@ -7,12 +7,12 @@ ms.date: 6/9/2021
 ms.service: rtos
 ms.topic: overview
 ms.custom: contperf-fy21q4
-ms.openlocfilehash: 8c0bec2bb3b699b3a8d39d85eb322f3bbd95515a
-ms.sourcegitcommit: 8b03df42920bdd544fb4195ab818043f6c71969e
+ms.openlocfilehash: 4b6c8df5133f16cf3ed4006c12433ac426453cb5
+ms.sourcegitcommit: 62cfdf02628530807f4d9c390d6ab623e2973fee
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2021
-ms.locfileid: "114436749"
+ms.lasthandoff: 08/05/2021
+ms.locfileid: "115178207"
 ---
 # <a name="overview-of-azure-rtos-threadx"></a>Azure RTOS ThreadX 개요
 
@@ -61,7 +61,7 @@ Azure RTOS ThreadX의 일반적인 성능 특성은 다음과 같습니다.
 
 ## <a name="advanced-technology"></a>고급 기술
 
-Azure RTOS ThreadX는 preemption-threshold 예약으로 잘 알려져 있습니다. 이 기능은 Azure RTOS ThreadX의 고유한 것이며 광범위한 학술 연구의 주제였습니다. Yun Wang(컨커디아 대학교) 및 Manas Saksena(피츠버그 대학교)의 [Preemption Threshold를 사용하여 고정 우선 순위 작업 예약(Scheduling Fixed-Priority Tasks with Preemption Threshold)](https://www.cs.utah.edu/~regehr/reading/open_papers/preempt_thresh.pdf) 논문에서 자세히 알아볼 수 있습니다.
+Azure RTOS ThreadX는 preemption-threshold 예약으로 잘 알려져 있습니다. 이 기능은 Azure RTOS ThreadX의 고유한 것이며 광범위한 학술 연구의 주제였습니다. Yun Wang(컨커디아 대학교) 및 Manas Saksena(피츠버그 대학교)의 [Preemption Threshold를 사용하여 고정 우선 순위 작업 예약(Scheduling Fixed-Priority Tasks with Preemption Threshold)](https://ieeexplore.ieee.org/document/811269) 논문에서 자세히 알아볼 수 있습니다.
 
 Azure RTOS ThreadX의 주요 기능:
 

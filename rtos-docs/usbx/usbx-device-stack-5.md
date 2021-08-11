@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 5/19/2020
 ms.service: rtos
 ms.topic: article
-ms.openlocfilehash: 84f215ad990a2fe185a08f3876276528787ef8bc
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: ea348d94e83863c0e2652df29f92d952f2242661
+ms.sourcegitcommit: 62cfdf02628530807f4d9c390d6ab623e2973fee
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104811358"
+ms.lasthandoff: 08/05/2021
+ms.locfileid: "115178020"
 ---
 # <a name="chapter-5---usbx-device-class-considerations"></a>5장 - USBX 디바이스 클래스 고려 사항
 
@@ -59,6 +59,12 @@ VOID tx_demo_hid_instance_deactivate(VOID *hid_instance)
 ```
 
 두 함수 내에서는 클래스 인스턴스를 기억하고 애플리케이션의 나머지 부분과 동기화하는 작업을 제외한 어떤 작업도 수행하지 않는 것이 좋습니다.
+
+## <a name="general-considerations-for-bulk-transfer"></a>대량 전송에 대한 일반적인 고려 사항
+
+USB 2.0 사양에 따라 엔드포인트는 항상 엔드포인트의 보고된 wMaxPacketSize 값보다 작거나 같은 데이터 필드로 데이터 페이로드를 전송해야 합니다. 데이터 패킷의 크기는 bMaxPacketSize로 제한됩니다. 다음과 같은 경우 전송을 완료할 수 있습니다.
+1. 엔드포인트가 예상되는 데이터의 양을 정확하게 전송했습니다.
+2. 디바이스 또는 호스트 엔드포인트가 최대 패킷 크기(wMaxPacketSize)보다 작은 크기의 패킷을 수신하는 경우. 이 짧은 패킷은 더 이상 데이터 패킷이 남아 있지 않고 전송이 완료되었음을 나타내거나 전송할 데이터 패킷이 모두 wMaxPacketSize와 같으면 전송 종료를 확인할 수 없음을 나타냅니다. 전송을 완료하려면 ZLP(Zero Length Packet)가 짧은 패킷으로 전송되어야 하며 Zero Length Packet은 대량 데이터 전송의 끝을 의미합니다. 위의 고려 사항은 원시 대량 데이터 전송 API(예: ux_device_class_cdc_acm_read())에 적용됩니다.
 
 ## <a name="usb-device-storage-class"></a>USB 디바이스 스토리지 클래스
 
@@ -846,6 +852,9 @@ UINT ux_device_class_cdc_acm_read(
 ### <a name="description"></a>Description
 
 이 함수는 애플리케이션에서 OUT 데이터 파이프(호스트에서는 OUT, 디바이스에서는 IN)를 읽어야 하는 경우에 호출됩니다. 차단형 함수입니다.
+
+> [!Note]
+> 이 함수는 호스트에서 원시 벌크 데이터를 읽으므로 버퍼가 가득 차거나 호스트가 짧은 패킷(Zero Length Packet 포함)으로 전송을 종료할 때까지 보류 상태를 유지합니다. 자세한 내용은 [**대량 전송에 대한 일반적인 고려 사항**](#general-considerations-for-bulk-transfer) 섹션을 참조하세요.
 
 ### <a name="parameters"></a>매개 변수
 

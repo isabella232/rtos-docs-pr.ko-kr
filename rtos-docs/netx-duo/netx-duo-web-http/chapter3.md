@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 07/14/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 6bb2743f05c5b56331d1c0e948601ad23bf340d1
-ms.sourcegitcommit: 95f4ae0842a486fec8f10d1480203695faa9592d
+ms.openlocfilehash: 0357afe7f997c84a5d031ca71dc524e381734b4a
+ms.sourcegitcommit: 62cfdf02628530807f4d9c390d6ab623e2973fee
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111875275"
+ms.lasthandoff: 08/05/2021
+ms.locfileid: "115178190"
 ---
 # <a name="chapter-3---description-of-http-services"></a>챕터 3 - HTTP 서비스 설명
 
@@ -124,7 +124,7 @@ UINT nx_web_http_client_create(NX_WEB_HTTP_CLIENT *client_ptr,
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
-- **client_ptr** HTTP 클라이언트 제어 블록에 대한 포인터입니다.
+- **client_ptr** HTTP 클라이언트 제어 블록에 대한 포인터
 - **client_name** HTTP 클라이언트 인스턴스의 이름입니다.
 - **ip_ptr** IP 인스턴스에 대한 포인터입니다.
 - **pool_ptr** 기본 패킷 풀에 대한 포인터입니다. 이 풀의 패킷에는 전체 응답 헤더를 처리할 수 있을 만큼 큰 페이로드가 있어야 합니다. *nx_web_http_client.h* 의 *NX_WEB_HTTP_CLIENT_MIN_PACKET_SIZE* 에서 정의합니다.
@@ -166,7 +166,7 @@ UINT nx_web_http_client_delete(NX_WEB_HTTP_CLIENT *client_ptr);
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
-- **client_ptr** HTTP 클라이언트 제어 블록에 대한 포인터입니다.
+- **client_ptr** HTTP 클라이언트 제어 블록에 대한 포인터
 
 ### <a name="return-values"></a>반환 값
 
@@ -213,13 +213,13 @@ UINT nx_web_http_client_delete_start(NX_WEB_HTTP_CLIENT *client_ptr,
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
-- **client_ptr** HTTP 클라이언트 제어 블록에 대한 포인터입니다.
+- **client_ptr** HTTP 클라이언트 제어 블록에 대한 포인터
 - **ip_address** HTTP 서버의 IP 주소
 - **server_port** 원격 HTTP 서버의 포트
 - **host** 서버 도메인 이름의 Null 종료 문자열. 이 문자열은 HTTP 호스트 헤더 필드를 통해 전송됩니다. 호스트 문자열은 NULL일 수 없습니다.
 - **resource** 요청된 리소스의 URL 문자열에 대한 포인터
-- **username** 인증을 위한 선택적 사용자 이름에 대한 포인터입니다.
-- **password** 인증을 위한 선택적 암호에 대한 포인터입니다.
+- **username** 인증을 위한 선택적 사용자 이름에 대한 포인터
+- **password** 인증을 위한 선택적 암호에 대한 포인터
 - **wait_option** 서비스에서 HTTP 클라이언트 GET 시작 요청을 기다리는 시간을 정의합니다. 대기 옵션은 다음과 같이 정의됩니다.
   - **timeout value** (0x00000001 ~ 0xFFFFFFFE) 숫자 값(0x1 ~ 0xFFFFFFFE)을 선택하면 HTTP 서버 응답을 기다리는 동안 일시 중단 상태로 유지되는 최대 타이머 틱 수를 지정하게 됩니다.
   - **NX_WAIT_FOREVER** (0xFFFFFFFF) NX_WAIT_FOREVER를 선택하면 HTTP 서버가 요청에 응답할 때까지 호출 스레드가 무기한 일시 중단됩니다.
@@ -285,7 +285,7 @@ UINT nx_web_http_client_delete_start_extended(
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
-- **client_ptr** HTTP 클라이언트 제어 블록에 대한 포인터입니다.
+- **client_ptr** HTTP 클라이언트 제어 블록에 대한 포인터
 - **ip_address** HTTP 서버의 IP 주소
 - **server_port** 원격 HTTP 서버의 포트
 - **resource** 요청된 리소스의 URL 문자열에 대한 포인터
@@ -364,7 +364,7 @@ UINT nx_web_http_client_delete_secure_start(
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
-- **client_ptr** HTTP 클라이언트 제어 블록에 대한 포인터입니다.
+- **client_ptr** HTTP 클라이언트 제어 블록에 대한 포인터
 - **ip_address** HTTP 서버의 IP 주소
 - **server_port** 원격 HTTP 서버의 포트
 - **resource** 요청된 리소스의 URL 문자열에 대한 포인터 리소스는 NULL로 종료되어야 합니다.
@@ -438,7 +438,7 @@ UINT nx_web_http_client_delete_secure_start_extended(
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
-- **client_ptr** HTTP 클라이언트 제어 블록에 대한 포인터입니다.
+- **client_ptr** HTTP 클라이언트 제어 블록에 대한 포인터
 - **ip_address** HTTP 서버의 IP 주소
 - **server_port** 원격 HTTP 서버의 포트
 - **resource** 요청된 리소스의 URL 문자열에 대한 포인터 리소스는 NULL로 종료되어야 합니다.
@@ -514,13 +514,13 @@ UINT nx_web_http_client_get_start(NX_WEB_HTTP_CLIENT *client_ptr,
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
-- **client_ptr** HTTP 클라이언트 제어 블록에 대한 포인터입니다.
+- **client_ptr** HTTP 클라이언트 제어 블록에 대한 포인터
 - **ip_address** HTTP 서버의 IP 주소
 - **server_port** 원격 HTTP 서버의 포트
 - **resource** 요청된 리소스의 URL 문자열에 대한 포인터
 - **host** 서버 도메인 이름의 Null 종료 문자열. 이 문자열은 HTTP 호스트 헤더 필드를 통해 전송됩니다. 호스트 문자열은 NULL일 수 없습니다.
 - **username** 인증을 위한 선택적 사용자 이름에 대한 포인터
-- **password** 인증을 위한 선택적 암호에 대한 포인터입니다.
+- **password** 인증을 위한 선택적 암호에 대한 포인터
 - **wait_option** 서비스에서 HTTP 클라이언트 GET 시작 요청을 기다리는 시간을 정의합니다. 대기 옵션은 다음과 같이 정의됩니다.
   - **timeout value** (0x00000001 ~ 0xFFFFFFFE) 숫자 값(0x1 ~ 0xFFFFFFFE)을 선택하면 HTTP 서버 응답을 기다리는 동안 일시 중단 상태로 유지되는 최대 타이머 틱 수를 지정하게 됩니다.
   - **NX_WAIT_FOREVER** (0xFFFFFFFF) NX_WAIT_FOREVER를 선택하면 HTTP 서버가 요청에 응답할 때까지 호출 스레드가 무기한 일시 중단됩니다.
@@ -586,7 +586,7 @@ UINT nx_web_http_client_get_start_extended(
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
-- **client_ptr** HTTP 클라이언트 제어 블록에 대한 포인터입니다.
+- **client_ptr** HTTP 클라이언트 제어 블록에 대한 포인터
 - **ip_address** HTTP 서버의 IP 주소
 - **server_port** 원격 HTTP 서버의 포트
 - **resource** 요청된 리소스의 URL 문자열에 대한 포인터
@@ -664,7 +664,7 @@ UINT nx_web_http_client_get_secure_start(
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
-- **client_ptr** HTTP 클라이언트 제어 블록에 대한 포인터입니다.
+- **client_ptr** HTTP 클라이언트 제어 블록에 대한 포인터
 - **ip_address** HTTP 서버의 IP 주소
 - **server_port** 원격 HTTP 서버의 포트
 - **resource** 요청된 리소스의 URL 문자열에 대한 포인터
@@ -740,7 +740,7 @@ UINT nx_web_http_client_get_secure_start_extended(
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
-- **client_ptr** HTTP 클라이언트 제어 블록에 대한 포인터입니다.
+- **client_ptr** HTTP 클라이언트 제어 블록에 대한 포인터
 - **ip_address** HTTP 서버의 IP 주소
 - **server_port** 원격 HTTP 서버의 포트
 - **resource** 요청된 리소스의 URL 문자열에 대한 포인터
@@ -817,13 +817,13 @@ UINT nx_web_http_client_head_start(NX_WEB_HTTP_CLIENT *client_ptr,
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
-- **client_ptr** HTTP 클라이언트 제어 블록에 대한 포인터입니다.
+- **client_ptr** HTTP 클라이언트 제어 블록에 대한 포인터
 - **ip_address** HTTP 서버의 IP 주소
 - **server_port** 원격 HTTP 서버의 포트
 - **resource** 요청된 리소스의 URL 문자열에 대한 포인터
 - **host** 서버 도메인 이름의 Null 종료 문자열. 이 문자열은 HTTP 호스트 헤더 필드를 통해 전송됩니다. 호스트 문자열은 NULL일 수 없습니다.
 - **username** 인증을 위한 선택적 사용자 이름에 대한 포인터
-- **password** 인증을 위한 선택적 암호에 대한 포인터입니다.
+- **password** 인증을 위한 선택적 암호에 대한 포인터
 - **wait_option** 서비스에서 HTTP 클라이언트 GET 시작 요청을 기다리는 시간을 정의합니다. 대기 옵션은 다음과 같이 정의됩니다.
   - **timeout value** (0x00000001 ~ 0xFFFFFFFE) 숫자 값(0x1 ~ 0xFFFFFFFE)을 선택하면 HTTP 서버 응답을 기다리는 동안 일시 중단 상태로 유지되는 최대 타이머 틱 수를 지정하게 됩니다.
   - **NX_WAIT_FOREVER** (0xFFFFFFFF) NX_WAIT_FOREVER를 선택하면 HTTP 서버가 요청에 응답할 때까지 호출 스레드가 무기한 일시 중단됩니다.
@@ -889,7 +889,7 @@ UINT nx_web_http_client_head_start_extended(
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
-- **client_ptr** HTTP 클라이언트 제어 블록에 대한 포인터입니다.
+- **client_ptr** HTTP 클라이언트 제어 블록에 대한 포인터
 - **ip_address** HTTP 서버의 IP 주소
 - **server_port** 원격 HTTP 서버의 포트
 - **resource** 요청된 리소스의 URL 문자열에 대한 포인터
@@ -967,7 +967,7 @@ UINT nx_web_http_client_head_secure_start(
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
-- **client_ptr** HTTP 클라이언트 제어 블록에 대한 포인터입니다.
+- **client_ptr** HTTP 클라이언트 제어 블록에 대한 포인터
 - **ip_address** HTTP 서버의 IP 주소
 - **server_port** 원격 HTTP 서버의 포트
 - **resource** 요청된 리소스의 URL 문자열에 대한 포인터
@@ -1042,7 +1042,7 @@ CHAR *host, UINT host_length, CHAR *username,
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
-- **client_ptr** HTTP 클라이언트 제어 블록에 대한 포인터입니다.
+- **client_ptr** HTTP 클라이언트 제어 블록에 대한 포인터
 - **ip_address** HTTP 서버의 IP 주소
 - **server_port** 원격 HTTP 서버의 포트
 - **resource** 요청된 리소스의 URL 문자열에 대한 포인터
@@ -1169,13 +1169,13 @@ UINT nx_web_http_client_post_start(NX_WEB_HTTP_CLIENT *client_ptr,
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
-- **client_ptr** HTTP 클라이언트 제어 블록에 대한 포인터입니다.
+- **client_ptr** HTTP 클라이언트 제어 블록에 대한 포인터
 - **ip_address** HTTP 서버의 IP 주소
 - **server_port** 원격 HTTP 서버의 TCP 포트
 - **resource** 서버에 보내는 리소스의 URL 문자열에 대한 포인터
 - **host** 서버 도메인 이름의 Null 종료 문자열. 이 문자열은 HTTP 호스트 헤더 필드를 통해 전송됩니다. 호스트 문자열은 NULL일 수 없습니다.
 - **username** 인증을 위한 선택적 사용자 이름에 대한 포인터
-- **password** 인증을 위한 선택적 암호에 대한 포인터입니다.
+- **password** 인증을 위한 선택적 암호에 대한 포인터
 - **total_bytes** 전송 중인 리소스의 총 바이트 수. 후속 호출을 통해 *nx_web_http_client_put_packet()* 에 보내는 모든 패킷의 총 길이는 이 값과 같아야 합니다.
 - **wait_option** 서비스에서 HTTP 클라이언트 GET 시작 요청을 기다리는 시간을 정의합니다. 대기 옵션은 다음과 같이 정의됩니다.
   - **timeout value** (0x00000001 ~ 0xFFFFFFFE) 숫자 값(0x1 ~ 0xFFFFFFFE)을 선택하면 HTTP 서버 응답을 기다리는 동안 일시 중단 상태로 유지되는 최대 타이머 틱 수를 지정하게 됩니다.
@@ -1241,7 +1241,7 @@ UINT nx_web_http_client_post_start_extended(
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
-- **client_ptr** HTTP 클라이언트 제어 블록에 대한 포인터입니다.
+- **client_ptr** HTTP 클라이언트 제어 블록에 대한 포인터
 - **ip_address** HTTP 서버의 IP 주소
 - **server_port** 원격 HTTP 서버의 TCP 포트
 - **resource** 요청된 리소스의 URL 문자열에 대한 포인터
@@ -1320,13 +1320,13 @@ UINT nx_web_http_client_post_secure_start(
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
-- **client_ptr** HTTP 클라이언트 제어 블록에 대한 포인터입니다.
+- **client_ptr** HTTP 클라이언트 제어 블록에 대한 포인터
 - **ip_address** HTTP 서버의 IP 주소
 - **server_port** 원격 HTTP 서버의 TCP 포트
 - **resource** 서버에 보내는 리소스의 URL 문자열에 대한 포인터
 - **host** 서버 도메인 이름의 Null 종료 문자열. 이 문자열은 HTTP 호스트 헤더 필드를 통해 전송됩니다. 호스트 문자열은 NULL일 수 없습니다.
 - **username** 인증을 위한 선택적 사용자 이름에 대한 포인터
-- **password** 인증을 위한 선택적 암호에 대한 포인터입니다.
+- **password** 인증을 위한 선택적 암호에 대한 포인터
 - **total_bytes** 전송 중인 리소스의 총 바이트 수. 후속 호출을 통해 *nx_web_http_client_put_packet()* 에 보내는 모든 패킷의 총 길이는 이 값과 같아야 합니다.
 - **tls_setup** TLS 구성을 설정하는 데 사용되는 콜백. 애플리케이션에서는 이 콜백을 정의하여 TLS 암호화 및 자격 증명(예: 인증서)을 초기화합니다.
 - **wait_option** 서비스에서 HTTP 클라이언트 GET 시작 요청을 기다리는 시간을 정의합니다. 대기 옵션은 다음과 같이 정의됩니다.
@@ -1396,7 +1396,7 @@ UINT nx_web_http_client_post_secure_start_extended(
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
-- **client_ptr** HTTP 클라이언트 제어 블록에 대한 포인터입니다.
+- **client_ptr** HTTP 클라이언트 제어 블록에 대한 포인터
 - **ip_address** HTTP 서버의 IP 주소
 - **server_port** 원격 HTTP 서버의 TCP 포트
 - **resource** 요청된 리소스의 URL 문자열에 대한 포인터
@@ -1474,13 +1474,13 @@ UINT nx_web_http_client_put_start(NX_WEB_HTTP_CLIENT *client_ptr,
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
-- **client_ptr** HTTP 클라이언트 제어 블록에 대한 포인터입니다.
+- **client_ptr** HTTP 클라이언트 제어 블록에 대한 포인터
 - **ip_address** HTTP 서버의 IP 주소
 - **server_port** 원격 HTTP 서버의 TCP 포트
 - **resource** 서버에 보내는 리소스의 URL 문자열에 대한 포인터
 - **host** 서버 도메인 이름의 Null 종료 문자열. 이 문자열은 HTTP 호스트 헤더 필드를 통해 전송됩니다. 호스트 문자열은 NULL일 수 없습니다.
 - **username** 인증을 위한 선택적 사용자 이름에 대한 포인터
-- **password** 인증을 위한 선택적 암호에 대한 포인터입니다.
+- **password** 인증을 위한 선택적 암호에 대한 포인터
 - **total_bytes** 전송 중인 리소스의 총 바이트 수. 후속 호출을 통해 *nx_web_http_client_put_packet()* 에 보내는 모든 패킷의 총 길이는 이 값과 같아야 합니다.
 - **wait_option** 서비스에서 HTTP 클라이언트 GET 시작 요청을 기다리는 시간을 정의합니다. 대기 옵션은 다음과 같이 정의됩니다.
   - **timeout value** (0x00000001 ~ 0xFFFFFFFE) 숫자 값(0x1 ~ 0xFFFFFFFE)을 선택하면 HTTP 서버 응답을 기다리는 동안 일시 중단 상태로 유지되는 최대 타이머 틱 수를 지정하게 됩니다.
@@ -1547,7 +1547,7 @@ UINT nx_web_http_client_put_start(
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
-- **client_ptr** HTTP 클라이언트 제어 블록에 대한 포인터입니다.
+- **client_ptr** HTTP 클라이언트 제어 블록에 대한 포인터
 - **ip_address** HTTP 서버의 IP 주소
 - **server_port** 원격 HTTP 서버의 TCP 포트
 - **resource** 요청된 리소스의 URL 문자열에 대한 포인터
@@ -1627,13 +1627,13 @@ UINT nx_web_http_client_put_secure_start(
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
-- **client_ptr** HTTP 클라이언트 제어 블록에 대한 포인터입니다.
+- **client_ptr** HTTP 클라이언트 제어 블록에 대한 포인터
 - **ip_address** HTTP 서버의 IP 주소
 - **server_port** 원격 HTTP 서버의 TCP 포트
 - **resource** 서버에 보내는 리소스의 URL 문자열에 대한 포인터
 - **host** 서버 도메인 이름의 Null 종료 문자열. 이 문자열은 HTTP 호스트 헤더 필드를 통해 전송됩니다. 호스트 문자열은 NULL일 수 없습니다.
 - **username** 인증을 위한 선택적 사용자 이름에 대한 포인터
-- **password** 인증을 위한 선택적 암호에 대한 포인터입니다.
+- **password** 인증을 위한 선택적 암호에 대한 포인터
 - **total_bytes** 전송 중인 리소스의 총 바이트 수. 후속 호출을 통해 *nx_web_http_client_put_packet()* 에 보내는 모든 패킷의 총 길이는 이 값과 같아야 합니다.
 - **tls_setup** TLS 구성을 설정하는 데 사용되는 콜백. 애플리케이션에서는 이 콜백을 정의하여 TLS 암호화 및 자격 증명(예: 인증서)을 초기화합니다.
 - **wait_option** 서비스에서 HTTP 클라이언트 GET 시작 요청을 기다리는 시간을 정의합니다. 대기 옵션은 다음과 같이 정의됩니다.
@@ -1703,7 +1703,7 @@ UINT nx_web_http_client_put_secure_start(
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
-- **client_ptr** HTTP 클라이언트 제어 블록에 대한 포인터입니다.
+- **client_ptr** HTTP 클라이언트 제어 블록에 대한 포인터
 - **ip_address** HTTP 서버의 IP 주소
 - **server_port** 원격 HTTP 서버의 TCP 포트
 - **resource** 요청된 리소스의 URL 문자열에 대한 포인터
@@ -1774,7 +1774,7 @@ UINT nx_web_http_client_put_packet(NX_WEB_HTTP_CLIENT *client_ptr,
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
-- **client_ptr** HTTP 클라이언트 제어 블록에 대한 포인터입니다.
+- **client_ptr** HTTP 클라이언트 제어 블록에 대한 포인터
 - **packet_ptr** HTTP 서버에 보내는 리소스의 다음 콘텐츠에 대한 포인터
 - **wait_option** 서비스에서 HTTP 클라이언트 GET 시작 요청을 기다리는 시간을 정의합니다. 대기 옵션은 다음과 같이 정의됩니다.
   - **timeout value** (0x00000001 ~ 0xFFFFFFFE) 숫자 값(0x1 ~ 0xFFFFFFFE)을 선택하면 HTTP 서버 응답을 기다리는 동안 일시 중단 상태로 유지되는 최대 타이머 틱 수를 지정하게 됩니다.
@@ -2311,13 +2311,13 @@ UINT nx_web_http_client_response_body_get(
     wait_option);
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>설명
 
-이 서비스는 이전 *nx_web_http_client_get_start()* 또는 *nx_web_http_client_get_secure_start()* 호출에서 요청한 리소스 콘텐츠의 다음 패킷을 검색합니다. NX_WEB_HTTP_GET_DONE의 반환 상태를 받을 때까지 이 루틴을 연속적으로 호출해야 합니다.
+이 서비스는 이전 요청에서 요청한 리소스 콘텐츠의 다음 패킷을 검색합니다. NX_WEB_HTTP_GET_DONE의 반환 상태를 받을 때까지 이 루틴을 연속적으로 호출해야 합니다.
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
-- **client_ptr** HTTP 클라이언트 제어 블록에 대한 포인터입니다.
+- **client_ptr** HTTP 클라이언트 제어 블록에 대한 포인터
 - **packet_ptr** 부분 리소스 콘텐츠가 포함된 패킷 포인터의 대상
 - **wait_option** 서비스에서 HTTP 클라이언트 GET 시작 요청을 기다리는 시간을 정의합니다. 대기 옵션은 다음과 같이 정의됩니다.
   - **timeout value** (0x00000001 ~ 0xFFFFFFFE) 숫자 값(0x1 ~ 0xFFFFFFFE)을 선택하면 HTTP 서버 응답을 기다리는 동안 일시 중단 상태로 유지되는 최대 타이머 틱 수를 지정하게 됩니다.
@@ -2565,7 +2565,7 @@ UINT nx_web_http_server_cache_info_callback_set(
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
-- **server_ptr** HTTP 서버 제어 블록에 대한 포인터입니다.
+- **server_ptr** HTTP 서버 제어 블록에 대한 포인터
 - **cache_info_get** 콜백에 대한 포인터입니다.
 - **max_age** 리소스의 최대 사용 기간에 대한 포인터입니다.
 - **data** 반환된 마지막 수정 날짜에 대한 포인터입니다.
@@ -2612,7 +2612,7 @@ UINT nx_web_http_server_callback_data_send(
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
-- **server_ptr** HTTP 서버 제어 블록에 대한 포인터입니다.
+- **server_ptr** HTTP 서버 제어 블록에 대한 포인터
 - **data_ptr** 보내는 데이터에 대한 포인터
 - **data_length** 보내는 바이트 수
 
@@ -2676,7 +2676,7 @@ UINT nx_web_http_server_callback_generate_response_header(
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
-- **server_ptr** HTTP 서버 제어 블록에 대한 포인터입니다.
+- **server_ptr** HTTP 서버 제어 블록에 대한 포인터
 - **packet_pptr** 메시지에 할당된 패킷 포인터에 대한 포인터입니다.
 - **status_code** 리소스 상태를 표시합니다. 예제:
   - **NX_WEB_HTTP_STATUS_OK**
@@ -2779,7 +2779,7 @@ UINT nx_web_http_server_callback_generate_response_header_extended(
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
-- **server_ptr** HTTP 서버 제어 블록에 대한 포인터입니다.
+- **server_ptr** HTTP 서버 제어 블록에 대한 포인터
 - **packet_pptr** 메시지에 할당된 패킷 포인터에 대한 포인터입니다.
 - **status_code** 리소스 상태를 표시합니다. 예제:
   - **NX_WEB_HTTP_STATUS_OK**
@@ -2935,10 +2935,10 @@ UINT nx_web_http_server_callback_response_send(
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
-- **server_ptr** HTTP 서버 제어 블록에 대한 포인터입니다.
+- **server_ptr** HTTP 서버 제어 블록에 대한 포인터
 - **header** 응답 헤더 문자열에 대한 포인터입니다.
-- **information** 정보 문자열에 대한 포인터입니다.
-- **additional_info** 추가 정보 문자열에 대한 포인터입니다.
+- **information** 정보 문자열에 대한 포인터
+- **additional_info** 추가 정보 문자열에 대한 포인터
 
 ### <a name="return-values"></a>반환 값
 
@@ -2999,7 +2999,7 @@ UINT nx_web_http_server_callback_response_send_extended(
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
-- **server_ptr** HTTP 서버 제어 블록에 대한 포인터입니다.
+- **server_ptr** HTTP 서버 제어 블록에 대한 포인터
 - **header** 응답 헤더 문자열에 대한 포인터입니다.
 - **header_length** 응답 헤더 문자열의 길이입니다.
 - **information** 정보 문자열에 대한 포인터
@@ -3063,7 +3063,7 @@ UINT nx_web_http_server_content_get(NX_WEB_HTTP_SERVER *server_ptr,
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
-- **server_ptr** HTTP 서버 제어 블록에 대한 포인터입니다.
+- **server_ptr** HTTP 서버 제어 블록에 대한 포인터
 - **packet_ptr** HTTP 클라이언트 요청 패킷에 대한 포인터입니다. 이 패킷은 요청 알림 콜백에서 해제하면 안 됩니다.
 - **byte_offset** 콘텐츠 영역으로 오프셋할 바이트 수입니다.
 - **destination_ptr** 콘텐츠의 대상 영역에 대한 포인터입니다.
@@ -3120,7 +3120,7 @@ UINT nx_web_http_server_content_get_extended(
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
-- **server_ptr** HTTP 서버 제어 블록에 대한 포인터입니다.
+- **server_ptr** HTTP 서버 제어 블록에 대한 포인터
 - **packet_ptr** HTTP 클라이언트 요청 패킷에 대한 포인터입니다. 이 패킷은 요청 알림 콜백에서 해제하면 안 됩니다.
 - **byte_offset** 콘텐츠 영역으로 오프셋할 바이트 수입니다.
 - **destination_ptr** 콘텐츠의 대상 영역에 대한 포인터입니다.
@@ -4133,7 +4133,7 @@ UINT nx_web_http_server_type_get(NX_WEB_HTTP_SERVER *http_server_ptr,
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
-- **http_server_ptr** HTTP 서버 인스턴스에 대한 포인터입니다.
+- **http_server_ptr** HTTP 서버 인스턴스에 대한 포인터
 - **name** 검색할 버퍼에 대한 포인터
 - **http_type_string** 추출된 HTML 형식 문자열에 대한 포인터
 - **string_size** 추출된 HTML 형식 문자열 길이를 반환하는 포인터
@@ -4198,7 +4198,7 @@ UINT nx_web_http_server_type_get_extended(
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
-- **http_server_ptr** HTTP 서버 인스턴스에 대한 포인터입니다.
+- **http_server_ptr** HTTP 서버 인스턴스에 대한 포인터
 - **name** 검색할 버퍼에 대한 포인터
 - **name_length** 이름 길이
 - **http_type_string** 추출된 HTML 형식 문자열에 대한 포인터
@@ -4263,7 +4263,7 @@ UINT nx_web_http_server_digest_authenticate_notify_set(
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
-- **http_server_ptr** HTTP 서버 인스턴스에 대한 포인터입니다.
+- **http_server_ptr** HTTP 서버 인스턴스에 대한 포인터
 - **digest_authenticate_callback** 다이제스트 인증 콜백에 대한 포인터입니다.
 
 ### <a name="return-values"></a>반환 값

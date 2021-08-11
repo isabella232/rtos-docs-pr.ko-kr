@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 65095e326bc6809eba6e9472e2d74325351354ca
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 2b48491e3c601aeb68ecef00fd0f25d93cda6e64
+ms.sourcegitcommit: 62cfdf02628530807f4d9c390d6ab623e2973fee
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104811232"
+ms.lasthandoff: 08/05/2021
+ms.locfileid: "115177765"
 ---
 # <a name="appendix-h---guix-build-time-configuration-flags"></a>부록 H - GUIX 빌드 시간 구성 플래그
 
@@ -28,10 +28,6 @@ GX_SYSTEM_TIMER_MS
 TX_TIMER_TICKS_PER_SECOND
 - Default: 100
 - 설명: 이 값은 TX 타이머 인터럽트 진동 수를 정의합니다. 기본 ThreadX 간격 타이머가 10ms이므로 이 값은 기본적으로 100Hz 주파수로 설정됩니다.
-
-GX_SYSTEM_TIMER_TICKS
-- 기본값: ((GX_SYSTEM_TIMER_MS * TX_TIMER_TICKS_PER_SECOND)/1000)
-- 설명: 이 값은 GUIX 타이머 틱당 기본 RTOS 타이머 틱 수를 정의합니다. 기본값은 2입니다. 즉, GUIX 타이머 간격은 기본적으로 ThreadX 타이머 인터럽트 간격 2개 또는 20ms입니다.
 
 GX_DISABLE_MULTITHREAD_SUPPORT
 - 기본값: 정의되지 않음
