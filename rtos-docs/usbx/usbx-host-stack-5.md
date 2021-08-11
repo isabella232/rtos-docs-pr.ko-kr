@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 5/19/2020
 ms.service: rtos
 ms.topic: article
-ms.openlocfilehash: bf5876042e08a59979adcd429917bfc3fbfdbc20
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 2e9e2e0286300b3f79f7f9e6ad2d7fab96ba7337
+ms.sourcegitcommit: 62cfdf02628530807f4d9c390d6ab623e2973fee
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104813435"
+ms.lasthandoff: 08/05/2021
+ms.locfileid: "115177748"
 ---
 # <a name="chapter-5---usbx-host-classes-api"></a>5장 - USBX 호스트 클래스 API
 
@@ -685,6 +685,9 @@ UINT ux_host_class_cdc_acm_read(
 ### <a name="description"></a>Description
 
 이 함수는 cdc_acm 인터페이스에서 읽습니다. 호출이 차단되고 오류가 있거나 전송이 완료된 경우에만 반환됩니다.
+
+> [!Note]
+> 이 함수는 디바이스에서 원시 대량 데이터를 읽으므로 버퍼가 가득 차거나 디바이스가 짧은 패킷(Zero Length Packet 포함)으로 전송을 종료할 때까지 보류 상태를 유지합니다. 자세한 내용은 [**대량 전송에 대한 일반적인 고려 사항**](usbx-device-stack-5.md#general-considerations-for-bulk-transfer)을 참조하세요.
 
 ### <a name="parameters"></a>매개 변수
 

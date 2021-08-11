@@ -1,4 +1,4 @@
-### YamlMime:Hub
+### YamlMime:Hub 
 title: Microsoft Azure RTOS 설명서
 summary: Microsoft Azure RTOS 설명서를 살펴보세요.
 brand: azure
@@ -10,112 +10,106 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 5/19/2020
-  ms.openlocfilehash: 12f6535be21d072fd9500c43d7a10f5f7bf0b10a
-  ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
-  ms.translationtype: HT
-  ms.contentlocale: ko-KR
-  ms.lasthandoff: 03/22/2021
-  ms.locfileid: "104797535"
 highlightedContent:
   items:
-  - title: Azure RTOS란?
-    itemType: overview
-    url: overview-rtos.md
-  - title: 임베디드 디바이스 개발 시작
-    itemType: quickstart
-    url: https://docs.microsoft.com/azure/iot-develop/quickstart-device-development
-  - title: GitHub의 소스 코드 다운로드
-    itemType: download
-    url: https://github.com/azure-rtos/
-  - title: Defender for IoT - RTOS(미리 보기)
-    itemType: overview
-    url: https://docs.microsoft.com/azure/defender-for-iot/iot-security-azure-rtos
+    - title: Azure RTOS란?
+      itemType: overview
+      url: overview-rtos.md
+    - title: 임베디드 디바이스 개발 시작
+      itemType: quickstart
+      url: 'https://docs.microsoft.com/azure/iot-develop/quickstart-device-development'
+    - title: GitHub의 소스 코드 다운로드
+      itemType: download
+      url: 'https://github.com/azure-rtos/'
+    - title: Defender for IoT - RTOS(미리 보기)
+      itemType: overview
+      url: 'https://docs.microsoft.com/azure/defender-for-iot/iot-security-azure-rtos'
 conceptualContent:
   title: Azure RTOS
   summary: 긴밀하게 포함된 IoT 애플리케이션 및 에지 디바이스를 빌드하세요.
   items:
-  - title: 포함된 애플리케이션 빌드
-    links:
-    - url: ./threadx/overview-threadx.md
-      itemType: overview
-      text: Azure RTOS ThreadX란?
-    - url: ./threadx/about-this-guide.md
-      itemType: how-to-guide
-      text: 사용자 가이드 살펴보기
-    footerLink:
-      url: ./threadx/index.yml
-      text: 자세히 보기
-  - title: 파일 관리 사용
-    links:
-    - url: ./filex/overview-filex.md
-      itemType: overview
-      text: Azure RTOS FileX란?
-    - url: ./filex/about-this-guide.md
-      itemType: how-to-guide
-      text: 사용자 가이드 살펴보기
-    footerLink:
-      url: ./filex/index.yml
-      text: 자세히 보기
-  - title: 그래픽 요소 통합
-    links:
-    - url: ./guix/overview-guix.md
-      itemType: overview
-      text: Azure RTOS GUIX란?
-    - url: ./guix/about-guix.md
-      itemType: how-to-guide
-      text: 사용자 가이드 살펴보기
-    footerLink:
-      url: ./guix/index.yml
-      text: 자세히 보기
-  - title: 디버그 및 문제 해결
-    links:
-    - url: ./tracex/overview-tracex.md
-      itemType: overview
-      text: Azure RTOS TraceX란?
-    footerLink:
-      url: ./tracex/index.yml
-      text: 자세히 보기
-  - title: 네트워크 연결 설정
-    links:
-    - url: ./netx/overview-netx.md
-      itemType: overview
-      text: Azure RTOS NetX란?
-    - url: ./netx/about-this-guide.md
-      itemType: how-to-guide
-      text: 사용자 가이드 살펴보기
-    footerLink:
-      url: ./netx/index.yml
-      text: 자세히 보기
-  - title: 네트워크 연결 및 IPv6 기능 사용
-    links:
-    - url: ./netx-duo/overview-netx-duo.md
-      itemType: overview
-      text: Azure RTOS NetX Duo란?
-    - url: ./netx-duo/about-this-guide.md
-      itemType: how-to-guide
-      text: 사용자 가이드 살펴보기
-    footerLink:
-      url: ./netx-duo/index.yml
-      text: 자세히 보기
-  - title: USB 디바이스와 인터페이스
-    links:
-    - url: ./usbx/overview-usbx.md
-      itemType: overview
-      text: Azure RTOS USBX란?
-    - url: ./usbx/usbx-device-stack-about.md
-      itemType: how-to-guide
-      text: 디바이스 스택 사용자 가이드 살펴보기
-    - url: ./usbx/usbx-host-stack-about.md
-      itemType: how-to-guide
-      text: 호스트 스택 사용자 가이드 살펴보기
-    footerLink:
-      url: ./usbx/index.yml
-      text: 자세히 보기
-  - title: 플래시 메모리 마모 평준화 기능 제공
-    links:
-    - url: ./levelx/chapter1.md
-      itemType: overview
-      text: Azure RTOS LevelX란?
-    footerLink:
-      url: ./levelx/index.yml
-      text: 자세히 보기
+    - title: 포함된 애플리케이션 빌드
+      links:
+        - url: ./threadx/overview-threadx.md
+          itemType: overview
+          text: Azure RTOS ThreadX란?
+        - url: ./threadx/about-this-guide.md
+          itemType: how-to-guide
+          text: 사용자 가이드 살펴보기
+      footerLink:
+        url: ./threadx/index.yml
+        text: 자세히 보기
+    - title: 파일 관리 사용
+      links:
+        - url: ./filex/overview-filex.md
+          itemType: overview
+          text: Azure RTOS FileX란?
+        - url: ./filex/about-this-guide.md
+          itemType: how-to-guide
+          text: 사용자 가이드 살펴보기
+      footerLink:
+        url: ./filex/index.yml
+        text: 자세히 보기
+    - title: 그래픽 요소 통합
+      links:
+        - url: ./guix/overview-guix.md
+          itemType: overview
+          text: Azure RTOS GUIX란?
+        - url: ./guix/about-guix.md
+          itemType: how-to-guide
+          text: 사용자 가이드 살펴보기
+      footerLink:
+        url: ./guix/index.yml
+        text: 자세히 보기
+    - title: 디버그 및 문제 해결
+      links:
+        - url: ./tracex/overview-tracex.md
+          itemType: overview
+          text: Azure RTOS TraceX란?
+      footerLink:
+        url: ./tracex/index.yml
+        text: 자세히 보기
+    - title: 네트워크 연결 설정
+      links:
+        - url: ./netx/overview-netx.md
+          itemType: overview
+          text: Azure RTOS NetX란?
+        - url: ./netx/about-this-guide.md
+          itemType: how-to-guide
+          text: 사용자 가이드 살펴보기
+      footerLink:
+        url: ./netx/index.yml
+        text: 자세히 보기
+    - title: 네트워크 연결 및 IPv6 기능 사용
+      links:
+        - url: ./netx-duo/overview-netx-duo.md
+          itemType: overview
+          text: Azure RTOS NetX Duo란?
+        - url: ./netx-duo/about-this-guide.md
+          itemType: how-to-guide
+          text: 사용자 가이드 살펴보기
+      footerLink:
+        url: ./netx-duo/index.yml
+        text: 자세히 보기
+    - title: USB 디바이스와 인터페이스
+      links:
+        - url: ./usbx/overview-usbx.md
+          itemType: overview
+          text: Azure RTOS USBX란?
+        - url: ./usbx/usbx-device-stack-about.md
+          itemType: how-to-guide
+          text: 디바이스 스택 사용자 가이드 살펴보기
+        - url: ./usbx/usbx-host-stack-about.md
+          itemType: how-to-guide
+          text: 호스트 스택 사용자 가이드 살펴보기
+      footerLink:
+        url: ./usbx/index.yml
+        text: 자세히 보기
+    - title: 플래시 메모리 마모 평준화 기능 제공
+      links:
+        - url: ./levelx/chapter1.md
+          itemType: overview
+          text: Azure RTOS LevelX란?
+      footerLink:
+        url: ./levelx/index.yml
+        text: 자세히 보기

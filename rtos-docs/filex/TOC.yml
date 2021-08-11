@@ -39,7 +39,7 @@
       href: ../index.yml
     - name: ThreadX
       href: ../threadx/index.yml
-    - name: ThreadX 모듈
+    - name: ThreadX Modules
       href: ../threadx-modules/index.yml
     - name: NetX Duo
       href: ../netx-duo/index.yml

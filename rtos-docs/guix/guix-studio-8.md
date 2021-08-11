@@ -6,12 +6,12 @@ ms.author: kemaxwel
 ms.date: 9/30/2020
 ms.service: rtos
 ms.topic: article
-ms.openlocfilehash: 3194a1b8c8965bf821631a8c34ac5e9961f8c8ff
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 374471df85c4cd0fffae5b5cc7ad31d2237877f2
+ms.sourcegitcommit: 62cfdf02628530807f4d9c390d6ab623e2973fee
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104811941"
+ms.lasthandoff: 08/05/2021
+ms.locfileid: "115178285"
 ---
 # <a name="chapter-8-notes-on-editing-specific-widget-types"></a>챕터 8: 특정 위젯 형식 편집에 관한 참고 사항
 
@@ -118,3 +118,10 @@ pixelmap ID 필드를 사용하여 이전에 프로젝트 리소스에 추가한
 지연 기간은 다음 스프라이트 프레임으로 이동하기 전에 지연할 시간을 지정합니다. 이 값은 틱 단위이며 기본 GUIX/ThreadX 타이머 구성에서 각 틱은 50ms를 나타냅니다.
 
 스프라이트 프레임 편집 대화 상자에서 변경 내용을 저장하면 GUIX Studio에서 출력 사양 파일 생성의 일부로 전체 프레임 목록 배열을 생성할 수 있습니다.
+
+### <a name="assign-a-sprite-widget-with-gif-resource"></a>GIF 리소스를 사용하여 스프라이트 위젯 할당
+GIF 리소스를 **Pixelmap** 리소스 그룹에 추가하고 GIF 리소스를 스프라이트 위젯에 직접 할당할 수 있습니다. GIF 리소스가 설정되면 프레임 목록이 자동으로 생성되며 스프라이트 편집 대화 상자를 통해 프레임 목록의 각 프레임을 추가로 편집할 수 있습니다.
+
+![GIF 리소스에 대한 GUIX Studio 스프라이트 프레임 편집 대화 상자의 스크린샷입니다.](./media/guix-studio/edit_sprite_gif_frames.jpg)
+
+**그림 8.4**
