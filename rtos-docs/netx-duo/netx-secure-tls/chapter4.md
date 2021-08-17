@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 80ec22058ab64ed0c6258bb3d9364ec44f9a741b
-ms.sourcegitcommit: 4ebe7c51ba850951c6a9d0f15e22d07bb752bc28
+ms.openlocfilehash: b10260778f7f5e1a5bd0a38aded2339008b066cca77f2439a5881d28a0489524
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2021
-ms.locfileid: "110223395"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116797758"
 ---
 # <a name="chapter-4---description-of-azure-rtos-netx-secure-services"></a>4장 - Azure RTOS NetX Secure 서비스 설명
 
@@ -540,7 +540,7 @@ VOID nx_secure_tls_initialize(VOID);
 
 없음
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드
 
@@ -2621,7 +2621,7 @@ UINT  nx_secure_tls_session_start(NX_SECURE_TLS_SESSION *session_ptr,
 
 ### <a name="return-values"></a>반환 값
 
-- **NX_SUCCESS** (0x00) TLS 세션을 초기화했습니다.
+- **NX_SUCCESS**(0x00) TLS 세션을 초기화했습니다.
 - **NX_NOT_CONNECTED** (0x38) 기본 TCP 소켓이 더 이상 연결되어 있지 않습니다.
 - **NX_SECURE_TLS_UNRECOGNIZED_MESSAGE_TYPE** (0x102) 받은 TLS 메시지 유형이 올바르지 않습니다.
 - **NX_SECURE_TLS_UNSUPPORTED_CIPHER** (0x106) 원격 호스트에서 제공하는 암호화가 지원되지 않습니다.

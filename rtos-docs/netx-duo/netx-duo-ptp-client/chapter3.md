@@ -6,12 +6,12 @@ ms.author: v-condav
 ms.date: 01/27/2021
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: b4cdeca81c157934e35a219cd5535ec38f2c0746
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 686db68181e3712f9f6a09a9f471626eff610fd7f45ec5b83ba56f8b7aa378cc
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104810620"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116798013"
 ---
 # <a name="chapter-3---description-of-azure-rtos-netx-duo-ptp-client-services"></a>챕터 3 - Azure RTOS NetX Duo PTP 클라이언트 서비스 설명
 
@@ -94,10 +94,10 @@ UINT nx_ptp_client_delete(NX_PTP_CLIENT *client_ptr);
 * **client_ptr** 삭제할 PTP 클라이언트에 대한 포인터
 
 ### <a name="return-values"></a>반환 값
-* **NX_SUCCESS** (0x00) 클라이언트를 삭제함
+* **NX_SUCCESS** (0x00) 클라이언트를 성공적으로 삭제함
 * NX_PTR_ERROR (0x07) 잘못된 입력 포인터 매개 변수
 
-### <a name="allowed-from"></a>허용된 위치
+### <a name="allowed-from"></a>허용 위치
 스레드
 
 ### <a name="example"></a>예제
@@ -152,7 +152,7 @@ UINT nx_ptp_client_master_info_get(
 * **NX_SUCCESS** (0x00) 마스터 클록 정보 가져오기에 성공
 * NX_PTR_ERROR (0x07) 잘못된 입력 포인터 매개 변수
 
-### <a name="allowed-from"></a>허용된 위치
+### <a name="allowed-from"></a>허용 위치
 스레드
 
 ### <a name="example"></a>예제
@@ -216,7 +216,7 @@ VOID nx_ptp_client_packet_timestamp_notify(
 ### <a name="return-values"></a>반환 값
 없음
 
-### <a name="allowed-from"></a>허용된 위치
+### <a name="allowed-from"></a>허용 위치
 스레드
 
 ### <a name="example"></a>예제
@@ -247,11 +247,11 @@ UINT nx_ptp_client_soft_clock_callback(
 * **client_ptr** 만들 PTP 클라이언트에 대한 포인터
 * **작업** 콜백 작업, 유효한 값은 다음과 같이 정의됩니다.
   * **NX_PTP_CLIENT_CLOCK_INIT** 클록을 초기화합니다.
-  * **NX_PTP_CLIENT_CLOCK_SET** `time_ptr`(으)로 지정된 현재 타임스탬프를 설정합니다.
-  * **NX_PTP_CLIENT_CLOCK_GET** `time_ptr`(으)로 현재 타임스탬프를 반환합니다.
-  * **NX_PTP_CLIENT_CLOCK_PACKET_TS_EXTRACT** `packet_ptr`에서 `time_ptr`(으)로 타임스탬프를 추출합니다.
+  * **NX_PTP_CLIENT_CLOCK_SET** `time_ptr`로 지정된 현재 타임스탬프를 설정합니다.
+  * **NX_PTP_CLIENT_CLOCK_GET** `time_ptr`로 현재 타임스탬프를 반환합니다.
+  * **NX_PTP_CLIENT_CLOCK_PACKET_TS_EXTRACT** `packet_ptr`에서 `time_ptr`로 타임스탬프를 추출합니다.
   * **NX_PTP_CLIENT_CLOCK_ADJUST** 현재 타임스탬프를 *1* 초 미만으로 조정합니다.
-  * **NX_PTP_CLIENT_CLOCK_PACKET_TS_PREPARE** 전송 시 PTP 클라이언트에 타임스탬프를 알리도록 하는 `packet_ptr`을(를) 표시합니다.
+  * **NX_PTP_CLIENT_CLOCK_PACKET_TS_PREPARE** 전송 시 PTP 클라이언트에 타임스탬프를 알려야 하는 `packet_ptr`을 표시합니다.
   * **NX_PTP_CLIENT_CLOCK_SOFT_TIMER_UPDATE** 소프트 타이머를 업데이트합니다. 하드웨어 클록에서 무시할 수 있습니다.
 * **time_ptr** 타임스탬프를 가리키는 포인터입니다.
 * **packet_ptr** 패킷을 가리키는 포인터입니다.
@@ -308,7 +308,7 @@ UINT nx_ptp_client_start(
 * **status** NetX Duo 및 ThreadX 서비스 호출의 완료 상태
 * NX_PTR_ERROR (0x07) 잘못된 입력 포인터 매개 변수
 
-### <a name="allowed-from"></a>허용된 위치
+### <a name="allowed-from"></a>허용 위치
 스레드
 
 ### <a name="example"></a>예제
@@ -339,7 +339,7 @@ UINT nx_ptp_client_stop(NX_PTP_CLIENT *client_ptr);
 * **NX_PTP_CLIENT_NOT_STARTED** (0xD01) 클라이언트가 시작되지 않음
 * NX_PTR_ERROR (0x07) 잘못된 입력 포인터 매개 변수
 
-### <a name="allowed-from"></a>허용된 위치
+### <a name="allowed-from"></a>허용 위치
 스레드
 
 ### <a name="example"></a>예제
@@ -374,7 +374,7 @@ UINT nx_ptp_client_sync_info_get(
 * **NX_SUCCESS** (0X00) 동기화 정보를 가져옴
 * NX_PTR_ERROR (0x07) 잘못된 입력 포인터 매개 변수
 
-### <a name="allowed-from"></a>허용된 위치
+### <a name="allowed-from"></a>허용 위치
 스레드
 
 ### <a name="example"></a>예제
@@ -421,7 +421,7 @@ UINT nx_ptp_client_time_get(
 * **NX_SUCCESS** (0x00) 클라이언트를 만듦
 * NX_PTR_ERROR (0x07) 잘못된 입력 포인터 매개 변수
 
-### <a name="allowed-from"></a>허용된 위치
+### <a name="allowed-from"></a>허용 위치
 스레드
 
 ### <a name="example"></a>예제
@@ -454,7 +454,7 @@ UINT nx_ptp_client_time_set(
 * **NX_PTP_CLIENT_ALREADY_STARTED** (0xD02) PTP 클라이언트가 이미 시작됨
 * NX_PTR_ERROR (0x07) 잘못된 입력 포인터 매개 변수
 
-### <a name="allowed-from"></a>허용된 위치
+### <a name="allowed-from"></a>허용 위치
 스레드
 
 ### <a name="example"></a>예제
@@ -489,7 +489,7 @@ UINT nx_ptp_client_utility_convert_time_to_date(
 * **결과 날짜에 대한 포인터** (0xD03) 잘못된 입력 매개 변수
 * NX_PTR_ERROR (0x07) 잘못된 입력 포인터 매개 변수
 
-### <a name="allowed-from"></a>허용된 위치
+### <a name="allowed-from"></a>허용 위치
 스레드
 
 ### <a name="example"></a>예제
@@ -525,7 +525,7 @@ UINT nx_ptp_client_utility_time_diff(
 * **NX_SUCCESS** (0x00) 클라이언트를 만듦
 * NX_PTR_ERROR (0x07) 잘못된 입력 포인터 매개 변수
 
-### <a name="allowed-from"></a>허용된 위치
+### <a name="allowed-from"></a>허용 위치
 스레드
 
 ### <a name="example"></a>예제

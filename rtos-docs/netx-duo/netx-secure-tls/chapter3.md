@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: c28ad0255f99986a4ddfe5faefad81e70840e5e0
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 711195e60771ebd467c69df49ef7665f32e13a17c21ca839404e829449cf1401
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104810501"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116797982"
 ---
 # <a name="chapter-3---functional-description-of-azure-rtos-netx-secure"></a>3장 - Azure RTOS NetX Secure의 기능 설명
 
@@ -149,7 +149,7 @@ TCP 소켓 외에도 NetX Secure TLS 서버 모드에는 디지털 인증서(연
 
 NetX Secure TLS의 경우 X.509 인증서는 DER(Distinguished Encoding Rules) 형식인 ASN.1을 사용하여 이진으로 인코딩해야 합니다. DER은 인증서에 사용되는 표준 TLS 네트워크 이진 형식입니다.
 
-제공된 인증서와 연결된 프라이빗 키는 DER로 인코딩된 PKCS#1 형식이어야 합니다. 프라이빗 키는 디바이스에서만 사용되며 네트워크를 통해 전송되지 않습니다. 프라이빗 키는 TLS 통신 보안에 중요하므로 안전하게 보관해야 합니다.
+제공된 인증서와 연결된 프라이빗 키는 DER 인코딩 PKCS#1 형식이어야 합니다. 프라이빗 키는 디바이스에서만 사용되며 네트워크를 통해 전송되지 않습니다. 프라이빗 키는 TLS 통신 보안에 중요하므로 안전하게 보관해야 합니다.
 
 TLS 서버 인증서를 초기화하려면 애플리케이션에서 ***nx_secure_x509_certificate_intialize** _ 서비스를 사용하여 DER 인코딩 X.509 인증서 및 선택적 DER 인코딩 PKCS#1 RSA 프라이빗 키 데이터를 포함하는 버퍼에 대한 포인터를 제공해야 합니다. 이 서비스는 _ *NX_SECURE_X509_CERT** 구조를 TLS에서 사용할 적절한 인증서 데이터로 채우는 서비스입니다.
 
@@ -392,15 +392,15 @@ nx_secure_tls_session_server_callback_set API(122 페이지 참조)에 대한 �
 
 TLS는 안전하지 않은 네트워크를 통해 두 디바이스 간에 보안 연결을 설정할 수 있는 프레임워크를 제공하지만, 해당 연결의 반대쪽 끝에 있는 디바이스 ID를 알아야 한다는 문제가 있습니다. 원격 호스트의 ID를 인증하는 메커니즘이 없으면 공격자는 신뢰할 수 있는 디바이스로 손쉽게 가장할 수 있습니다.
 
-처음에는 IP 주소, 하드웨어 MAC 주소 또는 DNS를 사용하면 네트워크에서 호스트를 식별하는 데 비교적 높은 수준의 신뢰도를 제공하는 것처럼 보일 수 있지만, TCP/IP 기술의 특성과 주소를 쉽게 스푸핑할 수 있고 DNS 항목이 손상(예: DNS 캐시 중독을 통해)될 수 있다는 점을 고려할 때 TLS에는 사기성 ID를 차단하기 위한 추가 보호 계층이 필요합니다.
+처음에는 IP 주소, 하드웨어 MAC 주소 또는 DNS를 사용하면 네트워크에서 호스트를 식별하는 데 비교적 높은 수준의 신뢰도를 제공하는 것처럼 보일 수 있지만, TCP/IP 기술의 특성과 주소를 쉽게 스푸핑할 수 있고 DNS 항목이 손상(예: DNS 캐시 손상을 통해)될 수 있다는 점을 고려할 때 TLS에는 사기성 ID를 차단하기 위한 추가 보호 계층이 필요합니다.
 
 TLS에 이와 같은 추가 인증 계층을 제공할 수 있는 다양한 메커니즘이 있지만, 가장 일반적인 방법은 *디지털 인증서* 입니다. 기타 메커니즘으로는 PSK(미리 공유한 키) 및 암호 체계가 있습니다.
 
 ### <a name="digital-cerificates"></a>디지털 인증서
 
-디지털 인증서는 TLS에서 원격 호스트를 인증하는 가장 일반적인 방법입니다. 기본적으로 디지털 인증서는 컴퓨터 네트워크 상의 디바이스에 대한 ID 정보를 제공하는 특정 형식의 문서입니다.
+디지털 인증서는 TLS에서 원격 호스트를 인증하는 가장 일반적인 방법입니다. 기본적으로 디지털 인증서는 컴퓨터 네트워크 상의 디바이스에 대한 ID 정보를 제공하는 특정 형식을 포함하고 있는 문서입니다.
 
-TLS는 일반적으로 International Telecommunication Union에서 개발한 표준인 X.509 형식을 사용하지만, 사용하려는 형식을 TLS 호스트가 동의할 수 있다면 다른 형식의 인증서를 사용해도 됩니다. X.509는 디지털 문서를 작성하는 데 사용할 수 있는 다양한 인코딩 및 인증서의 형식을 정의합니다. TLS에 사용되는 대부분의 X.509 인증서는 다른 통신 표준의 변형인 ASN.1을 사용하여 인코딩됩니다. ASN.1에는 다양한 디지털 인코딩이 포함되어 있지만, TLS 인증서에 사용되는 가장 일반적인 인코딩은 DER(Distinguished Encoding Rules) 표준입니다. DER은 구문 분석을 쉽게 수행할 수 있도록 분명하게 설계된 ASN.1 BER(Basic Encoding Rules)의 간소화된 하위 세트입니다. 네트워크를 통해 TLS 인증서는 일반적으로 이진 DER로 인코딩되며, 이 형식은 NetX Secure에서 X.509 인증서에 요구하는 형식입니다.
+TLS는 일반적으로 International Telecommunication Union에서 개발한 표준인 X.509 형식을 사용하지만, 사용하려는 형식을 TLS 호스트에서 동의할 수 있다면 다른 형식의 인증서를 사용해도 됩니다. X.509는 디지털 문서를 작성하는 데 사용할 수 있는 다양한 인코딩 및 인증서의 형식을 정의합니다. TLS에 사용되는 대부분의 X.509 인증서는 다른 통신 표준의 변형인 ASN.1을 사용하여 인코딩됩니다. ASN.1에는 다양한 디지털 인코딩이 포함되어 있지만, TLS 인증서에 사용되는 가장 일반적인 인코딩은 DER(Distinguished Encoding Rules) 표준입니다. DER은 구문 분석을 쉽게 수행할 수 있도록 분명하게 설계된 ASN.1 BER(Basic Encoding Rules)의 간소화된 하위 세트입니다. 네트워크를 통해 TLS 인증서는 일반적으로 이진 DER로 인코딩되며, 이 형식은 NetX Secure에서 X.509 인증서에 요구하는 형식입니다.
 
 DER 형식의 이진 인증서는 실제 TLS 프로토콜에 사용되지만 .pem, .crt, .p12 등의 파일 확장명을 사용하여 다양한 인코딩으로 생성하고 저장할 수 있습니다. 여러 제조업체의 다양한 애플리케이션에서 다양한 변형이 사용되지만, 일반적으로 널리 제공되는 도구를 사용하여 DER로 변환할 수 있습니다.
 
@@ -455,9 +455,9 @@ TLS에서 식별 인증을 제공하는 또 다른 메커니즘은 PSK(미리 �
 
 PSK ciphersuite는 TLS 세션을 설정하려면 두 디바이스 모두에 공유 비밀이 있어야 한다는 점에서 제한적입니다. 즉, TLS PSK 연결이 아닌 다른 안전한 방법으로 해당 비밀을 디바이스에 로드해야 합니다. PSK는 TLS PSK 연결을 통해 업데이트할 수 있지만, 디바이스는 반드시 다른 메커니즘을 통해 로드된 PSK를 사용하여 시작해야 합니다. 예를 들어 출하 전에 공장에서 PSK를 사용하여 센서 디바이스와 게이트웨이 디바이스를 로드하거나, 표준 TLS 연결(인증서 포함)을 사용하여 PSK를 로드할 수 있습니다.
 
-PSK ciphersuite는 RFC 4279에 설명된 두 가지 형태로 제공됩니다. 첫 번째 형식은 표준 TLS 핸드셰이크의 인증서에 포함되어 전송된 공개 키와 동일한 방식으로 사용되는 RSA 또는 Diffie-Hellman 키를 사용합니다. 리소스가 제한적인 환경에서 더 많이 사용되는 두 번째 형식은 세션 키(예를 들어, AES에서 사용할)를 직접 생성하는 데 사용되는 PSK를 사용하며, 비용이 많이 드는 RSA 또는 Diffie-Hellman 작업의 사용을 방지합니다.
+PSK ciphersuite는 RFC 4279에 설명된 여러 가지 형식으로 제공됩니다. 첫 번째 형식은 표준 TLS 핸드셰이크에서 인증서에 전송된 공개 키와 동일한 방식으로 사용되는 RSA 또는 Diffie-Hellman 키를 사용합니다. 리소스가 제한적인 환경에서 더 많이 사용되는 두 번째 형식은 세션 키(AES에서 사용할)를 직접 생성하는 데 사용되는 PSK를 사용하며, 비용이 많이 드는 RSA 또는 Diffie-Hellman 작업의 사용을 방지합니다.
 
-NetX Secure는 애플리케이션에서 모든 공개 키 암호화 코드 및 메모리를 사용하지 않도록 두 번째 형태의 PSK ciphersuite를 지원합니다. PSK 자체는 AES 키가 아니지만 실제 키가 생성되는 암호와 비슷한 것으로 간주할 수 있습니다. PSK 값에는 몇 가지 제한 사항이 있지만, 암호와 마찬가지로 값이 길수록 강력한 보안을 제공합니다.
+NetX Secure는 애플리케이션에서 모든 공개 키 암호화 코드 및 메모리를 사용하지 않도록 두 번째 PSK ciphersuite 형식을 지원합니다. PSK 자체는 AES 키가 아니지만 실제 키가 생성되는 암호와 비슷한 것으로 간주할 수 있습니다. PSK 값에는 몇 가지 제한 사항이 있지만, 암호와 마찬가지로 값이 길수록 강력한 보안을 제공합니다.
 
 NetX Secure 애플리케이션에서 PSK를 사용하려면 먼저 글로벌 매크로 **NX_SECURE_ENABLE_PSK_CIPHERSUITES** 를 정의해야 합니다. 이 작업은 일반적으로 컴파일러 설정을 통해 수행되지만 nx_secure_tls.h 헤더 파일에 정의를 배치할 수도 있습니다. 매크로가 정의되면 PSK ciphersuite 지원이 NetX Secure TLS 애플리케이션으로 컴파일됩니다.
 
@@ -465,7 +465,7 @@ PSK 지원을 사용하도록 설정한 후에는 TLS API를 사용하여 애플
 
 PSK 자체는 네트워크 연결을 통해 전송되지 않으므로 임의의 이진 값일 수 있습니다. PSK의 최대 길이는 64바이트입니다.
 
-ID 및 힌트는 UTF-8을 사용하여 형식이 지정된 인쇄 가능한 문자열이어야 합니다. ID 및 힌트 값의 최대 길이는 128바이트입니다.
+ID 및 힌트는 UTF-8을 사용하여 서식이 지정된 인쇄 가능한 문자열이어야 합니다. ID 및 힌트 값의 최대 길이는 128바이트입니다.
 
 ID 및 PSK는 서로 통신해야 하는 네트워크 상의 모든 디바이스에 로드되는 고유한 쌍을 형성합니다.
 
@@ -528,7 +528,7 @@ NetX Secure 에서 *nx_secure_x509_certificate_initialize* 서비스는 X.509 �
 
 | ID                              | 알고리즘 | 서식   | Encoding | 값 |
 | --------------------------------------- | --------- | -------- | -------- | ----- |
-| NX_SECURE_X509_KEY_TYPE_NONE            | None      | N/A      | N/A      | 0x0   |
+| NX_SECURE_X509_KEY_TYPE_NONE            | None      | 해당 없음      | N/A      | 0x0   |
 | NX_SECURE_X509_KEY_TYPE_RSA_PKCS1_DER   | RSA       | PKCS#1   | DER      | 0x1   |
 | NX_SECURE_X509_KEY_TYPE_EC_DER          | ECDSA     | RFC 5915 | DER      | 0x2   |
 
@@ -680,7 +680,7 @@ API는 DER로 인코딩된 CRL, 확인 시 대조할 인증서 저장소(예: TL
 
 X.509 인증서 인증을 사용하는 경우 TLS 프로토콜을 사용하려면 TLS 서버 인스턴스에서 식별용 인증서를 제공해야 하지만, 기본적으로 TLS 클라이언트 인스턴스는 다른 형태의 인증(예: 사용자 이름/암호 조합)을 사용하여 인증용 인증서를 제공할 필요가 없습니다. 따라서 인터넷의 웹 사이트에서 가장 일반적으로 사용되는 TLS에 적합합니다. 예를 들어 온라인 소매점 사이트는 웹 브라우저를 사용하는 잠재 고객에게 서버가 합법적이라는 것을 증명해야 하지만 사용자는 로그인/암호를 사용하여 특정 계정에 액세스합니다.
 
-그러나 기본 사례가 항상 바람직한 것은 아니므로 TLS는 상황에 따라 TLS 서버 인스턴스가 원격 클라이언트의 인증서를 요청하는 것을 허용합니다. 이 기능을 사용하면 TLS 서버는 핸드셰이크 중에 CertificateRequest 메시지를 TLS 클라이언트에 보냅니다. 클라이언트는 자체 인증서 및 이 인증서와 연결된 일치하는 프라이빗 키를 소유하고 있음을 증명하는 암호화 토큰이 포함된 CertificateVerify 메시지로 응답해야 합니다. 확인이 실패하거나 인증서가 서버의 신뢰할 수 있는 인증서에 연결되어 있지 않으면 TLS 핸드셰이크가 실패합니다.
+그러나 기본 사례가 항상 바람직한 것은 아니므로 TLS는 상황에 따라 TLS 서버 인스턴스가 원격 클라이언트의 인증서를 요청하는 것을 허용합니다. 이 기능을 사용하면 TLS 서버는 핸드셰이크 중에 CertificateRequest 메시지를 TLS 클라이언트에 보냅니다. 클라이언트는 자체 인증서 및 이 인증서와 연결된 일치하는 프라이빗 키를 소유하고 있음을 증명하는 암호화 토큰이 포함된 CertificateVerify 메시지로 응답해야 합니다. 확인이 실패하거나 인증서가 서버의 신뢰할 수 있는 인증서에 연결되지 않은 경우 TLS 핸드셰이크가 실패합니다.
 
 TLS의 클라이언트 인증서 인증에는 두 가지 경우가 있으며, 다음 섹션에 두 경우가 모두 설명되어 있습니다.
 
@@ -695,13 +695,13 @@ NetX Secure TLS에는 이 기능을 지원하는 특별한 구성이 없지만 �
 클라이언트 인증서 인증을 위한 TLS 서버 사례는 기능이 선택 사항이기 때문에 TLS 클라이언트 사례보다 약간 더 복잡합니다. 이 경우 TLS 서버는 원격 TLS 클라이언트에서 인증서를 구체적으로 요청한 다음, CertificateVerify 메시지를 처리하여 원격 클라이언트가 일치하는 프라이빗 키를 소유하고 있는지 확인해야 합니다. 그 후 서버에서는 클라이언트가 제공한 인증서를 신뢰할 수 있는 로컬 인증서 저장소의 인증서까지 추적할 수 있는지 확인해야 합니다.
 
 NetX Secure TLS 서버 인스턴스에서 클라이언트 인증서 인증은 <br>
-*nx <span class="underline"> _</span>secure <span class="underline">_</span>tls <span class="underline"> _</span>session <span class="underline">_</span>client <span class="underline"> _</span>verify<span class="underline">_</span>enable* 및<br>
-*nx <span class="underline"> _</span>secure <span class="underline">_</span>tls <span class="underline"> _</span>session <span class="underline">_</span>client <span class="underline"> _</span>verify<span class="underline">_</span>disable* 서비스에 의해 제어됩니다.
+*nx <span class="underline"> _</span>secure <span class="underline">_</span>tls <span class="underline"> _</span>session <span class="underline">_</span>client <span class="underline"> _</span>verify <span class="underline">_</span>enable* 및<br>
+*nx <span class="underline"> _</span>secure <span class="underline">_</span>tls <span class="underline"> _</span>session <span class="underline">_</span>client <span class="underline"> _</span>verify <span class="underline">_</span>disable* 서비스에 의해 제어됩니다.
 
 클라이언트 인증서 인증을 활성화하려면 애플리케이션이<br>
-*nx_secure_tls_session_start* 를 호출하기 전에 TLS 서버 세션 인스턴스를 사용하여 *nx <span class="underline"> _</span>secure <span class="underline">_</span>tls <span class="underline"> _</span>session <span class="underline">_</span>client <span class="underline"> _</span>verify<span class="underline">_</span>enable* 을 호출해야 합니다. TLS 클라이언트 연결에 사용되는 TLS 세션에서 이 서비스를 호출해도 아무런 영향을 주지 않습니다.
+*nx_secure_tls_session_start* 를 호출하기 전에 TLS 서버 세션 인스턴스를 사용하여 *nx <span class="underline"> _</span>secure <span class="underline">_</span>tls <span class="underline"> _</span>session <span class="underline">_</span>client <span class="underline"> _</span>verify <span class="underline">_</span>enable* 을 호출해야 합니다. TLS 클라이언트 연결에 사용되는 TLS 세션에서 이 서비스를 호출해도 아무런 영향을 주지 않습니다.
 
-클라이언트 인증서 인증을 사용하면 TLS 서버는 TLS 핸드셰이크 중에 원격 TLS 클라이언트의 인증서를 요청합니다. NetX Secure TLS 서버에서 클라이언트 인증서는 X.509 발급자 체인 후 *nx <span class="underline"> _</span>secure_tls <span class="underline">_</span>trusted <span class="underline"> _</span>certificate<span class="underline">_</span>add* 를 사용하여 생성된 신뢰할 수 있는 인증서의 저장소와 대조하여 확인됩니다. 원격 클라이언트는 자체 ID 인증서를 신뢰할 수 있는 저장소의 인증서에 연결하는 체인을 제공해야 합니다. 그렇지 않으면 TLS 핸드셰이크가 실패합니다. 또한 CertificateVerify 메시지 처리가 실패하면 TLS 핸드셰이크도 실패합니다.
+클라이언트 인증서 인증을 사용하면 TLS 서버는 TLS 핸드셰이크 중에 원격 TLS 클라이언트의 인증서를 요청합니다. NetX Secure TLS 서버에서 클라이언트 인증서는 X.509 발급자 체인 후 *nx <span class="underline"> _</span>secure_tls <span class="underline">_</span>trusted <span class="underline"> _</span>certificate <span class="underline">_</span>add* 를 사용하여 생성된 신뢰할 수 있는 인증서의 저장소와 대조하여 확인됩니다. 원격 클라이언트는 자체 ID 인증서를 신뢰할 수 있는 저장소의 인증서에 연결하는 체인을 제공해야 합니다. 그렇지 않으면 TLS 핸드셰이크가 실패합니다. 또한 CertificateVerify 메시지 처리가 실패하면 TLS 핸드셰이크도 실패합니다.
 
 CertificateVerify 메서드에 사용되는 서명 메서드는 TLS 버전 1.0 및 TLS 버전 1.1용으로 수정되었으며, TLS 버전 1.2의 TLS 서버에서 지정합니다. TLS 1.2의 경우 지원되는 서명 메서드는 일반적으로 암호화 메서드 테이블에 제공된 관련 메서드를 따르지만, 일반적으로 SHA-256과 함께 RSA를 사용합니다. 암호화 메서드로 TLS를 초기화하는 방법에 대한 자세한 내용은 "NetX Secure TLS의 암호화" 섹션을 참조하세요.
 

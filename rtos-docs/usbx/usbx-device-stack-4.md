@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 5/19/2020
 ms.service: rtos
 ms.topic: article
-ms.openlocfilehash: d4aea7470ba2d9075296164b9d1fb61db4f88523
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 9d88d9bd177a251a00fec6757fc1f1494b56bab9655a55f973481f273f0683ee
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104812954"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116797554"
 ---
 # <a name="description-of-usbx-device-services"></a>USBX 디바이스 서비스 설명
 
@@ -568,7 +568,7 @@ UINT ux_device_stack_interface_delete(UX_SLAVE_INTERFACE*interface);
 
 ### <a name="return-value"></a>반환 값
 
-- **UX_SUCCESS** (0x00) 이 작업을 수행했습니다.
+- **UX_SUCCESS**(0x00) 작업이 성공적으로 수행되었습니다.
 
 ### <a name="example"></a>예제
 
@@ -780,7 +780,7 @@ UINT ux_device_stack_transfer_abort(
 
 ### <a name="return-value"></a>반환 값
 
-- **UX_SUCCESS** (0x00) 이 작업을 수행했습니다.
+- **UX_SUCCESS**(0x00) 작업이 성공적으로 수행되었습니다.
 
 ### <a name="example"></a>예제
 

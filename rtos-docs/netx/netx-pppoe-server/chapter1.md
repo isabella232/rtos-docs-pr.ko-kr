@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 85a762f669e31c7e753f78b270ced15677a87c4c
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 2f79cba35991555f7f8d10e589aa251387ce25c48c3b729da371b548f13321bd
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104811425"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116798322"
 ---
 # <a name="chapter-1---introduction-to-azure-rtos-netx-pppoe-server"></a>1장 - Azure RTOS NetX PPPoE Server 소개
 
@@ -38,7 +38,7 @@ PPPoE 검색 단계를 통해 클라이언트는 네트워크에 있는 사용 �
 | PADI(PPPoE 활성 검색 시작)           | 0x09 | 클라이언트에서 브로드캐스트로                      |
 | PADO(PPPoE 활성 검색 제안)                | 0x07 | 서버에서 클라이언트로                         |
 | PADR(PPPoE 활성 검색 요청)              | 0x19 | 클라이언트에서 서버로                         |
-| PPPOE 활성 검색 세션 확인(PADS) | 0x65 | 서버에서 클라이언트로                         |
+| PADS(PPPOE 활성 검색 세션 확인) | 0x65 | 서버에서 클라이언트로                         |
 | PADT(PPPoE 활성 검색 종료)            | 0xa7 | 서버 또는 클라이언트에서 시작할 수 있습니다. |
 
 모든 검색 이더넷 프레임에는 ETHER_TYPE 필드가 0x8863 값으로 설정되어 있습니다.

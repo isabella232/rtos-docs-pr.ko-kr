@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 90c24cad5e595087ba27178243f9dda0dab11029
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 1174d7fdc470bc91278413d56948789cc210aab9d7389a5ecad5baf4f6ad7a7f
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104810639"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116798081"
 ---
 # <a name="chapter-3---description-of-azure-rtos-netx-duo-point-to-point-protocol-ppp-services"></a>챕터 3 - Azure RTOS NetX Duo PPP(지점 간 프로토콜) 서비스 설명
 
@@ -68,7 +68,7 @@ UINT nx_ppp_byte_receive(NX_PPP *ppp_ptr, UCHAR byte);
 - **NX_PPP_BUFFER_FULL**: (0xB1) PPP 직렬 버퍼가 이미 가득 찼습니다.
 - NX_PTR_ERROR: (0x07) 잘못된 PPP 포인터입니다.
 
-### <a name="allowed-from"></a>허용된 원본
+### <a name="allowed-from"></a>허용 위치
 
 스레드, ISR
 
@@ -108,7 +108,7 @@ UINT nx_ppp_chap_challenge(NX_PPP *ppp_ptr);
 - NX_PTR_ERROR: (0x07) 잘못된 PPP 포인터입니다.
 - NX_CALLER_ERROR: (0x11) 이 서비스의 호출자가 잘못되었습니다.
 
-### <a name="allowed-from"></a>허용된 원본
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -160,7 +160,7 @@ UINT nx_ppp_chap_enable(NX_PPP *ppp_ptr,
 - NX_PTR_ERROR: (0x07) PPP 포인터나 콜백 함수 포인터가 잘못되었습니다. *get_challenge_values* 가 지정된 경우 *get_verification_values* 함수도 제공해야 합니다.
 - NX_CALLER_ERROR: (0x11) 이 서비스의 호출자가 잘못되었습니다.
 
-### <a name="allowed-from"></a>허용된 원본
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드
 
@@ -292,7 +292,7 @@ UINT  nx_ppp_create(NX_PPP *ppp_ptr, CHAR *name, NX_IP *ip_ptr,
 - NX_PTR_ERROR: (0x07) 잘못된 PPP, IP 또는 바이트 출력 함수 포인터입니다.
 - NX_CALLER_ERROR: (0x11) 이 서비스의 호출자가 잘못되었습니다.
 
-### <a name="allowed-from"></a>허용된 원본
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드
 
@@ -331,7 +331,7 @@ UINT nx_ppp_delete(NX_PPP *ppp_ptr);
 - NX_PTR_ERROR: (0x07) 잘못된 PPP 포인터입니다.
 - NX_CALLER_ERROR: (0x11) 이 서비스의 호출자가 잘못되었습니다.
 
-### <a name="allowed-from"></a>허용된 원본
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -369,7 +369,7 @@ UINT nx_ppp_dns_address_get(NX_PPP *ppp_ptr, ULONG *dns_address_ptr);
 - **NX_PPP_NOT_ESTABLISHED**: (0xB5) PPP가 피어와 협상을 완료하지 못했습니다.
 - NX_PTR_ERROR: (0x07) 잘못된 PPP 포인터입니다.
 
-### <a name="allowed-from"></a>허용된 원본
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드, 타이머, ISR
 
@@ -411,7 +411,7 @@ UINT nx_ppp_secondary_dns_address_get(NX_PPP *ppp_ptr, ULONG *dns_address_ptr);
 - **NX_PPP_NOT_ESTABLISHED**: (0xB5) PPP가 피어와 협상을 완료하지 못했습니다.
 - NX_PTR_ERROR: (0x07) 잘못된 PPP 포인터입니다.
 
-### <a name="allowed-from"></a>허용된 원본
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드, 타이머, ISR
 
@@ -451,7 +451,7 @@ UINT nx_ppp_dns_address_set(NX_PPP *ppp_ptr, ULONG dns_address);
 - **NX_PPP_NOT_ESTABLISHED**: (0xB5) PPP가 피어와 협상을 완료하지 못했습니다.
 - NX_PTR_ERROR: (0x07) 잘못된 PPP 포인터입니다.
 
-### <a name="allowed-from"></a>허용된 원본
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드
 
@@ -493,7 +493,7 @@ UINT nx_ppp_secondary_dns_address_set(NX_PPP *ppp_ptr, ULONG dns_address);
 - **NX_PPP_NOT_ESTABLISHED**: (0xB5) PPP가 피어와 협상을 완료하지 못했습니다.
 - NX_PTR_ERROR: (0x07) 잘못된 PPP 포인터입니다.
 
-### <a name="allowed-from"></a>허용된 원본
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드
 
@@ -533,7 +533,7 @@ UINT nx_ppp_interface_index_get(NX_PPP *ppp_ptr, UINT *index_ptr);
 - **NX_IN_PROGRESS**: (0x37) PPP가 초기화를 완료하지 못했습니다.
 - NX_PTR_ERROR: (0x07) 잘못된 PPP 포인터입니다.
 
-### <a name="allowed-from"></a>허용된 원본
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드
 
@@ -576,7 +576,7 @@ UINT nx_ppp_ip_address_assign(NX_PPP *ppp_ptr, ULONG local_ip_address,
 - NX_PTR_ERROR: (0x07) 잘못된 PPP 포인터입니다.
 - NX_CALLER_ERROR: (0x11) 이 서비스의 호출자가 잘못되었습니다.
 
-### <a name="allowed-from"></a>허용된 원본
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드
 
@@ -616,7 +616,7 @@ UINT nx_ppp_link_down_notify(NX_PPP *ppp_ptr,
 - **NX_SUCCESS**: (0x00) 연결 해제 알림 콜백을 성공적으로 등록했습니다.
 - NX_PTR_ERROR: (0x07) 잘못된 PPP 포인터입니다.
 
-### <a name="allowed-from"></a>허용된 원본
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드, 타이머, ISR
 
@@ -662,7 +662,7 @@ UINT nx_ppp_link_up_notify(NX_PPP *ppp_ptr,
 - **NX_SUCCESS**: (0x00) 연결 사용 알림 콜백을 성공적으로 등록했습니다.
 - NX_PTR_ERROR: (0x07) 잘못된 PPP 포인터입니다.
 
-### <a name="allowed-from"></a>허용된 원본
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드, 타이머, ISR
 
@@ -709,7 +709,7 @@ UINT    nx_ppp_nak_authentication_notify(NX_PPP *ppp_ptr,
 - **NX_SUCCESS**: (0x00) 알림 콜백을 성공적으로 등록했습니다.
 - NX_PTR_ERROR: (0x07) 잘못된 PPP 포인터입니다.
 
-### <a name="allowed-from"></a>허용된 원본
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드, 타이머, ISR
 
@@ -765,7 +765,7 @@ UINT  nx_ppp_pap_enable(NX_PPP *ppp_ptr,
 - NX_PTR_ERROR: (0x07) PPP 포인터나 애플리케이션 함수 포인터가 잘못되었습니다.
 - NX_CALLER_ERROR: (0x11) 이 서비스의 호출자가 잘못되었습니다.
 
-### <a name="allowed-from"></a>허용된 원본
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드
 
@@ -841,7 +841,7 @@ UINT  nx_ppp_ping_request(NX_PPP *ppp_ptr, CHAR *data,
 - NX_PTR_ERROR: (0x07) PPP 포인터나 애플리케이션 함수 포인터가 잘못되었습니다.
 - NX_CALLER_ERROR (0x11) 이 서비스의 호출자가 잘못되었습니다.
 
-### <a name="allowed-from"></a>허용된 원본
+### <a name="allowed-from"></a>허용 위치
 
 애플리케이션 스레드
 
@@ -891,7 +891,7 @@ UINT  nx_ppp_raw_sting_send(NX_PPP *ppp_ptr, CHAR *string_ptr);
 - NX_PTR_ERROR: (0x07) PPP 포인터나 문자열 포인터가 잘못되었습니다.
 - NX_CALLER_ERROR: (0x11) 이 서비스의 호출자가 잘못되었습니다.
 
-### <a name="allowed-from"></a>허용된 원본
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -929,7 +929,7 @@ UINT  nx_ppp_restart(NX_PPP *ppp_ptr);
 - NX_PTR_ERROR: (0x07) 잘못된 PPP 포인터입니다.
 - NX_CALLER_ERROR: (0x11) 이 서비스의 호출자가 잘못되었습니다.
 
-### <a name="allowed-from"></a>허용된 원본
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -970,7 +970,7 @@ UINT  nx_ppp_start(NX_PPP *ppp_ptr);
 - NX_PTR_ERROR: (0x07) 잘못된 PPP 포인터입니다.
 - NX_CALLER_ERROR: (0x11) 이 서비스의 호출자가 잘못되었습니다.
 
-### <a name="allowed-from"></a>허용된 원본
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -1018,7 +1018,7 @@ UINT  nx_ppp_status_get(NX_PPP *ppp_ptr, UINT *status_ptr);
 - **NX_SUCCESS**: (0x00) PPP 상태가 성공적으로 요청되었습니다.
 - NX_PTR_ERROR: (0x07) 잘못된 PPP 포인터입니다.
 
-### <a name="allowed-from"></a>허용된 원본
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드, 타이머, ISR
 
@@ -1060,7 +1060,7 @@ UINT  nx_ppp_stop(NX_PPP *ppp_ptr);
 - NX_PTR_ERROR: (0x07) 잘못된 PPP 포인터입니다.
 - NX_CALLER_ERROR (0x11) 이 서비스의 호출자가 잘못되었습니다.
 
-### <a name="allowed-from"></a>허용된 원본
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -1097,7 +1097,7 @@ UINT  nx_ppp_packet_receive(NX_PPP *ppp_ptr, NX_PACKET *packet_ptr);
 - **NX_SUCCESS**: (0x00) PPP 상태가 성공적으로 요청되었습니다.
 - NX_PTR_ERROR: (0x07) 잘못된 PPP 포인터입니다.
 
-### <a name="allowed-from"></a>허용된 원본
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드
 
@@ -1137,7 +1137,7 @@ UINT  nx_ppp_packet_send_set(NX_PPP *ppp_ptr,
 - **NX_SUCCESS**: (0x00) PPP 상태가 성공적으로 요청되었습니다.
 - NX_PTR_ERROR: (0x07) 잘못된 PPP 포인터입니다.
 
-### <a name="allowed-from"></a>허용된 원본
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드
 
