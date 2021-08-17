@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 8c3df64be337b557f492617c1ef20adc7c0f8d6e
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 08f88f4501a7b44272111cbe5c14ee09474827b72a1239b334fb9d40e8093c51
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104810939"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116788493"
 ---
 # <a name="chapter-2---installation-and-use-of-azure-rtos-netx-duo-dhcp-client"></a>챕터 2 - Azure RTOS NetX Duo DHCP 클라이언트 설치 및 사용
 

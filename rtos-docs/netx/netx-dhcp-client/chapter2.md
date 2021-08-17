@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 9224a4df70b8199032066e30108250a3baeb65f5
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: da27039694c90f74a8b13dc556a367802f66c0ba7dd337f3e31ebab05641a9b1
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104811616"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116788782"
 ---
 # <a name="chapter-2---installation-and-use-of-azure-rtos-netx-dhcp-client"></a>2장 - Azure RTOS NetX DHCP 클라이언트 설치 및 사용
 
@@ -41,11 +41,11 @@ NetX용 DHCP는 간편하게 사용할 수 있습니다. 기본적으로 ThreadX
 
 DHCP는 NetX UDP 서비스를 활용하므로 DHCP를 사용하기 전에 *nx_udp_enable* 호출을 사용하여 UDP를 사용하도록 설정해야 합니다.
 
-이전에 할당된 IP 주소를 가져오기 위해 DHCP 클라이언트에서 DHCP 서버에 대한 요청 메시지와 50 “요청된 IP 주소” 옵션을 사용하여 DHCP 프로세스를 시작할 수 있습니다. DHCP 서버는 IP 주소를 클라이언트에 부여하면 ACK 메시지를 사용하여 응답하고, 거부하면 NACK를 사용하여 응답합니다. NACK를 사용하여 응답하는 경우 DHCP 클라이언트가 요청된 IP 주소 없이 검색 메시지를 사용하여 Init 상태에서 DHCP 프로세스를 다시 시작합니다. 호스트 애플리케이션은 먼저 DHCP 클라이언트를 만든 다음, *nx_dhcp_request_client_ip* API 서비스를 호출하여 요청된 IP 주소를 설정한 후에 *nx_dhcp_start* 를 사용하여 DHCP 프로세스를 시작합니다. 자세한 내용은 이 문서의 다른 부분에 나와 있는 DHCP 애플리케이션 예제를 참조하세요.
+이전에 할당된 IP 주소를 가져오기 위해 DHCP 클라이언트에서 DHCP 서버에 대한 요청 메시지와 50 “요청된 IP 주소” 옵션을 사용하여 DHCP 프로세스를 시작할 수 있습니다. DHCP 서버에서 IP 주소를 클라이언트에 부여하면 ACK 메시지를 사용하여 응답하고, 거부하면 NACK를 사용하여 응답합니다. 후자의 경우 DHCP 클라이언트에서 요청된 IP 주소가 없이 검색 메시지를 사용하여 Init 상태에서 DHCP 프로세스를 다시 시작합니다. 호스트 애플리케이션은 먼저 DHCP 클라이언트를 만든 다음, *nx_dhcp_request_client_ip* API 서비스를 호출하여 요청된 IP 주소를 설정한 후에 *nx_dhcp_start* 를 사용하여 DHCP 프로세스를 시작합니다. 자세한 내용은 이 문서의 다른 부분에 DHCP 애플리케이션 예제가 나와 있습니다.
 
-## <a name="in-the-bound-state"></a>바인딩된 상태에서 처리
+## <a name="in-the-bound-state"></a>바인딩된 상태에서
 
-DHCP 클라이언트가 바인딩 상태에 있는 동안 DHCP 클라이언트 스레드에서 간격(NX_DHCP_TIME_INTERVAL에서 지정한)당 한 번씩 클라이언트 상태를 처리하고 클라이언트에 할당된 IP 임대에 남은 시간을 줄입니다. 갱신 시간이 지나면 DHCP 클라이언트 상태가 클라이언트에서 DHCP 서버에 갱신을 요청하는 RENEW 상태로 업데이트됩니다.
+DHCP 클라이언트가 바인딩 상태에 있는 동안 DHCP 클라이언트 스레드에서 간격당 한 번씩(NX_DHCP_TIME_INTERVAL에서 지정한 대로) 클라이언트 상태를 처리하고 클라이언트에 할당된 IP 임대에 남아 있는 시간을 줄입니다. 갱신 시간이 경과하면 DHCP 클라이언트 상태가 클라이언트에서 DHCP 서버에 갱신을 요청하는 RENEW 상태로 업데이트됩니다.
 
 
 ## <a name="sending-dhcp-messages-to-the-server"></a>서버에 DHCP 메시지 보내기
@@ -54,7 +54,7 @@ DHCP 클라이언트에는 호스트 애플리케이션이 DHCP 서버에 메시
 
   - *nx_dhcp_release*: 호스트 애플리케이션이 네트워크에서 나가거나 IP 주소를 포기해야 하는 경우 RELEASE 메시지를 서버에 보냅니다.
 
-  - *nx_dhcp_decline*: 호스트 애플리케이션이 DHCP 클라이언트와 독립적으로 IP 주소를 이미 사용하고 있음을 확인하는 경우 DECLINE 메시지를 서버에 보냅니다.
+  - *nx_dhcp_decline*: 호스트 애플리케이션이 DHCP 클라이언트와 독립적으로 해당 IP 주소를 이미 사용하고 있음을 확인하는 경우 DECLINE 메시지를 서버에 보냅니다.
 
   - *nx_dhcp_forcerenew*: FORCERENEW 메시지를 서버에 보냅니다.
 
@@ -84,7 +84,7 @@ nx_dhcp_start(&my_dhcp);
 
 ## <a name="using-the-dhcp-client-with-auto-ip"></a>자동 IP를 통해 DHCP 클라이언트 사용
 
-NetX DHCP 클라이언트는 DHCP 서버를 사용할 수 있거나 DHCP 서버가 응답할 수 있다는 보장이 없는 주소를 DHCP와 자동 IP를 통해 보장하는 애플리케이션의 자동 IP 프로토콜과 동시에 작동합니다. 그러나 호스트에서 서버를 검색하거나 IP 주소를 할당받을 수 없는 경우 로컬 IP 주소에 대해 자동 IP 프로토콜로 전환할 수 있습니다. 이렇게 하려면 먼저 자동 IP가 “프로브”와 “방어” 단계를 거치는 동안 DHCP 클라이언트를 일시적으로 중지하는 것이 좋습니다. 자동 IP 주소가 호스트에 할당되면 DHCP 클라이언트를 다시 시작할 수 있고, DHCP 서버를 사용할 수 있게 되면 애플리케이션이 실행되는 동안 DHCP 서버에서 제공하는 IP 주소를 호스트 IP 주소에서 수락할 수 있습니다.
+NetX DHCP 클라이언트는 DHCP 서버를 사용할 수 있거나 DHCP 서버가 응답할 수 있다는 보장이 없는 주소를 DHCP와 자동 IP를 통해 보장하는 애플리케이션의 자동 IP 프로토콜과 동시에 작동합니다. 그러나 호스트에서 서버를 검색하거나 IP 주소를 할당받을 수 없는 경우 로컬 IP 주소에 대해 자동 IP 프로토콜로 전환할 수 있습니다. 이렇게 하려면 먼저 자동 IP가 "프로브" 및 "방어" 단계를 거치는 동안 DHCP 클라이언트를 일시적으로 중지하는 것이 좋습니다. 자동 IP 주소가 호스트에 할당되면 DHCP 클라이언트를 다시 시작할 수 있고, DHCP 서버를 사용할 수 있게 되면 애플리케이션이 실행되는 동안 DHCP 서버에서 제공하는 IP 주소를 호스트 IP 주소에서 수락할 수 있습니다.
 
 NetX 자동 IP에는 IP 주소가 변경되는 경우 호스트에서 해당 작업을 모니터링할 수 있는 주소 변경 알림이 있습니다.
 
@@ -235,7 +235,7 @@ NX_PACKET  *my_packet;
 
 ## <a name="arp-probes"></a>ARP 프로브
 
-DHCP 클라이언트는 DHCP 서버에서 IP 주소를 할당한 후에 하나 이상의 ARP 프로브를 보내 IP 주소가 이미 사용되고 있지 않은지 확인하도록 구성할 수 있습니다. ARP 프로브 단계는 RFC 2131에서 권장하며, 둘 이상의 DHCP 서버가 있는 환경에서 특히 중요합니다. 호스트 애플리케이션에서 NX_DHCP_CLIENT_SEND_ARP_PROBE 옵션을 사용하도록 설정하면(추가 ARP 프로브 옵션은 2장의 **구성 옵션** 참조) DHCP 클라이언트는 ‘자체 주소가 지정된’ ARP 프로브를 보내고 응답을 위해 지정된 시간 동안 기다립니다. 받은 항목이 없으면 DHCP 클라이언트가 바인딩됨 상태로 이동합니다. 응답을 받으면 DHCP 클라이언트에서 주소가 이미 사용 중이라고 가정합니다. 자동으로 DECLINE 메시지를 서버에 보내고, 클라이언트를 다시 초기화하여 INIT 상태에서 DHCP 프로브를 다시 시작합니다. 그러면 DHCP 상태 시스템이 다시 시작되고 클라이언트에서 다른 DISCOVER 메시지를 서버에 보냅니다.
+DHCP 클라이언트는 DHCP 서버에서 IP 주소를 할당한 후 하나 이상의 ARP 프로브를 보내 IP 주소가 이미 사용되고 있지 않은지 확인하도록 구성할 수 있습니다. ARP 프로브 단계는 RFC 2131에서 권장하며, 둘 이상의 DHCP 서버가 있는 환경에서 특히 중요합니다. 호스트 애플리케이션에서 NX_DHCP_CLIENT_SEND_ARP_PROBE 옵션을 사용하도록 설정하면(추가 ARP 프로브 옵션은 챕터 2의 **구성 옵션** 참조) DHCP 클라이언트는 '자체 주소가 지정된' ARP 프로브를 보내고 응답을 위해 지정된 시간 동안 기다립니다. 받은 항목이 없으면 DHCP 클라이언트가 바인딩됨 상태로 이동합니다. 응답을 받으면 DHCP 클라이언트에서 주소가 이미 사용 중이라고 가정합니다. 자동으로 DECLINE 메시지를 서버에 보내고, 클라이언트를 다시 초기화하여 INIT 상태에서 DHCP 프로브를 다시 시작합니다. 그러면 DHCP 상태 시스템이 다시 시작되고 클라이언트에서 다른 DISCOVER 메시지를 서버에 보냅니다.
 
 ## <a name="bootp-protocol"></a>BOOTP 프로토콜
 
@@ -388,7 +388,7 @@ NX_PACKET  *my_packet;
 
 ## <a name="dhcp-client-on-multiple-interfaces-simultaneously"></a>동시에 여러 인터페이스의 DHCP 클라이언트
 
-여러 인터페이스에서 DHCP 클라이언트를 실행하려면 *nx_api.h* 의 NX_MAX_PHYSICAL_INTERFACES를 디바이스에 연결된 실제 인터페이스 수로 설정해야 합니다. 기본적으로 이 값은 1입니다(예: 기본 인터페이스). 추가 인터페이스를 IP 인스턴스에 등록하려면 *nx_ip_interface_attach* 서비스를 사용합니다. 보조 인터페이스를 연결하는 방법에 대한 자세한 내용은 NetX 사용자 가이드를 참조하세요.
+여러 인터페이스에서 DHCP 클라이언트를 실행하려면 *nx_api.h* 의 NX_MAX_PHYSICAL_INTERFACES를 디바이스에 연결된 실제 인터페이스 수로 설정해야 합니다. 기본적으로 이 값은 1(예: 기본 인터페이스)입니다. 추가 인터페이스를 IP 인스턴스에 등록하려면 *nx_ip_interface_attach* 서비스를 사용합니다. 보조 인터페이스를 연결하는 방법에 대한 자세한 내용은 NetX 사용자 가이드를 참조하세요.
 
 다음 단계는 *nx_dhcp.h* 의 NX_DHCP_CLIENT_MAX_RECORDS를 동시에 DHCP를 실행하는 데 필요한 최대 인터페이스 수로 설정하는 것입니다. NX_DHCP_CLIENT_MAX_RECORDS는 NX_MAX_PHYSICAL_INTERFACES와 같을 필요가 없습니다. 예를 들어 NX_MAX_PHYSICAL_INTERFACES는 3이고, NX_DHCP_CLIENT_MAX_RECORDS는 2일 수 있습니다. 이 구성에서는 세 개의 실제 인터페이스 중 두 개의 인터페이스(그리고 언제든지 세 개의 물리적 인터페이스 중 두 개가 될 수 있음)만 DHCP를 한 번에 실행할 수 있습니다. DHCP 클라이언트 레코드에는 네트워크 인터페이스에 대한 일대일 매핑이 없습니다. 예를 들어 클라이언트 레코드 1은 실제 인터페이스 인덱스 1과 자동으로 상호 연결되지 않습니다.
 
@@ -402,11 +402,11 @@ NX_DHCP_CLIENT_MAX_RECORDS를 NX_MAX_PHYSICAL_INTERFACES보다 더 크게 설정
 
 특정 인터페이스에서 DHCP를 시작하려면 *nx_dhcp_interface_start* 서비스를 사용합니다. 사용하도록 설정된 모든 인터페이스에서 DHCP를 시작하려면 *nx_dhcp_start* 서비스를 사용합니다. (이미 DHCP를 시작한 인터페이스는 *nx_dhcp_start* 의 영향을 받지 않습니다.)
 
-인터페이스에서 DHCP를 중지하려면 *nx_dhcp_interface_stop* 서비스를 사용합니다. DHCP가 해당 인터페이스에서 이미 시작되어 있어야 합니다. 그러지 않으면 오류 상태가 반환됩니다. 사용하도록 설정된 모든 인터페이스에서 DHCP를 중지하려면 *nx_dhcp_stop* 서비스를 사용합니다. DHCP는 언제든지 다른 인터페이스와 독립적으로 중지할 수 있습니다.
+인터페이스에서 DHCP를 중지하려면 *nx_dhcp_interface_stop* 서비스를 사용합니다. DHCP가 해당 인터페이스에서 이미 시작되어 있어야 합니다. 그렇지 않으면 오류 상태가 반환됩니다. 사용하도록 설정된 모든 인터페이스에서 DHCP를 중지하려면 *nx_dhcp_stop* 서비스를 사용합니다. DHCP는 언제든지 다른 인터페이스와 독립적으로 중지할 수 있습니다.
 
-대부분의 기존 DHCP 클라이언트 서비스에는 ‘interface’와 동일한 항목이 있습니다. 예를 들어 *nx_dhcp_interface_release* 는 *nx_dhcp_release* 와 동일한 인터페이스입니다. DHCP 클라이언트가 단일 인터페이스에 대해 구성된 경우 동일한 작업을 수행합니다.
+대부분의 기존 DHCP 클라이언트 서비스에는 'interface'와 동일한 항목이 있습니다. 예를 들어 *nx_dhcp_interface_release* 는 *nx_dhcp_release* 와 동일한 인터페이스입니다. DHCP 클라이언트가 단일 인터페이스에 대해 구성된 경우 동일한 작업을 수행합니다.
 
-일반적으로 인터페이스가 아닌 특정 DHCP 클라이언트 서비스는 모든 인터페이스에 적용되지만 전부는 아닙니다. 후자의 경우 인터페이스가 아닌 특정 서비스가 인터페이스 레코드의 DHCP 클라이언트 목록을 검색할 때 찾은 첫 번째 DHCP 사용 인터페이스에 적용됩니다. DHCP에 대해 여러 인터페이스가 사용하도록 설정되는 경우 인터페이스가 아닌 특정 서비스에서 수행하는 방법은 3장의 **서비스 설명** 을 참조하세요.
+일반적으로 인터페이스가 아닌 특정 DHCP 클라이언트 서비스는 모든 인터페이스에 적용되지만 전부는 아닙니다. 후자의 경우 인터페이스가 아닌 특정 서비스가 인터페이스 레코드의 DHCP 클라이언트 목록을 검색할 때 찾은 첫 번째 DHCP 사용 인터페이스에 적용됩니다. DHCP에 대해 여러 인터페이스가 사용하도록 설정되는 경우 인터페이스가 아닌 특정 서비스에서 수행하는 방법은 챕터 3의 **서비스 설명** 을 참조하세요.
 
 아래 예제 시퀀스에서 IP 인스턴스는 두 개의 네트워크 인터페이스를 포함하고 먼저 보조 인터페이스에서 DHCP를 실행합니다. 잠시 후 기본 인터페이스에서 DHCP를 시작합니다. 그런 다음, 기본 인터페이스에서 IP 주소를 해제하고, 기본 인터페이스에서 DHCP를 다시 시작합니다.
 
@@ -433,7 +433,7 @@ nx_dhcp_interface_start(&my_dhcp_client, 0);
 /* DHCP is restarted on primary interface. */
 ```
 
-인터페이스 관련 서비스의 전체 목록은 3장의 **서비스 설명** 을 참조하세요.
+인터페이스 관련 서비스의 전체 목록은 챕터 3의 **서비스 설명** 을 참조하세요.
 
 ## <a name="configuration-options"></a>구성 옵션
 

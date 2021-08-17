@@ -6,12 +6,12 @@ ms.author: v-condav
 ms.date: 01/22/2021
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 536225de30f54356157c222917fc904c6aa039fe
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: f804ae59dd639ca05d1b8f5251cf8b878e78bb9ad2575e08c21d43b14e727a19
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104810765"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116796517"
 ---
 # <a name="chapter-2--installation-and-use-of-lwm2m-client"></a>2장 - LWM2M 클라이언트의 설치 및 사용
 

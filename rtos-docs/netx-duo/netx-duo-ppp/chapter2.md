@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 2270a2668884dbecc8368d4ee130e419afa92491
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 141197daa87b40ebe2ea34ff096a0b01b260e9296a33e3b678f11400d5d46ab6
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104810644"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116797163"
 ---
 # <a name="chapter-2---installation-and-use-of-azure-rtos-netx-duo-point-to-point-protocol-ppp"></a>2장 - Azure RTOS NetX Duo PPP(지점 간 프로토콜) 설치 및 사용
 
@@ -84,7 +84,7 @@ NetX PPP를 중지하는 것은 매우 간단합니다. 기본적으로 생성�
 
 ## <a name="small-example-system"></a>작은 예제 시스템
 
-NetX PPP를 사용하는 것이 얼마나 쉬운지 보여주는 예제는 아래에 표시된 그림 1.1에 설명되어 있습니다. 이 예제에서는 PPP 포함 파일 *nx_ppp.h* 가 3줄에서 가져옵니다. 다음으로, PPP는 56줄의 *”tx_application_define*”에 만들어집니다. PPP 제어 블록 “*my_ppp*”는 이전에 9줄에서 전역 변수로 정의되었습니다. 
+NetX PPP를 사용하는 것이 얼마나 쉬운지 보여주는 예제는 아래에 표시된 그림 1.1에 설명되어 있습니다. 이 예제에서는 PPP 포함 파일 *nx_ppp.h* 를 3줄에서 가져옵니다. 다음으로, PPP는 56줄의 *”tx_application_define*”에 만들어집니다. PPP 제어 블록 “*my_ppp*”는 이전에 9줄에서 전역 변수로 정의되었습니다. 
 
 >[!NOTE]
 >IP 인스턴스를 만들기 전에 PPP를 만들어야 합니다. PPP와 IP를 성공적으로 만든 후 스레드 "*my_thread*"는 PPP 링크가 98줄에서 활성화될 때까지 대기합니다. 104줄에서 PPP와 NetX는 모두 완전히 작동합니다.
@@ -216,15 +216,15 @@ NetX용 PPP를 빌드하기 위한 몇 가지 구성 옵션이 있습니다. 다
 - **NX_PPP_HASHED_VALUE_SIZE**: CHAP 인증에 사용되는 "해시된 값" 문자열의 크기를 지정합니다. 기본값은 16바이트로 설정되지만 *nx_ppp.h* 를 포함하기 전에 다시 정의할 수 있습니다.
 - **NX_PPP_MAX_LCP_PROTOCOL_RETRIES**: 다른 LCP 구성 요청 메시지를 보내기 전에 PPP가 제한 시간을 초과하는 경우 최대 재시도 횟수를 정의합니다. 이 숫자에 도달하면 PPP 핸드셰이크가 중단되고 링크 상태가 중단됩니다. 기본값은 20입니다.
 - **NX_PPP_MAX_PAP_PROTOCOL_RETRIES**: 다른 PAP 인증 요청 메시지를 보내기 전에 PPP가 제한 시간을 초과하는 경우 최대 재시도 횟수를 정의합니다. 이 숫자에 도달하면 PPP 핸드셰이크가 중단되고 링크 상태가 중단됩니다. 기본값은 20입니다.
-- **NX_PPP_MAX_CHAP_PROTOCOL_RETRIES**: 다른 CHAP 챌린저 메시지를 보내기 전에 PPP가 제한 시간을 초과하는 경우 최대 재시도 횟수를 정의합니다. 이 숫자에 도달하면 PPP 핸드셰이크가 중단되고 링크 상태가 중단됩니다. 기본값은 20입니다.
+- **NX_PPP_MAX_CHAP_PROTOCOL_RETRIES**: 다른 CHAP 챌린지 메시지를 보내기 전에 PPP가 제한 시간을 초과하는 경우 최대 재시도 횟수를 정의합니다. 이 숫자에 도달하면 PPP 핸드셰이크가 중단되고 링크 상태가 중단됩니다. 기본값은 20입니다.
 - **NX_PPP_MAX_IPCP_PROTOCOL_RETRIES**: 다른 IPCP 구성 요청 메시지를 보내기 전에 PPP가 제한 시간을 초과하는 경우 최대 재시도 횟수를 정의합니다. 이 숫자에 도달하면 PPP 핸드셰이크가 중단되고 링크 상태가 중단됩니다. 기본값은 20입니다.
 - **NX_PPP_MRU**: PPP의 최대 수신 단위(MRU)를 지정합니다. 기본적으로 이 값은 1,500바이트(최솟값)입니다. 이 정의는 *nx_ppp.h* 를 포함하기 전에 애플리케이션에서 설정할 수 있습니다.
 - **NX_PPP_MINIMUM_MRU**: LCP 구성 요청 메시지에서 받은 최소 MRU를 지정합니다. 기본적으로 이 값은 1,500바이트(최솟값)입니다. 이 정의는 *nx_ppp.h* 를 포함하기 전에 애플리케이션에서 설정할 수 있습니다.
 - **NX_PPP_NAME_SIZE**: 인증에 사용되는 "이름" 문자열의 크기를 지정합니다. 기본값은 32바이트로 설정되지만 *nx_ppp.h를 포함하기 전에 다시 정의할 수 있습니다.
 - **NX_PPP_PASSWORD_SIZE**: 인증에 사용되는 "암호" 문자열의 크기를 지정합니다. 기본값은 32바이트로 설정되지만 *nx_ppp.h* 를 포함하기 전에 다시 정의할 수 있습니다.
 - **NX_PPP_PROTOCOL_TIMEOUT**: PPP 작업이 PPP 프로토콜 요청 메시지에 대한 응답을 수신하는 대기 옵션(초)을 정의합니다. 기본값은 4초입니다.
-- **NX_PPP_RECEIVE_TIMEOUTS**: PPP 메시지 스트림에서 다음 문자를 받기 위해 대기하는 작업의 시간 초과 횟수를 정의합니다. 이후에는 PPP가 패킷을 해제하고 다음 PPP 메시지를 받기 위해 대기를 시작합니다. 기본값은 4입니다.
-- **NX_PPP_SERIAL_BUFFER_SIZE**: 수신 문자 직렬 버퍼의 크기를 지정합니다. 이 값은 기본적으로 3.000바이트입니다. 이 정의는 *nx_ppp.h* 를 포함하기 전에 애플리케이션에서 설정할 수 있습니다.
+- **NX_PPP_RECEIVE_TIMEOUTS**: PPP 메시지 스트림에서 다음 문자를 받기 위해 대기하는 PPP 스레드 작업의 시간 초과 횟수를 정의합니다. 이후에는 PPP가 패킷을 해제하고 다음 PPP 메시지를 받기 위해 대기를 시작합니다. 기본값은 4입니다.
+- **NX_PPP_SERIAL_BUFFER_SIZE**: 수신 문자 직렬 버퍼의 크기를 지정합니다. 기본적으로 이 값은 3,000바이트입니다. 이 정의는 *nx_ppp.h* 를 포함하기 전에 애플리케이션에서 설정할 수 있습니다.
 - **NX_PPP_TIMEOUT**: 데이터를 전송하는 패킷과 IP 계층에 보낼 패킷에 PPP 직렬 데이터를 할당하는 대기 옵션(타이머 틱 단위)을 정의합니다. 기본값은 4*NX_IP_PERIODIC_RATE(400틱)입니다.
 - **NX_PPP_THREAD_TIME_SLICE**: PPP 스레드에 대한 시간 조각 옵션입니다. 기본적으로 이 값은 TX_NO_TIME_SLICE입니다. 이 정의는 *nx_ppp.h* 를 포함하기 전에 애플리케이션에서 설정할 수 있습니다.
 - **NX_PPP_VALUE_SIZE**: CHAP 인증에 사용되는 "값" 문자열의 크기를 지정합니다. 기본값은 32바이트로 설정되지만 nx_ppp.h를 포함하기 전에 다시 정의할 수 있습니다.

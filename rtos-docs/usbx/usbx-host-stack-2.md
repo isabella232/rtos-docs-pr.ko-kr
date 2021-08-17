@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 5/19/2020
 ms.service: rtos
 ms.topic: article
-ms.openlocfilehash: 4c33f95b8ac268c557fd947a1303ec3af315a37e
-ms.sourcegitcommit: d8edbb3207fe99f8afb431597dac063e73383e68
+ms.openlocfilehash: 77df2c4e4bf4ef38403fe78eb98f18820de4325aadb941fc69275e4c77754212
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/05/2021
-ms.locfileid: "106377087"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116790968"
 ---
 # <a name="chapter-2---azure-rtos-usbx-host-stack-installation"></a>챕터 2 - Azure RTOS USBX 호스트 스택 설치
 
@@ -19,7 +19,7 @@ ms.locfileid: "106377087"
 
 ### <a name="computer-type"></a>컴퓨터 유형
 
-임베디드 개발은 일반적으로 Windows PC 또는 Unix 호스트 컴퓨터에서 수행됩니다. 애플리케이션이 컴파일되거나, 링크되거나, 호스트에 배치된 후 실행할 수 있도록 대상 하드웨어에 다운로드됩니다.
+임베디드 개발은 일반적으로 Windows PC 또는 Unix 호스트 컴퓨터에서 수행됩니다. 애플리케이션이 컴파일되거나, 링크되거나 호스트에 배치된 후 실행할 수 있도록 대상 하드웨어에 다운로드됩니다.
 
 ### <a name="download-interfaces"></a>인터페이스 다운로드
 
@@ -35,7 +35,7 @@ USBX의 소스 코드는 ASCII 형식으로 제공되며 호스트 컴퓨터의 
 
 ## <a name="target-considerations"></a>대상 고려 사항
 
-USBX에는 호스트 모드의 대상에 24KB에서 64KB 사이의 ROM(읽기 전용 메모리)이 필요합니다. 필요한 메모리 양은 사용된 컨트롤러 유형 및 USBX에 연결된 USB 클래스에 따라 달라집니다. 또한 USBX 전역 데이터 구조 및 메모리 풀에 대상의 32KB RAM(Random Access Memory)이 추가로 필요합니다. 이 메모리 풀은 USB의 예상 디바이스 수 및 USB 컨트롤러 유형에 따라 조정될 수 있습니다. USBX 디바이스 측에는 디바이스 컨트롤러 유형에 따라 약 10~12K의 ROM이 필요합니다. RAM 메모리 사용량은 디바이스에서 에뮬레이트되는 클래스 유형에 따라 달라집니다.
+USBX에는 호스트 모드의 대상에 24KB에서 64KB 사이의 ROM(읽기 전용 메모리)이 필요합니다. 필요한 메모리 양은 사용된 컨트롤러 유형 및 USBX에 연결된 USB 클래스에 따라 달라집니다. 또한 USBX 글로벌 데이터 구조 및 메모리 풀에 대상의 32KB RAM(Random Access Memory)이 추가로 필요합니다. 이 메모리 풀은 USB의 예상 디바이스 수 및 USB 컨트롤러 유형에 따라 조정될 수 있습니다. USBX 디바이스 측에는 디바이스 컨트롤러 유형에 따라 약 10~12K의 ROM이 필요합니다. RAM 메모리 사용량은 디바이스에서 에뮬레이트되는 클래스 유형에 따라 달라집니다.
 
 또한 USBX에는 ThreadX 세마포, 뮤텍스, 다중 스레드 보호를 위한 스레드, USB 버스 토폴로지 모니터링을 위한 I/O 일시 중단 및 정기적 처리가 필요합니다.
 
@@ -126,7 +126,7 @@ USBX 파일은 여러 디렉터리에서 제공됩니다.
 
 ## <a name="initialization-of-usbx-resources"></a>USBX 리소스 초기화
 
-USBX에는 고유 메모리 관리자가 포함됩니다. USBX의 호스트 또는 디바이스 측이 초기화되기 전 USBX에 메모리를 할당해야 합니다. USBX 메모리 관리자는 메모리를 캐시할 수 있는 시스템을 수용할 수 있습니다.
+USBX에는 자체 메모리 관리자가 있습니다. USBX의 호스트 또는 디바이스 측이 초기화되기 전 USBX에 메모리를 할당해야 합니다. USBX 메모리 관리자는 메모리를 캐시할 수 있는 시스템을 수용할 수 있습니다.
 
 다음 함수는 일반 메모리 128K로 USBX 메모리 리소스를 초기화하고 캐시 안전 메모리를 위한 별도의 풀은 사용하지 않습니다.
 
@@ -272,4 +272,4 @@ USBX는 데모 파일 및 시뮬레이션 환경으로 제공됩니다. 항상 �
 
 ## <a name="usbx-version-id"></a>USBX 버전 ID
 
-USBX의 현재 버전은 런타임 중 사용자 및 애플리케이션 모두에 제공됩니다. 프로그래머는 ***ux_port.h** _ 파일을 조사하여 USBX 버전을 가져올 수 있습니다. 또한 이 파일에는 해당 포트의 버전 기록도 포함됩니다. 애플리케이션 소프트웨어는 _*_ux_port.h_**에 정의된 전역 문자열 _ *_ _ux_version_id_* _를 검사하여 USBX 버전을 가져올 수 있습니다.
+USBX의 현재 버전은 런타임 중 사용자 및 애플리케이션 모두에 제공됩니다. 프로그래머는 ***ux_port.h** _ 파일을 조사하여 USBX 버전을 가져올 수 있습니다. 또한 이 파일에는 해당 포트의 버전 기록도 포함됩니다. 애플리케이션 소프트웨어는 _*_ux_port.h_**에 정의된 전체 문자열 _ *_ _ux_version_id_* _를 조사하여 USBX 버전을 가져올 수 있습니다.

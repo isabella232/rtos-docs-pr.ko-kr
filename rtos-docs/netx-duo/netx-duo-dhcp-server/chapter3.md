@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/08/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 33eb0b4bd98f808124b9a6a1f01950639243d612
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 8496d9158c06e79ed86cb2f09ed9986a4eae5ed176352ff01c317df9f2399127
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104810921"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116788442"
 ---
 # <a name="chapter-3---description-of-azure-rtos-netx-duo-dhcp-server-services"></a>3장 - Azure RTOS NetX Duo DHCP 서버 서비스 설명
 
@@ -262,7 +262,7 @@ UINT nx_dhcp_server_start(NX_DHCP_SERVER *dhcp_ptr);
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
-- **dhcp_ptr** 이전에 만든 DHCP 인스턴스에 대한 포인터
+- **ip_ptr** 이전에 만든 DHCP 인스턴스에 대한 포인터
 
 ### <a name="return-values"></a>반환 값
 

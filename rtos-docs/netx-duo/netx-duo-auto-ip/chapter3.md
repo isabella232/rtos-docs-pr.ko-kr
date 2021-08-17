@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 0935295ef9f7255c0851e1f64013884dce4c52f1
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 82a186505104983dbe6964f92e89c8e775d545eedb6495e27f21542d7660bf42
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104810981"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116791196"
 ---
 # <a name="chapter-3---description-of-azure-rtos-netx-duo-autoip-services"></a>3장 - Azure RTOS NetX Duo AutoIP 서비스 설명
 

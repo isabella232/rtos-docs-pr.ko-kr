@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/08/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: c58d0e3d7eca86816a9d656bf2b92a896ffb96fc
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: eabb455b6e21b4fe51db944a0da12afa85ee390a78db633ee670de5aadcde07b
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104811527"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116791519"
 ---
 # <a name="chapter-3---description-of-netx-http-services"></a>챕터 3 - NetX HTTP 서비스 설명
 
@@ -82,9 +82,9 @@ UINT nx_http_client_create(NX_HTTP_CLIENT *client_ptr,
 **입력 매개 변수**
 
 - **client_ptr** HTTP 클라이언트 제어 블록에 대한 포인터
-- **client_name** HTTP 클라이언트 인스턴스의 이름
-- **ip_ptr** IP 인스턴스에 대한 포인터
-- **pool_ptr** 기본 패킷 풀에 대한 포인터 이 풀의 패킷에는 전체 응답 헤더를 처리할 수 있을 만큼 큰 페이로드가 있어야 합니다. 이는 *nx_http_client.h* 의 NX_HTTP_CLIENT_MIN_PACKET_SIZE에서 정의됩니다.
+- **client_name** HTTP 클라이언트 인스턴스의 이름입니다.
+- **ip_ptr** IP 인스턴스에 대한 포인터입니다.
+- **pool_ptr** 기본 패킷 풀에 대한 포인터입니다. 이 풀의 패킷에는 전체 응답 헤더를 처리할 수 있을 만큼 큰 페이로드가 있어야 합니다. 이는 *nx_http_client.h* 의 NX_HTTP_CLIENT_MIN_PACKET_SIZE에서 정의됩니다.
 - **window_size** 클라이언트의 TCP 소켓 수신 창의 크기입니다.
 
 **반환 값**
@@ -169,13 +169,13 @@ UINT nx_http_client_get_start(NX_HTTP_CLIENT *client_ptr,
 - **client_ptr** HTTP 클라이언트 제어 블록에 대한 포인터
 - **ip_address** HTTP 서버의 IP 주소
 - **resource** 요청된 리소스의 URL 문자열에 대한 포인터
-- **input_ptr** GET 요청의 추가 데이터에 대한 포인터 선택 사항입니다. 유효한 경우 지정된 입력이 메시지의 콘텐츠 영역에 배치되고 GET 작업 대신 POST가 사용됩니다.
+- **input_ptr** GET 요청의 추가 데이터에 대한 포인터입니다. 선택 사항입니다. 유효한 경우 지정된 입력이 메시지의 콘텐츠 영역에 배치되고 GET 작업 대신 POST가 사용됩니다.
 - **input_size** input_ptr에서 가리키는 선택적 추가 입력의 바이트 수
 - **username** 인증을 위한 선택적 사용자 이름에 대한 포인터
 - **password** 인증을 위한 선택적 암호에 대한 포인터
 -**wait_option** 서비스에서 HTTP 클라이언트 GET 시작 요청을 기다리는 시간을 정의합니다. 대기 옵션은 다음과 같이 정의됩니다.
   - **시간 제한 값** (0x00000001~0xFFFFFFFE)
-  - **TX_WAIT_FOREVER** (0xFFFFFFFF)<br />TX_WAIT_FOREVER는 HTTP 서버에서 요청에 응답할 때까지 호출 스레드가 무기한 일시 중단되도록 합니다.<br />숫자 값(0x1-0xFFFFFFFE)을 선택하면 HTTP 서버 응답을 기다리는 동안 일시 중단됨 상태로 유지되는 최대 타이머 틱 수를 지정합니다.
+  - **TX_WAIT_FOREVER** (0xFFFFFFFF)<br />TX_WAIT_FOREVER를 선택하면 HTTP 서버가 요청에 응답할 때까지 호출 스레드가 무기한 일시 중단됩니다.<br />숫자 값(0x1-0xFFFFFFFE)을 선택하면 HTTP 서버 응답을 기다리는 동안 일시 중단됨 상태로 유지되는 최대 타이머 틱 수를 지정합니다.
 
 **반환 값**
 
@@ -241,16 +241,16 @@ UINT nx_http_client_get_start_extended(NX_HTTP_CLIENT *client_ptr,
 - **client_ptr** HTTP 클라이언트 제어 블록에 대한 포인터
 - **ip_address** HTTP 서버의 IP 주소
 - **resource** 요청된 리소스의 URL 문자열에 대한 포인터
-- **resource_length** 요청된 리소스에 대한 URL 문자열의 길이
-- **input_ptr** GET 요청의 추가 데이터에 대한 포인터 선택 사항입니다. 유효한 경우 지정된 입력이 메시지의 콘텐츠 영역에 배치되고 GET 작업 대신 POST가 사용됩니다.
+- **resource_length** 요청된 리소스에 대한 URL 문자열의 길이입니다.
+- **input_ptr** GET 요청의 추가 데이터에 대한 포인터입니다. 선택 사항입니다. 유효한 경우 지정된 입력이 메시지의 콘텐츠 영역에 배치되고 GET 작업 대신 POST가 사용됩니다.
 - **input_size** input_ptr에서 가리키는 선택적 추가 입력의 바이트 수
 - **username** 인증을 위한 선택적 사용자 이름에 대한 포인터
-- **username_length** 인증을 위한 선택적 사용자 이름의 길이
+- **username_length** 인증을 위한 선택적 사용자 이름의 길이입니다.
 - **password** 인증을 위한 선택적 암호에 대한 포인터
-- **password_length** 인증을 위한 선택적 암호의 길이
+- **password_length** 인증을 위한 선택적 암호의 길이입니다.
 - **wait_option** 서비스에서 HTTP 클라이언트 GET 시작 요청을 기다리는 시간을 정의합니다. 대기 옵션은 다음과 같이 정의됩니다.
   - **시간 제한 값** (0x00000001~0xFFFFFFFE)
-  - **TX_WAIT_FOREVER** (0xFFFFFFFF)<br />TX_WAIT_FOREVER는 HTTP 서버에서 요청에 응답할 때까지 호출 스레드가 무기한 일시 중단되도록 합니다.<br />숫자 값(0x1-0xFFFFFFFE)을 선택하면 HTTP 서버 응답을 기다리는 동안 일시 중단됨 상태로 유지되는 최대 타이머 틱 수를 지정합니다.
+  - **TX_WAIT_FOREVER** (0xFFFFFFFF)<br />TX_WAIT_FOREVER를 선택하면 HTTP 서버가 요청에 응답할 때까지 호출 스레드가 무기한 일시 중단됩니다.<br />숫자 값(0x1-0xFFFFFFFE)을 선택하면 HTTP 서버 응답을 기다리는 동안 일시 중단됨 상태로 유지되는 최대 타이머 틱 수를 지정합니다.
 
 **반환 값**
 
@@ -313,7 +313,7 @@ UINT nx_http_client_get_packet(NX_HTTP_CLIENT *client_ptr,
 - **packet_ptr** 부분 리소스 콘텐츠가 포함된 패킷 포인터의 대상
 - **wait_option** 서비스에서 HTTP 클라이언트 GET 패킷을 기다리는 시간을 정의합니다. 대기 옵션은 다음과 같이 정의됩니다.
   - **시간 제한 값** (0x00000001 ~ 0xFFFFFFFE)
-  - **TX_WAIT_FOREVER** (0xFFFFFFFF)<br />TX_WAIT_FOREVER는 HTTP 서버에서 요청에 응답할 때까지 호출 스레드가 무기한 일시 중단되도록 합니다.<br />숫자 값(0x1-0xFFFFFFFE)을 선택하면 HTTP 서버 응답을 기다리는 동안 일시 중단됨 상태로 유지되는 최대 타이머 틱 수를 지정합니다.
+  - **TX_WAIT_FOREVER** (0xFFFFFFFF)<br />TX_WAIT_FOREVER를 선택하면 HTTP 서버가 요청에 응답할 때까지 호출 스레드가 무기한 일시 중단됩니다.<br />숫자 값(0x1-0xFFFFFFFE)을 선택하면 HTTP 서버 응답을 기다리는 동안 일시 중단됨 상태로 유지되는 최대 타이머 틱 수를 지정합니다.
 
 **반환 값**
 
@@ -368,10 +368,10 @@ UINT nx_http_client_put_start(NX_HTTP_CLIENT *client_ptr,
 - **resource** 서버에 보내는 리소스의 URL 문자열에 대한 포인터
 - **username** 인증을 위한 선택적 사용자 이름에 대한 포인터
 - **password** 인증을 위한 선택적 암호에 대한 포인터
-- **total_bytes** 전송 중인 리소스의 총 바이트 수 후속 호출을 통해 *nx_http_client_put_packet* 에 보내는 모든 패킷의 결합된 길이는 이 값과 같아야 합니다.
+- **total_bytes** 전송 중인 리소스의 총 바이트 수입니다. *nx_http_client_put_packet* 에 대한 후속 호출을 통해 전송된 모든 패킷의 결합된 길이는 이 값과 같아야 합니다.
 - **wait_option** 서비스에서 HTTP 클라이언트 PUT 시작을 기다리는 시간을 정의합니다. 대기 옵션은 다음과 같이 정의됩니다.
   - **시간 제한 값** (0x00000001 ~ 0xFFFFFFFE)
-  - **TX_WAIT_FOREVER** (0xFFFFFFFF)<br />TX_WAIT_FOREVER는 HTTP 서버에서 요청에 응답할 때까지 호출 스레드가 무기한 일시 중단되도록 합니다.<br />숫자 값(0x1-0xFFFFFFFE)을 선택하면 HTTP 서버 응답을 기다리는 동안 일시 중단됨 상태로 유지되는 최대 타이머 틱 수를 지정합니다.
+  - **TX_WAIT_FOREVER** (0xFFFFFFFF)<br />TX_WAIT_FOREVER를 선택하면 HTTP 서버가 요청에 응답할 때까지 호출 스레드가 무기한 일시 중단됩니다.<br />숫자 값(0x1-0xFFFFFFFE)을 선택하면 HTTP 서버 응답을 기다리는 동안 일시 중단됨 상태로 유지되는 최대 타이머 틱 수를 지정합니다.
 
 **반환 값**
 
@@ -428,13 +428,13 @@ UINT nx_http_client_put_start_extended(NX_HTTP_CLIENT *client_ptr,
 - **resource** 서버에 보내는 리소스의 URL 문자열에 대한 포인터
 - **resource_length** 서버에 보내는 리소스에 대한 URL 문자열의 길이
 - **username** 인증을 위한 선택적 사용자 이름에 대한 포인터
-- **username_length** 인증을 위한 선택적 사용자 이름의 길이
+- **username_length** 인증을 위한 선택적 사용자 이름의 길이입니다.
 - **password** 인증을 위한 선택적 암호에 대한 포인터
-- **password_length** 인증을 위한 선택적 암호의 길이
-- **total_bytes** 전송 중인 리소스의 총 바이트 수 후속 호출을 통해 *nx_http_client_put_packet* 에 보내는 모든 패킷의 결합된 길이는 이 값과 같아야 합니다.
+- **password_length** 인증을 위한 선택적 암호의 길이입니다.
+- **total_bytes** 전송 중인 리소스의 총 바이트 수입니다. *nx_http_client_put_packet* 에 대한 후속 호출을 통해 전송된 모든 패킷의 결합된 길이는 이 값과 같아야 합니다.
 - **wait_option** 서비스에서 HTTP 클라이언트 PUT 시작을 기다리는 시간을 정의합니다. 대기 옵션은 다음과 같이 정의됩니다.
   - **시간 제한 값** (0x00000001 ~ 0xFFFFFFFE)
-  - **TX_WAIT_FOREVER** (0xFFFFFFFF)<br />TX_WAIT_FOREVER는 HTTP 서버에서 요청에 응답할 때까지 호출 스레드가 무기한 일시 중단되도록 합니다.<br />숫자 값(0x1-0xFFFFFFFE)을 선택하면 HTTP 서버 응답을 기다리는 동안 일시 중단됨 상태로 유지되는 최대 타이머 틱 수를 지정합니다.
+  - **TX_WAIT_FOREVER** (0xFFFFFFFF)<br />TX_WAIT_FOREVER를 선택하면 HTTP 서버가 요청에 응답할 때까지 호출 스레드가 무기한 일시 중단됩니다.<br />숫자 값(0x1-0xFFFFFFFE)을 선택하면 HTTP 서버 응답을 기다리는 동안 일시 중단됨 상태로 유지되는 최대 타이머 틱 수를 지정합니다.
 
 **반환 값**
 
@@ -485,7 +485,7 @@ UINT nx_http_client_put_packet(NX_HTTP_CLIENT *client_ptr,
 - **packet_ptr** HTTP 서버에 보내는 리소스의 다음 콘텐츠에 대한 포인터
 - **wait_option** 서비스에서 HTTP 클라이언트 PUT 패킷을 처리하기 위해 내부적으로 기다리는 시간을 정의합니다. 대기 옵션은 다음과 같이 정의됩니다.
   - **시간 제한 값** (0x00000001 ~ 0xFFFFFFFE)
-  - **TX_WAIT_FOREVER** (0xFFFFFFFF)<br />TX_WAIT_FOREVER는 HTTP 서버에서 요청에 응답할 때까지 호출 스레드가 무기한 일시 중단되도록 합니다.<br /> 숫자 값(0x1-0xFFFFFFFE)을 선택하면 HTTP 서버 응답을 기다리는 동안 일시 중단됨 상태로 유지되는 최대 타이머 틱 수를 지정합니다.
+  - **TX_WAIT_FOREVER** (0xFFFFFFFF)<br />TX_WAIT_FOREVER를 선택하면 HTTP 서버가 요청에 응답할 때까지 호출 스레드가 무기한 일시 중단됩니다.<br /> 숫자 값(0x1-0xFFFFFFFE)을 선택하면 HTTP 서버 응답을 기다리는 동안 일시 중단됨 상태로 유지되는 최대 타이머 틱 수를 지정합니다.
 
 **반환 값**
 
@@ -576,8 +576,8 @@ UINT nx_http_server_cache_info_callback_set(NX_HTTP_SERVER *server_ptr,
 **입력 매개 변수**
 
 - **server_ptr** HTTP 서버 제어 블록에 대한 포인터
-- **cache_info_get** 콜백에 대한 포인터
-- **max_age** 리소스의 최대 기간에 대한 포인터
+- **cache_info_get** 콜백에 대한 포인터입니다.
+- **max_age** 리소스의 최대 사용 기간에 대한 포인터입니다.
 - **data** 반환된 마지막으로 수정한 날짜에 대한 포인터
 
 **반환 값**
@@ -684,13 +684,13 @@ UINT nx_http_server_callback_generate_response_header(NX_HTTP_SERVER *server_ptr
 **입력 매개 변수**
 
 - **server_ptr** HTTP 서버 제어 블록에 대한 포인터
-- **packet_pptr** 메시지에 할당된 패킷 포인터를 가리키는 포인터
-- **status_code** 리소스의 상태 표시 예제:
+- **packet_pptr** 메시지에 할당된 패킷 포인터에 대한 포인터입니다.
+- **status_code** 리소스 상태를 표시합니다. 예제:
 - **NX_HTTP_STATUS_OK**
 - **NX_HTTP_STATUS_MODIFIED**
 - **NX_HTTP_STATUS_INTERNAL_ERROR**
-- **content_length** 콘텐츠의 크기(바이트)
-- **content_type** HTTP 형식(예: "텍스트/일반")
+- **content_length** 콘텐츠의 크기입니다(바이트).
+- **content_type** HTTP 형식입니다(예: "텍스트/일반").
 - **additional_header** 추가 헤더 텍스트에 대한 포인터
 
 **반환 값**
@@ -787,15 +787,15 @@ UINT nx_http_server_callback_generate_response_header_extended(
 **입력 매개 변수**
 
 - **server_ptr** HTTP 서버 제어 블록에 대한 포인터
-- **packet_pptr** 메시지에 할당된 패킷 포인터를 가리키는 포인터
-- **status_code** 리소스의 상태 표시 예제:
+- **packet_pptr** 메시지에 할당된 패킷 포인터에 대한 포인터입니다.
+- **status_code** 리소스 상태를 표시합니다. 예제:
   - **NX_HTTP_STATUS_OK**
   - **NX_HTTP_STATUS_MODIFIED**
   - **NX_HTTP_STATUS_INTERNAL_ERROR**
-- **status_code** 상태 코드의 길이
-- **content_length** 콘텐츠의 크기(바이트)
-- **content_type** HTTP 형식(예: "텍스트/일반")
-- **content_type_length** HTTP 형식의 길이
+- **status_code** 상태 코드의 길이입니다.
+- **content_length** 콘텐츠의 크기입니다(바이트).
+- **content_type** HTTP 형식입니다(예: "텍스트/일반").
+- **content_type_length** HTTP 형식의 길이입니다.
 - **additional_header** 추가 헤더 텍스트에 대한 포인터
 - **additional_header_length** 추가 헤더 텍스트의 길이
 
@@ -937,7 +937,7 @@ UINT nx_http_server_callback_response_send(NX_HTTP_SERVER *server_ptr,
 **입력 매개 변수**
 
 - **server_ptr** HTTP 서버 제어 블록에 대한 포인터
-- **header** 응답 헤더 문자열에 대한 포인터
+- **header** 응답 헤더 문자열에 대한 포인터입니다.
 - **information** 정보 문자열에 대한 포인터
 - **additional_info** 추가 정보 문자열에 대한 포인터
 
@@ -997,10 +997,10 @@ UINT nx_http_server_callback_response_send_extended(
 **입력 매개 변수**
 
 - **server_ptr** HTTP 서버 제어 블록에 대한 포인터
-- **header** 응답 헤더 문자열에 대한 포인터
-- **header_length** 응답 헤더 문자열의 길이
+- **header** 응답 헤더 문자열에 대한 포인터입니다.
+- **header_length** 응답 헤더 문자열의 길이입니다.
 - **information** 정보 문자열에 대한 포인터
-- **information_length** 정보 문자열의 길이
+- **information_length** 정보 문자열의 길이입니다.
 - **additional_info** 추가 정보 문자열에 대한 포인터
 - **additional_info_length** 추가 정보 문자열의 길이
 
@@ -1060,10 +1060,10 @@ UINT nx_http_server_content_get(NX_HTTP_SERVER *server_ptr,
 **입력 매개 변수**
 
 - **server_ptr** HTTP 서버 제어 블록에 대한 포인터
-- **packet_ptr** HTTP 클라이언트 요청 패킷에 대한 포인터 이 패킷은 요청 알림 콜백에서 해제하지 않아야 합니다.
-- **byte_offset** 콘텐츠 영역으로 오프셋하는 바이트의 수
-- **destination_ptr** 콘텐츠의 대상 영역에 대한 포인터
-- **destination_size** 대상 영역에서 사용 가능한 최대 바이트 수
+- **packet_ptr** HTTP 클라이언트 요청 패킷에 대한 포인터입니다. 이 패킷은 요청 알림 콜백에서 해제하면 안 됩니다.
+- **byte_offset** 콘텐츠 영역으로 오프셋할 바이트 수입니다.
+- **destination_ptr** 콘텐츠의 대상 영역에 대한 포인터입니다.
+- **destination_size** 대상 영역에서 사용 가능한 최대 바이트 수입니다.
 - **actual_size** 복사된 콘텐츠의 실제 크기로 설정되는 대상 변수에 대한 포인터
 
 **반환 값**
@@ -1115,10 +1115,10 @@ UINT nx_http_server_content_get_extended(NX_HTTP_SERVER *server_ptr,
 **입력 매개 변수**
 
 - **server_ptr** HTTP 서버 제어 블록에 대한 포인터
-- **packet_ptr** HTTP 클라이언트 요청 패킷에 대한 포인터 이 패킷은 요청 알림 콜백에서 해제하지 않아야 합니다.
-- **byte_offset** 콘텐츠 영역으로 오프셋하는 바이트의 수
-- **destination_ptr** 콘텐츠의 대상 영역에 대한 포인터
-- **destination_size** 대상 영역에서 사용 가능한 최대 바이트 수
+- **packet_ptr** HTTP 클라이언트 요청 패킷에 대한 포인터입니다. 이 패킷은 요청 알림 콜백에서 해제하면 안 됩니다.
+- **byte_offset** 콘텐츠 영역으로 오프셋할 바이트 수입니다.
+- **destination_ptr** 콘텐츠의 대상 영역에 대한 포인터입니다.
+- **destination_size** 대상 영역에서 사용 가능한 최대 바이트 수입니다.
 - **actual_size** 복사된 콘텐츠의 실제 크기로 설정되는 대상 변수에 대한 포인터
 
 **반환 값**
@@ -1157,7 +1157,7 @@ UINT nx_http_server_content_length_get(NX_PACKET *packet_ptr);
 ```
 **설명**
 
-이 서비스는 제공된 패킷에서 HTTP 콘텐츠 길이를 검색하려고 시도합니다. HTTP 콘텐츠가 없는 경우 이 루틴에서 0 값을 반환합니다. HTTP 서버를 만드는 동안 지정된 애플리케이션의 요청 알림 콜백(*nx_http_server_create()* )에서 호출해야 합니다.
+이 서비스는 제공된 패킷에서 HTTP 콘텐츠 길이를 검색하려고 시도합니다. HTTP 콘텐츠가 없는 경우 이 루틴은 0 값을 반환합니다. HTTP 서버를 만드는 동안 지정된 애플리케이션의 요청 알림 콜백(*nx_http_server_create()* )에서 호출해야 합니다.
 
 이 서비스는 더 이상 사용되지 않습니다. 개발자는 nx_http_server_content_length_get_extended()로 마이그레이션하는 것이 좋습니다.
 
@@ -1203,7 +1203,7 @@ UINT nx_http_server_content_length_get_extended(NX_PACKET *packet_ptr,
 
 **입력 매개 변수**
 
-- **packet_ptr** HTTP 클라이언트 요청 패킷에 대한 포인터 이 패킷은 요청 알림 콜백에서 해제하지 않아야 합니다.
+- **packet_ptr** HTTP 클라이언트 요청 패킷에 대한 포인터 이 패킷은 요청 알림 콜백에서 해제하면 안 됩니다.
 - **content_length** 콘텐츠 길이 필드에서 검색된 값에 대한 포인터
 
 **반환 값**
@@ -1253,13 +1253,13 @@ UINT nx_http_server_create(NX_HTTP_SERVER *http_server_ptr,
 **입력 매개 변수**
 
 - **http_server_ptr** HTTP 서버 제어 블록에 대한 포인터
-- **http_server_name** HTTP 서버 이름에 대한 포인터
+- **http_server_name** HTTP 서버 이름에 대한 포인터입니다.
 - **ip_ptr** 이전에 만든 IP 인스턴스에 대한 포인터
 - **media_ptr** 이전에 만든 FileX 미디어 인스턴스에 대한 포인터
-- **stack_ptr** HTTP 서버 스레드 스택 영역에 대한 포인터
-- **stack_size** HTTP 서버 스레드 스택 크기에 대한 포인터
-- **authentication_check** 애플리케이션의 인증 확인 루틴에 대한 함수 포인터. 지정되면 이 루틴이 각 HTTP 클라이언트 요청에 대해 호출됩니다. 이 매개 변수가 NULL이면 인증이 수행되지 않습니다.
-- **request_notify** 애플리케이션의 요청 알림 루틴에 대한 함수 포인터. 지정되면 HTTP 서버에서 요청을 처리하기 전에 이 루틴이 호출됩니다. 이렇게 하면 HTTP 클라이언트 요청을 완료하기 전에 리소스 이름을 리디렉션하거나 리소스 내의 필드를 업데이트할 수 있습니다.
+- **stack_ptr** HTTP 서버 스레드 스택 영역에 대한 포인터입니다.
+- **stack_size** HTTP 서버 스레드 스택 크기에 대한 포인터입니다.
+- **authentication_check** 애플리케이션의 인증 확인 루틴에 대한 함수 포인터입니다. 지정되면 이 루틴이 각 HTTP 클라이언트 요청에 대해 호출됩니다. 이 매개 변수가 NULL이면 인증이 수행되지 않습니다.
+- **request_notify** 애플리케이션의 요청 알림 루틴에 대한 함수 포인터. 지정된 경우 HTTP 서버에서 요청을 처리하기 전에 이 루틴이 호출됩니다. 이렇게 하면 HTTP 클라이언트 요청을 완료하기 전에 리소스 이름을 리디렉션하거나 리소스 내의 필드를 업데이트할 수 있습니다.
 
 **반환 값**
 
@@ -1343,7 +1343,7 @@ UINT nx_http_server_get_entity_content(NX_HTTP_SERVER *server_ptr,
 **입력 매개 변수**
 
 - **server_ptr** HTTP 서버에 대한 포인터
-- **packet_pptr** 패킷 포인터의 위치에 대한 포인터. 애플리케이션에서 이 패킷을 해제하지 않아야 합니다.
+- **packet_pptr** 패킷 포인터의 위치에 대한 포인터입니다. 애플리케이션에서 이 패킷을 해제하면 안 됩니다.
 - **available_offset** 패킷 선행 포인터에서 엔터티 데이터의 오프셋에 대한 포인터
 - **available_length** 엔터티 데이터의 길이에 대한 포인터
 
@@ -1398,7 +1398,7 @@ UINT nx_http_server_get_entity_header(NX_HTTP_SERVER *server_ptr,
 **입력 매개 변수**
 
 - **server_ptr** HTTP 서버에 대한 포인터
-- **packet_pptr** 패킷 포인터의 위치에 대한 포인터. 애플리케이션에서 이 패킷을 해제하지 않아야 합니다.
+- **packet_pptr** 패킷 포인터의 위치에 대한 포인터입니다. 애플리케이션에서 이 패킷을 해제하면 안 됩니다.
 - **entity_header_buffer** 엔터티 헤더를 저장하는 위치에 대한 포인터
 - **buffer_size** 입력 버퍼의 크기
 
@@ -1545,10 +1545,10 @@ UINT nx_http_server_invalid_userpassword_notify_set(
 **입력 매개 변수**
 
 - **server_ptr** HTTP 서버에 대한 포인터
-- **invalid_username_password_callback** 잘못된 사용자/전달 콜백에 대한 포인터
+- **invalid_username_password_callback** 잘못된 사용자/전달 콜백에 대한 포인터입니다.
 - **resource** 클라이언트에서 지정한 리소스에 대한 포인터
 - **client_address** 클라이언트 주소
-- **request_type** 클라이언트 요청 유형 표시 다음과 같을 수 있습니다.
+- **request_type** 클라이언트 요청 유형을 표시합니다. 다음과 같습니다.
   - NX_HTTP_SERVER_GET_REQUEST
   - NX_HTTP_SERVER_POST_REQUEST NX_HTTP_SERVER_HEAD_REQUEST
   - NX_HTTP_SERVER_PUT_REQUEST NX_HTTP_SERVER_DELETE_REQUEST
@@ -1605,7 +1605,7 @@ UINT nx_http_server_mime_maps_additional_set(
 **입력 매개 변수**
 
 - **server_ptr** HTTP 서버 인스턴스에 대한 포인터
-- **mime_maps** MIME 맵 배열에 대한 포인터
+- **mime_maps** MIME 맵 배열에 대한 포인터입니다.
 - **mime_map_num** 배열의 MIME 맵 수
 
 **반환 값**
@@ -1751,8 +1751,8 @@ UINT nx_http_server_param_get(NX_PACKET *packet_ptr,
 
 **입력 매개 변수**
 
-- **packet_ptr** HTTP 클라이언트 요청 패킷에 대한 포인터 애플리케이션에서 이 패킷을 해제하지 않아야 합니다.
-- **param_number** 매개 변수 목록에서 왼쪽에서 오른쪽으로 0에서 시작하는 매개 변수의 논리적 번호
+- **packet_ptr** HTTP 클라이언트 요청 패킷에 대한 포인터 애플리케이션에서 이 패킷을 해제하면 안 됩니다.
+- **param_number** 매개 변수 목록에서 왼쪽에서 오른쪽으로 0에서 시작하는 매개 변수의 논리적 번호입니다.
 - **param_ptr** 매개 변수를 복사하는 대상 영역
 - **max_param_size** 매개 변수 대상 영역의 최대 크기
 
@@ -1797,8 +1797,8 @@ UINT nx_http_server_query_get(NX_PACKET *packet_ptr, UINT query_number,
 
 **입력 매개 변수**
 
-- **packet_ptr** HTTP 클라이언트 요청 패킷에 대한 포인터 애플리케이션에서 이 패킷을 해제하지 않아야 합니다.
-- **query_number** 쿼리 목록에서 왼쪽에서 오른쪽으로 0에서 시작하는 매개 변수의 논리적 번호
+- **packet_ptr** HTTP 클라이언트 요청 패킷에 대한 포인터 애플리케이션에서 이 패킷을 해제하면 안 됩니다.
+- **query_number** 쿼리 목록에서 왼쪽에서 오른쪽으로 0에서 시작하는 매개 변수의 논리적 번호입니다.
 - **query_ptr** 쿼리를 복사하는 대상 영역
 - **max_query_size** 쿼리 대상 영역의 최대 크기
 
@@ -1993,8 +1993,8 @@ UINT nx_http_server_type_get_extended(
 **입력 매개 변수**
 
 - **http_server_ptr** HTTP 서버 인스턴스에 대한 포인터
-- **name** 검색하는 버퍼에 대한 포인터
-- **name_length** 검색하는 버퍼의 길이
+- **name** 검색할 버퍼에 대한 포인터입니다.
+- **name_length** 검색할 버퍼의 길이입니다.
 - **http_type_string**(추출된 HTML 형식에 대한 포인터)
 - **http_type_string_max_size**
 

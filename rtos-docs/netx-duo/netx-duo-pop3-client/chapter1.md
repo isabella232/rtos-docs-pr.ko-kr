@@ -6,16 +6,16 @@ ms.author: philmea
 ms.date: 07/09/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 4d41da1e1e87e59c5c40674a58b288ac62ec8c78
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 0143b142a39bbda28ae20d41adf08119b8b2f8f99d510a456743b4f447802833
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104810663"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116797231"
 ---
 # <a name="chapter-1---introduction-to-azure-rtos-netx-pop3"></a>1장 - Azure RTOS NetX POP3 소개
 
-POP3(Post Office Protocol 버전 3)은 작은 워크스테이션이 클라이언트 메일을 검색하기 위해 POP3 서버의 클라이언트 maildrops에 액세스할 수 있는 메일 전송 시스템을 제공하도록 설계된 프로토콜입니다. POP3에서는 TCP(전송 제어 프로토콜) 서비스를 활용하여 메일 전송을 수행합니다. 따라서 POP3은 매우 안정적인 콘텐츠 전송 프로토콜입니다.
+POP3(Post Office Protocol 버전 3)은 작은 워크스테이션이 클라이언트 메일을 검색하기 위해 POP3 서버의 클라이언트 maildrops에 액세스할 수 있는 메일 전송 시스템을 제공하도록 설계된 프로토콜입니다. POP3에서는 TCP(전송 제어 프로토콜) 서비스를 활용하여 메일 전송을 수행합니다. 따라서 POP3는 매우 안정적인 콘텐츠 전송 프로토콜입니다.
 
 그러나 POP3은 메일 처리에 대한 광범위한 작업을 제공하지 않습니다. 일반적으로 메일은 클라이언트에서 다운로드된 다음, 서버의 maildrop에서 삭제됩니다.
 

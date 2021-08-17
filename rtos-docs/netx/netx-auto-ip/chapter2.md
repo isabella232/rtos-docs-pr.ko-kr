@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 269a3b4e9754fdc19e2cf1482d483fad2b841de9
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 9bc5ce189980dbceaf12a2f2e8429d9267e7d37f559c88d10c54e399d01ec259
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104810428"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116796891"
 ---
 # <a name="chapter-2---installation-and-use-of-azure-rtos-netx-autoip"></a>2장 - Azure RTOS NetX AutoIP 설치 및 사용
 
@@ -21,28 +21,28 @@ ms.locfileid: "104810428"
 
 NetX AutoIP는 [https://github.com/azure-rtos/netx](https://github.com/azure-rtos/netx)에서 사용할 수 있습니다. 패키지에는 다음과 같이 3개의 원본 파일과 하나의 포함 파일, 이 문서가 포함된 PDF 파일이 있습니다.
 
-- **nx_auto_ip.h**: NetX AutoIP의 헤더 파일입니다.
-- **nx_auto_ip.c**: NetX AutoIP의 C 원본 파일입니다.
-- **demo_netx_auto_ip.c**: NetX AutoIP 데모의 C 원본 파일입니다.
-- **nx_auto_ip.pdf**: NetX AutoIP에 대한 PDF 설명입니다.
+- **nx_auto_ip.h**: NetX AutoIP의 헤더 파일
+- **nx_auto_ip.c**: NetX AutoIP의 C 원본 파일
+- **demo_netx_auto_ip.c**: NetX AutoIP 데모의 C 원본 파일
+- **nx_auto_ip.pdf**: NetX AutoIP의 PDF 설명
 
 ## <a name="autoip-installation"></a>AutoIP 설치
 
-NetX AutoIP를 사용하려면 이전에 언급한 전체 배포판을 NetX가 설치된 디렉터리에 복사해야 합니다. 예를 들어 NetX가 “ *\threadx\arm7\green*” 디렉터리에 설치된 경우 *nx_auto_ip.h*, *nx_auto_ip.c*, *demo_netx_auto_ip.c* 파일을 이 디렉터리에 복사해야 합니다.
+NetX AutoIP를 사용하려면 이전에 언급한 전체 배포판을 NetX가 설치된 동일한 디렉터리에 복사해야 합니다. 예를 들어 NetX가 " *\threadx\arm7\green*" 디렉터리에 설치된 경우 *nx_auto_ip.h*, *nx_auto_ip.c* 및 *demo_netx_auto_ip.c* 파일을 이 디렉터리에 복사해야 합니다.
 
 ## <a name="using-autoip"></a>AutoIP 사용
 
-NetX AutoIP를 사용하는 것은 쉽습니다. 기본적으로 애플리케이션 코드는 ThreadX 및 NetX를 사용하기 위해 *tx_api.h* 및 *nx_api.h* 를 포함한 후 *nx_auto_ip.h* 를 포함해야 합니다. *nx_auto_ip.h* 를 포함하면 애플리케이션 코드가 이 가이드의 뒷부분에 지정된 AutoIP 함수를 호출할 수 있습니다. 애플리케이션은 *nx_auto_ip.c* 도 빌드 프로세스에 포함해야 합니다. 이러한 파일은 다른 애플리케이션 파일과 동일한 방식으로 컴파일되어야 하며 개체 양식이 애플리케이션의 파일과 함께 연결되어야 합니다. 이렇게 간단하게 NetX AutoIP를 사용할 수 있습니다.
+NetX AutoIP를 사용하는 것은 쉽습니다. 기본적으로 애플리케이션 코드는 ThreadX 및 NetX를 사용하기 위해 *tx_api.h* 및 *nx_api.h* 를 포함한 후 *nx_auto_ip.h* 를 포함해야 합니다. *nx_auto_ip.h* 가 포함되면 애플리케이션 코드에서 이 가이드의 뒷부분에 지정된 AutoIP 함수 호출을 수행할 수 있습니다. 애플리케이션은 빌드 프로세스에 *nx_auto_ip.c* 도 포함해야 합니다. 이러한 파일은 다른 애플리케이션 파일과 동일한 방식으로 컴파일되어야 하며 해당 개체 형식을 애플리케이션의 파일에 연결해야 합니다. 이는 NetX AutoIP를 사용하는 데 필요합니다.
 
 > [!NOTE]
 > AutoIP는 NetX ARP 서비스를 활용하므로 AutoIP를 사용하기 전에 *nx_arp_enable* 호출로 ARP를 사용하도록 설정해야 합니다.
 
 ## <a name="small-example-system"></a>간단한 예제 시스템
 
-NetX AutoIP를 사용하는 것이 얼마나 쉬운지 보여 주는 예가 아래에 표시된 그림 1.1에 설명되어 있습니다. 이 예에서는 002 줄에서 AutoIP 포함 파일 *nx_auto_ip.h* 를 가져옵니다. 그런 다음, 090 줄에서 “*tx_application_define*”에 NetX AutoIP 인스턴스를 만듭니다. NetX AutoIP 제어 블록 “auto_ip_0”은 이전에 015 줄에서 전역 변수로 정의되었습니다. 인스턴스가 성공적으로 생성되면 098 줄에서 NetX AutoIP가 시작됩니다. IP 주소 변경 콜백 함수 처리는 105 줄에서 시작되며, 이후 충돌 또는 가능한 DHCP 주소 확인을 처리하는 데 사용합니다.
+NetX AutoIP를 사용하는 것이 얼마나 쉬운지 보여 주는 예제는 아래에 표시된 그림 1.1에 설명되어 있습니다. 이 예제에서 AutoIP 포함 파일 *nx_auto_ip.h* 는 002줄에서 가져옵니다. 그런 다음, NetX AutoIP 인스턴스가 090줄에서 "*tx_application_define*"에 만들어집니다. NetX AutoIP 제어 블록 "auto_ip_0"은 이전에 015줄에서 전역 변수로 정의되었습니다. 생성이 완료되면 NetX AutoIP가 098줄에서 시작됩니다. IP 주소 변경 콜백 함수 처리는 이후 충돌 또는 가능한 DHCP 주소 확인을 처리하는 데 사용되는 105줄에서 시작됩니다.
 
 > [!NOTE]
-> 아래 예에서는 호스트 디바이스가 단일 홈 디바이스인 것으로 가정합니다. 멀티홈 디바이스의 경우 호스트 애플리케이션은 NetX AutoIP 서비스 *nx_auto_ip_interface_* set을 사용하여 IP 주소를 검색할 보조 네트워크 인터페이스를 지정할 수 있습니다. 멀티홈 애플리케이션 설정에 대한 자세한 내용은 **NetX 사용자 가이드** 를 참조하세요. 호스트 애플리케이션에서 NetX API *nx_status_ip_interface_check* 를 사용하여 AutoIP가 IP 주소를 얻었는지 확인해야 합니다.
+> 아래 예제에서는 호스트 디바이스가 단일 홈 디바이스인 것으로 가정합니다. 멀티홈 디바이스의 경우 호스트 애플리케이션은 NetX AutoIP 서비스 *nx_auto_ip_interface_* 집합을 사용하여 IP 주소를 검색하는 보조 네트워크 인터페이스를 지정할 수 있습니다. 멀티홈 애플리케이션 설정에 대한 자세한 내용은 **NetX 사용자 가이드** 를 참조하세요. 호스트 애플리케이션에서 NetX API *nx_status_ip_interface_check* 를 사용하여 AutoIP가 IP 주소를 얻었는지 확인해야 합니다.
 
 ## <a name="example-of-autoip-use-with-netx"></a>NetX에서의 AutoIP 사용 예
 
@@ -238,16 +238,16 @@ NetX AutoIP를 사용하는 것이 얼마나 쉬운지 보여 주는 예가 아�
 
 ## <a name="configuration-options"></a>구성 옵션
 
-NetX AutoIP를 빌드하는 데 사용되는 여러 구성 옵션이 있습니다. 다음은 각 옵션에 대한 자세한 설명입니다.
+NetX AutoIP를 빌드하기 위한 몇 가지 구성 옵션이 있습니다. 다음은 각각에 대해 자세히 설명된 모든 옵션의 목록입니다.
 
-- **NX_DISABLE_ERROR_CHECKING**: 이 옵션을 정의하면 기본 AutoIP 오류 검사를 제거합니다. 일반적으로 애플리케이션이 디버그된 후에 사용됩니다.
-- **NX_AUTO_IP_PROBE_WAIT**: 첫 번째 프로브 송신 전 대기 시간(초)입니다. 기본적으로 이 값은 1로 정의됩니다.
-- **NX_AUTO_IP_PROBE_NUM**: 송신할 ARP 프로브 수입니다. 기본적으로 이 값은 3으로 정의됩니다.
-- **NX_AUTO_IP_PROBE_MIN**: 프로브 송신 간 최소 대기 시간(초)입니다. 기본적으로 이 값은 1로 정의됩니다.
-- **NX_AUTO_IP_PROBE_MAX**: 프로브 송신 간 최대 대기 시간(초)입니다. 기본적으로 이 값은 2로 정의됩니다.
-- **NX_AUTO_IP_MAX_CONFLICTS**: 처리 지연을 늘리기 전 AutoIP 충돌 수입니다. 기본적으로 이 값은 10으로 정의됩니다.
-- **NX_AUTO_IP_RATE_LIMIT_INTERVAL**: 총 충돌 수를 초과하는 경우 연장할 대기 시간(초)입니다. 기본적으로 이 값은 60으로 정의됩니다.
-- **NX_AUTO_IP_ANNOUNCE_WAIT**: 알림 송신 전 대기 시간(초)입니다. 기본적으로 이 값은 2로 정의됩니다.
-- **NX_AUTO_IP_ANNOUNCE_NUM**: 송신할 ARP 알림 수입니다. 기본적으로 이 값은 2로 정의됩니다.
-- **NX_AUTO_IP_ANNOUNCE_INTERVAL**: 알림 송신 간 대기 시간(초)입니다. 기본적으로 이 값은 2로 정의됩니다.
-- **NX_AUTO_IP_DEFEND_INTERVAL**: 방어 알림 간 대기 시간(초)입니다. 기본적으로 이 값은 10으로 정의됩니다.
+- **NX_DISABLE_ERROR_CHECKING**: 정의된 이 옵션은 기본 AutoIP 오류 검사를 제거합니다. 일반적으로 애플리케이션이 디버깅된 후에 사용됩니다.
+- **NX_AUTO_IP_PROBE_WAIT**: 첫 번째 프로브를 보내기 전에 대기하는 시간(초)입니다. 기본적으로 이 값은 1로 정의됩니다.
+- **NX_AUTO_IP_PROBE_NUM**: 보낼 ARP 프로브 수입니다. 기본적으로 이 값은 3으로 정의됩니다.
+- **NX_AUTO_IP_PROBE_MIN**: 전송 프로브 사이에 대기하는 최소 시간(초)입니다. 기본적으로 이 값은 1로 정의됩니다.
+- **NX_AUTO_IP_PROBE_MAX**: 전송 프로브 사이에 대기하는 최대 시간(초)입니다. 기본적으로 이 값은 2로 정의됩니다.
+- **NX_AUTO_IP_MAX_CONFLICTS**: 처리 지연을 증가시키기 전에 AutoIP 충돌 수입니다. 기본적으로 이 값은 10으로 정의됩니다.
+- **NX_AUTO_IP_RATE_LIMIT_INTERVAL**: 총 충돌 수를 초과하는 경우 대기 기간을 연장하는 시간(초)입니다. 기본적으로 이 값은 60으로 정의됩니다.
+- **NX_AUTO_IP_ANNOUNCE_WAIT**: 알림을 보내기 전에 대기하는 시간(초)입니다. 기본적으로 이 값은 2로 정의됩니다.
+- **NX_AUTO_IP_ANNOUNCE_NUM**: 보낼 ARP 알림의 수입니다. 기본적으로 이 값은 2로 정의됩니다.
+- **NX_AUTO_IP_ANNOUNCE_INTERVAL**: 알림 전송 사이에 대기하는 시간(초)입니다. 기본적으로 이 값은 2로 정의됩니다.
+- **NX_AUTO_IP_DEFEND_INTERVAL**: 방어 알림 사이에 대기하는 시간(초)입니다. 기본적으로 이 값은 10으로 정의됩니다.

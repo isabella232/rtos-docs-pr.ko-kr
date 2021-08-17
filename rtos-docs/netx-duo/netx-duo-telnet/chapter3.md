@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 991ec53aaba052b4f42da6e5a541151953121e76
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 70bf4016793572d7327d12be182750316659c3c4260d2f7db8acddbba00c5601
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104810530"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116791995"
 ---
 # <a name="chapter-3---description-of-azure-rtos-netx-duo-telnet-services"></a>3장 - Azure RTOS NetX Duo Telnet 서비스 설명
 
@@ -69,7 +69,7 @@ UINT nx_telnet_client_connect(NX_TELNET_CLIENT *client_ptr,
 - NX_IP_ADDRESS_ERROR: (0x21) IP 주소가 잘못되었습니다.
 - NX_CALLER_ERROR: (0x11) 서비스 호출자가 잘못되었습니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -202,7 +202,7 @@ UINT nx_telnet_client_delete(NX_TELNET_CLIENT *client_ptr);
 - NX_PTR_ERROR: (0x07) 클라이언트 포인터가 잘못되었습니다.
 - NX_CALLER_ERROR: (0x11) 이 서비스의 호출자가 잘못되었습니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -246,7 +246,7 @@ UINT nx_telnet_client_disconnect(NX_TELNET_CLIENT *client_ptr, ULONG wait_option
 - NX_CALLER_ERROR: (0x11) 이 서비스의 호출자가 잘못되었습니다.
 
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -291,7 +291,7 @@ UINT nx_telnet_client_packet_receive(NX_TELNET_CLIENT *client_ptr,
 - NX_PTR_ERROR: (0x07) 포인터 입력이 잘못되었습니다.
 - NX_CALLER_ERROR: (0x11) 서비스 호출자가 잘못되었습니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -336,7 +336,7 @@ UINT nx_telnet_client_packet_send(NX_TELNET_CLIENT *client_ptr,
 - NX_PTR_ERROR: (0x07) 포인터 입력이 잘못되었습니다.
 - NX_CALLER_ERROR: (0x11) 서비스 호출자가 잘못되었습니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -426,7 +426,7 @@ UINT nx_telnet_server_delete(NX_TELNET_SERVER *server_ptr);
 - NX_PTR_ERROR: (0x07) 서버 포인터가 잘못되었습니다.
 - NX_CALLER_ERROR: (0x11) 이 서비스의 호출자가 잘못되었습니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -466,7 +466,7 @@ UINT nx_telnet_server_disconnect(NX_TELNET_SERVER *server_ptr, UINT logical_conn
 - NX_PTR_ERROR: (0x07) 서버 포인터가 잘못되었습니다.
 - NX_CALLER_ERROR: (0x11) 이 서비스의 호출자가 잘못되었습니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -507,7 +507,7 @@ UINT nx_telnet_server_get_open_connection_count(NX_TELNET_SERVER *server_ptr, UI
 - NX_PTR_ERROR: (0x07) 서버 포인터가 잘못되었습니다.
 - NX_CALLER_ERROR: (0x11) 이 서비스의 호출자가 잘못되었습니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -556,7 +556,7 @@ UINT nx_telnet_server_packet_send(NX_TELNET_SERVER *server_ptr,
 - NX_PTR_ERROR: (0x07) 서버 포인터가 잘못되었습니다.
 - NX_CALLER_ERROR: (0x11) 서비스 호출자가 잘못되었습니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 

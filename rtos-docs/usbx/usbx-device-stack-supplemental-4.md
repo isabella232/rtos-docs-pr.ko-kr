@@ -1,17 +1,17 @@
 ---
 title: 4장 - USBX Pictbridge 구현
-description: UBSX는 호스트와 디바이스 모두에서 전체 Pictbridge 구현을 지원합니다. Pictbridge는 두 측면에서 모두 USBX PIMA 클래스 위에 있습니다.
+description: UBSX는 디바이스와 호스트 모두에서 전체 Pictbridge 구현을 지원합니다. Pictbridge는 두 측면에서 모두 USBX PIMA 클래스 위에 있습니다.
 author: philmea
 ms.author: philmea
 ms.date: 5/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 2ef1809dac046d49b15aba000cabed6c9fd458a3
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 5a1bab2cb60ce5df6c0662eb1a31f542a3b1d7a87d4584d485cbd621e3342abc
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104813369"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116791121"
 ---
 # <a name="chapter-4---usbx-pictbridge-implementation"></a>4장 - USBX Pictbridge 구현
 

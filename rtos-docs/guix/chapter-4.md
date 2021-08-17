@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: b07e275468484ccc905655dcd13197de42b2ac86
-ms.sourcegitcommit: 4ebe7c51ba850951c6a9d0f15e22d07bb752bc28
+ms.openlocfilehash: 7c89014c571b2b59279487cd24d5ec9e36019ed4c3ec2b6470b80e150214ebf3
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2021
-ms.locfileid: "110223412"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116786826"
 ---
 # <a name="chapter-4---description-of-guix-services"></a>4장 - GUIX 서비스 설명
 
@@ -636,7 +636,7 @@ VOID gx_accordion_menu_draw(GX_ACCORDION_MENU *accordion);
 
 - **없음**
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -1719,7 +1719,7 @@ VOID gx_button_background_draw(GX_BUTTON *button);
 
 - **없음**
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -1914,7 +1914,7 @@ VOID gx_button_draw(GX_BUTTON *button);
 
 - **없음**
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -4014,7 +4014,7 @@ VOID gx_checkbox_draw(GX_CHECKBOX *checkbox);
 
 - **없음**
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -4382,7 +4382,7 @@ VOID gx_circular_gauge_background_draw(GX_CIRCULAR_GAUGE *gauge);
 
 - **없음**
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -4503,7 +4503,7 @@ VOID gx_circular_gauge_draw(GX_CIRCULAR_GAUGE *gauge);
 
 - **없음**
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -7106,7 +7106,7 @@ VOID gx_generic_scroll_wheel_draw(GX_GENERIC_SCROLL_WHEEL *wheel);
 
 - **없음**
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -7930,7 +7930,7 @@ VOID gx_icon_button_draw(GX_ICON_BUTTON *button);
 
 - **없음**
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -8048,7 +8048,7 @@ VOID gx_icon_background_draw(GX_ICON *icon);
 
 - **없음**
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드
 
@@ -8161,7 +8161,7 @@ VOID gx_icon_draw(GX_ICON *icon);
 
 - **없음**
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -8476,7 +8476,7 @@ VOID gx_line_chart_axis_draw(GX_LINE_CHART *chart);
 
 - **없음**
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -8620,7 +8620,7 @@ VOID gx_line_chart_data_draw(GX_LINE_CHART *chart);
 
 - **없음**
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -8674,7 +8674,7 @@ UINT gx_line_chart_draw(GX_LINE_CHART *chart);
 
 - **없음**
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -8898,7 +8898,7 @@ VOID gx_menu_draw(GX_MENU *menu);
 
 - **없음**
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -9128,7 +9128,7 @@ VOID gx_menu_text_draw(GX_MENU *menu);
 
 - **없음**
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -9309,7 +9309,7 @@ VOID gx_multi_line_text_button_draw(GX_MULTI_LINE_TEXT_BUTTON *button);
 
 - **없음**
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -9419,7 +9419,7 @@ VOID gx_multi_line_text_button_text_draw(GX_MULTI_LINE_TEXT_BUTTON *text_button)
 
 - **없음**
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드
 
@@ -11465,7 +11465,7 @@ VOID gx_multi_line_text_view_draw(GX_MULTI_LINE_TEXT_VIEW * text_view);
 
 - **없음**
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드
 
@@ -12742,7 +12742,7 @@ VOID gx_pixelmap_button_draw(GX_PIXELMAP_BUTTON *button);
 
 - **없음**
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -13022,7 +13022,7 @@ VOID gx_pixelmap_prompt_draw(GX_PIXELMAP_PROMPT *prompt);
 
 - **없음**
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드
 
@@ -13257,7 +13257,7 @@ VOID gx_pixelmap_slider_draw(GX_PIXELMAP_SLIDER *slider);
 
 - **없음**
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -13474,7 +13474,7 @@ VOID gx_progress_bar_background_draw(GX_PROGRESS_BAR *progress_bar)
 
 - **없음**
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -13614,7 +13614,7 @@ VOID gx_progress_bar_draw(GX_PROGRESS_BAR *progress_bar);
 
 - **없음**
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -14018,7 +14018,7 @@ VOID gx_progress_bar_text_draw(GX_PROGRESS_BAR *progress_bar)
 
 - **없음**
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -14194,7 +14194,7 @@ VOID gx_prompt_draw(GX_PROMPT *prompt);
 
 - **없음**
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -14433,7 +14433,7 @@ VOID gx_prompt_text_draw(GX_PROMPT *prompt);
 
 - **없음**
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -14837,7 +14837,7 @@ VOID gx_radial_progress_bar_background_draw(GX_RADIAL_PROGRESS_BAR *progress_bar
 
 - **없음**
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -14985,7 +14985,7 @@ VOID gx_radial_progress_bar_draw(GX_RADIAL_PROGRESS_BAR *progress_bar);
 
 - **없음**
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -15301,7 +15301,7 @@ VOID gx_radial_progress_bar_text_draw(GX_RADIAL_PROGRESS_BAR *progress_bar);
 
 - **없음**
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 초기화 및 스레드
 
@@ -15493,7 +15493,7 @@ VOID gx_radio_button_draw(GX_RADIO_BUTTON *button);
 
 - **없음**
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -16005,7 +16005,7 @@ VOID gx_radial_slider_draw(GX_RADIAL_SLIDER *slider);
 
 - **없음**
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -16429,7 +16429,7 @@ VOID gx_rich_text_view_draw(GX_RICH_TEXT_VIEW *text_view);
 
 - **없음**
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -16529,7 +16529,7 @@ VOID gx_rich_text_view_text_draw(GX_RICH_TEXT_VIEW *text_view);
 
 - **없음**
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -16838,7 +16838,7 @@ VOID gx_scroll_thumb_draw(GX_SCROLL_THUMB *scroll_thumb);
 
 - **없음**
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -17575,7 +17575,7 @@ VOID gx_scrollbar_draw(GX_SCROLLBAR *scrollbar);
 
 - **없음**
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -18266,7 +18266,7 @@ VOID gx_single_line_text_input_draw(GX_SINGLE_LINE_TEXT_INPUT *text_input);
 
 - **없음**
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -19420,7 +19420,7 @@ VOID gx_slider_draw(GX_SLIDER *slider);
 
 - **없음**
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -19616,7 +19616,7 @@ VOID gx_slider_needle_draw(GX_SLIDER *slider);
 
 - **없음**
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -19737,7 +19737,7 @@ VOID gx_slider_tickmarks_draw(GX_SLIDER *slider);
 
 - **없음**
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -22883,7 +22883,7 @@ VOID gx_text_button_draw(GX_TEXT_BUTTON *button);
 
 - **없음**
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -23144,7 +23144,7 @@ VOID gx_text_button_text_draw(GX_TEXT_BUTTON *text_button);
 
 - **없음**
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -23946,7 +23946,7 @@ GX_STRING_SCROLL_WHEEL 및 GX_NUMERIC_SCROLL_WHEEL은 모두 GX_TEXT_SCROLL_WHEE
 
 - **없음**
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드
 
@@ -24276,7 +24276,7 @@ VOID gx_tree_view_draw(GX_TREE_VIEW *tree);
 
 - **없음**
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -27259,7 +27259,7 @@ VOID gx_widget_background_draw(GX_WIDGET *widget);
 
 - **없음**
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -27586,7 +27586,7 @@ VOID gx_widget_border_draw(
 
 - **없음**
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -27982,7 +27982,7 @@ VOID gx_widget_children_draw(GX_WIDGET *widget);
 
 - **없음**
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -28507,7 +28507,7 @@ VOID gx_widget_draw(GX_WIDGET *widget);
 
 - **없음**
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -31024,7 +31024,7 @@ VOID gx_widget_text_draw(
 
 - **없음**
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -31080,7 +31080,7 @@ VOID gx_widget_text_draw(
 
 - **없음**
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -31140,7 +31140,7 @@ VOID gx_widget_text_id_draw(
 
 - **없음**
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드
 
@@ -31707,7 +31707,7 @@ VOID gx_window_draw(GX_WINDOW *window);
 
 - **없음**
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 

@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 3a0c73c2b45c32bf3f1ef56de684fa83c334b59e
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: d5d06fa66f0cae29eeb2a89560704b2ef510597e44a565499bf672a75555f208
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104811076"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116790567"
 ---
 # <a name="chapter-5---azure-rtos-levelx-nor-support"></a>5장 - Azure RTOS LevelX NOR 지원
 
@@ -42,7 +42,7 @@ LevelX는 각 NOR 플래시 블록을 512바이트 논리 *섹터* 로 나눕니
 | 비트 | 의미  |
 | ------ | -------- |
 | 31     | 유효한 플래그입니다. 설정 및 논리 섹터가 모두 아닌 경우 매핑이 유효함을 나타냅니다. |
-| 30     | 사용되지 않는 플래그입니다. Clear인 경우 이 매핑은 더 이상 사용되지 않거나 사용되지 않는 것으로 처리됩니다. |
+| 30     | 사용되지 않는 플래그입니다. Clear인 경우 이 매핑은 더 이상 사용되지 않거나 더 이상 사용되지 않는 과정에 있습니다. |
 | 29     | 이 비트가 0인 경우 매핑 항목 쓰기가 완료되었습니다. |
 | 0-28   | 이 물리적 섹터에 매핑된 논리 섹터입니다. 모든 것이 아닌 경우입니다. |
 

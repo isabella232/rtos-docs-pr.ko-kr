@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 07/13/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 246115fc97d7597246f7fd5b4fb88cb615baab33
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 8310006b7c188fa63402c931459ffd84ebb776c207dc520959208449862fe27f
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104810405"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116790210"
 ---
 # <a name="chapter-3---description-of-azure-rtos-netx-pppoe-client-services"></a>3장 - Azure RTOS NetX PPPoE 클라이언트 서비스 설명
 

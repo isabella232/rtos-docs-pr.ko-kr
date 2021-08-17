@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 91dfd0e62cb565f677faa7d52fe22abc1f0e19a1
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: c9b5e0ea82319bd369318cca753cf1db222ca29b0b4db3da150642ca007f1191
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104811040"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116789868"
 ---
 # <a name="chapter-1---introduction-to-azure-rtos-netx-duo"></a>1장 - Azure RTOS NetX Duo 소개
 
@@ -120,7 +120,7 @@ NetX Duo는 ANSI C로만 작성되며 ThreadX 실시간 운영 체제와 완전�
 
 ## <a name="ipv6-ready-logo-certification"></a>IPv6 준비 로고 인증
 
-NetX Duo "IPv6 준비 완료" 인증은 IPv6 준비 조직에서 사용할 수 있는 "IPv6 핵심 프로토콜(2단계) 자체 테스트" 패키지를 통해 획득되었습니다. 테스트 플랫폼과 테스트 사례에 대한 자세한 내용은 IPv6 준비 완료 프로젝트 웹 사이트 [ **https://www.ipv6ready.org/** ](https://www.ipv6ready.org/)를 참조하세요.
+NetX Duo "IPv6 준비 완료" 인증은 IPv6 준비 조직에서 사용할 수 있는 "IPv6 핵심 프로토콜(2단계) 자체 테스트" 패키지를 통해 획득되었습니다. 테스트 플랫폼과 테스트 사례에 대한 자세한 내용은 IPv6 준비 완료 프로젝트 웹 사이트 [ **https://www.ipv6ready.org/**](https://www.ipv6ready.org/)를 참조하세요.
 
 2단계 IPv6 핵심 프로토콜 자체 테스트 도구 모음은 IPv6 스택이 광범위한 테스트를 통해 다음 RFC에 설정된 요구 사항을 준수하는지 확인합니다.  
 섹션 1: RFC 2460  
@@ -131,7 +131,7 @@ NetX Duo "IPv6 준비 완료" 인증은 IPv6 준비 조직에서 사용할 수 �
 
 ## <a name="ixanvl-test"></a>IxANVL 테스트
 
-NetX Duo는 IXIA의 IxANVL를 사용하여 테스트되었습니다. IxANVL은 자동화된 네트워크 및 프로토콜 유효성 검사를 위한 업계 표준입니다. IxANVL에 대한 자세한 내용은 [ **https://www.ixiacom.com/products/ixanvl** ](https://www.ipv6ready.org/)서 확인할 수 있습니다.
+NetX Duo는 IXIA의 IxANVL를 사용하여 테스트되었습니다. IxANVL은 자동화된 네트워크 및 프로토콜 유효성 검사를 위한 업계 표준입니다. IxANVL에 대한 자세한 내용은 [ **https://www.ixiacom.com/products/ixanvl**](https://www.ipv6ready.org/)서 확인할 수 있습니다.
 
 특히 다음 NetX Duo 모듈은 IxANVL을 사용하여 테스트됩니다.
 

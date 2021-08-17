@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: f143a443221ae08848316a458a630a0790108198
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 9c678772b6e6160dba9929af41e76c2580c06fb163bfccfdb6fcc46fa42ade82
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104810933"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116790346"
 ---
 # <a name="chapter-3---description-of-azure-rtos-netx-duo-dhcp-client-services"></a>챕터 3 - Azure RTOS NetX Duo DHCP 클라이언트 서비스 설명
 
@@ -151,7 +151,7 @@ DHCP에 대한 인터페이스를 사용하지 않도록 설정하기 위해 애
 - NX_PTR_ERROR: (0x16) 잘못된 IP 또는 DHCP 포인터
 - NX_INVALID_INTERFACE: (0x4C) 잘못된 네트워크 인터페이스
 
-### <a name="allowed-from"></a>허용되는 원본
+### <a name="allowed-from"></a>허용 위치
 
 스레드, 초기화
 
@@ -200,7 +200,7 @@ DHCP 클라이언트를 다시 시작하려면 애플리케이션에서 *nx_dhcp
 - NX_CALLER_ERROR: (0x11) 이 서비스의 잘못된 호출자
 - NX_INVALID_INTERFACE: (0x4C) 잘못된 네트워크 인터페이스
 
-### <a name="allowed-from"></a>허용되는 원본
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -286,7 +286,7 @@ UINT nx_dhcp_interface_clear_broadcast_flag(NX_DHCP *dhcp_ptr,
 - NX_PTR_ERROR: (0x16) 잘못된 IP 또는 DHCP 포인터
 - NX_INVALID_INTERFACE: (0x4C) 잘못된 네트워크 인터페이스
 
-### <a name="allowed-from"></a>허용되는 원본
+### <a name="allowed-from"></a>허용 위치
 
 스레드, 초기화
 
@@ -327,7 +327,7 @@ UINT nx_dhcp_delete(NX_DHCP *dhcp_ptr);
 - NX_PTR_ERROR: (0x16) 잘못된 DHCP 포인터
 - NX_CALLER_ERROR: (0x11) 이 서비스의 잘못된 호출자
 
-### <a name="allowed-from"></a>허용되는 원본
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -367,7 +367,7 @@ UINT nx_dhcp force_renew(NX_DHCP *dhcp_ptr);
 - NX_PTR_ERROR: (0x16) 잘못된 DHCP 포인터
 - NX_CALLER_ERROR: (0x11) 이 서비스의 잘못된 호출자
 
-### <a name="allowed-from"></a>허용되는 원본
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -407,7 +407,7 @@ UINT nx_dhcp_interface_force_renew(NX_DHCP *dhcp_ptr,
 - NX_PTR_ERROR: (0x16) 잘못된 IP 또는 DHCP 포인터
 - NX_INVALID_INTERFACE: (0x4C) 잘못된 네트워크 인터페이스
 
-### <a name="allowed-from"></a>허용되는 원본
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -548,7 +548,7 @@ UINT nx_dhcp_interface_request_client_ip(NX_DHCP *dhcp_ptr, UINT  interface_inde
 - NX_PTR_ERROR: (0x16) 잘못된 IP 또는 DHCP 포인터
 - NX_INVALID_INTERFACE: (0x4C) 잘못된 네트워크 인터페이스
 
-### <a name="allowed-from"></a>허용되는 원본
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -634,7 +634,7 @@ UINT nx_dhcp_interface_reinitialize(NX_DHCP *dhcp_ptr,
 - NX_CALLER_ERROR: (0x11) 이 서비스의 잘못된 호출자
 - NX_INVALID_INTERFACE: (0x4C) 잘못된 네트워크 인터페이스
 
-### <a name="allowed-from"></a>허용되는 원본
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -676,7 +676,7 @@ UINT nx_dhcp_release(NX_DHCP *dhcp_ptr);
 - NX_PTR_ERROR: (0x16) 잘못된 DHCP 포인터
 - NX_CALLER_ERROR: (0x11) 이 서비스의 잘못된 호출자
 
-### <a name="allowed-from"></a>허용되는 원본
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -716,7 +716,7 @@ UINT nx_dhcp_interface_release(NX_DHCP *dhcp_ptr, UINT interface_index);
 - NX_CALLER_ERROR: (0x11) 이 서비스의 잘못된 호출자
 - NX_INVALID_INTERFACE: (0x4C) 잘못된 네트워크 인터페이스
 
-### <a name="allowed-from"></a>허용되는 원본
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -801,7 +801,7 @@ UINT nx_dhcp_interface_decline(NX_DHCP *dhcp_ptr,
 - NX_CALLER_ERROR: (0x11) 이 서비스의 잘못된 호출자
 - NX_INVALID_INTERFACE: (0x4C) 잘못된 네트워크 인터페이스
 
-### <a name="allowed-from"></a>허용되는 원본
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -845,7 +845,7 @@ INFORM_REQUEST 메시지 유형을 보내는 경우를 제외하고 이 서비�
 - **NX_DHCP_INVALID_MESSAGE**: (0x9B) 잘못된 보내는 메시지 유형
 - NX_PTR_ERROR: (0x16) 잘못된 포인터 입력
 
-### <a name="allowed-from"></a>허용되는 원본
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -894,7 +894,7 @@ DHCP INFORM REQUEST 메시지 유형을 보내는 경우를 제외하고 이 서
 - NX_CALLER_ERROR: (0x11) 이 서비스의 잘못된 호출자
 - NX_INVALID_INTERFACE: (0x4C) 잘못된 네트워크 인터페이스
 
-### <a name="allowed-from"></a>허용되는 원본
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -936,7 +936,7 @@ UINT nx_dhcp_server_address_get(NX_DHCP *dhcp_ptr,
 - NX_PTR_ERROR: (0x16) 잘못된 입력 포인터
 - NX_CALLER_ERROR: (0x11) 이 서비스의 잘못된 호출자
 
-### <a name="allowed-from"></a>허용되는 원본
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -992,7 +992,7 @@ UINT nx_dhcp_interface_server_address_get(NX_DHCP *dhcp_ptr,
 - NX_CALLER_ERROR: (0x11) 이 서비스의 잘못된 호출자
 - NX_INVALID_INTERFACE: (0x4C) 잘못된 네트워크 인터페이스
 
-### <a name="allowed-from"></a>허용되는 원본
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -1095,7 +1095,7 @@ IP 인스턴스가 DHCP 클라이언트 인터페이스의 IP 주소에 바인�
 - NX_PTR_ERROR: (0x16) 잘못된 DHCP 포인터
 - NX_CALLER_ERROR: (0x11) 서비스의 잘못된 호출자
 
-### <a name="allowed-from"></a>허용되는 원본
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -1139,7 +1139,7 @@ DHCP 클라이언트를 실행하는 다른 인터페이스가 없는 경우 이
 - NX_CALLER_ERROR: (0x11) 서비스의 잘못된 호출자
 - NX_INVALID_INTERFACE: (0x4C) 잘못된 네트워크 인터페이스
 
-### <a name="allowed-from"></a>허용되는 원본
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -1190,7 +1190,7 @@ UINT nx_dhcp_state_change_notify(NX_DHCP *dhcp_ptr,
 - NX_PTR_ERROR: (0x16) 잘못된 DHCP 포인터
 - NX_CALLER_ERROR: (0x11) 서비스의 잘못된 호출자
 
-### <a name="allowed-from"></a>허용되는 원본
+### <a name="allowed-from"></a>허용 위치
 
 스레드, 초기화
 
@@ -1281,7 +1281,7 @@ UINT nx_dhcp_stop(NX_DHCP *dhcp_ptr);
 - NX_PTR_ERROR: (0x16) 잘못된 DHCP 포인터
 - NX_CALLER_ERROR: (0x11) 서비스의 잘못된 호출자
 
-### <a name="allowed-from"></a>허용되는 원본
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -1321,7 +1321,7 @@ DHCP가 이미 시작된 경우 이 서비스는 지정된 인터페이스에서
 - NX_CALLER_ERROR: (0x11) 서비스의 잘못된 호출자
 - NX_INVALID_INTERFACE: (0x4C) 잘못된 네트워크 인터페이스
 
-### <a name="allowed-from"></a>허용되는 원본
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -1366,7 +1366,7 @@ UINT nx_dhcp_user_option_retrieve(NX_DHCP *dhcp_ptr, UINT request_option,
 - NX_PTR_ERROR: (0x16) 잘못된 입력 포인터
 - NX_CALLER_ERROR: (0x11) 이 서비스의 잘못된 호출자
 
-### <a name="allowed-from"></a>허용되는 원본
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -1419,7 +1419,7 @@ UINT nx_dhcp_interface_user_option_retrieve(NX_DHCP *dhcp_ptr,
 - NX_CALLER_ERROR: (0x11) 서비스의 잘못된 호출자
 - NX_INVALID_INTERFACE: (0x4C) 잘못된 네트워크 인터페이스
 
-### <a name="allowed-from"></a>허용되는 원본
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 

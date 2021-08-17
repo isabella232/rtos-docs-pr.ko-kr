@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 07/09/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 1f7681c8f3fe161db8a37a82574ab7d5e9bf348e
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: c8608f3894eba4db557f0c67b1042f2c88362cb0ca4bf6034bff9ae591fe26bc
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104810657"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116797180"
 ---
 # <a name="chapter-3---description-of-pop3-client-services"></a>3장 - POP3 클라이언트 서비스 설명
 

@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 4c07d6e3183d421c637874dcdeff3767554fca78
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: e878d32d6bcf514bb75a76b51e66c4d267b1a5b34f6c4b2df6ab231e5814ffc5
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104810842"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116792061"
 ---
 # <a name="chapter-1---introduction-to-the-azure-rtos-netx-duo-dns-client"></a>챕터 1 - Azure RTOS NetX Duo DNS 클라이언트 소개
 
@@ -83,13 +83,13 @@ UINT  _nx_dns_domain_name_server_get(NX_DNS *dns_ptr,
 ```
 
 
-자세한 내용은 챕터 3 “DNS 클라이언트 서비스 설명”을 참조하십시오.
+자세한 내용은 3장 “DNS 클라이언트 서비스 설명”을 참조하세요.
 
 ## <a name="dns-cache"></a>DNS 캐시
 
 NX_DNS_CACHE_ENABLE이 사용하도록 설정된 경우 NetX Duo DNS 클라이언트가 DNS 캐시 기능을 지원합니다. DNS 클라이언트를 만든 후 애플리케이션이 API *nx_dns_cache_initialize()* 를 호출하여 특별한 DNS 캐시를 설정할 수 있습니다. DNS 캐시 기능을 사용하도록 설정하면 DNS 클라이언트가 DNS 쿼리 전송을 시작하기 전 DNS 캐시에서 사용 가능한 답변을 찾을 수 있습니다. 사용 가능한 답변을 찾으면 애플리케이션에 답변을 직접 반환하고, 그렇지 않으면 DNS 클라이언트가 DNS 서버에 쿼리 메시지를 보내고 회신을 기다립니다. DNS 클라이언트가 응답 메시지를 가져오고 사용 가능한 캐시가 있으면 DNS 클라이언트가 답변을 애플리케이션에 반환하고 DNS 캐시에도 리소스 레코드로 답변을 추가합니다.
 
-각 항목은 캐시의 데이터 구조 *NX_DNS_RR*(리소스 레코드)에 답변합니다. 레코드의 문자열(리소스 레코드 이름 및 데이터)는 가변 길이이므로 NX_DNS_RR 구조에 저장되지 않습니다. 레코드에는 문자열이 저장되는 실제 메모리 위치에 대한 포인터가 포함됩니다. 문자열 테이블 및 레코드는 캐시를 공유합니다. 레코드는 캐시 시작 부분에서 저장되며 캐시 끝을 향해 증가합니다. 문자열 테이블은 캐시 끝에서 시작하여 캐시 시작 부분을 향해 증가합니다. 문자열 테이블의 각 문자열에는 길이 필드와 카운터 필드가 포함됩니다. 문자열이 문자열 테이블에 추가될 때 테이블에 동일한 문자열이 이미 있으면 카운터 값이 증가하고 해당 문자열에 대해 메모리가 할당되지 않습니다. 캐시에 새 문자열 또는 그 이상의 리소스 레코드를 추가할 수 없으면 캐시가 가득 찬 것으로 간주됩니다.
+각 항목은 캐시의 데이터 구조 *NX_DNS_RR*(리소스 레코드)에 답변합니다. 레코드의 문자열(리소스 레코드 이름 및 데이터)은 가변 길이이므로 NX_DNS_RR 구조에 저장되지 않습니다. 레코드에는 문자열이 저장되는 실제 메모리 위치에 대한 포인터가 포함됩니다. 문자열 테이블 및 레코드는 캐시를 공유합니다. 레코드는 캐시 시작 부분에서 저장되며 캐시 끝을 향해 증가합니다. 문자열 테이블은 캐시 끝에서 시작하여 캐시 시작을 향해 증가합니다. 문자열 테이블의 각 문자열에는 길이 필드와 카운터 필드가 포함됩니다. 문자열이 문자열 테이블에 추가될 때 테이블에 동일한 문자열이 이미 있으면 카운터 값이 증가하고 해당 문자열에 대해 메모리가 할당되지 않습니다. 캐시에 새 문자열 또는 그 이상의 리소스 레코드를 추가할 수 없으면 캐시가 가득 찬 것으로 간주됩니다.
 
 ## <a name="dns-client-limitations"></a>DNS 클라이언트 제한 사항
 

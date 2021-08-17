@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 8c13d3b092d3a5b59bd0369f6ffc162509d02590
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 3ad8963c342e907201074559929f3a7a2d70c9f13e135cd95c9a2e9b224e17cf
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104811515"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116791230"
 ---
 # <a name="chapter-2---installation-and-use-of-azure-rtos-netx-lwm2m"></a>2장 - Azure RTOS NetX LWM2M 설치 및 사용
 

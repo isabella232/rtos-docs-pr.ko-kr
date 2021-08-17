@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 5/19/2020
 ms.service: rtos
 ms.topic: article
-ms.openlocfilehash: 8b1e08130d4531fd82629378761cd5b1752f0a07
-ms.sourcegitcommit: 60ad844b58639d88830f2660ab0c4ff86b92c10f
+ms.openlocfilehash: 0ec49e88c8dcb8ca200bc376da2f33eb5ddac340bf3693368dc3508f68220765
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106550289"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116791468"
 ---
 # <a name="chapter-1---introduction-to-azure-rtos-usbx-device-stack"></a>1장 - Azure RTOS USBX 디바이스 스택 소개
 
@@ -33,7 +33,7 @@ USB 계층 간의 관계는 다음과 같습니다.
 
 ## <a name="product-highlights"></a>제품 중요 정보
 
-- ThreadX 프로세서 지원 완료
+- 완벽한 ThreadX 프로세서 지원
 - 로열티 없음
 - 전체 ANSI C 소스 코드
 - 실시간 성능

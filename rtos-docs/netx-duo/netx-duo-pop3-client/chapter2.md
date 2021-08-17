@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 07/09/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 6ef4b6ba7aadf77ab95a4a12235eda847f32f3d5
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 5a3cbded6224617571941f58ffb6a08bde9575eba8791544182fb8499c14bf43
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104810662"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116797197"
 ---
 # <a name="chapter-2---installation-and-use-of-netx-duo-pop3-client"></a>2장 - NetX Duo POP3 클라이언트 설치 및 사용
 
@@ -36,9 +36,9 @@ NetX Duo POP3 클라이언트 서비스를 사용하려면 애플리케이션이
 
 NetX Duo POP3 클라이언트 서비스를 사용하는 방법의 예는 아래에 표시되는 그림 1에 설명되어 있습니다. 이 데모에서는 37줄 및 38줄에서 메일 다운로드와 세션 완료 알림에 대한 2개의 콜백을 설정합니다. POP3 클라이언트 패킷 풀이 76줄에 생성됩니다. IP 스레드 작업은 88줄에 생성됩니다. 이 패킷 풀은 POP3 클라이언트 패킷 풀에도 사용됩니다. TCP는 107줄의 IP 작업에서 사용하도록 설정됩니다.
 
-POP3 클라이언트는 애플리케이션 스레드 항목 함수 *demo_thread_entry* 내에 133줄에 생성됩니다. 이는 *nx_pop3_client_create* 서비스가 POP3 서버와의 TCP 연결도 시도하기 때문입니다. 성공하면 애플리케이션은 *nx_pop3_client_mail_items_get* 서비스를 사용하여 149줄의 maildrop에 있는 항목 수를 POP3 서버에 쿼리합니다.
+POP3 클라이언트는 애플리케이션 스레드 입력 함수 *demo_thread_entry* 내에 133줄에 생성됩니다. 이는 *nx_pop3_client_create* 서비스가 POP3 서버와의 TCP 연결도 시도하기 때문입니다. 성공하면 애플리케이션은 *nx_pop3_client_mail_items_get* 서비스를 사용하여 149줄의 maildrop에 있는 항목 수를 POP3 서버에 쿼리합니다.
 
-하나 이상의 항목이 있는 경우 애플리케이션은 각 메일 항목에 대해 while 루프를 반복하여 메일 메시지를 다운로드합니다. RETR 요청은 *nx_pop3_client_mail_item_get* 호출의 149줄에 생성됩니다. 성공하면 애플리케이션은 196줄에서 받은 메시지의 마지막 패킷을 검색할 때까지 177줄에서 *nx_pop3_client_mail_item_message_get* 서비스를 사용하여 패킷을 다운로드합니다. 마지막으로, 애플리케이션은 *nx_pop3_client_mail_item_delete* 호출의 199줄에서 성공적으로 다운로드되었다고 가정하여 메일 항목을 삭제합니다. RFC 1939는 POP3 클라이언트가 다운로드한 메일 항목을 삭제하여 클라이언트의 maildrop에 메일이 누적되는 것을 방지하도록 서버에 지시할 것을 권장합니다. 서버에서 자동으로 이 작업을 수행할 수 있습니다.
+하나 이상의 항목이 있는 경우 애플리케이션은 각 메일 항목에 대해 while 루프를 반복하여 메일 메시지를 다운로드합니다. RETR 요청이 *nx_pop3_client_mail_item_get* 호출의 149줄에 생성됩니다. 성공하면 애플리케이션은 196줄에서 받은 메시지의 마지막 패킷을 검색할 때까지 177줄에서 *nx_pop3_client_mail_item_message_get* 서비스를 사용하여 패킷을 다운로드합니다. 마지막으로, 애플리케이션은 *nx_pop3_client_mail_item_delete* 호출의 199줄에서 성공적으로 다운로드되었다고 가정하여 메일 항목을 삭제합니다. RFC 1939는 POP3 클라이언트가 다운로드한 메일 항목을 삭제하여 클라이언트의 maildrop에 메일이 누적되는 것을 방지하도록 서버에 지시할 것을 권장합니다. 서버에서 자동으로 이 작업을 수행할 수 있습니다.
 
 모든 메일 항목이 다운로드되거나 POP3 클라이언트 서비스 호출이 실패하면 애플리케이션은 루프를 종료하고 *nx_pop3_client_delete* 서비스를 사용하여 217줄에서 POP3 클라이언트를 삭제합니다.
 

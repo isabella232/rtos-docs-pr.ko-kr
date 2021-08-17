@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 5/19/2020
 ms.service: rtos
 ms.topic: article
-ms.openlocfilehash: 17b8d884dd2c71d60e91f5fcec40c360060f4fe8
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: a3cbbb2e26d66d3db26144a47a1b6cbb11387c7b5b2ba5e19d35df026e5e3598
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104813183"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116790891"
 ---
 # <a name="chapter-3---functional-components-of-usbx-host-stack"></a>챕터 3 - USBX 호스트 스택의 기능 구성 요소
 
@@ -157,7 +157,7 @@ USB 디바이스는 매우 간단한 설명을 포함할 수 있으며 다음과
 
 각 USB 디바이스에는 디바이스 설명자가 하나씩 있습니다. 이 설명자에는 디바이스 ID, 지원되는 구성 수, 디바이스를 구성하는 데 사용되는 기본 제어 엔드포인트의 특성이 포함됩니다.
 
-| Offset | 필드              | Size | 값    | Description                             |
+| Offset | 필드              | Size | 값    | 설명                             |
 | ------ | ------------------ | ---- | -------- | --------------------------------------- |
 | 0      | BLength            | 1    | 숫자   | 이 설명자의 크기(바이트) |
 | 1      | bDescriptorType    | 1    | 상수 | 디바이스 설명자 형식 |
@@ -268,7 +268,7 @@ typedef struct UX_DEVICE_STRUCT
 
 호스트에서 구성 설명자에 대한 GET_DESCRIPTOR 요청을 실행하면 관련된 모든 인터페이스 및 엔드포인트 설명자가 반환됩니다.
 
-| Offset | 필드               | Size | 값    | Description                       |
+| Offset | 필드               | Size | 값    | 설명                       |
 | ------ | ------------------- | ---- | -------- | --------------------------------- |
 | 0      | bLength             | 1    | 숫자   | 이 설명자의 크기(바이트) |
 | 1      | bDescriptorType     | 1    | 상수 | CONFIGURATION                     |
@@ -399,7 +399,7 @@ typedef struct UX_INTERFACE_STRUCT
 
 기본 제어 엔드포인트를 제외하고 인터페이스 간에 엔드포인트를 공유할 수 없습니다.
 
-| Offset | 필드            | Size | 값    | Description                       |
+| Offset | 필드            | Size | 값    | 설명                       |
 | ------ | ---------------- | ---- | -------- | --------------------------------- |
 | 0      | bLength          | 1    | 숫자   | 이 설명자의 크기(바이트) |
 | 1      | bDescriptorType  | 1    | 상수 | 엔드포인트 설명자 형식 |
@@ -456,7 +456,7 @@ typedef struct UX_ENDPOINT_STRUCT {
 
 USB 문자열 설명자 0은 다음과 같이 인코딩됩니다.
 
-| Offset | 필드           | Size | 값    | Description                      |
+| Offset | 필드           | Size | 값    | 설명                      |
 | ------ | --------------- | ---- | -------- | -------------------------------- |
 | 0      | bLength         | 1    | N+2      | 이 설명자의 크기(바이트) |
 | 1      | bDescriptorType | 1    | 상수 | 문자열 설명자 형식           |
@@ -466,7 +466,7 @@ USB 문자열 설명자 0은 다음과 같이 인코딩됩니다.
 
 다른 USB 문자열 설명자는 다음과 같이 인코딩됩니다.
 
-| Offset | 필드           | Size | 값    | Description                      |
+| Offset | 필드           | Size | 값    | 설명                      |
 | ------ | --------------- | ---- | -------- | -------------------------------- |
 | 0      | bLength         | 1    | 숫자   | 이 설명자의 크기(바이트) |
 | 1      | bDescriptorType | 1    | 상수 | 문자열 설명자 형식           |

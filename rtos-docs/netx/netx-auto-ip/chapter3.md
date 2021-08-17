@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 22cc06c32cc9f1857b32d1d2b44a506ea1652cfd
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 15a70416f9d4d1324d930820b09366a7e7cd6f4525872472cd88edfbb25ee155
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104811664"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116796874"
 ---
 # <a name="chapter-3---description-of-azure-rtos-netx-autoip-services"></a>3장 - Azure RTOS NetX AutoIP 서비스 설명
 
@@ -54,12 +54,12 @@ UINT nx_auto_ip_create(NX_AUTO_IP *auto_ip_ptr, CHAR *name,
 
 ### <a name="return-values"></a>반환 값
 
-- **NX_SUCCESS**: (0x00) 성공적인 AutoIP 생성.
-- **NX_AUTO_IP_ERROR**: (0xA00) AutoIP 생성 오류.
+- **NX_SUCCESS**: (0x00) 성공적인 AutoIP 생성
+- **NX_AUTO_IP_ERROR**: (0xA00) AutoIP 생성 오류
 - NX_PTR_ERROR: (0x16) AutoIP, ip_ptr 또는 스택 포인터가 잘못되었습니다.
 - NX_CALLER_ERROR: (0x11) 이 서비스의 호출자가 잘못되었습니다.
 
-### <a name="allowed-from"></a>허용된 원본
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드
 
@@ -96,7 +96,7 @@ UINT nx_auto_ip_delete(NX_AUTO_IP *auto_ip_ptr);
 
 ### <a name="return-values"></a>반환 값
 
-- **NX_SUCCESS**: (0x00) 성공적인 AutoIP 삭제.
+- **NX_SUCCESS**: (0x00) 성공적인 AutoIP 삭제
 - **NX_AUTO_IP_ERROR**: (0xA00) AutoIP 삭제 오류.
 - NX_PTR_ERROR(0x16): AutoIP 포인터가 잘못되었습니다.
 - NX_CALLER_ERROR(0x11): 이 서비스의 호출자가 잘못되었습니다.
@@ -140,12 +140,12 @@ UINT nx_auto_ip_get_address(NX_AUTO_IP *auto_ip_ptr,
 
 ### <a name="return-values"></a>반환 값
 
-- **NX_SUCCESS**: (0x00) 성공적인 AutoIP 주소 가져오기.
+- **NX_SUCCESS**: (0x00) 성공적인 AutoIP 주소 가져오기
 - **NX_AUTO_IP_NO_LOCAL**: (0xA01) 올바른 AutoIP 주소가 없습니다.
 - NX_PTR_ERROR: (0x16) AutoIP 포인터가 잘못되었습니다.
 - NX_CALLER_ERROR: (0x11) 이 서비스의 호출자가 잘못되었습니다.
 
-### <a name="allowed-from"></a>허용된 원본
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 타이머, 스레드, ISR
 
@@ -191,7 +191,7 @@ UINT nx_auto_ip_set_interface(NX_AUTO_IP *auto_ip_ptr,
 - NX_PTR_ERROR: (0x16) AutoIP 포인터가 잘못되었습니다.
 - NX_CALLER_ERROR: (0x11) 이 서비스의 호출자가 잘못되었습니다.
 
-### <a name="allowed-from"></a>허용된 원본
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 타이머, 스레드, ISR
 
@@ -232,12 +232,12 @@ UINT nx_auto_ip_start(NX_AUTO_IP *auto_ip_ptr,
 
 ### <a name="return-values"></a>반환 값
 
-- **NX_SUCCESS**: (0x00) 성공적인 AutoIP 시작.
-- **NX_AUTO_IP_ERROR**: (0xA00) AutoIP 시작 오류.
+- **NX_SUCCESS**: (0x00) 성공적인 AutoIP 시작
+- **NX_AUTO_IP_ERROR**: (0xA00) AutoIP 시작 오류
 - NX_PTR_ERROR: (0x16) AutoIP 포인터가 잘못되었습니다.
 - NX_CALLER_ERROR: (0x11) 이 서비스의 호출자가 잘못되었습니다.
 
-### <a name="allowed-from"></a>허용된 원본
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드
 
@@ -274,12 +274,12 @@ UINT nx_auto_ip_stop(NX_AUTO_IP *auto_ip_ptr);
 
 ### <a name="return-values"></a>반환 값
 
-- **NX_SUCCESS**: (0x00) 성공적인 AutoIP 중지.
-- **NX_AUTO_IP_ERROR**: (0xA00) AutoIP 중지 오류.
+- **NX_SUCCESS**: (0x00) 성공적인 AutoIP 중지
+- **NX_AUTO_IP_ERROR**: (0xA00) AutoIP 중지 오류
 - NX_PTR_ERROR: (0x16) AutoIP 포인터가 잘못되었습니다.
 - NX_CALLER_ERROR: (0x11) 이 서비스의 호출자가 잘못되었습니다.
 
-### <a name="allowed-from"></a>허용된 원본
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 

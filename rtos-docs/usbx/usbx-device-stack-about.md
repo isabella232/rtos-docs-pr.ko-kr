@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 5/19/2020
 ms.service: rtos
 ms.topic: article
-ms.openlocfilehash: c8e9360c8b72adbc41f840a48e333668c489399e
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 042398377766a3e73f72d4dbba0478ba707d378a379fd33de7808675eb96f257
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104810243"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116788765"
 ---
 # <a name="azure-rtos-usbx-device-stack-user-guide"></a>Azure RTOS USBX 디바이스 스택 사용자 가이드
 

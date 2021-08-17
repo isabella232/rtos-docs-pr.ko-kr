@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 5/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: ce291f794cbc458d402cbefa3fd81dcc6f371b57
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 9f4ba97741d2fc5f93afe6866b9ae6e9dc1e98a977eb3d6050c4a7489804c93c
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104812853"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116790714"
 ---
 # <a name="chapter-4-usbx-pictbridge-implementation"></a>4장: USBX Pictbridge 구현
 
@@ -205,7 +205,7 @@ UINT **ux_pictbridge_jobinfo_object_data_read(
     ULONG *actual_length)
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>설명
 
 이 함수는 DPS 클라이언트가 대상 Pictbridge 프린터에 인쇄하기 위해 데이터 블록을 검색해야 할 때 호출됩니다.
 
@@ -344,7 +344,7 @@ UINT **ux_pictbridge_application_object_data_write(
     ULONG length);
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>설명
 
 이 함수는 DPS 서버에서 로컬 프린터로 인쇄하기 위해 DPS 클라이언트에서 데이터 블록을 검색해야 할 때 호출됩니다.
 

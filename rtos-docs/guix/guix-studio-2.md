@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 5/19/2020
 ms.service: rtos
 ms.topic: article
-ms.openlocfilehash: d7b5f94c26842b408ea1b00aeeb78e111bea3623
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 55d2b0ac08bdceebdf286effe4bbc679320541243ff78359deafe0858a7b597e
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104811983"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116786475"
 ---
 # <a name="chapter-2-installation-and-use-of-guix-studio"></a>2장 - GUIX Studio 설치 및 사용
 

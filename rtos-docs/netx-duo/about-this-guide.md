@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: b1eef5bfa28f13d7a6b627792f96039b252f2355
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 032cca3ccdaa7600732d52894d63e5bef366010abaa1145417201f48cb034ab5
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104811053"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116790176"
 ---
 # <a name="about-the-azure-rtos-netx-duo-user-guide"></a>Azure RTOS NetX Duo 사용자 가이드 소개
 
@@ -68,7 +68,7 @@ ms.locfileid: "104811053"
 
 ## <a name="customer-support-center"></a>고객 지원 센터
 
-다음 단계에 대한 질문 또는 도움이 필요하면 Azure Portal을 통해 지원 티켓을 제출하세요. 지원 요청을 보다 효율적으로 해결해 드릴 수 있도록 메일 메시지에 다음 정보를 제공해 주세요.
+다음 단계에 대한 질문 또는 도움이 필요하면 Azure Portal을 통해 지원 티켓을 제출하세요. 지원 요청을 보다 효율적으로 해결할 수 있도록 이메일 메시지에 다음 정보를 제공해 주세요.
 
 1. 발생 빈도와 안정적으로 재현할 수 있는지 여부를 포함한 문제에 대한 자세한 설명
 2. 문제가 발생하기 전의 애플리케이션 및/또는 Azure RTOS NetX Duo의 변경 내용에 대한 자세한 설명

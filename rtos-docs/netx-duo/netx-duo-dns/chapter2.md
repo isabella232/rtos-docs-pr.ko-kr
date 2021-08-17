@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 75b85829f80462015d66e1623b880d5139349ce0
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: d18e6444f13f069347719901b24234aebe04cdc5cd6230212e0781a50ed245d1
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104811815"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116792012"
 ---
 # <a name="chapter-2---installation-and-use-of-azure-rtos-netx-duo-dns-client"></a>2장 - Azure RTOS NetX Duo DNS 클라이언트의 설치 및 사용
 
@@ -59,7 +59,7 @@ ARP와 UDP(IPv4 네트워크에서 사용)는 각각 줄 129와 141에서 사용
 >[!NOTE]
 > 이 데모에서는 줄 44에서 선언되어 *nx_ip_create* 호출에 사용되는 ‘ram’ 드라이버를 사용합니다. 이 ram 드라이버는 NetX Duo 소스 코드와 함께 배포됩니다. 실제로 DNS 클라이언트를 실행하려면 애플리케이션이 DNS 서버로부터의 패킷 송수신을 위해 실제 네트워크 드라이버를 제공해야 합니다.
 
-클라이언트 스레드 항목 함수 *thread_client_entry* 는 *tx_application_define* 함수 아래에 정의되어 있습니다. 처음에는 네트워크 드라이버에서 IP 작업 스레드를 초기화할 수 있도록 시스템에 제어 권한을 내어줍니다.
+클라이언트 스레드 입력 함수 *thread_client_entry* 는 *tx_application_define* 함수 아래에 정의되어 있습니다. 처음에는 네트워크 드라이버에서 IP 작업 스레드를 초기화할 수 있도록 시스템에 제어 권한을 내어줍니다.
 
 그런 다음, 줄 257에서 DNS 클라이언트를 만들고, 줄 267~278에서 DNS 캐시를 초기화하며, 줄 281~295에서 이전에 만든 패킷 풀을 DNS 클라이언트 인스턴스로 설정합니다. 그런 다음 줄 297~341에서 DNS 서버를 추가합니다.
 

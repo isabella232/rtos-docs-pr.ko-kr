@@ -6,12 +6,12 @@ ms.service: rtos
 ms.topic: article
 ms.date: 5/19/2020
 ms.author: philmea
-ms.openlocfilehash: 635c2d79922de9d5649bab841ae946cac862056c
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: b287436fb7f61df846bb0c84d910f5c095bc1f8f6635305e97c9e8b7aab64655
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104812421"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116790436"
 ---
 # <a name="chapter-10---customer-user-events"></a>챕터 10 - 고객 사용자 이벤트
 

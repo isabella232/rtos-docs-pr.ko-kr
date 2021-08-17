@@ -1,17 +1,17 @@
 ---
 title: 1장 - Azure RTOS USBX 호스트 스택 소개
-description: USBX는 심층적인 포함된 애플리케이션을 위한 모든 기능을 갖춘 USB 스택입니다. 이 장에서는 USBX를 소개하고 해당 애플리케이션과 이점을 설명합니다.
+description: 이 장에서는 USBX 호스트 스택을 소개하고 애플리케이션과 이점을 설명합니다.
 author: philmea
 ms.author: philmea
 ms.date: 5/19/2020
 ms.service: rtos
 ms.topic: article
-ms.openlocfilehash: 9ee49903e764e20316438be16b47d2d9208b1363
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: abe9b3e4f36a50af9c1267b2e6285b77feecd946660bf23691e70cb66f8bc042
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104813362"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116791002"
 ---
 # <a name="chapter-1---introduction-to-azure-rtos-usbx-host-stack"></a>1장 - Azure RTOS USBX 호스트 스택 소개
 
@@ -33,7 +33,7 @@ USB 계층 간의 관계는 다음과 같습니다.
 
 ## <a name="product-highlights"></a>제품 중요 정보
 
-- ThreadX 프로세서 지원 완료
+- 완벽한 ThreadX 프로세서 지원
 - 로열티 없음
 - 전체 ANSI C 소스 코드
 - 실시간 성능

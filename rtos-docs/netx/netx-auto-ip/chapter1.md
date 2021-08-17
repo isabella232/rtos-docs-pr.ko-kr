@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: c26b4112814bb586e056246d68c2597d56df6085
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: cd41a50a8591426b4c32cf2105132d92bbe487d9f91860d05c65f1a65e6d1d1c
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104811665"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116797010"
 ---
 # <a name="chapter-1---introduction-to-azure-rtos-netx-autoip"></a>1장 - Azure RTOS NetX AutoIP 소개
   
@@ -41,7 +41,7 @@ NX_AUTO_IP_PROBE_NUM 프로브가 응답 없이 전송되면 NetX AutoIP는 선�
 
 ## <a name="autoip-address-change"></a>AutoIP 주소 변경
 
-앞서 언급했듯이 NetX AutoIP는 프로브 및 알림 처리가 성공한 후 IP 인스턴스 주소를 변경합니다. 이 경우 모니터링은 그다지 중요하지 않습니다. 그러나 나중에 자동 AutoIP 주소를 변경할 수 있습니다. 잠재적인 원인에는 DHCP 주소 확인뿐만 아니라 향후 AutoIP 주소 충돌이 포함됩니다. 이러한 잠재적 상황을 적절히 처리하기 위해 애플리케이션은 다음 NetX API를 사용하여 모든 IP 주소 변경을 경고해야 합니다.
+앞서 언급했듯이 NetX AutoIP는 프로브 및 알림 처리가 성공한 후 IP 인스턴스 주소를 변경합니다. 이 경우 모니터링은 그다지 중요하지 않습니다. 그러나 나중에 AutoIP 주소를 변경할 수 있습니다. 잠재적인 원인에는 DHCP 주소 확인뿐만 아니라 향후 AutoIP 주소 충돌이 포함됩니다. 이러한 잠재적 상황을 적절히 처리하기 위해 애플리케이션은 다음 NetX API를 사용하여 모든 IP 주소 변경을 경고해야 합니다.
 
 ```c
 nx_ip_address_change_notify(NX_IP *ip_ptr,
@@ -49,7 +49,7 @@ nx_ip_address_change_notify(NX_IP *ip_ptr,
                             VOID *additional_info);
 ```
 
-제공된 *ip_address_change_notify* 함수의 처리는 NetX AutoIP 프로세서를 다시 시작하거나 DHCP가 나중에 IP 주소를 확인한 경우 비활성화해야 합니다. 샘플 처리는 *작은 예제 시스템* 섹션을 참조하세요.
+제공된 *ip_address_change_notify* 함수의 처리는 NetX AutoIP 프로세서를 다시 시작하거나 DHCP가 나중에 IP 주소를 확인한 경우 비활성화해야 합니다. 샘플 처리는 *간단한 예제 시스템* 섹션을 참조하세요.
 
 ## <a name="autoip-rfcs"></a>AutoIP RFC
 

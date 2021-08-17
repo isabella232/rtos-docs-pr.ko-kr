@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 01077e3315e87b918cdfd47423d8e0c1b6bbdbbd
-ms.sourcegitcommit: 60ad844b58639d88830f2660ab0c4ff86b92c10f
+ms.openlocfilehash: 7d77997e8c5bac598f382e1169a56727af09ab108f57c90cc6265df0691b5926
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106550272"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116796415"
 ---
 # <a name="about-the-azure-rtos-netx-user-guide"></a>Azure RTOS NetX 사용자 가이드 정보
 
@@ -43,7 +43,7 @@ ms.locfileid: "106550272"
 
 ## <a name="azure-rtos-netx-data-types"></a>Azure RTOS NetX 데이터 형식
 
-사용자 지정 Azure RTOS NetX 컨트롤 구조 데이터 형식 외에도 Azure RTOS NetX 서비스 호출 인터페이스에 사용되는 몇 가지 특수 데이터 형식이 있습니다. 이러한 특수 데이터 형식은 기본 C 컴파일러의 데이터 형식에 직접 매핑됩니다. 이는 서로 다른 C 컴파일러 간의 이식성을 보장하기 위해 수행됩니다. 정확한 구현은 ThreadX에서 상속되며 ThreadX 배포에 포함된 ***tx_port.h*** 파일에서 찾을 수 있습니다.
+사용자 지정 Azure RTOS NetX 컨트롤 구조 데이터 형식 외에도 Azure RTOS NetX 서비스 호출 인터페이스에 사용되는 몇 가지 특수 데이터 형식이 있습니다. 이러한 특수 데이터 형식은 기본 C 컴파일러의 데이터 형식에 직접 매핑됩니다. 이 매핑은 서로 다른 C 컴파일러 간의 이식성을 보장하기 위해 수행됩니다. 정확한 구현은 ThreadX에서 상속되며 ThreadX 배포에 포함된 ***tx_port.h*** 파일에서 찾을 수 있습니다.
 
 다음은 Azure RTOS NetX 서비스 호출 데이터 형식 및 관련된 의미의 목록입니다.
 

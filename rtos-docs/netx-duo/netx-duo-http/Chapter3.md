@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 07/15/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 703071cd5a1d0677a3e995fccfe35d8b1dbbd9f3
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 09add7bb20a8e104ba41583c0dbf4d574b8e6c9e6b3a3deed71d8fa8c8942ce2
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104810783"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116796483"
 ---
 # <a name="chapter-3---description-of-azure-rtos-netx-duo-http-services"></a>3장 - Azure RTOS NetX Duo HTTP 서비스 설명
 
@@ -84,7 +84,7 @@ UINT nx_http_client_create(NX_HTTP_CLIENT *client_ptr,
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
- - **client_ptr** HTTP 클라이언트 제어 블록에 대한 포인터입니다.
+ - **client_ptr** HTTP 클라이언트 제어 블록에 대한 포인터
  - **client_name** HTTP 클라이언트 인스턴스의 이름입니다.
  - **ip_ptr** IP 인스턴스에 대한 포인터입니다.
  - **pool_ptr** 기본 패킷 풀에 대한 포인터입니다. 이 풀의 패킷에는 전체 응답 헤더를 처리할 수 있을 만큼 큰 페이로드가 있어야 합니다. 이것은 *nx_http.h* 의 NX_HTTP_CLIENT_MIN_PACKET_SIZE에 의해 정의됩니다.
@@ -125,7 +125,7 @@ UINT nx_http_client_delete(NX_HTTP_CLIENT *client_ptr);
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
- - **client_ptr** HTTP 클라이언트 제어 블록에 대한 포인터입니다.
+ - **client_ptr** HTTP 클라이언트 제어 블록에 대한 포인터
 
 ### <a name="return-values"></a>반환 값
 
@@ -172,13 +172,13 @@ UINT nx_http_client_get_start(NX_HTTP_CLIENT *client_ptr,
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
- - **client_ptr** HTTP 클라이언트 제어 블록에 대한 포인터입니다.
- - **ip_address** HTTP 서버의 IP 주소입니다.
- - **resource** 요청된 리소스의 URL 문자열에 대한 포인터입니다.
+ - **client_ptr** HTTP 클라이언트 제어 블록에 대한 포인터
+ - **ip_address** HTTP 서버의 IP 주소
+ - **resource** 요청된 리소스의 URL 문자열에 대한 포인터
  - **input_ptr** GET 요청의 추가 데이터에 대한 포인터입니다. 선택 사항입니다. 유효한 경우 지정된 입력이 메시지의 콘텐츠 영역에 배치되고 GET 작업 대신 POST가 사용됩니다.
  - **input_size** ```input_ptr```에서 가리키는 선택적 추가 입력의 바이트 수입니다.
  - **username** 인증을 위한 선택적 사용자 이름에 대한 포인터입니다.
- - **password** 인증을 위한 선택적 암호에 대한 포인터입니다.
+ - **password** 인증을 위한 선택적 암호에 대한 포인터
  - **wait_option** 서비스에서 HTTP 클라이언트 GET 시작 요청을 기다리는 시간을 정의합니다. 대기 옵션은 다음과 같이 정의됩니다.
 
     - **시간 제한 값** (0x00000001~0xFFFFFFFE)
@@ -253,7 +253,7 @@ UINT nx_http_client_get_start_extended(NX_HTTP_CLIENT *client_ptr,
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
- - **client_ptr** HTTP 클라이언트 제어 블록에 대한 포인터입니다.
+ - **client_ptr** HTTP 클라이언트 제어 블록에 대한 포인터
  - **ip_address** HTTP 서버의 IP 주소입니다.
  - **resource** 요청된 리소스의 URL 문자열에 대한 포인터입니다.
  - **resource_length** 요청된 리소스에 대한 URL 문자열의 길이입니다.
@@ -261,7 +261,7 @@ UINT nx_http_client_get_start_extended(NX_HTTP_CLIENT *client_ptr,
  - **input_size** ```input_ptr```에서 가리키는 선택적 추가 입력의 바이트 수입니다.
  - **username** 인증을 위한 선택적 사용자 이름에 대한 포인터입니다.
  - **username_length** 인증을 위한 선택적 사용자 이름의 길이입니다.
- - **password** 인증을 위한 선택적 암호에 대한 포인터입니다.
+ - **password** 인증을 위한 선택적 암호에 대한 포인터
  - **password_length** 인증을 위한 선택적 암호의 길이입니다.
  - **wait_option** 서비스에서 HTTP 클라이언트 GET 시작 요청을 기다리는 시간을 정의합니다. 대기 옵션은 다음과 같이 정의됩니다.
     - **시간 제한 값** (0x00000001~0xFFFFFFFE)
@@ -335,7 +335,7 @@ UINT nxd_http_client_get_start(NX_HTTP_CLIENT *client_ptr,
  - **input_size** ```input_ptr```에서 가리키는 선택적 추가 입력의 바이트 수입니다.
  - **username** 인증을 위한 선택적 사용자 이름에 대한 포인터입니다.
  - **username_length** 인증을 위한 선택적 사용자 이름의 길이입니다.
- - **password** 인증을 위한 선택적 암호에 대한 포인터입니다.
+ - **password** 인증을 위한 선택적 암호에 대한 포인터
  - **password_length** 인증을 위한 선택적 암호의 길이입니다.
  - **wait_option** 서비스에서 HTTP 클라이언트 GET 시작 요청을 기다리는 시간을 정의합니다. 대기 옵션은 다음과 같이 정의됩니다.
     - **시간 제한 값** (0x00000001~0xFFFFFFFE)
@@ -420,7 +420,7 @@ UINT nxd_http_client_get_start_extended(NX_HTTP_CLIENT *client_ptr,
  - **input_size** ```input_ptr```에서 가리키는 선택적 추가 입력의 바이트 수입니다.
  - **username** 인증을 위한 선택적 사용자 이름에 대한 포인터입니다.
  - **username_length** 인증을 위한 선택적 사용자 이름의 길이입니다.
- - **password** 인증을 위한 선택적 암호에 대한 포인터입니다.
+ - **password** 인증을 위한 선택적 암호에 대한 포인터
  - **password_length** 인증을 위한 선택적 암호의 길이입니다.
  - **wait_option** HTTP 클라이언트 GET을 처리하기 위해 서비스가 내부적으로 기다려야 하는 시간을 정의합니다. 대기 옵션은 다음과 같이 정의됩니다.
     - **시간 제한 값** (0x00000001~0xFFFFFFFE)
@@ -490,8 +490,8 @@ UINT nx_http_client_get_packet(NX_HTTP_CLIENT *client_ptr,
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
- - **client_ptr** HTTP 클라이언트 제어 블록에 대한 포인터입니다.
- - **packet_ptr** 부분 리소스 콘텐츠를 포함하는 패킷 포인터의 대상입니다.
+ - **client_ptr** HTTP 클라이언트 제어 블록에 대한 포인터
+ - **packet_ptr** 부분 리소스 콘텐츠가 포함된 패킷 포인터의 대상
  - **wait_option** 서비스에서 HTTP 클라이언트 GET 패킷을 기다리는 시간을 정의합니다. 대기 옵션은 다음과 같이 정의됩니다.
     - **시간 제한 값** (0x00000001~0xFFFFFFFE)
     - **TX_WAIT_FOREVER** (0xFFFFFFFF)
@@ -550,11 +550,11 @@ UINT nx_http_client_put_start(NX_HTTP_CLIENT *client_ptr,
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
- - **client_ptr** HTTP 클라이언트 제어 블록에 대한 포인터입니다.
- - **ip_address** HTTP 서버의 IP 주소입니다.
- - **resource** 요청된 리소스의 URL 문자열에 대한 포인터입니다.
- - **username** 인증을 위한 선택적 사용자 이름에 대한 포인터입니다.
- - **password** 인증을 위한 선택적 암호에 대한 포인터입니다.
+ - **client_ptr** HTTP 클라이언트 제어 블록에 대한 포인터
+ - **ip_address** HTTP 서버의 IP 주소
+ - **resource** 요청된 리소스의 URL 문자열에 대한 포인터
+ - **username** 인증을 위한 선택적 사용자 이름에 대한 포인터
+ - **password** 인증을 위한 선택적 암호에 대한 포인터
  - **total_bytes** 전송 중인 리소스의 총 바이트 수입니다. *nx_http_client_put_packet* 에 대한 후속 호출을 통해 전송된 모든 패킷의 결합된 길이는 이 값과 같아야 합니다.
  - **wait_option** 서비스에서 HTTP 클라이언트 PUT 시작을 기다리는 시간을 정의합니다. 대기 옵션은 다음과 같이 정의됩니다.
     - **시간 제한 값** (0x00000001~0xFFFFFFFE)
@@ -613,13 +613,13 @@ UINT nx_http_client_put_start_extended(NX_HTTP_CLIENT *client_ptr,
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
- - **client_ptr** HTTP 클라이언트 제어 블록에 대한 포인터입니다.
- - **ip_address** HTTP 서버의 IP 주소입니다.
+ - **client_ptr** HTTP 클라이언트 제어 블록에 대한 포인터
+ - **ip_address** HTTP 서버의 IP 주소
  - **resource** 요청된 리소스의 URL 문자열에 대한 포인터입니다.
  - **resource_length** 서버에 보내는 리소스에 대한 URL 문자열의 길이입니다.
- - **username** 인증을 위한 선택적 사용자 이름에 대한 포인터입니다.
+ - **username** 인증을 위한 선택적 사용자 이름에 대한 포인터
  - **username_length** 인증을 위한 선택적 사용자 이름의 길이입니다.
- - **password** 인증을 위한 선택적 암호에 대한 포인터입니다.
+ - **password** 인증을 위한 선택적 암호에 대한 포인터
  - **password_length** 인증을 위한 선택적 암호의 길이입니다.
  - **total_bytes** 전송 중인 리소스의 총 바이트 수입니다. *nx_http_client_put_packet* 에 대한 후속 호출을 통해 전송된 모든 패킷의 결합된 길이는 이 값과 같아야 합니다.
  - **wait_option** 서비스에서 HTTP 클라이언트 PUT 시작을 기다리는 시간을 정의합니다. 대기 옵션은 다음과 같이 정의됩니다.
@@ -682,8 +682,8 @@ UINT nxd_http_client_put_start(NX_HTTP_CLIENT *client_ptr,
  - **client_ptr** HTTP 클라이언트 제어 블록에 대한 포인터입니다.
  - **server_ip** HTTP 서버의 IP 주소입니다.
  - **resource** 서버에 보내는 리소스의 URL 문자열에 대한 포인터입니다.
- - **username** 인증을 위한 선택적 사용자 이름에 대한 포인터입니다.
- - **password** 인증을 위한 선택적 암호에 대한 포인터입니다.
+ - **username** 인증을 위한 선택적 사용자 이름에 대한 포인터
+ - **password** 인증을 위한 선택적 암호에 대한 포인터
  - **total_bytes** 전송 중인 리소스의 총 바이트 수입니다. *nx_http_client_put_packet* 에 대한 후속 호출을 통해 전송된 모든 패킷의 결합된 길이는 이 값과 같아야 합니다.
  - **wait_option** 서비스에서 HTTP 클라이언트 PUT 시작을 기다리는 시간을 정의합니다. 대기 옵션은 다음과 같이 정의됩니다.
     - **시간 제한 값** (0x00000001~0xFFFFFFFE)
@@ -756,13 +756,13 @@ UINT nxd_http_client_put_start_extended(NX_HTTP_CLIENT *client_ptr,
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
- - **client_ptr** HTTP 클라이언트 제어 블록에 대한 포인터입니다.
- - **ip_address** HTTP 서버의 IP 주소입니다.
+ - **client_ptr** HTTP 클라이언트 제어 블록에 대한 포인터
+ - **ip_address** HTTP 서버의 IP 주소
  - **resource** 요청된 리소스의 URL 문자열에 대한 포인터입니다.
  - **resource_length** 서버에 보내는 리소스에 대한 URL 문자열의 길이입니다.
- - **username** 인증을 위한 선택적 사용자 이름에 대한 포인터입니다.
+ - **username** 인증을 위한 선택적 사용자 이름에 대한 포인터
  - **username_length** 인증을 위한 선택적 사용자 이름의 길이입니다.
- - **password** 인증을 위한 선택적 암호에 대한 포인터입니다.
+ - **password** 인증을 위한 선택적 암호에 대한 포인터
  - **password_length** 인증을 위한 선택적 암호의 길이입니다.
  - **total_bytes** 전송 중인 리소스의 총 바이트 수입니다. *nx_http_client_put_packet* 에 대한 후속 호출을 통해 전송된 모든 패킷의 결합된 길이는 이 값과 같아야 합니다.
  - **wait_option** 서비스에서 HTTP 클라이언트 PUT 시작을 기다리는 시간을 정의합니다. 대기 옵션은 다음과 같이 정의됩니다.
@@ -814,7 +814,7 @@ status =  nxd_http_client_put_start_extended(&my_client, &server_ip_address,
 
 ## <a name="nx_http_client_put_packet"></a>nx_http_client_put_packet
 
-다음 리소스 데이터 패킷을 보냅니다.
+다음 리소스 데이터 패킷 보내기
 
 ### <a name="prototype"></a>프로토타입
 
@@ -833,8 +833,8 @@ UINT nx_http_client_put_packet(NX_HTTP_CLIENT *client_ptr,
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
- - **client_ptr** HTTP 클라이언트 제어 블록에 대한 포인터입니다.
- - **packet_ptr** HTTP 서버에 보내는 리소스의 다음 콘텐츠에 대한 포인터입니다.
+ - **client_ptr** HTTP 클라이언트 제어 블록에 대한 포인터
+ - **packet_ptr** HTTP 서버에 보내는 리소스의 다음 콘텐츠에 대한 포인터
  - **wait_option** 서비스에서 HTTP 클라이언트 PUT 패킷을 처리하기 위해 내부적으로 기다리는 시간을 정의합니다. 대기 옵션은 다음과 같이 정의됩니다.
     - **시간 제한 값** (0x00000001~0xFFFFFFFE)
     - **TX_WAIT_FOREVER** (0xFFFFFFFF)
@@ -887,7 +887,7 @@ UINT nx_http_client_set_connect_port(NX_HTTP_CLIENT *client_ptr,
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
- - **client_ptr** HTTP 클라이언트 제어 블록에 대한 포인터입니다.
+ - **client_ptr** HTTP 클라이언트 제어 블록에 대한 포인터
  - **port** 서버에 연결하기 위한 포트입니다.
 
 ### <a name="return-values"></a>반환 값
@@ -913,7 +913,7 @@ status =  nx_http_client_set_connect_port(client_ptr, 114);
 
 ## <a name="nx_http_server_cache_info_callback_set"></a>nx_http_server_cache_info_callback_set
 
-URL 최대 사용 기간 및 날짜를 검색하는 콜백을 설정합니다.
+URL 최대 기간 및 날짜를 검색하는 콜백 설정
 
 ### <a name="prototype"></a>프로토타입
 
@@ -931,7 +931,7 @@ UINT nx_http_server_cache_info_callback_set(NX_HTTP_SERVER *server_ptr,
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
- - **server_ptr** HTTP 서버 제어 블록에 대한 포인터입니다.
+ - **server_ptr** HTTP 서버 제어 블록에 대한 포인터
  - **cache_info_get** 콜백에 대한 포인터입니다.
  - **max_age** 리소스의 최대 사용 기간에 대한 포인터입니다.
  - **data** 반환된 마지막 수정 날짜에 대한 포인터입니다.
@@ -983,7 +983,7 @@ UINT nx_http_server_callback_data_send(NX_HTTP_SERVER *server_ptr,
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
- - **server_ptr** HTTP 서버 제어 블록에 대한 포인터입니다.
+ - **server_ptr** HTTP 서버 제어 블록에 대한 포인터
  - **data_ptr** 보내는 데이터에 대한 포인터입니다.
  - **data_length** 보낼 바이트 수입니다.
 
@@ -1031,7 +1031,7 @@ UINT  my_request_notify(NX_HTTP_SERVER *server_ptr, UINT request_type,
 
 ## <a name="nx_http_server_callback_generate_response_header"></a>nx_http_server_callback_generate_response_header
 
-콜백 함수에서 응답 헤더를 만듭니다.
+콜백 함수에서 응답 헤더 만들기
 
 ### <a name="prototype"></a>프로토타입
 
@@ -1051,7 +1051,7 @@ UINT nx_http_server_callback_generate_response_header(
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
- - **server_ptr** HTTP 서버 제어 블록에 대한 포인터입니다.
+ - **server_ptr** HTTP 서버 제어 블록에 대한 포인터
  - **packet_pptr** 메시지에 할당된 패킷 포인터에 대한 포인터입니다.
  - **status_code** 리소스 상태를 표시합니다. 예제:
     - **NX_HTTP_STATUS_OK**
@@ -1059,7 +1059,7 @@ UINT nx_http_server_callback_generate_response_header(
     - **NX_HTTP_STATUS_INTERNAL_ERROR**
  - **content_length** 콘텐츠의 크기입니다(바이트).
  - **content_type** HTTP 형식입니다(예: "텍스트/일반").
- - **additional_header** 추가 헤더 텍스트에 대한 포인터입니다.
+ - **additional_header** 추가 헤더 텍스트에 대한 포인터
 
 ### <a name="return-values"></a>반환 값
 
@@ -1139,7 +1139,7 @@ sizeof(temp_string));
 
 ## <a name="nx_http_server_callback_generate_response_header_extended"></a>nx_http_server_callback_generate_response_header_extended
 
-콜백 함수에서 응답 헤더를 만듭니다.
+콜백 함수에서 응답 헤더 만들기
 
 ### <a name="prototype"></a>프로토타입
 
@@ -1162,7 +1162,7 @@ UINT nx_http_server_callback_generate_response_header_extended(
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
- - **server_ptr** HTTP 서버 제어 블록에 대한 포인터입니다.
+ - **server_ptr** HTTP 서버 제어 블록에 대한 포인터
  - **packet_pptr** 메시지에 할당된 패킷 포인터에 대한 포인터입니다.
  - **status_code** 리소스 상태를 표시합니다. 예제:
     - **NX_HTTP_STATUS_OK**
@@ -1172,7 +1172,7 @@ UINT nx_http_server_callback_generate_response_header_extended(
  - **content_length** 콘텐츠의 크기입니다(바이트).
  - **content_type** HTTP 형식입니다(예: "텍스트/일반").
  - **content_type_length** HTTP 형식의 길이입니다.
- - **additional_header** 추가 헤더 텍스트에 대한 포인터입니다.
+ - **additional_header** 추가 헤더 텍스트에 대한 포인터
  - **additional_header_length** 추가 헤더 텍스트의 길이입니다.
 
 ### <a name="return-values"></a>반환 값
@@ -1265,7 +1265,7 @@ UINT nx_http_server_callback_packet_send(NX_HTTP_SERVER *server_ptr,
 
 ### <a name="description"></a>Description
 
-이 서비스는 HTTP 콜백에서 전체 HTTP 서버 응답을 보냅니다. HTTP 서버는 NX_HTTP_SERVER _TIMEOUT_SEND를 사용하여 패킷을 보냅니다. HTTP 헤더 및 데이터를 패킷에 추가해야 합니다. 반환 상태에서 오류가 표시되는 경우 HTTP 애플리케이션에서 패킷을 해제해야 합니다.
+이 서비스는 HTTP 콜백에서 전체 HTTP 서버 응답을 보냅니다. HTTP 서버는 NX_HTTP_SERVER _TIMEOUT_SEND를 사용하여 패킷을 보냅니다. HTTP 헤더와 데이터는 패킷에 추가해야 합니다. 반환 상태에서 오류가 표시되는 경우 HTTP 애플리케이션에서 패킷을 해제해야 합니다.
 
 콜백에서 NX_HTTP_CALLBACK_COMPLETED를 반환해야 합니다.
 
@@ -1326,10 +1326,10 @@ UINT nx_http_server_callback_response_send(NX_HTTP_SERVER *server_ptr,
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
- - **server_ptr** HTTP 서버 제어 블록에 대한 포인터입니다.
+ - **server_ptr** HTTP 서버 제어 블록에 대한 포인터
  - **header** 응답 헤더 문자열에 대한 포인터입니다.
- - **information** 정보 문자열에 대한 포인터입니다.
- - **additional_info** 추가 정보 문자열에 대한 포인터입니다.
+ - **information** 정보 문자열에 대한 포인터
+ - **additional_info** 추가 정보 문자열에 대한 포인터
 
 ### <a name="return-values"></a>반환 값
 
@@ -1394,12 +1394,12 @@ UINT nx_http_server_callback_response_send_extended(
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
- - **server_ptr** HTTP 서버 제어 블록에 대한 포인터입니다.
+ - **server_ptr** HTTP 서버 제어 블록에 대한 포인터
  - **header** 응답 헤더 문자열에 대한 포인터입니다.
  - **header_length** 응답 헤더 문자열의 길이입니다.
- - **information** 정보 문자열에 대한 포인터입니다.
+ - **information** 정보 문자열에 대한 포인터
  - **information_length** 정보 문자열의 길이입니다.
- - **additional_info** 추가 정보 문자열에 대한 포인터입니다.
+ - **additional_info** 추가 정보 문자열에 대한 포인터
  - **additional_info_length** 추가 정보 문자열의 길이입니다.
 
 ### <a name="return-values"></a>반환 값
@@ -1440,7 +1440,7 @@ UINT  my_request_notify(NX_HTTP_SERVER *server_ptr, UINT request_type,
 
 ## <a name="nx_http_server_content_get"></a>nx_http_server_content_get
 
-요청에서 콘텐츠를 가져옵니다.
+요청에서 콘텐츠 가져오기
 
 ### <a name="prototype"></a>프로토타입
 
@@ -1461,7 +1461,7 @@ UINT nx_http_server_content_get(NX_HTTP_SERVER *server_ptr,
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
- - **server_ptr** HTTP 서버 제어 블록에 대한 포인터입니다.
+ - **server_ptr** HTTP 서버 제어 블록에 대한 포인터
  - **packet_ptr** HTTP 클라이언트 요청 패킷에 대한 포인터입니다. 이 패킷은 요청 알림 콜백에서 해제하면 안 됩니다.
  - **byte_offset** 콘텐츠 영역으로 오프셋할 바이트 수입니다.
  - **destination_ptr** 콘텐츠의 대상 영역에 대한 포인터입니다.
@@ -1496,7 +1496,7 @@ status =  nx_http_server_content_get(&my_server, packet_ptr,
 
 ## <a name="nx_http_server_content_get_extended"></a>nx_http_server_content_get_extended
 
-요청에서 콘텐츠를 가져오고 길이가 0인 콘텐츠 길이를 지원합니다.
+요청에서 콘텐츠 가져오기/길이가 0인 콘텐츠 길이 지원
 
 ### <a name="prototype"></a>프로토타입
 
@@ -1517,7 +1517,7 @@ UINT nx_http_server_content_get_extended(NX_HTTP_SERVER *server_ptr,
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
- - **server_ptr** HTTP 서버 제어 블록에 대한 포인터입니다.
+ - **server_ptr** HTTP 서버 제어 블록에 대한 포인터
  - **packet_ptr** HTTP 클라이언트 요청 패킷에 대한 포인터입니다. 이 패킷은 요청 알림 콜백에서 해제하면 안 됩니다.
  - **byte_offset** 콘텐츠 영역으로 오프셋할 바이트 수입니다.
  - **destination_ptr** 콘텐츠의 대상 영역에 대한 포인터입니다.
@@ -1636,7 +1636,7 @@ status =  nx_http_server_content_length_get_extended(packet_ptr, &content_length
 
 ## <a name="nx_http_server_create"></a>nx_http_server_create
 
-HTTP 서버 인스턴스를 만듭니다.
+HTTP 서버 인스턴스 만들기
 
 ### <a name="prototype"></a>프로토타입
 
@@ -1659,8 +1659,8 @@ UINT nx_http_server_create(NX_HTTP_SERVER *http_server_ptr,
 
  - **http_server_ptr** HTTP 서버 제어 블록에 대한 포인터입니다.
  - **http_server_name** HTTP 서버 이름에 대한 포인터입니다.
- - **ip_ptr** 이전에 만든 IP 인스턴스에 대한 포인터입니다.
- - **media_ptr** 이전에 만든 FileX 미디어 인스턴스에 대한 포인터입니다.
+ - **ip_ptr** 이전에 만든 IP 인스턴스에 대한 포인터
+ - **media_ptr** 이전에 만든 FileX 미디어 인스턴스에 대한 포인터
  - **stack_ptr** HTTP 서버 스레드 스택 영역에 대한 포인터입니다.
  - **stack_size** HTTP 서버 스레드 스택 크기에 대한 포인터입니다.
  - **authentication_check** 애플리케이션의 인증 확인 루틴에 대한 함수 포인터입니다. 지정된 경우 이 루틴은 각 HTTP 클라이언트 요청에 대해 호출됩니다. 이 매개 변수가 NULL이면 인증이 수행되지 않습니다.
@@ -1689,7 +1689,7 @@ status =  nx_http_server_create(&my_server, “my server”, &ip_0, &ram_disk,
 
 ## <a name="nx_http_server_delete"></a>nx_http_server_delete
 
-HTTP 서버 인스턴스를 삭제합니다.
+HTTP 서버 인스턴스 삭제
 
 ### <a name="prototype"></a>프로토타입
 
@@ -1726,7 +1726,7 @@ status =  nx_http_server_delete(&my_server);
 
 ## <a name="nx_http_server_get_entity_content"></a>nx_http_server_get_entity_content
 
-엔터티 데이터의 위치 및 길이를 검색합니다.
+엔터티 데이터의 위치 및 길이 검색
 
 ### <a name="prototype"></a>프로토타입
 
@@ -1739,7 +1739,7 @@ UINT nx_http_server_get_entity_content(NX_HTTP_SERVER *server_ptr,
 
 ### <a name="description"></a>Description
 
-이 서비스는 받은 클라이언트 메시지의 현재 다중 파트 엔터티 내에서 데이터 시작 위치 및 경계 문자열이 포함되지 않는 데이터 길이를 결정합니다. 내부적으로 HTTP 서버는 여러 엔터티가 있는 메시지에 대해 동일한 클라이언트 데이터그램에서 이 함수를 다시 호출할 수 있도록 자체 오프셋을 업데이트합니다. 패킷 포인터는 클라이언트 메시지가 다중 패킷 데이터그램인 다음 패킷으로 업데이트됩니다.
+이 서비스는 받은 클라이언트 메시지의 현재 다중 파트 엔터티 내의 데이터 시작 위치 및 경계 문자열이 포함되지 않는 데이터 길이를 결정합니다. 내부적으로 HTTP 서버는 여러 엔터티가 있는 메시지에 대해 동일한 클라이언트 데이터그램에서 이 함수를 다시 호출할 수 있도록 자체 오프셋을 업데이트합니다. 패킷 포인터는 클라이언트 메시지가 다중 패킷 데이터그램인 다음 패킷으로 업데이트됩니다.
 
 > [!NOTE]
 > 이 서비스를 사용하려면 NX_HTTP_MULTIPART_ENABLE을 사용하도록 설정해야 합니다.
@@ -1750,7 +1750,7 @@ UINT nx_http_server_get_entity_content(NX_HTTP_SERVER *server_ptr,
 
  - **server_ptr** HTTP 서버에 대한 포인터입니다.
  - **packet_pptr** 패킷 포인터의 위치에 대한 포인터입니다. 애플리케이션에서 이 패킷을 해제하면 안 됩니다.
- - **available_offset** 패킷 선행 포인터에서 엔터티 데이터의 오프셋에 대한 포인터입니다.
+ - **available_offset** 패킷 선행 포인터에서 엔터티 데이터의 오프셋에 대한 포인터
  - **available_length** 엔터티 데이터의 길이에 대한 포인터입니다.
 
 ### <a name="return-values"></a>반환 값
@@ -1785,7 +1785,7 @@ status =  nx_http_server_get_entity_content(&my_server, &packet_ptr, *offset,
 
 ## <a name="nx_http_server_get_entity_header"></a>nx_http_server_get_entity_header
 
-엔터티 헤더의 콘텐츠를 검색합니다.
+엔터티 헤더의 콘텐츠 검색
 
 ### <a name="prototype"></a>프로토타입
 
@@ -1807,7 +1807,7 @@ UINT nx_http_server_get_entity_header(NX_HTTP_SERVER *server_ptr,
 
  - **server_ptr** HTTP 서버에 대한 포인터입니다.
  - **packet_pptr** 패킷 포인터의 위치에 대한 포인터입니다. 애플리케이션에서 이 패킷을 해제하면 안 됩니다.
- - **entity_header_buffer** 엔터티 헤더를 저장하는 위치에 대한 포인터입니다.
+ - **entity_header_buffer** 엔터티 헤더를 저장하는 위치에 대한 포인터
  - **buffer_size** 입력 버퍼의 크기입니다.
 
 ### <a name="return-values"></a>반환 값
@@ -1888,7 +1888,7 @@ return(NX_HTTP_CALLBACK_COMPLETED);
 
 ## <a name="nx_http_server_gmt_callback_set"></a>nx_http_server_gmt_callback_set
 
-GMT 날짜 및 시간을 가져오는 콜백을 설정합니다.
+GMT 날짜 및 시간을 가져오는 콜백 설정
 
 ### <a name="prototype"></a>프로토타입
 
@@ -1995,7 +1995,7 @@ status =  nx_http_server_gmt_callback_set(&my_server,
 
 ## <a name="nx_http_server_mime_maps_additional_set"></a>nx_http_server_mime_maps_additional_set
 
-HTML에 대한 추가 MIME 맵을 설정합니다.
+HTML에 대한 추가 MIME 맵 설정
 
 ### <a name="prototype"></a>프로토타입
 
@@ -2105,7 +2105,7 @@ status =  nx_http_server_packet_content_find(server_ptr, recv_packet_ptr,
 
 ## <a name="nx_http_server_packet_get"></a>nx_http_server_packet_get
 
-다음 HTTP 패킷을 수신합니다.
+다음 HTTP 패킷 받기
 
 ### <a name="prototype"></a>프로토타입
 
@@ -2116,7 +2116,7 @@ UINT nx_http_server_packet_get(NX_HTTP_SERVER *server_ptr,
 
 ### <a name="description"></a>Description
 
-이 서비스는 HTTP 서버 소켓에서 수신된 다음 패킷을 반환합니다. 패킷 수신 대기 옵션은 NX_HTTP_SERVER_TIMEOUT_RECEIVE입니다.
+이 서비스는 HTTP 서버 소켓에서 받은 다음 패킷을 반환합니다. 패킷 수신 대기 옵션은 NX_HTTP_SERVER_TIMEOUT_RECEIVE입니다.
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
@@ -2148,7 +2148,7 @@ status =  nx_http_server_packet_get(server_ptr, &recv_packet_ptr);
 
 ## <a name="nx_http_server_param_get"></a>nx_http_server_param_get
 
-요청에서 매개 변수를 가져옵니다.
+요청에서 매개 변수 가져오기
 
 ### <a name="prototype"></a>프로토타입
 
@@ -2166,8 +2166,8 @@ UINT nx_http_server_param_get(NX_PACKET *packet_ptr,
 
  - **packet_ptr** HTTP 클라이언트 요청 패킷에 대한 포인터입니다. 애플리케이션에서 이 패킷을 해제하면 안 됩니다.
  - **param_number** 매개 변수 목록에서 왼쪽에서 오른쪽으로 0에서 시작하는 매개 변수의 논리적 번호입니다.
- - **param_ptr** 매개 변수를 복사하는 대상 영역입니다.
- - **max_param_size** 매개 변수 대상 영역의 최대 크기입니다.
+ - **param_ptr** 매개 변수를 복사하는 대상 영역
+ - **max_param_size** 매개 변수 대상 영역의 최대 크기
 
 ### <a name="return-values"></a>반환 값
 
@@ -2196,7 +2196,7 @@ status =  nx_http_server_param_get(request_packet_ptr, 0, param_destination,
 
 ## <a name="nx_http_server_query_get"></a>nx_http_server_query_get
 
-요청에서 쿼리를 가져옵니다.
+요청에서 쿼리 가져오기
 
 ### <a name="prototype"></a>프로토타입
 
@@ -2213,7 +2213,7 @@ UINT nx_http_server_query_get(NX_PACKET *packet_ptr, UINT query_number,
 
  - **packet_ptr** HTTP 클라이언트 요청 패킷에 대한 포인터입니다. 애플리케이션에서 이 패킷을 해제하면 안 됩니다.
  - **query_number** 쿼리 목록에서 왼쪽에서 오른쪽으로 0에서 시작하는 매개 변수의 논리적 번호입니다.
- - **query_ptr** 쿼리를 복사할 대상 영역입니다.
+ - **query_ptr** 쿼리를 복사하는 대상 영역
  - **max_query_size** 쿼리 대상 영역의 최대 크기입니다.
 
 ### <a name="return-values"></a>반환 값
@@ -2243,7 +2243,7 @@ status =  nx_http_server_query_get(request_packet_ptr, 0, query_destination,
 
 ## <a name="nx_http_server_start"></a>nx_http_server_start
 
-HTTP 서버를 시작합니다.
+HTTP 서버 시작
 
 ### <a name="prototype"></a>프로토타입
 
@@ -2279,7 +2279,7 @@ status =  nx_http_server_start(&my_server);
 
 ## <a name="nx_http_server_stop"></a>nx_http_server_stop
 
-HTTP 서버를 중지합니다.
+HTTP 서버 중지
 
 ### <a name="prototype"></a>프로토타입
 
@@ -2316,7 +2316,7 @@ status =  nx_http_server_stop(&my_server);
 
 ## <a name="nx_http_server_type_get"></a>nx_http_server_type_get
 
-클라이언트 HTTP 요청에서 파일 형식을 추출합니다.
+클라이언트 HTTP 요청에서 파일 형식 추출
 
 ### <a name="prototype"></a>프로토타입
 
@@ -2375,7 +2375,7 @@ UINT string_length;
 
 ## <a name="nx_http_server_type_get_extended"></a>nx_http_server_type_get_extended
 
-클라이언트 HTTP 요청에서 파일 형식을 추출합니다.
+클라이언트 HTTP 요청에서 파일 형식 추출
 
 ### <a name="prototype"></a>프로토타입
 
@@ -2403,7 +2403,7 @@ UINT nx_http_server_type_get_extended(
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
- - **http_server_ptr** HTTP 서버 인스턴스에 대한 포인터입니다.
+ - **http_server_ptr** HTTP 서버 인스턴스에 대한 포인터
  - **name** 검색할 버퍼에 대한 포인터입니다.
  - **name_length** 검색할 버퍼의 길이입니다.
  - **http_type_string** (추출된 HTML 형식에 대한 포인터)
@@ -2446,7 +2446,7 @@ UINT string_length;
 
 ## <a name="nx_http_server_digest_authenticate_notify_set"></a>nx_http_server_digest_authenticate_notify_set
 
-다이제스트 인증 콜백 함수를 설정합니다.
+다이제스트 인증 콜백 함수 설정
 
 ### <a name="prototype"></a>프로토타입
 
@@ -2470,7 +2470,7 @@ UINT nx_http_server_digest_authenticate_notify_set(
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
- - **http_server_ptr** HTTP 서버 인스턴스에 대한 포인터입니다.
+ - **http_server_ptr** HTTP 서버 인스턴스에 대한 포인터
  - **digest_authenticate_callback** 다이제스트 인증 콜백에 대한 포인터입니다.
 
 ### <a name="return-values"></a>반환 값
@@ -2534,7 +2534,7 @@ UINT nx_http_server_authentication_check_set(
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
- - **http_server_ptr** HTTP 서버 인스턴스에 대한 포인터입니다.
+ - **http_server_ptr** HTTP 서버 인스턴스에 대한 포인터
  - **authentication_check_extended** 애플리케이션의 인증 확인에 대한 포인터입니다.
 
 ### <a name="return-values"></a>반환 값

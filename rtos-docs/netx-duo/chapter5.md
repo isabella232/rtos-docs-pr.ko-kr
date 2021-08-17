@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 305c333bf3fb3f6fe76d661426c196afe25fbd5d
-ms.sourcegitcommit: 60ad844b58639d88830f2660ab0c4ff86b92c10f
+ms.openlocfilehash: a0d18929f33f15a342e8fb8b3d01d4ce934d6ec7dc287707f960adb36fb4f44b
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106549796"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116788850"
 ---
 # <a name="chapter-5---azure-rtos-netx-duo-network-drivers"></a>5장 - Azure RTOS NetX Duo 네트워크 드라이버
 

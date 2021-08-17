@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 9062e27d8f447ac8d36e7a09afee5ac14f86f8c3
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: bd4a35c19cd794a5135f01abe5595456d39b5306ba25ce2966c3bb1aea14ea17
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104811713"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116790091"
 ---
 # <a name="appendix-d---azure-rtos-netx-bsd-compatible-socket-api"></a>부록 D - Azure RTOS NetX BSD 호환 소켓 API
 
@@ -21,7 +21,7 @@ BSD 호환 소켓 API는 아래의 기본 형식을 활용하여 BSD 소켓 API 
 
 옵션을 구성할 수 있어 호스트 애플리케이션이 최대 소켓 수, TCP 최대 창 크기와 수신 큐의 깊이를 정의할 수 있습니다.
 
-성능 및 아키텍처 제약 조건으로 인해 BSD 규격 소켓 API는 일부 BSD 소켓 호출을 지원하지 않습니다. 또한 일부 BSD 옵션 특히, 다음 옵션은 BSD 서비스에 사용할 수 없습니다.
+성능과 아키텍처 제약 조건으로 인해 이 BSD 호환 소켓 API는 일부 BSD 소켓 호출을 지원하지 않습니다. 또한 일부 BSD 옵션 특히, 다음 옵션은 BSD 서비스에 사용할 수 없습니다.
 
 - ***select** _ 함수는 fd_set \*readfds*만 사용할 수 있으며, 이 호출의 기타 인수(예: *writefds*, *exceptfds*)는 지원되지 않습니다.
 - *int flags* 인수는 ***send** _, _*_recv_*_, _*_sendto,_*_ 및 _ *_recvfrom_* * 함수에서 지원되지 않습니다. BSD 규격 소켓 API는 제한된 BSD 소켓 호출 세트만 지원합니다.

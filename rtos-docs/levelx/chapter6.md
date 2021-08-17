@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 3ab7d3a7e431d7c8f49ef4f5cab9216dc77c8d33
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 2e109f5916a9e903aa3341f2855ade085e9d9a22b80ec7cb2e0c310e43ff3eac
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104811868"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116790244"
 ---
 # <a name="chapter-6---azure-rtos-levelx-nor-apis"></a>6장 - Azure RTOS LevelX NOR API
 
@@ -47,8 +47,8 @@ UINT lx_nor_flash_close(LX_NOR_FLASH *nor_flash);
 
 ### <a name="return-values"></a>반환 값
 
-- **LX_SUCCESS**: (0x00) 성공적인 요청
-- **LX_ERROR**: (0x01) 플래시 인스턴스를 닫는 동안 오류 발생
+- **LX_SUCCESS**: (0x00) 요청에 성공했습니다.
+- **LX_ERROR**: (0x01) 플래시 인스턴스를 닫는 중 오류가 발생했습니다.
 
 ### <a name="allowed-from"></a>허용 위치
 
@@ -94,7 +94,7 @@ UINT lx_nor_flash_defragment(LX_NOR_FLASH *nor_flash);
 
 ### <a name="return-values"></a>반환 값
 
-- **LX_SUCCESS**: (0x00) 성공적인 요청
+- **LX_SUCCESS**: (0x00) 요청에 성공했습니다.
 - **LX_ERROR**: (0x01) 플래시 인스턴스를 조각 모음하는 동안 오류가 발생했습니다.
 
 ### <a name="allowed-from"></a>허용 위치
@@ -299,7 +299,7 @@ UINT lx_nor_flash_partial_defragment(
 
 ### <a name="return-values"></a>반환 값
 
-- **LX_SUCCESS**: (0x00) 성공적인 요청
+- **LX_SUCCESS**: (0x00) 요청에 성공했습니다.
 - **LX_ERROR**: (0x01) 플래시 인스턴스를 조각 모음하는 동안 오류가 발생했습니다.
 
 ### <a name="allowed-from"></a>허용 위치
@@ -453,7 +453,7 @@ UINT lx_nor_flash_sector_write(
 
 ### <a name="return-values"></a>반환 값
 
-- **LX_SUCCESS**: (0x00) 성공적인 요청
+- **LX_SUCCESS**: (0x00) 요청에 성공했습니다.
 - **LX_NO_SECTORS**: (0x02) 쓰기를 수행하는 데 사용할 수 있는 더 이상의 여유 섹터가 없습니다.
 - **LX_ERROR**: (0x01) NOR 플래시 섹터를 해제하는 동안 오류 발생
 

@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 9634adab3944c29f64d26dd688b5053dc1bd9bcb
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 10368edf3cdf15d32bddbd5bd943681b3ff3dd1aa1a7042d1b9bb2bf0e71699f
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104810831"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116791909"
 ---
 # <a name="chapter-3---description-of-azure-rtos-netx-duo-dns-client-services"></a>3장 - Azure RTOS NetX Duo DNS 클라이언트 서비스 설명
 
@@ -403,7 +403,7 @@ DNS 클라이언트 애플리케이션에서 이전에 만든 패킷 풀을 제�
 - NX_PTR_ERROR (0x07) 잘못된 IP 또는 DNS 포인터
 - NX_CALLER_ERROR (0x11) 이 서비스의 잘못된 호출자
 
-### <a name="allowed-from"></a>허용된 원본
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -441,7 +441,7 @@ UINT nx_dns_delete(NX_DNS *dns_ptr);
 - NX_PTR_ERROR (0x07) 잘못된 IP 또는 DNS 클라이언트 포인터
 - NX_CALLER_ERROR (0x11) 이 서비스의 잘못된 호출자
 
-### <a name="allowed-from"></a>허용된 원본
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -503,7 +503,7 @@ NetX Duo DNS 클라이언트에서 NX_DNS_NS_ENTRY NS 데이터 형식은 2개�
 - NX_PTR_ERROR (0x07) 잘못된 IP 또는 DNS 포인터
 - NX_CALLER_ERROR (0x11) 이 서비스의 잘못된 호출자
 
-### <a name="allowed-from"></a>허용된 원본
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -622,7 +622,7 @@ NetX Duo DNS 클라이언트에서 NX_DNS_MAIL_EXCHANGE_ENTRY 메일 교환 레�
 - NX_PTR_ERROR (0x07) 잘못된 IP 또는 DNS 포인터
 - NX_CALLER_ERROR (0x11) 이 서비스의 잘못된 호출자
 
-### <a name="allowed-from"></a>허용된 원본
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -752,7 +752,7 @@ NetX Duo DNS 클라이언트에서 NX_DNS_SRV_ENTRY 서비스 레코드 유형�
 - NX_PTR_ERROR (0x07) 잘못된 IP 또는 DNS 포인터
 - NX_CALLER_ERROR (0x11) 이 서비스의 잘못된 호출자
 
-### <a name="allowed-from"></a>허용된 원본
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -855,7 +855,7 @@ UINT nx_dns_get_serverlist_size (NX_DNS *dns_ptr, UINT *size);
 - NX_PTR_ERROR (0x07) 잘못된 IP 또는 DNS 포인터
 - NX_CALLER_ERROR (0x11) 이 서비스의 잘못된 호출자
 
-### <a name="allowed-from"></a>허용된 원본
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -1168,7 +1168,7 @@ UINT nx_dns_host_by_address_get(NX_DNS *dns_ptr, ULONG ip_address,
 - NX_PTR_ERROR (0x07) 잘못된 포인터 입력
 - NX_CALLER_ERROR (0x11) 이 서비스의 잘못된 호출자
 
-### <a name="allowed-from"></a>허용된 원본
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -1305,7 +1305,7 @@ UINT nx_dns_host_by_name_get(NX_DNS *dns_ptr, UCHAR *host_name,
 - NX_PTR_ERROR (0x07) 잘못된 포인터 입력
 - NX_CALLER_ERROR (0x11) 이 서비스의 잘못된 호출자
 
-### <a name="allowed-from"></a>허용된 원본
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -1535,7 +1535,7 @@ v=spf1 include:_www.my_example.com ip4:192.2.2.10/31 ip4:192.2.2.11/31 ~all
 
 ## <a name="nx_dns_packet_pool_set"></a>nx_dns_packet_pool_set
 
-DNS 클라이언트 패킷 풀 설정
+DNS 클라이언트 패킷 풀을 설정합니다.
 
 ### <a name="prototype"></a>프로토타입
 ```C
@@ -1562,7 +1562,7 @@ UINT nx_dns_packet_pool_set(NX_DNS *dns_ptr, NX_PACKET_POOL *pool_ptr);
 - NX_PTR_ERROR (0x07) 잘못된 IP 또는 DNS 클라이언트 포인터
 - NX_CALLER_ERROR (0x11) 이 서비스의 잘못된 호출자
 
-### <a name="allowed-from"></a>허용된 원본
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -1712,7 +1712,7 @@ UINT nx_dns_server_get(NX_DNS *dns_ptr, UINT index,
 - NX_PTR_ERROR (0x07) 잘못된 IP 또는 DNS 포인터
 - NX_CALLER_ERROR (0x11) 이 서비스의 잘못된 호출자
 
-### <a name="allowed-from"></a>허용된 원본
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -1762,7 +1762,7 @@ UINT nxd_dns_server_get(NX_DNS *dns_ptr, UINT index,
 - NX_PTR_ERROR (0x07) 잘못된 IP 또는 DNS 포인터
 - NX_CALLER_ERROR (0x11) 이 서비스의 잘못된 호출자
 
-### <a name="allowed-from"></a>허용된 원본
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -1803,7 +1803,7 @@ UINT nx_dns_server_remove(NX_DNS *dns_ptr, ULONG server_address);
 - NX_PTR_ERROR (0x07) 잘못된 IP 또는 DNS 포인터
 - NX_CALLER_ERROR (0x11) 이 서비스의 잘못된 호출자
 
-### <a name="allowed-from"></a>허용된 원본
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -1887,7 +1887,7 @@ UINT nx_dns_server_remove_all(NX_DNS *dns_ptr);
 - NX_PTR_ERROR (0x07) 잘못된 IP 또는 DNS 포인터
 - NX_CALLER_ERROR (0x11) 이 서비스의 잘못된 호출자
 
-### <a name="allowed-from"></a>허용된 원본
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 

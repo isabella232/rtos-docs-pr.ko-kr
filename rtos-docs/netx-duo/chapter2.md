@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: ac41672959c0873d90bdafe0d6b959efdddf8ecc
-ms.sourcegitcommit: 62cfdf02628530807f4d9c390d6ab623e2973fee
+ms.openlocfilehash: 32a9efaac3c85d415316fba2e9536cc40939f1f6debcbe3e2fa588de613a694d
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2021
-ms.locfileid: "115178224"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116788833"
 ---
 # <a name="chapter-2---installation-and-use-of-azure-rtos-netx-duo"></a>2장 - Azure RTOS NetX Duo 설치 및 사용
 
@@ -131,7 +131,7 @@ NetX Duo를 사용하여 NetX Duo 라이브러리 및 애플리케이션을 빌�
 |NX_ARP_DEFEND_BY_REPLY | 정의된 경우 NetX Duo에서 ARP 응답을 송신하여 해당 IP 주소를 방어할 수 있습니다.|
 |NX_ARP_DEFEND_INTERVAL| 충돌하는 주소가 표시된 수신 ARP 메시지에 응답하여 ARP 모듈이 다음 방어 패킷을 송신하는 간격(초)을 정의합니다.|
 |NX_ARP_DISABLE_AUTO_ARP_ENTRY|  ***NX_DISABLE_ARP_AUTO_ENTRY** _로 이름이 바뀌었습니다. 아직 지원되는 옵션이지만 새 디자인에서는 _*_NX_DISABLE_ARP_AUTO_ENTRY_**를 사용하는 것이 좋습니다.|
-|NX_ARP_EXPIRATION_RATE| ARP 항목이 유효한 상태로 유지되는 시간(초)을 지정합니다. 기본값인 0을 사용하면 ARP 항목 만료 또는 에이징을 사용하지 않도록 설정하며 기본값은 ***nx_api.h** _에 정의됩니다. 애플리케이션은 _ *_nx_api.h_**가 포함되기 전에 값을 정의하여 이 기본값을 재정의할 수 있습니다.|
+|NX_ARP_EXPIRATION_RATE| ARP 항목이 유효한 상태로 유지되는 시간(초)을 지정합니다. 기본값인 0을 사용하면 ARP 항목 만료 또는 에이징을 사용하지 않도록 설정하며 기본값은 ***nx_api.h** _에 정의됩니다. 애플리케이션은 _ _nx_api.h_*가 포함되기 전에 값을 정의하여 이 기본값을 재정의할 수 있습니다.|
 |NX_ARP_MAC_CHANGE_NOTIFICATION_ENABLE | ***NX_ENABLE_ARP_MAC_CHANGE_NOTIFICATION** _으로 이름이 바뀌었습니다. 아직 지원되는 옵션이지만 새 디자인에서는 _*_NX_ENABLE_ARP_MAC_CHANGE_NOTIFICATION_**을 사용하는 것이 좋습니다.|
 |NX_ARP_MAX_QUEUE_DEPTH | ARP 응답을 기다리는 동안 큐에 대기될 수 있는 최대 패킷 수를 지정합니다. 기본값은 4이고 ***nx_api.h*** 에 정의됩니다.|
 |NX_ARP_MAXIMUM_RETRIES | ARP 응답 없이 수행되는 최대 ARP 재시도 수를 지정합니다. 기본값은 18이고 ***nx_api.h** _에 정의됩니다. 애플리케이션은 _ _nx_api.h_*가 포함되기 전에 값을 정의하여 이 기본값을 재정의할 수 있습니다.|
@@ -161,7 +161,7 @@ NetX Duo를 사용하여 NetX Duo 라이브러리 및 애플리케이션을 빌�
 |---|---|
 |NX_DISABLE_IGMP_INFO | 정의된 경우 IGMP 정보를 수집할 수 없습니다.|
 |NX_DISABLE_IGMPV2 | 정의된 경우 IGMPv2 지원을 사용하지 않도록 설정하므로 NetX Duo에서 IGMPv1만 지원합니다. 기본적으로 이 옵션은 설정되어 있지 않으며 ***nx_api.h*** 에 정의됩니다.|
-|NX_MAX_MULTICAST_GROUPS | 가입할 수 있는 최대 멀티캐스트 그룹 수를 지정합니다. 기본값은 7이며 ***nx_api.h** _에 정의됩니다. 애플리케이션은 _ *_nx_api.h_**가 포함되기 전에 값을 정의하여 이 기본값을 재정의할 수 있습니다.|
+|NX_MAX_MULTICAST_GROUPS | 가입할 수 있는 최대 멀티캐스트 그룹 수를 지정합니다. 기본값은 7이며 ***nx_api.h** _에 정의됩니다. 애플리케이션은 _ _nx_api.h_*가 포함되기 전에 값을 정의하여 이 기본값을 재정의할 수 있습니다.|
 
 ### <a name="ip-configuration-options"></a>IP 구성 옵션
 
@@ -213,7 +213,7 @@ NetX Duo를 사용하여 NetX Duo 라이브러리 및 애플리케이션을 빌�
 |NX_ENABLE_TCP_MSS_CHECK | 정의된 경우 TCP 연결을 수락하기 전에 최소 피어 MSS 확인을 사용하도록 설정합니다. 이 기능을 사용하려면 ***NX_ENABLE_TCP_MSS_MINIMUM*** 기호가 정의되어 있어야 합니다. 이 옵션은 기본적으로 사용하도록 설정되지 않습니다.|
 |NX_ENABLE_TCP_QUEUE_DEPTH_UPDATE_NOTIFY| 정의된 경우 애플리케이션에서 TCP 전송 큐 크기가 더 이상 최대값이 아닐 때 호출되는 콜백 함수를 설치할 수 있습니다. 이 콜백은 TCP 소켓이 더 많은 데이터를 전송할 준비가 되었음을 나타내는 데 사용됩니다. 기본적으로 이 옵션은 사용하도록 설정되지 않습니다.|
 |NX_ENABLE_TCP_WINDOW_SCALING | TCP 애플리케이션의 창 크기 조정 옵션을 사용하도록 설정합니다. 정의된 경우 TCP 연결 단계에서 창 크기 조정 옵션을 협상하고 애플리케이션에서 64K보다 큰 창 크기를 지정할 수 있습니다. 기본 설정은 사용하지 않도록 설정됩니다(정의되지 않음).|
-|NX_MAX_LISTEN_REQUESTS | 최대 서버 수신 대기 요청 수를 지정합니다. 기본값은 10이며 ***nx_api.h** _에 정의됩니다. 애플리케이션은 _ *_nx_api.h_**가 포함되기 전에 값을 정의하여 이 기본값을 재정의할 수 있습니다.|
+|NX_MAX_LISTEN_REQUESTS | 최대 서버 수신 대기 요청 수를 지정합니다. 기본값은 10이며 ***nx_api.h** _에 정의됩니다. 애플리케이션은 _ _nx_api.h_*가 포함되기 전에 값을 정의하여 이 기본값을 재정의할 수 있습니다.|
 |NX_TCP_ACK_EVERY_N_PACKETS | ACK 송신 전 수신할 TCP 패킷 수를 지정합니다. ***NX_TCP_IMMEDIATE_ACK** _는 사용하도록 설정되어 있지만 *_NX_TCP_ACK_EVERY_N_PACKETS_**는 사용하도록 설정되어 있지 않은 경우 이전 버전과의 호환성을 위해 이 값이 자동으로 1로 설정됩니다.|
 |NX_TCP_ACK_TIMER_RATE | TCP 지연 ACK 처리의 타이머 속도를 계산하기 위해 시스템 틱 수(NX_IP_PERIODIC_RATE)를 나누는 방법을 지정합니다. 기본값은 5로, 200ms를 나타내며 ***nx_tcp.h** _에 정의됩니다. 애플리케이션은 _ _nx_api.h_*가 포함되기 전에 값을 정의하여 이 기본값을 재정의할 수 있습니다.|
 |NX_TCP_ENABLE_KEEPALIVE | ***NX_ENABLE_TCP_KEEPALIVE** _로 이름이 변경되었습니다. 아직 지원되는 옵션이지만 새 디자인에서는 _*_NX_ENABLE_TCP_KEEPALIVE_**를 사용하는 것이 좋습니다.|
@@ -222,8 +222,8 @@ NetX Duo를 사용하여 NetX Duo 라이브러리 및 애플리케이션을 빌�
 |NX_TCP_FAST_TIMER_RATE | 빠른 TCP 타이머 속도를 계산하기 위해 NetX Duo 내부 틱 수(NX_IP_PERIODIC_RATE)를 나누는 방법을 지정합니다. 빠른 TCP 타이머는 지연 ACK 타이머를 포함하여 다양한 TCP 타이머를 구동하는 데 사용됩니다. 기본값은 10으로, 100ms를 나타내며 ThreadX 타이머가 10ms로 실행되고 있다고 가정합니다. 이 값은 ***nx_tcp.h** _에 정의됩니다. 애플리케이션은 _ _nx_api.h_*가 포함되기 전에 값을 정의하여 이 기본값을 재정의할 수 있습니다.|
 |NX_TCP_IMMEDIATE_ACK| 정의된 경우 선택적으로 TCP 즉시 ACK 응답 처리를 사용하도록 설정합니다. 이 기호를 정의하는 것은 ***NX_TCP_ACK_EVERY_N_PACKETS*** 를 1로 정의하는 것과 같습니다.|
 |NX_TCP_KEEPALIVE_INITIAL | 연결 유지 타이머가 활성화되기 전의 비활성 시간(초)을 지정합니다. 기본값은 7200으로, 2시간을 나타내며 ***nx_tcp.h** _에 정의됩니다. 애플리케이션은 _ _nx_api.h_*가 포함되기 전에 값을 정의하여 이 기본값을 재정의할 수 있습니다.|
-|NX_TCP_KEEPALIVE_RETRIES | 연결이 끊어진 것으로 간주하기 전 허용되는 연결 유지 재시도 수를 지정합니다. 기본값은 10으로, 10번의 재시도를 나타내며 ***nx_tcp.h** _에 정의됩니다. 애플리케이션은 _ *_nx_api.h_**가 포함되기 전에 값을 정의하여 이 기본값을 재정의할 수 있습니다.|
-|NX_TCP_KEEPALIVE_RETRY | 연결의 상대방이 응답하지 않는다고 가정하는 연결 유지 타이머의 재시도 간 간격(초)을 지정합니다. 기본값은 75로, 재시도 간 간격이 75초임을 나타내며 ***nx_tcp.h** _에 정의됩니다. 애플리케이션은 _ *_nx_api.h_**가 포함되기 전에 값을 정의하여 이 기본값을 재정의할 수 있습니다.|
+|NX_TCP_KEEPALIVE_RETRIES | 연결이 끊어진 것으로 간주하기 전 허용되는 연결 유지 재시도 수를 지정합니다. 기본값은 10으로, 10번의 재시도를 나타내며 ***nx_tcp.h** _에 정의됩니다. 애플리케이션은 _ _nx_api.h_*가 포함되기 전에 값을 정의하여 이 기본값을 재정의할 수 있습니다.|
+|NX_TCP_KEEPALIVE_RETRY | 연결의 상대방이 응답하지 않는다고 가정하는 연결 유지 타이머의 재시도 간 간격(초)을 지정합니다. 기본값은 75로, 재시도 간 간격이 75초임을 나타내며 ***nx_tcp.h** _에 정의됩니다. 애플리케이션은 _ _nx_api.h_*가 포함되기 전에 값을 정의하여 이 기본값을 재정의할 수 있습니다.|
 |NX_TCP_MAX_OUT_OF_ORDER_PACKETS | TCP 소켓 수신 큐에 보관할 수 있는 순서가 잘못된 TCP 패킷의 최대 수를 정의하는 기호입니다. 이 기호를 사용하면 TCP 수신 소켓에서 큐에 대기되는 패킷 수를 제한하여 패킷 풀이 부족해지는 것을 방지할 수 있습니다. 기본적으로 이 기호는 정의되지 않으므로 TCP 소켓에서 큐에 대기되는, 순서가 잘못된 패킷 수에는 제한이 없습니다.|
 |NX_TCP_MAXIMUM_RETRIES | 연결이 끊어진 것으로 간주하기 전 허용되는 데이터 전송 재시도 수를 지정합니다. 기본값은 10으로, 10번의 재시도를 나타내며 ***nx_tcp.h** _에 정의됩니다. 애플리케이션은 _ _nx_api.h_*가 포함되기 전에 값을 정의하여 이 기본값을 재정의할 수 있습니다.|
 |NX_TCP_MAXIMUM_RX_QUEUE | TCP 소켓의 최대 수신 큐를 정의하는 기호입니다. 이 기능은 ***NX_ENABLE_LOW_WATERMARK*** 를 통해 사용하도록 설정됩니다.|

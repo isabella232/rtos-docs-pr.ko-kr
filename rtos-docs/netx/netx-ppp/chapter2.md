@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 40f09da31f5541208c3b2cc0eeb54850b3d71f7c
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: b62ca837cadd5f7bee2686ab566ff133f1088ff7ba8b572e372e5051b7bbaab9
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104811472"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116791094"
 ---
 # <a name="chapter-2---installation-and-use-of-azure-rtos-netx-point-to-point-protocol-ppp"></a>2장 - Azure RTOS NetX PPP(지점 간 프로토콜) 설치 및 사용
 

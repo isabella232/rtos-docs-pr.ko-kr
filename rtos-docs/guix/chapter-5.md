@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 7c8f509aee1892693c22f8cfba3207158de4a1e9
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 804187ce8562e274205e97448da77d29f99016072c137cb3c4f1f42dac58c432
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104811989"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116788544"
 ---
 # <a name="chapter-5---guix-display-drivers"></a>챕터 5 - GUIX 디스플레이 드라이버
 

@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 73bb94768396b4b8461791a164a102d1f8ef159f
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: d92b6c10921b4d04345610e139101e93c7a439ff695a89a79245894ad9ef1fec
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104811880"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116790284"
 ---
 # <a name="chapter-4---azure-rtos-levelx-nand-apis"></a>4장 - Azure RTOS LevelX NAND API
 
@@ -52,7 +52,7 @@ UINT lx_nand_flash_close(LX_NAND_FLASH *nand_flash);
 - **LX_SUCCESS**: (0x00) 요청에 성공했습니다.
 - **LX_ERROR**: (0x01) 플래시 인스턴스를 닫는 중 오류가 발생했습니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -101,7 +101,7 @@ UINT lx_nand_flash_defragment(LX_NAND_FLASH *nand_flash);
 - **LX_SUCCESS**: (0x00) 요청에 성공했습니다.
 - **LX_ERROR**: (0x01) 플래시 인스턴스를 조각 모음하는 동안 오류가 발생했습니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -433,7 +433,7 @@ UINT lx_nand_flash_partial_defragment(
 - **LX_SUCCESS**: (0x00) 요청에 성공했습니다.
 - **LX_ERROR**: (0x01) 플래시 인스턴스를 조각 모음하는 동안 오류가 발생했습니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
