@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 07/15/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: c2324a2057bf2ddb2d255b2ff611d34fc664560a
-ms.sourcegitcommit: 60ad844b58639d88830f2660ab0c4ff86b92c10f
+ms.openlocfilehash: bc4721431810d72a72d5bc69e8382378cb7f95935a8ac755c25a8cff985cd185
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106549813"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116799373"
 ---
 # <a name="appendix---port-specific-examples"></a>부록 - 포트 관련 예제
 

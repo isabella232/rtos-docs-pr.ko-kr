@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 60ecc96df07b1f77b9b448814c4420133f3e2afc
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: dabc1603423d8422ed6f8f540f8a06e80d14ec0098c886ca8731ac8ce981f15d
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104810273"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116783410"
 ---
 # <a name="chapter-4---description-of-azure-rtos-threadx-services"></a>4장 - Azure RTOS ThreadX 서비스 설명
 
@@ -1659,7 +1659,7 @@ UINT tx_interrupt_control(UINT new_posture);
 ### <a name="return-values"></a>반환 값
 - **previous posture** 이 서비스는 이전 인터럽트 상태를 호출자에게 반환합니다. 이렇게 하면 서비스 사용자가 인터럽트를 사용하지 않도록 설정한 후 이전 상태를 복원할 수 있습니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드, 타이머, ISR
 
@@ -4495,13 +4495,13 @@ VOID tx_thread_relinquish(VOID);
 
 ### <a name="parameters"></a>매개 변수
 
-None
+없음
 
 ### <a name="return-values"></a>반환 값
 
-None
+없음
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -5190,9 +5190,9 @@ VOID tx_time_set(ULONG new_time);
 
 ### <a name="return-values"></a>반환 값
 
-None
+없음
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드, 타이머, ISR
 

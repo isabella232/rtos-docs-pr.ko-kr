@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: ffb0c433bf1a5665e07da3cc6c240f1d0d8c87d9
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: ae4e82a0f878af06bd178035cb9429cfe2a14d0bc4bbf848db7d321463586a20
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104811814"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116801260"
 ---
 # <a name="chapter-2---installation-and-use-of-azure-rtos-netx-duo-tftp"></a>2장 - Azure RTOS NetX Duo TFTP 설치 및 사용
 
@@ -19,7 +19,7 @@ ms.locfileid: "104811814"
 
 ## <a name="product-distribution"></a>제품 배포
 
-Azure RTOS NetX Duo는 https://github.com/azure-rtos/netxduo/ 에 있는 공용 소스 코드 리포지토리에서 가져올 수 있습니다. 패키지에는 다음 파일이 포함되어 있습니다.
+Azure RTOS NetX Duo는 https://github.com/azure-rtos/netxduo/에 있는 공용 소스 코드 리포지토리에서 가져올 수 있습니다. 패키지에는 다음 파일이 포함되어 있습니다.
 
 
 - **nxd_tftp_client.h** NetX Duo TFTP 클라이언트에 대한 헤더 파일

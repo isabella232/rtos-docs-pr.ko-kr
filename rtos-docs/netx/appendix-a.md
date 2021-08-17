@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 632e6ee2b2813421ad37109f77b28d95f01ab972
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: e2ec90a63fba9a3464a5984a005ce83abe410af387787c792b19314bcb6d27c5
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104810464"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116784141"
 ---
 # <a name="appendix-a---azure-rtos-netx-services"></a>부록 A - Azure RTOS NetX 서비스
 

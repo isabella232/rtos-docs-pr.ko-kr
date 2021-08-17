@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: e795a5fa35a4590e508c7fe2eec53f5494809657
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 45966e7c8ea9be18bf294e8a7540e7226e803f29ae4f3ad3faaa29e4939c2ed8
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104810506"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116801848"
 ---
 # <a name="chapter-4-description-of-azure-rtos-netx-secure-dtls-services"></a>챕터 4: Azure RTOS NetX Secure DTLS 서비스 설명
 
@@ -2504,7 +2504,7 @@ UINT nx_secure_dtls_session_create(
 
 ### <a name="description"></a>Description
 
-이 서비스는 DTLS 세션을 만들고 구성합니다. DTLS 서버 세션이 DTLS 서버 메커니즘을 통해 관리되므로 이 서비스는 일반적으로 DTLS 클라이언트 세션을 만드는 데 사용되지만(*nx_secure_dtls_server_create* 참조), 애플리케이션에서 단일 독립 실행형 DTLS 서버 세션 인스턴스를 만들어야 하는 경우가 있습니다. 이 경우 이 서비스를 사용할 수 있습니다<sup>7</sup>.
+이 서비스는 DTLS 세션을 만들고 구성합니다. DTLS 서버 세션이 DTLS 서버 메커니즘을 통해 관리되므로 이 서비스는 일반적으로 DTLS 클라이언트 세션을 만드는 데 사용되지만(*nx_secure_dtls_server_create* 참조), 애플리케이션에서 단일 독립 실행형 DTLS 서버 세션 인스턴스를 만들어야 하는 경우가 있습니다. 이 경우 이 서비스를 사용할 수 있습니다 <sup>7</sup>.
 
 매개 변수는 DTLS 세션을 인스턴스화하는 데 필요한 정보 및 메모리 할당을 구성합니다. crypto_table 매개 변수는 TLS/DTLS 암호화 및 인증에 필요한 모든 암호화 루틴을 포함하는 TLS 테이블입니다. metadata_buffer는 암호화 계산에 사용되고(NetX Secure TLS 사용자 가이드의 nx_secure_tls_metadata_size_calculate 참조), packet_reassembly_buffer는 암호를 해독하기 위해 UDP 데이터그램을 완전한 DTLS 레코드로 리어셈블하는 데 사용됩니다.
 

@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 1a0ab96a454bea9f56ced0d7aa8de5d481b284e9
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: f68d6ac942c829dbf6eb9be334328b1b58a47ea370a73d37f471ec32cd46a360
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104811478"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116782390"
 ---
 # <a name="chapter-3---description-of-azure-rtos-netx-pop3-client-services"></a>3장 - Azure RTOS NetX POP3 클라이언트 서비스 설명
 
@@ -92,7 +92,7 @@ status = nx_pop3_client_create(&demo_client,
 
 ## <a name="nx_pop3_client_delete"></a>nx_pop3_client_delete
 
-POP3 클라이언트 인스턴스를 삭제합니다.
+POP3 클라이언트 인스턴스 삭제
 
 ### <a name="prototype"></a>프로토타입
 
@@ -128,7 +128,7 @@ status = nx_pop3_client_delete (&demo_client);
 
 ## <a name="nx_pop3_client_mail_item_delete"></a>nx_pop3_client_mail_item_delete
 
-클라이언트 maildrop에서 지정된 메일 항목을 삭제합니다.
+클라이언트 maildrop에서 지정된 메일 항목 삭제
 
 ### <a name="prototype"></a>프로토타입
 
@@ -294,7 +294,7 @@ UINT nx_pop3_client_mail_item_message_get(
 - **NX_POP3_CLIENT_INVALID_STATE**: (0xB7) POP3 요청에 대한 클라이언트 패킷 페이로드가 너무 작습니다.
 - NX_PTR_ERROR (0x07) 잘못된 입력 포인터 매개 변수
 
-### <a name="allowed-from"></a>허용된 원본
+### <a name="allowed-from"></a>허용 위치
 
 애플리케이션 코드
 

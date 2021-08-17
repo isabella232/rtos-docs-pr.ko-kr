@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 07/15/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 9a3ea37b180ab57a8dcd269092638fa74589836a
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 8739603d4a387ff3f3f42c979bd00fcebe4f08efaab42ecade462adf1fb4906a
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104810782"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116783495"
 ---
 # <a name="chapter-2---installation-and-use-of-azure-rtos-netx-duo-http"></a>2장 - Azure RTOS NetX Duo HTTP 설치 및 사용
 

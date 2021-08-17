@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: b3ef82bd113518b35105fb2eefe23bd3e755ca06
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: d11e50b2ab74ee147f682567d142768de6108fc18264e9d8bc69bbfc8a32cc0a
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104811767"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116801872"
 ---
 # <a name="chapter-2---installation-and-use-of-azure-rtos-netx-secure"></a>2장 - Azure RTOS NetX Secure의 설치 및 사용
 
@@ -31,7 +31,7 @@ ms.locfileid: "104811767"
 
 ## <a name="product-distribution"></a>제품 배포
 
-NetX Secure는 [https://github.com/azure-rtos/netx](https://github.com/azure-rtos/netx)에서 얻을 수 있습니다. 패키지에는 다음과 같이 이 문서를 포함하는 원본 파일, 포함 파일, PDF 파일이 포함되어 있습니다.
+[https://github.com/azure-rtos/netx](https://github.com/azure-rtos/netx)에서 NetX Secure를 사용할 수 있습니다. 패키지에는 다음과 같이 이 문서를 포함하는 원본 파일, 포함 파일, PDF 파일이 포함되어 있습니다.
 
 - **nx_secure_tls_api.h** NetX Secure TLS의 퍼블릭 API 헤더 파일
 - **nx_secure_tls_user.h** 사용자가 NetX Secure TLS의 헤더 파일을 정의함
@@ -616,15 +616,15 @@ UINT alert_level, alert_value;
 
 ## <a name="configuration-options"></a>구성 옵션
 
-NetX Secure를 빌드하기 위한 몇 가지 구성 옵션이 있습니다. 다음은 각 옵션에 대한 자세한 설명입니다.
+NetX Secure를 빌드하기 위한 몇 가지 구성 옵션이 있습니다. 다음은 각각에 대해 자세히 설명된 모든 옵션의 목록입니다.
 
 | 정의 | 의미 |
 |----------------------|------------------------------------------------|
-| **NX_SECURE_DISABLE_ERROR_CHECKING**                | 정의된 경우, 이 옵션은 기본 NetX Secure 오류 검사를 제거합니다. 일반적으로 애플리케이션이 디버그된 후에 사용됩니다. |
+| **NX_SECURE_DISABLE_ERROR_CHECKING**                | 정의된 경우 이 옵션은 기본 NetX Secure 오류 검사를 제거합니다. 일반적으로 애플리케이션이 디버그된 후에 사용됩니다. |
 | **NX_CRYPTO_MAX_RSA_MODULUS_SIZE**                  | 정의된 경우, 이 옵션은 예상되는 최대 RSA 모듈러스(비트)를 제공합니다. 4096비트 모듈러스의 기본값은 4096입니다. 다른 값은 3072, 2048 또는 1024(권장하지 않음)일 수 있습니다. |
 | **NX_SECURE_ALLOW_SELF_SIGNED_CERTIFICATES**        | 정의된 경우, 이 옵션은 TLS가 원격 호스트의 자체 서명된 인증서를 수락하도록 허용합니다. 기본적으로 TLS는 보안 예방 조치로 자체 서명된 서버 인증서를 거부합니다. 이 매크로를 정의하면 수락을 위해 자체 서명된 인증서를 신뢰할 수 있는 저장소에 추가해야 합니다. |
 | **NX_SECURE_ENABLE_CLIENT_CERTIFICATE_VERIFY**      | 정의된 경우, 이 옵션은 TLS 서버에 대한 선택적 X.509 클라이언트 인증서 확인을 사용하도록 설정합니다<sup>4</sup>.  |
-| **NX_SECURE_ENABLE_PSK_CIPHERSUITES**               | 정의된 경우, 이 옵션은 PSK(미리 공유한 키) 기능을 사용하도록 설정합니다. 디지털 인증서를 사용하지 않도록 설정하는 것은 아닙니다. |
+| **NX_SECURE_ENABLE_PSK_CIPHERSUITES**               | 정의된 경우 이 옵션은 PSK(사전 공유 키) 기능을 사용하도록 설정합니다. 디지털 인증서를 사용하지 않도록 설정하는 것은 아닙니다. |
 | **NX_SECURE_TLS_CLIENT_DISABLED**                   | 정의된 경우, 이 옵션은 TLS 클라이언트 모드와 관련된 모든 TLS 스택 코드를 제거하여 코드와 데이터 사용량을 줄입니다. |
 | **NX_SECURE_TLS_SERVER_DISABLED**                   | 정의된 경우, 이 옵션은 TLS 서버 모드와 관련된 모든 TLS 스택 코드를 제거하여 코드와 데이터 사용량을 줄입니다.  |
 | **NX_SECURE_DISABLE_ECC_CIPHERSUITE**               | 정의된 경우, 이 옵션은 ECC(타원 곡선 암호화) 암호화 도구 모음의 모든 TLS 논리를 제거합니다. 해당 암호화 도구 모음은 TLS 1.2 및 이전 버전에서는 선택 사항이며, 사용하지 않도록 설정하면 코드와 데이터 크기를 크게 줄일 수 있습니다.|

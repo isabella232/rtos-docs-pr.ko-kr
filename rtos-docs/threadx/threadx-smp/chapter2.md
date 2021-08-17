@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: cc352ebd7965c84c341d25dfa7bff2671dfb5e66
-ms.sourcegitcommit: 60ad844b58639d88830f2660ab0c4ff86b92c10f
+ms.openlocfilehash: d0a63f3798adbc634a43cdda7e9d44941de655d9333f9ae0fb4181f1a6c0566e
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/07/2021
-ms.locfileid: "106550255"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116801906"
 ---
 # <a name="chapter-2---installation--use-of-azure-rtos-threadx-smp"></a>2장 - Azure RTOS ThreadX SMP 설치 및 사용
 
@@ -53,7 +53,7 @@ ThreadX SMP에는 대상에서 2~20KB의 ROM(읽기 전용 메모리)이 필요�
 
 | 도구 | Description |
 | -------------- | ------------------------------------------------------------------------------------------------- |
-| **tx_api.h**  | 모든 시스템 등식, 데이터 구조 및 서비스 프로토타입이 포함된 C 헤더 파일입니다.             |
+| **tx_api.h**  | 모든 시스템 등식, 데이터 구조 및 서비스 프로토타입이 포함되어 있는 C 헤더 파일입니다.             |
 | **tx_port.h** | 모든 개발 도구 및 대상 특정 데이터 정의 및 구조를 포함하는 C 헤더 파일입니다. |
 |**demo_threadx.c**| 작은 데모 애플리케이션을 포함하는 C 파일입니다.|
 |**tx.a(또는 tx.lib)**| ‘표준’ 패키지와 함께 배포되는 ThreadX SMP C 라이브러리의 이진 버전입니다.|

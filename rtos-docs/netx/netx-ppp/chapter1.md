@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 9f8cd9e6e0ab086fcbf76df890c03f8d73aa1a99
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 4027d79f80928804a757e5801c74865389ab1d0237510e63348945ebe2b30045
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104811473"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116801974"
 ---
 # <a name="chapter-1---introduction-to-the-azure-rtos-netx-point-to-point-protocol-ppp"></a>1장 - Azure RTOS NetX PPP(지점 간 프로토콜) 소개
 
@@ -29,7 +29,7 @@ PPP 패킷을 보내려면 직렬 드라이버 출력 바이트 루틴을 PPP에
 
 ## <a name="ppp-over-ethernet-communication"></a>이더넷 통신을 통한 PPP
 
-또한 NetX PPP는 이더넷을 통해 PPP 메시지를 전송할 수 있습니다. 이 경우 NetX PPP 패키지는 이더넷 드라이버를 제공하기 위해 애플리케이션이 필요합니다.
+NetX PPP는 이더넷을 통해 PPP 메시지를 전송할 수도 있습니다. 이 경우 NetX PPP 패키지는 이더넷 드라이버를 제공하기 위해 애플리케이션이 필요합니다.
 
 이더넷을 통해 PPP 패킷을 전송하려면 출력 루틴이 PPP에 제공되어야 합니다(*nx_ppp_packet_send_set* 함수에 지정됨). 이 출력 루틴은 전체 PPP 패킷을 전송하기 위해 반복적으로 호출됩니다. 수신 쪽에서 애플리케이션의 수신자는 새 패킷이 도착할 때마다 PPP *nx_ppp_packet_receive* 함수를 호출해야 합니다.
 
@@ -43,7 +43,7 @@ PPP는 모든 PPP 프로토콜 제어와 사용자 데이터를 캡슐화하기 
 
 각각의 모든 PPP 프레임에는 이 전체적인 모양이 있습니다. 정보 필드의 처음 2바이트에는 PPP 프로토콜 형식이 포함되어 있습니다. 유효한 값은 다음과 같이 정의됩니다.
 
-- C021:  LCP
+- C021: LCP
 - 8021: IPCP
 - C023: PAP
 - C223: CHAP
@@ -59,14 +59,14 @@ LCP는 기본 PPP 프로토콜이며 첫 번째로 실행할 프로토콜입니�
 
 ## <a name="password-authentication-protocol-pap"></a>PAP(암호 인증 프로토콜)
 
-PAP는 연결의 한쪽에서 제공되는 이름 및 암호를 사용하는 비교적 간단한 프로토콜입니다(LCP에서 협상됨). 그런 다음, 다른 쪽에서 이 정보를 확인합니다. 올바른 경우 승인 메시지가 보낸 사람에게 반환되고 PPP는 IPCP 상태 시스템으로 진행할 수 있습니다. 그렇지 않고 이름이나 암호가 잘못된 경우 연결이 거부됩니다.
+PAP는 연결의 한쪽에서 제공되는 이름 및 암호를 사용하는 비교적 간단한 프로토콜입니다(LCP에서 협상됨). 그런 다음, 다른 쪽에서 이 정보를 확인합니다. 올바른 경우, 승인 메시지가 보낸 사람에게 반환되고 PPP는 IPCP 상태 시스템으로 진행할 수 있습니다. 그렇지 않고 이름이나 암호가 잘못된 경우 연결이 거부됩니다.
 
 >[!NOTE]
 > 인터페이스 양쪽 모두에서 PAP를 요청할 수 있지만 일반적으로 PAP는 한 방향에서만 사용됩니다.
 
 ## <a name="challenge-handshake-authentication-protocol-chap"></a>CHAP(Challenge Handshake 인증 프로토콜)
 
-CHAP는 PAP보다 더 복잡한 인증 프로토콜입니다. CHAP 인증자는 해당 피어에 이름과 값을 제공합니다. 그러면 피어는 제공된 이름을 사용하여 두 엔터티 간의 공유된 "비밀"을 찾습니다. 그런 다음, ID, 값 및 "비밀"에 대해 계산이 수행됩니다. 이 계산 결과는 응답에서 반환됩니다. 올바른 경우 PPP는 IPCP 상태 시스템으로 진행할 수 있습니다. 그렇지 않고 결과가 잘못된 경우 연결이 거부됩니다.
+CHAP는 PAP보다 더 복잡한 인증 프로토콜입니다. CHAP 인증자는 해당 피어에 이름과 값을 제공합니다. 그러면 피어는 제공된 이름을 사용하여 두 엔터티 간의 공유된 "비밀"을 찾습니다. 그런 다음, ID, 값 및 "비밀"에 대해 계산이 수행됩니다. 이 계산 결과는 응답에서 반환됩니다. 올바른 경우, PPP는 IPCP 상태 시스템으로 진행할 수 있습니다. 그렇지 않고 결과가 잘못된 경우 연결이 거부됩니다.
 
 CHAP의 또 다른 흥미로운 측면은 연결이 설정된 후 임의의 간격으로 발생할 수 있다는 점입니다. 이는 연결이 인증된 후에 하이재킹되는 것을 방지하는 데 사용됩니다. 이러한 임의 시간 중 하나에서 챌린지에 실패하면 연결이 즉시 종료됩니다.
 

@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/08/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: db621e38e9d2324ca3ce2398aee9f729b05886ee
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 5d4913c01de5cc7c41d44bda473bbaca06dd474a26570b056bfde3cd48acc4e4
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104811532"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116799407"
 ---
 # <a name="chapter-2---installation-and-use-of-netx-http"></a>2장 - NetX HTTP 설치 및 사용
 
@@ -276,7 +276,7 @@ NetX용 HTTP를 빌드하기 위한 몇 가지 구성 옵션이 있습니다. �
 - **NX_DISABLE_ERROR_CHECKING**: 정의된 경우 이 옵션은 기본 HTTP 오류 검사를 제거합니다. 일반적으로 애플리케이션이 디버깅된 후에 사용됩니다.
 - **NX_HTTP_SERVER_PRIORITY** HTTP 서버 스레드의 우선 순위입니다. 기본적으로 이 값은 우선 순위 16을 지정하는 16으로 정의되어 있습니다.
 - **NX_HTTP_NO_FILEX** 정의된 경우 이 옵션은 FileX 종속성에 대한 스텁을 제공합니다. 이 옵션이 정의된 경우 HTTP 클라이언트는 변경 없이 작동합니다. HTTP 서버는 제대로 작동하기 위해 수정되거나 사용자가 몇 가지 FileX 서비스를 만들어야 합니다.
-- **NX_HTTP_TYPE_OF_SERVICE**: HTTP TCP 요청에 필요한 서비스 유형입니다. 기본적으로 이 값은 일반 IP 패킷 서비스를 나타내는 NX_IP_NORMAL로 정의됩니다.
+- **NX_HTTP_TYPE_OF_SERVICE** HTTP TCP 요청에 필요한 서비스 유형입니다. 기본적으로 이 값은 일반 IP 패킷 서비스를 나타내는 NX_IP_NORMAL로 정의됩니다.
 - **NX_HTTP_SERVER_THREAD_TIME_SLICE** 동일한 우선 순위의 스레드에 발생하기 전에 서버 스레드를 실행할 수 있는 타이머 틱 수입니다. 기본값은 2입니다.
 - **NX_HTTP_FRAGMENT_OPTION** HTTP TCP 요청에 대해 조각을 사용합니다. 기본적으로 이 값은 HTTP TCP 조각화를 사용하지 않도록 설정하는 NX_DONT_FRAGMENT입니다.
 - **NX_HTTP_SERVER_WINDOW_SIZE** 서버 소켓 창 크기입니다. 기본적으로 이 값은 2048바이트입니다.

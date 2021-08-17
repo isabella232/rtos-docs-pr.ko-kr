@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 720e573b53070a754618830134f63a8421b9fd29
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: f1ebbd4d78f96a257fc6cf62474917a1d618524ff6f27f99c108f904589f84fe
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104810458"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116801940"
 ---
 # <a name="chapter-4---description-of-azure-rtos-netx-services"></a>4장 - Azure RTOS NetX 서비스 설명
 
@@ -47,7 +47,7 @@ UINT nx_arp_dynamic_entries_invalidate(NX_IP *ip_ptr);
 - **NX_PTR_ERROR**(0x07) 잘못된 IP 주소입니다.
 - **NX_CALLER_ERROR**(0x11) 호출자가 스레드가 아닙니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -104,7 +104,7 @@ UINT nx_arp_dynamic_entry_set(
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 - **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -161,7 +161,7 @@ UINT nx_arp_enable(
 - **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_ALREADY_ENABLED**(0x15) 이 구성 요소는 이미 사용하도록 설정되었습니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드
 
@@ -215,7 +215,7 @@ UINT nx_arp_gratuitous_send(
 - **NX_PTR_ERROR**(0x07) 잘못된 IP 포인터입니다.
 - **NX_CALLER_ERROR**(0x11) 호출자가 스레드가 아닙니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -273,7 +273,7 @@ UINT nx_arp_hardware_address_find(
 - **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -348,7 +348,7 @@ UINT nx_arp_info_get(
 - **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -416,7 +416,7 @@ UINT nx_arp_ip_address_find(
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 - **NX_INVALID_PARAMETERS**(0x4D) Physical_msw 및 physical_lsw는 둘 다 0입니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -469,7 +469,7 @@ UINT nx_arp_static_entries_delete(NX_IP *ip_ptr);
 - **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드
 
@@ -532,7 +532,7 @@ UINT nx_arp_static_entry_create(
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 - **NX_INVALID_PARAMETERS**(0x4D) Physical_msw 및 physical_lsw는 둘 다 0입니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드
 
@@ -598,7 +598,7 @@ UINT nx_arp_static_entry_delete(
 - **NX_IP_ADDRESS_ERROR**(0x21) 잘못된 IP 주소입니다.
 - **NX_INVALID_PARAMETERS**(0x4D) Physical_msw 및 physical_lsw는 둘 다 0입니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -651,7 +651,7 @@ ICMP 구성 요소는 인터넷 오류 메시지와 ping 요청 및 회신을 �
 - **NX_PTR_ERROR**(0x07) 잘못된 IP 포인터입니다.
 - **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드
 
@@ -712,7 +712,7 @@ UINT nx_icmp_info_get(
 - **NX_PTR_ERROR**(0x07) 잘못된 IP 포인터입니다.
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드
 
@@ -786,7 +786,7 @@ NX_SUCCESS가 반환되는 경우 애플리케이션은 수신된 패킷이 더 
 - **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -838,7 +838,7 @@ IGMP 구성 요소는 IP 멀티캐스트 그룹 관리 작업에 대한 지원�
 - **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_ALREADY_ENABLED**(0x15) 이 구성 요소는 이미 사용하도록 설정되었습니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드
 
@@ -897,7 +897,7 @@ UINT nx_igmp_info_get(
 - **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드
 
@@ -949,7 +949,7 @@ UINT nx_igmp_loopback_disable(NX_IP *ip_ptr);
 - **NX_PTR_ERROR**(0x07) 잘못된 IP 포인터입니다.
 - **NX_CALLER_ERROR**(0x11) 호출자가 스레드나 초기화가 아닙니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드
 
@@ -996,7 +996,7 @@ UINT nx_igmp_loopback_enable(NX_IP *ip_ptr);
 - **NX_PTR_ERROR**(0x07) 잘못된 IP 포인터입니다.
 - **NX_CALLER_ERROR**(0x11) 호출자가 스레드나 초기화가 아닙니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드
 
@@ -1052,7 +1052,7 @@ UINT nx_igmp_multicast_interface_join(
 - **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) IP 멀티캐스트 지원이 사용하도록 설정되지 않았습니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -1114,7 +1114,7 @@ UINT nx_igmp_multicast_join(
 - **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -1170,7 +1170,7 @@ UINT nx_igmp_multicast_leave(
 - **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -1223,7 +1223,7 @@ UINT nx_ip_address_change_notify(
 - **NX_PTR_ERROR**(0x07) 잘못된 IP 포인터입니다.
 - **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드
 
@@ -1282,7 +1282,7 @@ UINT nx_ip_address_get(
 - **NX_PTR_ERROR**(0x07) 잘못된 IP 또는 반환 변수 포인터입니다.
 - **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드
 
@@ -1343,7 +1343,7 @@ UINT nx_ip_address_set(
 - **NX_PTR_ERROR**(0x07) 잘못된 IP 포인터입니다.
 - **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드
 
@@ -1415,7 +1415,7 @@ UINT nx_ip_create(
 - **NX_IP_ADDRESS_ERROR**(0x21) 제공된 IP 주소가 잘못되었습니다.
 - **NX_OPTION_ERROR**(0x21) 제공된 IP 스레드 우선 순위가 잘못되었습니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드
 
@@ -1478,7 +1478,7 @@ UINT nx_ip_delete(NX_IP *ip_ptr);
 - **NX_PTR_ERROR**(0x07) 잘못된 IP 포인터입니다.
 - **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -1549,7 +1549,7 @@ UINT nx_ip_driver_direct_command(
 - **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_INVALID_INTERFACE**(0x4C) 잘못된 인터페이스 인덱스입니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -1620,7 +1620,7 @@ UINT nx_ip_driver_interface_direct_command(
 - **NX_PTR_ERROR**(0x07) 잘못된 IP 또는 반환 값 포인터입니다.
 - **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -1678,7 +1678,7 @@ UINT nx_ip_forwarding_disable(NX_IP *ip_ptr);
 - **NX_PTR_ERROR**(0x07) 잘못된 IP 포인터입니다.
 - **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드, 타이머
 
@@ -1727,7 +1727,7 @@ UINT nx_ip_forwarding_enable(NX_IP *ip_ptr);
 - **NX_PTR_ERROR**(0x07) 잘못된 IP 포인터입니다.
 - **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드, 타이머
 
@@ -1777,7 +1777,7 @@ UINT nx_ip_fragment_disable(NX_IP *ip_ptr);
 - **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) IP 인스턴스에서 IP 조각화가 사용하도록 설정되지 않았습니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드
 
@@ -1882,7 +1882,7 @@ UINT nx_ip_gateway_address_set(
 - **NX_IP_ADDRESS_ERROR**(0x21) 잘못된 IP 주소입니다.
 - **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드
 
@@ -1951,7 +1951,7 @@ UINT nx_ip_info_get(
 - **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_PTR_ERROR**(0x07) 잘못된 IP 포인터입니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드
 
@@ -2021,7 +2021,7 @@ UINT nx_ip_interface_address_get (
 - **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_PTR_ERROR**(0x07) 잘못된 IP 포인터입니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드
 
@@ -2083,7 +2083,7 @@ UINT nx_ip_interface_address_set(
 - **NX_PTR_ERROR**(0x07) 잘못된 포인터입니다.
 - **NX_IP_ADDRESS_ERROR**(0x21) 잘못된 IP 주소입니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드
 
@@ -2156,7 +2156,7 @@ ip_ptr은 유효한 NetX IP 구조를 가리켜야 합니다.
 - **NX_PTR_ERROR**(0x07) 잘못된 포인터 입력입니다.
 - **NX_IP_ADDRESS_ERROR**(0x21) 잘못된 IP 주소 입력입니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드
 
@@ -2226,7 +2226,7 @@ ip_ptr은 유효한 NetX IP 구조를 가리켜야 합니다. 기본 인터페�
 - **NX_INVALID_INTERFACE**(0x4C) 잘못된 IP 포인터입니다.
 - **NX_CALLER_ERROR**(0x11) 시스템 초기화 또는 스레드 컨텍스트에서 서비스가 호출되지 않습니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드
 
@@ -2307,7 +2307,7 @@ UINT nx_ip_interface_status_check(
 - **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_INVALID_INTERFACE**(0x4C) Interface_index가 범위를 벗어났습니다. 또는 인터페이스가 잘못되었습니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -2362,7 +2362,7 @@ UINT nx_ip_link_status_change_notify_set(
 - **NX_CALLER_ERROR**(0x11) 시스템 초기화 또는 스레드 컨텍스트에서 서비스가 호출되지 않습니다.
 
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드
 
@@ -2412,7 +2412,7 @@ UINT nx_ip_raw_packet_disable(NX_IP *ip_ptr);
 - **NX_PTR_ERROR**(0x07) 잘못된 IP 포인터입니다.
 - **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드
 
@@ -2460,7 +2460,7 @@ UINT nx_ip_raw_packet_enable(NX_IP *ip_ptr);
 - **NX_PTR_ERROR**(0x07) 잘못된 IP 포인터입니다.
 - **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드
 
@@ -2526,7 +2526,7 @@ UINT nx_ip_raw_packet_interface_send(
 - **NX_UNDERFLOW**(0x02) 잘못된 패킷 앞에 추가 포인터입니다.
 - **NX_INVALID_INTERFACE**(0x4C) 잘못된 인터페이스 인덱스가 지정되었습니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -2588,7 +2588,7 @@ UINT nx_ip_raw_packet_receive(
 - **NX_PTR_ERROR**(0x07) 잘못된 IP 또는 반환 패킷 포인터입니다.
 - **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -2658,7 +2658,7 @@ UINT nx_ip_raw_packet_send(
 - **NX_PTR_ERROR**(0x07) 잘못된 IP 또는 패킷 포인터입니다.
 - **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -2720,7 +2720,7 @@ UINT nx_ip_static_route_add(
 - **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_PTR_ERROR**(0x07) 잘못된 ip_ptr 포인터입니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드
 
@@ -2838,7 +2838,7 @@ UINT nx_ip_status_check(
 - **NX_OPTION_ERROR**(0x0a) 필요한 상태 옵션이 잘못되었습니다.
 - **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -2904,7 +2904,7 @@ UINT nx_packet_allocate(
 - **NX_PTR_ERROR**(0x07) 잘못된 풀 또는 패킷 반환 포인터입니다.
 - **NX_CALLER_ERROR**(0x11) 비스레드의 대기 옵션이 잘못되었습니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드, 타이머, ISR(애플리케이션 네트워크 드라이버)입니다. ISR 또는 타이머 컨텍스트에서 사용되는 경우 대기 옵션은 NX_NO_WAIT여야 합니다.
 
@@ -2971,7 +2971,7 @@ UINT nx_packet_copy(
 - **NX_OVERFLOW**(0x03) 잘못된 패킷 뒤에 추가 포인터입니다.
 - **NX_CALLER_ERROR**(0x11) 초기화 또는 ISR에 대기 옵션이 지정되었습니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드, 타이머, ISR
 
@@ -3041,7 +3041,7 @@ UINT nx_packet_data_append(
 - **NX_SIZE_ERROR**(0x09) 잘못된 데이터 크기입니다.
 - **NX_CALLER_ERROR**(0x11) 비스레드의 대기 옵션이 잘못되었습니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드, 타이머, ISR(애플리케이션 네트워크 드라이버)입니다.
 
@@ -3100,7 +3100,7 @@ UINT nx_packet_data_extract_offset(
 - **NX_PACKET_OFFSET_ERROR**(0x53) 잘못된 오프셋 값을 제공했습니다.
 - **NX_PTR_ERROR**(0x07) 잘못된 패킷 포인터 또는 버퍼 포인터입니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드, 타이머, ISR
 
@@ -3160,7 +3160,7 @@ UINT nx_packet_data_retrieve(
 - **NX_INVALID_PACKET**(0x12) 잘못된 패킷입니다.
 - **NX_PTR_ERROR**(0x07) 패킷, 버퍼 시작 또는 복사된 바이트 포인터가 잘못되었습니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드, 타이머, ISR
 
@@ -3269,7 +3269,7 @@ UINT nx_packet_pool_create(
 - **NX_SIZE_ERROR**(0x09) 잘못된 블록 또는 메모리 크기입니다.
 - **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드
 
@@ -3320,7 +3320,7 @@ UINT nx_packet_pool_delete(NX_PACKET_POOL *pool_ptr);
 - **NX_PTR_ERROR**(0x07) 잘못된 풀 포인터입니다.
 - **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -3383,7 +3383,7 @@ UINT nx_packet_pool_info_get(
 - **NX_PTR_ERROR**(0x07) 잘못된 IP 포인터입니다.
 - **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드, 타이머
 
@@ -3440,7 +3440,7 @@ UINT nx_packet_release(NX_PACKET *packet_ptr);
 - **NX_UNDERFLOW**(0x02) 앞에 추가 포인터가 페이로드 시작보다 먼저입니다.
 - **NX_OVERFLOW**(0x03) 뒤에 추가 포인터가 페이로드 종료보다 나중입니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드, 타이머, ISR(애플리케이션 네트워크 드라이버)입니다.
 
@@ -3492,7 +3492,7 @@ TCP가 아닌 패킷의 경우 이 서비스는 지정된 패킷에 연결된 �
 - **NX_UNDERFLOW**(0x02) 앞에 추가 포인터가 페이로드 시작보다 먼저입니다.
 - **NX_OVERFLOW**(0x03) 뒤에 추가 포인터가 페이로드 종료보다 나중입니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드, 타이머, 애플리케이션 네트워크 드라이버(ISR 포함)입니다.
 
@@ -3543,7 +3543,7 @@ UINT nx_rarp_disable(NX_IP *ip_ptr);
 - **NX_PTR_ERROR**(0x07) 잘못된 IP 포인터입니다.
 - **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드
 
@@ -3590,7 +3590,7 @@ UINT nx_rarp_enable(NX_IP *ip_ptr);
 - **NX_PTR_ERROR**(0x07) 잘못된 IP 포인터입니다.
 - **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드, 타이머
 
@@ -3646,7 +3646,7 @@ UINT nx_rarp_info_get(
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 - **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드
 
@@ -3687,13 +3687,13 @@ VOID nx_system_initialize(VOID);
 
 ### <a name="parameters"></a>매개 변수
 
-None
+없음
 
 ### <a name="return-values"></a>반환 값
 
-None
+없음
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드, 타이머, ISR
 
@@ -3756,7 +3756,7 @@ UINT nx_tcp_client_socket_bind(
 - **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -3830,7 +3830,7 @@ UINT nx_tcp_client_socket_connect(
 - **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -3895,7 +3895,7 @@ UINT nx_tcp_client_socket_port_get(
 - **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -3954,7 +3954,7 @@ UINT nx_tcp_client_socket_unbind(NX_TCP_SOCKET *socket_ptr);
 - **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -4010,7 +4010,7 @@ UINT nx_tcp_enable(NX_IP *ip_ptr);
 - **NX_PTR_ERROR**(0x07) 잘못된 IP 포인터입니다.
 - **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드, 타이머
 
@@ -4073,7 +4073,7 @@ UINT nx_tcp_free_port_find(
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 - **NX_INVALID_PORT**(0x46) 지정된 포트 번호가 잘못되었습니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -4155,7 +4155,7 @@ UINT nx_tcp_info_get(
 - **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드
 
@@ -4234,7 +4234,7 @@ UINT nx_tcp_server_socket_accept(
 - **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드
 
@@ -4395,7 +4395,7 @@ UINT nx_tcp_server_socket_listen(
 - **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -4550,7 +4550,7 @@ UINT nx_tcp_server_socket_relisten(
 - **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -4693,7 +4693,7 @@ UINT nx_tcp_server_socket_unaccept(NX_TCP_SOCKET *socket_ptr);
 - **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -4834,7 +4834,7 @@ UINT nx_tcp_server_socket_unlisten(NX_IP *ip_ptr, UINT port);
 - **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -4974,7 +4974,7 @@ UINT nx_tcp_socket_bytes_available(
 - **NX_NOT_ENABLED**(0x14) TCP가 사용하도록 설정되지 않았습니다.
 - **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -5056,9 +5056,9 @@ UINT nx_tcp_socket_create(
 - **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
-초기화, 스레드
+초기화 및 스레드
 
 ### <a name="preemption-possible"></a>가능한 선점
 
@@ -5122,7 +5122,7 @@ UINT nx_tcp_socket_delete(NX_TCP_SOCKET *socket_ptr);
 - **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -5186,7 +5186,7 @@ UINT nx_tcp_socket_disconnect(
 - **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -5249,7 +5249,7 @@ UINT nx_tcp_socket_disconnect_complete_notify(
 - **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) TCP 기능이 사용하도록 설정되지 않았습니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드
 
@@ -5303,7 +5303,7 @@ UINT nx_tcp_socket_establish_notify(
 - **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) 애플리케이션에서 TCP를 사용하도록 설정하지 않았습니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -5466,7 +5466,7 @@ UINT nx_tcp_socket_mss_get(
 - **NX_NOT_ENABLED**(0x14) TCP가 사용하도록 설정되지 않았습니다.
 - **NX_CALLER_ERROR**(0x11) 호출자가 스레드나 초기화가 아닙니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드
 
@@ -5523,7 +5523,7 @@ UINT nx_tcp_socket_mss_peer_get(
 - **NX_NOT_ENABLED**(0x14) TCP가 사용하도록 설정되지 않았습니다.
 - **NX_CALLER_ERROR**(0x11) 호출자가 스레드나 초기화가 아닙니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -5583,7 +5583,7 @@ TCP 소켓이 연결 프로세스를 시작하기 전에 이 서비스를 사용
 - **NX_NOT_ENABLED**(0x14) TCP가 사용하도록 설정되지 않았습니다.
 - **NX_CALLER_ERROR**(0x11) 호출자가 스레드나 초기화가 아닙니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드
 
@@ -5641,7 +5641,7 @@ UINT nx_tcp_socket_peer_info_get(
 - **NX_NOT_ENABLED**(0x14) TCP가 사용하도록 설정되지 않았습니다.
 - **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -5707,7 +5707,7 @@ UINT nx_tcp_socket_receive(
 - **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -5762,7 +5762,7 @@ UINT nx_tcp_socket_receive_notify(
 - **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) TCP 기능이 사용하도록 설정되지 않았습니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드
 
@@ -5837,7 +5837,7 @@ UINT nx_tcp_socket_send(
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 - **NX_UNDERFLOW**(0x02) 패킷 앞에 추가 포인터가 잘못되었습니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -5913,7 +5913,7 @@ UINT nx_tcp_socket_state_wait(
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 - **NX_OPTION_ERROR**(0x0A) 원하는 소켓 상태가 잘못되었습니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -5974,7 +5974,7 @@ UINT nx_tcp_socket_timed_wait_callback(
 - **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) TCP 기능이 사용하도록 설정되지 않았습니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드
 
@@ -6033,7 +6033,7 @@ UINT nx_tcp_socket_transmit_configure(
 - **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) TCP 기능이 사용하도록 설정되지 않았습니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드
 
@@ -6094,7 +6094,7 @@ UINT nx_tcp_socket_window_update_notify_set(
 - **NX_NOT_ENABLED**(0x14) TCP 기능이 사용하도록 설정되지 않았습니다.
 
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드
 
@@ -6152,7 +6152,7 @@ UINT nx_udp_enable(NX_IP *ip_ptr);
 - **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_ALREADY_ENABLED**(0x15) 이 구성 요소는 이미 사용하도록 설정되었습니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드, 타이머
 
@@ -6216,7 +6216,7 @@ UINT nx_udp_free_port_find(
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 - **NX_INVALID_PORT**(0x46) 지정된 포트 번호가 잘못되었습니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -6289,7 +6289,7 @@ UINT nx_udp_info_get(
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드, 타이머
 
@@ -6357,7 +6357,7 @@ UINT nx_udp_packet_info_extract(
 - **NX_PTR_ERROR**(0x07) 잘못된 포인터 입력입니다.
 - **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -6425,7 +6425,7 @@ UINT nx_udp_socket_bind(
 - **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -6485,7 +6485,7 @@ UINT nx_udp_socket_bytes_available(
 - **NX_NOT_ENABLED**(0x14) UDP 기능이 사용하도록 설정되지 않았습니다.
 - **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -6542,7 +6542,7 @@ UINT nx_udp_socket_checksum_disable(NX_UDP_SOCKET *socket_ptr);
 - **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드, 타이머
 
@@ -6599,7 +6599,7 @@ UINT nx_udp_socket_checksum_enable(NX_UDP_SOCKET *socket_ptr);
 - **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드, 타이머
 
@@ -6669,9 +6669,9 @@ UINT nx_udp_socket_create(
 - **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
-초기화, 스레드
+초기화 및 스레드
 
 ### <a name="preemption-possible"></a>가능한 선점
 
@@ -6725,7 +6725,7 @@ UINT nx_udp_socket_delete(NX_UDP_SOCKET *socket_ptr);
 - **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -6796,7 +6796,7 @@ UINT nx_udp_socket_info_get(
 - **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드, 타이머
 
@@ -6858,7 +6858,7 @@ UINT nx_udp_socket_port_get(NX_UDP_SOCKET *socket_ptr, UINT *port_ptr);
 - **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -7042,7 +7042,7 @@ UINT nx_udp_socket_send(
 - **NX_NOT_ENABLED**(0x14) UDP가 사용하도록 설정되지 않았습니다.
 - **NX_INVALID_PORT**(0x46) 포트 번호가 유효한 범위 내에 있지 않습니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -7117,7 +7117,7 @@ UINT nx_udp_socket_interface_send(
 - **NX_INVALID_INTERFACE**(0x4C) 잘못된 주소 인덱스입니다.
 - **NX_INVALID_PORT**(0x46) 포트 번호가 최대 포트 번호를 초과합니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -7178,7 +7178,7 @@ UINT nx_udp_socket_unbind(NX_UDP_SOCKET *socket_ptr);
 - **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -7235,7 +7235,7 @@ UINT nx_udp_source_extract(
 - **NX_INVALID_PACKET**(0x12) 제공된 패킷이 잘못되었습니다.
 - **NX_PTR_ERROR**(0x07) 패킷이나 IP 또는 포트 대상이 잘못되었습니다.
 
-### <a name="allowed-from"></a>허용되는 위치
+### <a name="allowed-from"></a>허용 위치
 
 초기화, 스레드, 타이머, ISR
 

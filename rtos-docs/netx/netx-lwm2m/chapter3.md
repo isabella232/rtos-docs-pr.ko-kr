@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: f49a4f5f4c899dfa461a9d57a8b56e4503d6acd4
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 6424023a02aedf43c7433c9adc09231b8c146af13b9bddc15ebd1f2fc02e8c8a
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104811496"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116784940"
 ---
 # <a name="chapter-3---functional-description-of-azure-rtos-netx-lwm2m"></a>챕터 3 - Azure RTOS NetX LWM2M의 기능 설명
 
@@ -251,7 +251,7 @@ UINT nx_lwm2m_object_read(NX_LWM2M_OBJECT *object_ptr,
 
 - **num_values**: 읽을 리소스의 수입니다.
 
-- **values_ptr**: 읽을 리소스의 ID를 포함하는 NX_LWM2M_RESOURCE 배열에 대한 포인터입니다. 반환 시 배열이 해당 형식 및 값으로 채워집니다.
+- **values_ptr**: 읽는 리소스의 ID가 포함되는 NX_LWM2M_RESOURCE 배열에 대한 포인터이며, 반환 시 배열이 해당 형식 및 값으로 채워집니다.
 
 ### <a name="the-discover-method"></a>'Discover' 메서드
 

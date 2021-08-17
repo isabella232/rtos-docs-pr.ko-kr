@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: b94dad3c5ec94befd57200049138b184461a9b55
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 5da4c12cf3c035e59dcd1abef063d5ae40a657d6fd91bbd29f51cf7d46813154
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104812810"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116784056"
 ---
 # <a name="chapter-6---demonstration-system-for-azure-rtos-threadx-smp"></a>6장 - Azure RTOS ThreadX SMP에 대한 데모 시스템
 
@@ -112,7 +112,7 @@ thread_7_counter
 
 이러한 각 카운터는 데모를 실행할 때 계속 증가해야 하며, ***thread_1_counter** _ 및 *_thread_2_counter_**가 가장 빠른 속도로 증가합니다.
 
-## <a name="distribution-file-demo_threadxc"></a>Distribution file: demo_threadx.c
+## <a name="distribution-file-demo_threadxc"></a>배포 파일: demo_threadx.c
 
 이 섹션에는 이 장 전반에 걸쳐 참조되는 줄 번호를 포함하는 ***demo_threadx.c*** 의 전체 목록이 나와 있습니다.
 

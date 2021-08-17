@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: ad9f782942bcdbb2dc49a9c841d865d97bcb1d4e
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 28f088409fdd5e2c075cbf90b21d3d260c811806066e74bffc395207cde0239c
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104811407"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116802127"
 ---
 # <a name="about-the-azure-rtos-threadx-guide"></a>Azure RTOS ThreadX 가이드 정보
 

@@ -6,12 +6,12 @@ ms.service: rtos
 ms.topic: article
 ms.date: 5/19/2020
 ms.author: philmea
-ms.openlocfilehash: 8f0ff03d112597371059d925f64b7511454e123c
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 9fefc43002d4e0d6df817ad56d79b3e41a3d649504be50f5a39f67c1896b2e9a
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104812372"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116800338"
 ---
 # <a name="chapter-6---azure-rtos-threadx-trace-events"></a>6장 - Azure RTOS ThreadX 추적 이벤트
 

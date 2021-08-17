@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 2a53da048b18d35b6b15a4ad8d4138e1a2acd4e8
-ms.sourcegitcommit: 95f4ae0842a486fec8f10d1480203695faa9592d
+ms.openlocfilehash: 37c1103d6b690350b6fa0794b9c719f31a112ff3babf88f125d3735f8ef935b6
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/09/2021
-ms.locfileid: "111875252"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116785232"
 ---
 # <a name="chapter-3---functional-overview-of-guix"></a>3장 - GUIX의 기능 개요
 
@@ -687,7 +687,7 @@ Studio 위젯 속성 필드에서 "동적으로 할당" 옵션을 선택하면 S
 > [!IMPORTANT]
 > 동적으로 할당된 제어 블록을 사용하여 만든 위젯은 메모리 손실을 방지하기 위해 **GX_WIDGET_STYLE_DYNAMICALLY_ALLOCATED** 스타일 플래그를 사용하여 만들어야 합니다.
 
-### <a name="types"></a>유형
+### <a name="types"></a>형식
 
 GUIX는 다양한 기능을 갖춘 기본 제공 위젯 세트를 제공합니다. 앞에서 설명한 것처럼 모든 특수 위젯은 기본 위젯에서 파생됩니다. 다음은 GUIX의 기본 제공 위젯 목록입니다.
 

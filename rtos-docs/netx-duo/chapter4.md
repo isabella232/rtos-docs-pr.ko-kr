@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 85617aadab7f484a4f4e467fd13f815f4d8b5609
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: d28ca64a6a655bb3f1ad10c563450a0e65b645a1e1a2a464c4137f9a999815bc
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104811862"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116785025"
 ---
 # <a name="chapter-4---description-of-azure-rtos-netx-duo-services"></a>4장 - Azure RTOS NetX Duo 서비스 설명
 
@@ -27,7 +27,7 @@ NetX의 기존 서비스는 NetX Duo에서 완벽하게 지원됩니다. NetX �
 각 설명의 “반환 값” 섹션에서 **BOLD** 로 표시된 값은 API 오류 검사를 사용하지 않도록 설정하는 데 사용되는 NX_DISABLE_ERROR_CHECKING 옵션의 영향을 받지 않지만, 굵게 표시되지 않은 값은 완전히 사용하지 않도록 설정됩니다. “허용되는 원본” 섹션은 각 NetX Duo 서비스를 호출할 수 있는 항목을 나타냅니다.
 
 ## <a name="nx_arp_dynamic_entries_invalidate"></a>nx_arp_dynamic_entries_invalidate   
-ARP 캐시의 모든 동적 항목 무효화
+ARP 캐시의 모든 동적 항목을 무효화합니다.
 
 ### <a name="prototype"></a>프로토타입     
 
@@ -46,7 +46,7 @@ UINT nx_arp_dynamic_entries_invalidate(NX_IP *ip_ptr);
 
 - **NX_SUCCESS**(0x00) ARP 캐시 무효화에 성공했습니다.
 - **NX_NOT_ENABLED**(0x14) ARP가 사용하도록 설정되지 않았습니다.
-- **NX_PTR_ERROR**(0x07) IP 주소가 잘못되었습니다.
+- **NX_PTR_ERROR**(0x07) 잘못된 IP 주소입니다.
 - **NX_CALLER_ERROR**(0x11) 호출자가 스레드가 아닙니다.
 
 ### <a name="allowed-from"></a>허용 위치   
@@ -83,7 +83,7 @@ status = nx_arp_dynamic_entries_invalidate(&ip_0);
 - nxd_nd_cache_ip_address_find
 
 ## <a name="nx_arp_dynamic_entry_set"></a>nx_arp_dynamic_entry_set  
-동적 ARP 항목 설정
+동적 ARP 항목을 설정합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -96,23 +96,23 @@ UINT nx_arp_dynamic_entry_set(
 ```
 
 ### <a name="description"></a>Description    
-이 서비스는 ARP 캐시의 동적 항목을 할당하고 지정된 IP를 실제 주소 매핑으로 설정합니다. 실제 주소를 0으로 지정하면 실제 주소를 확인하기 위해 실제 ARP 요청이 네트워크로 전송됩니다. ARP 에이징이 활성이거나 ARP 캐시가 고갈되었고 최근에 사용된 ARP 항목이 아닌 경우에도 이 항목이 제거됩니다.
+이 서비스는 ARP 캐시의 동적 항목을 할당하고 지정된 IP를 물리적 주소 매핑으로 설정합니다. 물리적 주소를 0으로 지정하면 물리적 주소를 확인하기 위해 실제 ARP 요청이 네트워크로 송신됩니다. 이 항목은 ARP 에이징이 활성인 경우 또는 ARP 캐시가 고갈되어 오래전에 사용된 ARP 항목인 경우에도 제거됩니다.
 
 ### <a name="parameters"></a>매개 변수
 
 - **ip_ptr** 이전에 만든 IP 인스턴스에 대한 포인터입니다.
 - **ip_address** 매핑할 IP 주소입니다.
-- **physical_msw** 실제 주소의 상위 16비트(47-32)입니다.
-- **physical_lsw** 실제 주소의 하위 32비트(31-0)입니다.
+- **physical_msw** 물리적 주소의 상위 16비트(47-32)입니다.
+- **physical_lsw** 물리적 주소의 하위 32비트(31-0)입니다.
 
 ### <a name="return-values"></a>반환 값    
 
 - **NX_SUCCESS**(0x00) ARP 동적 항목 설정에 성공했습니다.
 - **NX_NO_MORE_ENTRIES**(0x17) ARP 캐시에 사용할 수 있는 ARP 항목이 더 이상 없습니다.
-- **NX_IP_ADDRESS_ERROR**(0x21) IP 주소가 잘못되었습니다.
-- **NX_PTR_ERROR**(0x07) IP 인스턴스 포인터가 잘못되었습니다.
+- **NX_IP_ADDRESS_ERROR**(0x21) 잘못된 IP 주소입니다.
+- **NX_PTR_ERROR**(0x07) 잘못된 IP 인스턴스 포인터입니다.
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 
 ### <a name="allowed-from"></a>허용 위치    
 스레드
@@ -175,10 +175,10 @@ UINT nx_arp_enable(
 ### <a name="return-values"></a>반환 값
 
 - **NX_SUCCESS**(0x00) ARP를 사용하도록 설정하는 데 성공했습니다.
-- **NX_PTR_ERROR**(0x07) IP 또는 캐시 메모리 포인터가 잘못되었습니다.
+- **NX_PTR_ERROR**(0x07) 잘못된 IP 또는 캐시 메모리 포인터입니다.
 - **NX_SIZE_ERROR**(0x09) 사용자 제공 ARP 캐시 메모리가 너무 작습니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
-- **NX_ALREADY_ENABLED**(0x15) 이 구성 요소는 이미 사용하도록 설정되어 있습니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
+- **NX_ALREADY_ENABLED**(0x15) 이 구성 요소는 이미 사용하도록 설정되었습니다.
 
 ### <a name="allowed-from"></a>허용 위치   
 초기화, 스레드
@@ -276,7 +276,7 @@ status = nx_arp_entry_delete(&ip_0, IP_ADDRESS(1, 2, 3, 4));
 - nxd_nd_cache_ip_address_find
 
 ## <a name="nx_arp_gratuitous_send"></a>nx_arp_gratuitous_send   
-무상 ARP 요청 송신
+무상 ARP 요청을 송신합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -287,7 +287,7 @@ UINT nx_arp_gratuitous_send(
 ```                               
 ### <a name="description"></a>Description
 
-이 서비스는 인터페이스 IP 주소가 유효한 동안 모든 실제 인터페이스를 통해 무상 ARP 요청을 전송합니다. 이어서 ARP 응답을 받으면 제공된 응답 처리기가 호출되어 무상 ARP에 대한 응답을 처리합니다.
+이 서비스는 인터페이스 IP 주소가 유효하면 모든 실제 인터페이스를 통해 무상 ARP 요청을 전송합니다. 이어서 ARP 응답을 수신하면 제공된 응답 처리기가 호출되어 무상 ARP에 대한 응답을 처리합니다.
 
 ### <a name="parameters"></a>매개 변수
 
@@ -297,10 +297,10 @@ UINT nx_arp_gratuitous_send(
 ### <a name="return-values"></a>반환 값
 
 - **NX_SUCCESS**(0x00) 무상 ARP 송신에 성공했습니다.
-- **NX_NO_PACKET**(0x01) 사용 가능한 패킷이 없습니다.
+- **NX_NO_PACKET**(0x01) 사용할 수 있는 패킷이 없습니다.
 - **NX_NOT_ENABLED**(0x14) ARP가 사용하도록 설정되지 않았습니다.
 - **NX_IP_ADDRESS_ERROR**(0x21) 현재 IP 주소가 잘못되었습니다.
-- **NX_PTR_ERROR**(0x07) IP 포인터가 잘못되었습니다.
+- **NX_PTR_ERROR**(0x07) 잘못된 IP 포인터입니다.
 - **NX_CALLER_ERROR**(0x11) 호출자가 스레드가 아닙니다.
 
 ### <a name="allowed-from"></a>허용 위치
@@ -340,7 +340,7 @@ status = nx_arp_gratuitous_send(&ip_0, NX_NULL);
 - nxd_nd_cache_ip_address_find
 
 ## <a name="nx_arp_hardware_address_find"></a>nx_arp_hardware_address_find
-제공된 IP 주소에 해당하는 실제 하드웨어 주소를 찾습니다.
+제공된 IP 주소에 해당하는 물리적 하드웨어 주소를 찾습니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -353,22 +353,22 @@ UINT nx_arp_hardware_address_find(
 ```
 ### <a name="description"></a>Description
 
-이 서비스는 제공된 IP 주소와 연결된 ARP 캐시에서 실제 하드웨어 주소를 찾으려고 시도합니다.
+이 서비스는 제공된 IP 주소와 연결된 ARP 캐시에서 물리적 하드웨어 주소를 찾으려고 시도합니다.
 
 ### <a name="parameters"></a>매개 변수 
 
 - **ip_ptr** 이전에 만든 IP 인스턴스에 대한 포인터입니다.
 - **ip_address** 검색할 IP 주소입니다.
-- **physical_msw** 물리적 주소의 상위 16비트(47-32)를 반환하는 변수를 가리키는 포인터입니다.
-- **physical_lsw** 실제 주소의 하위 32비트(31-0)를 반환하는 변수에 대한 포인터입니다.
+- **physical_msw** 물리적 주소의 상위 16비트(47-32)를 반환하는 변수에 대한 포인터입니다.
+- **physical_lsw** 물리적 주소의 하위 32비트(31-0)를 반환하는 변수에 대한 포인터입니다.
 
 ### <a name="return-values"></a>반환 값
 
 - **NX_SUCCESS**(0x00) ARP 하드웨어 주소 찾기에 성공했습니다.
-- **NX_ENTRY_NOT_FOUND**(0x16) ARP 캐시에 매핑이 없습니다.
-- **NX_IP_ADDRESS_ERROR**(0x21) IP 주소가 잘못되었습니다.
-- **NX_PTR_ERROR**(0x07) IP 또는 메모리 포인터가 잘못되었습니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_ENTRY_NOT_FOUND**(0x16) ARP 캐시에서 매핑을 찾을 수 없습니다.
+- **NX_IP_ADDRESS_ERROR**(0x21) 잘못된 IP 주소입니다.
+- **NX_PTR_ERROR**(0x07) 잘못된 IP 또는 메모리 포인터입니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 
 ### <a name="allowed-from"></a>허용 위치
@@ -411,7 +411,7 @@ status = nx_arp_hardware_address_find(&ip_0, IP_ADDRESS(1,2,3,4),
 - nxd_nd_cache_ip_address_find
 
 ## <a name="nx_arp_info_get"></a>nx_arp_info_get
-ARP 활동에 대한 정보 검색
+ARP 활동에 대한 정보를 검색합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -438,20 +438,20 @@ UINT nx_arp_info_get(
 ### <a name="parameters"></a>매개 변수
 
 - **ip_ptr** 이전에 만든 IP 인스턴스에 대한 포인터입니다.
-- **arp_requests_sent** 이 IP 인스턴스에서 보낸 총 ARP 요청 대상에 대한 포인터입니다.
-- **arp_requests_received** 네트워크에서 받은 총 ARP 요청 대상에 대한 포인터입니다.
-- **arp_responses_sent** 이 IP 인스턴스에서 보낸 총 ARP 응답 대상에 대한 포인터입니다.
-- **arp_responses_received** 네트워크에서 수신된 총 ARP 응답 대상을 가리키는 포인터입니다.
-- **arp_dynamic_entries** 현재 동적 ARP 항목 수 대상을 가리키는 포인터입니다.
-- **arp_static_entries** 현재 고정 ARP 항목 수 대상을 가리키는 포인터입니다.
-- **arp_aged_entries** 오래되고 잘못된 총 ARP 항목 수 대상을 가리키는 포인터입니다.
-- **arp_invalid_messages** 수신되었으나 유효하지 않은 총 ARP 메시지 대상에 대한 포인터입니다.
+- **arp_requests_sent** 이 IP 인스턴스에서 송신된 총 ARP 요청 대상에 대한 포인터입니다.
+- **arp_requests_received** 네트워크에서 수신된 총 ARP 요청 대상에 대한 포인터입니다.
+- **arp_responses_sent** 이 IP 인스턴스에서 송신된 총 ARP 응답 대상에 대한 포인터입니다.
+- **arp_responses_received** 네트워크에서 수신된 총 ARP 응답 대상에 대한 포인터입니다.
+- **arp_dynamic_entries** 현재 동적 ARP 항목 수 대상에 대한 포인터입니다.
+- **arp_static_entries** 현재 고정 ARP 항목 수 대상에 대한 포인터입니다.
+- **arp_aged_entries** 오래되고 잘못된 총 ARP 항목 수 대상에 대한 포인터입니다.
+- **arp_invalid_messages** 수신되었으나 잘못된 총 ARP 메시지 대상에 대한 포인터입니다.
 
 ### <a name="return-values"></a>반환 값
 
 - **NX_SUCCESS**(0x00) ARP 정보 검색에 성공했습니다.
-- **NX_PTR_ERROR**(0x07) IP 포인터가 잘못되었습니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_PTR_ERROR**(0x07) 잘못된 IP 포인터입니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 
 ### <a name="allowed-from"></a>허용 위치
@@ -497,7 +497,7 @@ status = nx_arp_info_get(&ip_0, &arp_requests_sent,
 - nxd_nd_cache_ip_address_find
 
 ## <a name="nx_arp_ip_address_find"></a>nx_arp_ip_address_find
-제공된 물리적 주소에 해당하는 IP 주소 찾기
+제공된 물리적 주소에 해당하는 IP 주소를 찾습니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -515,16 +515,16 @@ UINT nx_arp_ip_address_find(
 ### <a name="parameters"></a>매개 변수 
 
 - **ip_ptr** 이전에 만든 IP 인스턴스에 대한 포인터입니다.
-- **ip_address** 매핑된 IP 주소가 있는 경우, 반환 IP 주소를 가리키는 포인터입니다.
+- **ip_address** 매핑된 IP 주소가 있는 경우, 반환 IP 주소에 대한 포인터입니다.
 - **physical_msw** 검색할 물리적 주소의 상위 16비트(47-32)입니다.
 - **physical_lsw** 검색할 물리적 주소의 하위 32비트(31-0)입니다.
 
 ### <a name="return-values"></a>반환 값
 
 - **NX_SUCCESS**(0x00) ARP IP 주소 찾기에 성공했습니다. 
-- **NX_ENTRY_NOT_FOUND**(0x16) ARP 캐시에 매핑이 없습니다.
-- **NX_PTR_ERROR**(0x07) IP 또는 메모리 포인터가 잘못되었습니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_ENTRY_NOT_FOUND**(0x16) ARP 캐시에서 매핑을 찾을 수 없습니다.
+- **NX_PTR_ERROR**(0x07) 잘못된 IP 또는 메모리 포인터입니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 - **NX_INVALID_PARAMETERS**(0x4D) Physical_msw 및 physical_lsw는 둘 다 0입니다.
 
@@ -566,7 +566,7 @@ status = nx_arp_ip_address_find(&ip_0, &ip_address, 0x0, 0x1234);
 - nxd_nd_cache_ip_address_find
 
 ## <a name="nx_arp_static_entries_delete"></a>nx_arp_static_entries_delete
-모든 정적 ARP 항목 삭제
+모든 고정 ARP 항목을 삭제합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -586,7 +586,7 @@ UINT nx_arp_static_entries_delete(NX_IP *ip_ptr);
 
 - **NX_SUCCESS**(0x00) 고정 항목이 삭제됩니다.
 - **NX_PTR_ERROR**(0x07) 잘못된 ip_ptr 포인터입니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 
 ### <a name="allowed-from"></a>허용 위치
@@ -626,7 +626,7 @@ status = nx_arp_static_entries_delete(&ip_0);
 - nxd_nd_cache_ip_address_find
 
 ## <a name="nx_arp_static_entry_create"></a>nx_arp_static_entry_create
-ARP 캐시에 고정 IP-하드웨어 매핑 만들기
+ARP 캐시에 고정 IP-하드웨어 매핑을 만듭니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -650,11 +650,11 @@ UINT nx_arp_static_entry_create(
 
 ### <a name="return-values"></a>반환 값 
 
-- **NX_SUCCESS** (0x00) ARP 고정 항목 만들기에 성공했습니다.
+- **NX_SUCCESS**(0x00) ARP 고정 항목 만들기에 성공했습니다.
 - **NX_NO_MORE_ENTRIES**(0x17) ARP 캐시에 사용할 수 있는 ARP 항목이 더 이상 없습니다.
-- **NX_IP_ADDRESS_ERROR**(0x21) IP 주소가 잘못되었습니다.
-- **NX_PTR_ERROR**(0x07) IP 포인터가 잘못되었습니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_IP_ADDRESS_ERROR**(0x21) 잘못된 IP 주소입니다.
+- **NX_PTR_ERROR**(0x07) 잘못된 IP 포인터입니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 - **NX_INVALID_PARAMETERS**(0x4D) Physical_msw 및 physical_lsw는 둘 다 0입니다.
 
@@ -697,7 +697,7 @@ status = nx_arp_static_entry_create(&ip_0, IP_ADDRESS(1,2,3,4),
 - nxd_nd_cache_ip_address_find
 
 ## <a name="nx_arp_static_entry_delete"></a>nx_arp_static_entry_delete 
-ARP 캐시에서 고정 IP-하드웨어 매핑 삭제
+ARP 캐시에서 고정 IP-하드웨어 매핑을 삭제합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -723,10 +723,10 @@ UINT nx_arp_static_entry_delete(
 
 - **NX_SUCCESS**(0x00) ARP 고정 항목 삭제에 성공했습니다.
 - **NX_ENTRY_NOT_FOUND**(0x16) ARP 캐시에서 고정 ARP 항목을 찾을 수 없습니다.
-- **NX_PTR_ERROR**(0x07) IP 포인터가 잘못되었습니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_PTR_ERROR**(0x07) 잘못된 IP 포인터입니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
-- **NX_IP_ADDRESS_ERROR**(0x21) IP 주소가 잘못되었습니다.
+- **NX_IP_ADDRESS_ERROR**(0x21) 잘못된 IP 주소입니다.
 - **NX_INVALID_PARAMETERS**(0x4D) Physical_msw 및 physical_lsw는 둘 다 0입니다.
 
 ### <a name="allowed-from"></a>허용 위치
@@ -767,7 +767,7 @@ status = nx_arp_static_entry_delete(&ip_0, IP_ADDRESS(1,2,3,4),
 - nxd_nd_cache_ip_address_find
 
 ## <a name="nx_icmp_enable"></a>nx_icmp_enable
-ICMP(Internet Control Message Protocol) 사용
+ICMP(Internet Control Message Protocol)를 사용하도록 설정합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -789,8 +789,8 @@ UINT nx_icmp_enable(NX_IP *ip_ptr);
 
 - **NX_SUCCESS**(0x00) ICMP를 사용하도록 설정하는 데 성공했습니다.
 - **NX_ALREADY_ENABLED**(0x15) ICMP는 이미 사용하도록 설정되었습니다.
-- **NX_PTR_ERROR**(0x07) IP 포인터가 잘못되었습니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_PTR_ERROR**(0x07) 잘못된 IP 포인터입니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 
 ### <a name="allowed-from"></a>허용 위치
 
@@ -818,7 +818,7 @@ status = nx_icmp_enable(&ip_0);
 - nxd_icmpv6_ra_flag_callback_set
 
 ## <a name="nx_icmp_info_get"></a>nx_icmp_info_get
-ICMP 활동에 대한 정보 검색
+ICMP 활동에 대한 정보를 검색합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -842,8 +842,8 @@ UINT nx_icmp_info_get(
 ### <a name="parameters"></a>매개 변수
 
 - **ip_ptr** 이전에 만든 IP 인스턴스에 대한 포인터입니다.
-- **pings_sent** 송신된 총 ping 수 대상을 가리키는 포인터입니다.
-- **ping_timeouts** 총 ping 시간 제한 수 대상을 가리키는 포인터입니다.
+- **pings_sent** 송신된 총 ping 수 대상에 대한 포인터입니다.
+- **ping_timeouts** 총 ping 시간 제한 수 대상에 대한 포인터입니다.
 - **ping_threads_suspended** ping 요청에서 일시 중단된 총 스레드 수 대상을 가리키는 포인터입니다.
 - **ping_responses_received** 수신된 총 ping 응답 수 대상을 가리키는 포인터입니다.
 - **icmp_checksum_errors** 총 ICMP 체크섬 오류 수 대상을 가리키는 포인터입니다.
@@ -852,8 +852,8 @@ UINT nx_icmp_info_get(
 ### <a name="return-values"></a>반환 값
 
 - **NX_SUCCESS**(0x00) ICMP 정보 검색에 성공했습니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
-- **NX_PTR_ERROR**(0x07) IP 포인터가 잘못되었습니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
+- **NX_PTR_ERROR**(0x07) 잘못된 IP 포인터입니다.
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 
 ### <a name="allowed-from"></a>허용 위치
@@ -886,7 +886,7 @@ status = nx_icmp_info_get(&ip_0, &pings_sent, &ping_timeouts,
 - nxd_icmpv6_ra_flag_callback_set
 
 ## <a name="nx_icmp_ping"></a>nx_icmp_ping  
-지정된 IP 주소로 ping 요청 송신
+지정된 IP 주소로 ping 요청을 송신합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -929,9 +929,9 @@ IPv6 대상에 ping 요청을 보내기 위해 애플리케이션은 ***nxd_icmp
 - **NX_OVERFLOW**(0x03) 지정된 데이터 영역은 이 IP 인스턴스의 기본 패킷 크기를 초과합니다.
 - **NX_NO_RESPONSE**(0x29) 요청된 IP에서 응답하지 않았습니다.
 - **NX_WAIT_ABORTED**(0x1A) 요청된 일시 중단이 tx_thread_wait_abort 호출에 의해 중단되었습니다.
-- **NX_IP_ADDRESS_ERROR**(0x21) IP 주소가 잘못되었습니다.
+- **NX_IP_ADDRESS_ERROR**(0x21) 잘못된 IP 주소입니다.
 - **NX_PTR_ERROR**(0x07) 잘못된 IP 또는 응답 포인터입니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 
 ### <a name="allowed-from"></a>허용 위치
@@ -965,7 +965,7 @@ status = nx_icmp_ping(&ip_0, IP_ADDRESS(1,2,3,5), "abcd", 4,
 - nxd_icmpv6_ra_flag_callback_set
 
 ## <a name="nx_igmp_enable"></a>nx_igmp_enable
-IGMP(Internet Group Management Protocol) 사용
+IGMP(Internet Group Management Protocol)를 사용하도록 설정합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -983,9 +983,9 @@ UINT nx_igmp_enable(NX_IP *ip_ptr);
 ### <a name="return-values"></a>반환 값
 
 - **NX_SUCCESS**(0x00) IGMP를 사용하도록 설정하는 데 성공했습니다.
-- **NX_PTR_ERROR**(0x07) IP 포인터가 잘못되었습니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
-- **NX_ALREADY_ENABLED**(0x15) 이 구성 요소는 이미 사용하도록 설정되어 있습니다.
+- **NX_PTR_ERROR**(0x07) 잘못된 IP 포인터입니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
+- **NX_ALREADY_ENABLED**(0x15) 이 구성 요소는 이미 사용하도록 설정되었습니다.
 
 ### <a name="allowed-from"></a>허용 위치
 
@@ -1018,7 +1018,7 @@ status = nx_igmp_enable(&ip_0);
 - nxd_ipv6_multicast_interface_leave
 
 ## <a name="nx_igmp_info_get"></a>nx_igmp_info_get
-ARP 활동에 대한 정보 검색
+IGMP 활동에 대한 정보를 검색합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -1040,16 +1040,16 @@ UINT nx_igmp_info_get(
 ### <a name="parameters"></a>매개 변수
 
 - **ip_ptr** 이전에 만든 IP 인스턴스에 대한 포인터입니다.
-- **igmp_reports_sent** 송신된 총 ICMP 보고서 수 대상을 가리키는 포인터입니다.
-- **igmp_queries_received** 멀티캐스트 라우터에 수신된 총 쿼리 수 대상을 가리키는 포인터입니다.
-- **igmp_checksum_errors** 수신 패킷의 총 IGMP 체크섬 오류 수 대상을 가리키는 포인터입니다.
-- **current_groups_joined** 이 IP 인스턴스를 통해 조인된 현재 그룹 수 대상을 가리키는 포인터입니다.
+- **igmp_reports_sent** 송신된 총 ICMP 보고서 수 대상에 대한 포인터입니다.
+- **igmp_queries_received** 멀티캐스트 라우터에 수신된 총 쿼리 수 대상에 대한 포인터입니다.
+- **igmp_checksum_errors** 수신 패킷의 총 IGMP 체크섬 오류 수 대상에 대한 포인터입니다.
+- **current_groups_joined** 이 IP 인스턴스를 통해 가입된 현재 그룹 수 대상에 대한 포인터입니다.
 
 ### <a name="return-values"></a>반환 값  
 
 - **NX_SUCCESS**(0x00) IGMP 정보 검색에 성공했습니다.
-- **NX_PTR_ERROR**(0x07) IP 포인터가 잘못되었습니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_PTR_ERROR**(0x07) 잘못된 IP 포인터입니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 
 ### <a name="allowed-from"></a>허용 위치
@@ -1087,7 +1087,7 @@ status = nx_igmp_info_get(&ip_0, &igmp_reports_sent,
 - nxd_ipv6_multicast_interface_leave
 
 ## <a name="nx_igmp_loopback_disable"></a>nx_igmp_loopback_disable
-IGMP 루프백 사용 안 함
+IGMP 루프백을 사용하지 않도록 설정합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -1096,7 +1096,7 @@ UINT nx_igmp_loopback_disable(NX_IP *ip_ptr);
 ```
 ### <a name="description"></a>Description
 
-이 서비스는 조인된 모든 후속 멀티캐스트 그룹에 대해 IGMP 루프백을 사용하지 않도록 설정합니다.
+이 서비스는 가입된 모든 후속 멀티캐스트 그룹에 대해 IGMP 루프백을 사용하지 않도록 설정합니다.
 
 ### <a name="parameters"></a>매개 변수
 
@@ -1106,7 +1106,7 @@ UINT nx_igmp_loopback_disable(NX_IP *ip_ptr);
 
 - **NX_SUCCESS**(0x00) IGMP 루프백을 사용하지 않도록 설정하는 데 성공했습니다.
 - **NX_NOT_ENABLED**(0x14) IGMP가 사용하도록 설정되지 않았습니다.
-- **NX_PTR_ERROR**(0x07) IP 포인터가 잘못되었습니다.
+- **NX_PTR_ERROR**(0x07) 잘못된 IP 포인터입니다.
 - **NX_CALLER_ERROR**(0x11) 호출자가 스레드나 초기화가 아닙니다.
 
 ### <a name="allowed-from"></a>허용 위치
@@ -1141,7 +1141,7 @@ status = nx_igmp_loopback_disable(&ip_0);
 - nxd_ipv6_multicast_interface_leave
 
 ## <a name="nx_igmp_loopback_enable"></a>nx_igmp_loopback_enable
-IGMP 루프백 사용
+IGMP 루프백을 사용하도록 설정합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -1150,7 +1150,7 @@ UINT nx_igmp_loopback_enable(NX_IP *ip_ptr);
 ```
 ### <a name="description"></a>Description
 
-이 서비스는 조인된 모든 후속 멀티캐스트 그룹에 대해 IGMP 루프백을 사용하도록 설정합니다.
+이 서비스는 가입된 모든 후속 멀티캐스트 그룹에 대해 IGMP 루프백을 사용하도록 설정합니다.
 
 ### <a name="parameters"></a>매개 변수
 
@@ -1160,7 +1160,7 @@ UINT nx_igmp_loopback_enable(NX_IP *ip_ptr);
 
 - **NX_SUCCESS**(0x00) IGMP 루프백을 사용하지 않도록 설정하는 데 성공했습니다.
 - **NX_NOT_ENABLED**(0x14) IGMP가 사용하도록 설정되지 않았습니다.
-- **NX_PTR_ERROR**(0x07) IP 포인터가 잘못되었습니다.
+- **NX_PTR_ERROR**(0x07) 잘못된 IP 포인터입니다.
 - **NX_CALLER_ERROR**(0x11) 호출자가 스레드나 초기화가 아닙니다.
 
 ### <a name="allowed-from"></a>허용 위치
@@ -1194,7 +1194,7 @@ status = nx_igmp_loopback_enable(&ip_0);
 - nxd_ipv6_multicast_interface_leave
 
 ## <a name="nx_igmp_multicast_interface_join"></a>nx_igmp_multicast_interface_join
-인터페이스를 통해 IP 인스턴스를 지정된 멀티캐스트 그룹에 조인
+인터페이스를 통해 IP 인스턴스를 지정된 멀티캐스트 그룹에 가입합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -1206,7 +1206,7 @@ UINT nx_igmp_multicast_interface_join(
 ```
 ### <a name="description"></a>Description
 
-이 서비스는 지정된 네트워크 인터페이스를 통해 IP 인스턴스를 지정된 멀티캐스트 그룹에 조인합니다. 동일한 그룹이 조인된 횟수를 추적하도록 내부 카운터가 유지 관리됩니다. 멀티캐스트 그룹에 조인한 후에는 IGMP 구성 요소가 지정된 네트워크 인터페이스를 통해 이 그룹 주소를 사용하는 IP 패킷의 수신을 허용하며 이 IP가 이 멀티캐스트 그룹의 멤버임을 라우터에 보고합니다. IGMP 멤버 자격 조인, 보고, 탈퇴 메시지도 지정된 네트워크 인터페이스를 통해 송신됩니다. IGMP 그룹 멤버 자격 보고를 송신하지 않고 IPv4 멀티캐스트 그룹에 조인하려면 애플리케이션에서 서비스 ***nx_ipv4_multicast_interface_join*** 을 사용해야 합니다.
+이 서비스는 지정된 네트워크 인터페이스를 통해 IP 인스턴스를 지정된 멀티캐스트 그룹에 가입합니다. 동일한 그룹이 가입된 횟수를 추적하도록 내부 카운터가 유지 관리됩니다. 멀티캐스트 그룹에 가입한 후에는 IGMP 구성 요소가 지정된 네트워크 인터페이스를 통해 이 그룹 주소를 사용하는 IP 패킷의 수신을 허용하며 이 IP가 이 멀티캐스트 그룹의 멤버임을 라우터에 보고합니다. IGMP 멤버 자격 조인, 보고, 탈퇴 메시지도 지정된 네트워크 인터페이스를 통해 송신됩니다. IGMP 그룹 멤버 자격 보고를 송신하지 않고 IPv4 멀티캐스트 그룹에 조인하려면 애플리케이션에서 서비스 ***nx_ipv4_multicast_interface_join*** 을 사용해야 합니다.
 
 ### <a name="parameters"></a>매개 변수 
 
@@ -1216,12 +1216,12 @@ UINT nx_igmp_multicast_interface_join(
 
 ### <a name="return-values"></a>반환 값
 
-- **NX_SUCCESS**(0x00) 멀티캐스트 그룹 조인에 성공했습니다.
-- **NX_NO_MORE_ENTRIES**(0x17) 멀티캐스트 그룹을 더 이상 조인할 수 없습니다. 최대값이 초과되었습니다.
-- **NX_PTR_ERROR**(0x07) IP 포인터가 잘못되었습니다.
+- **NX_SUCCESS**(0x00) 멀티캐스트 그룹 가입에 성공했습니다.
+- **NX_NO_MORE_ENTRIES**(0x17) 멀티캐스트 그룹을 더 이상 가입할 수 없습니다. 최댓값이 초과되었습니다.
+- **NX_PTR_ERROR**(0x07) 잘못된 IP 포인터입니다.
 - **NX_INVALID_INTERFACE**(0x4C) 디바이스 인덱스가 잘못된 네트워크 인터페이스를 가리킵니다.
 - **NX_IP_ADDRESS_ERROR**(0x21) 제공된 멀티캐스트 그룹 주소가 잘못된 클래스 D 주소입니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) IP 멀티캐스트 지원이 사용하도록 설정되지 않았습니다.
 
 ### <a name="allowed-from"></a>허용 위치
@@ -1287,7 +1287,7 @@ UINT nx_igmp_multicast_interface_leave(
 - **NX_PTR_ERROR**(0x07) IP 포인터가 잘못되었습니다.
 - **NX_INVALID_INTERFACE**(0x4C) 디바이스 인덱스가 잘못된 네트워크 인터페이스를 가리킵니다.
 - **NX_IP_ADDRESS_ERROR**(0x21) 제공된 멀티캐스트 그룹 주소가 잘못된 클래스 D 주소입니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) IP 멀티캐스트 지원이 사용하도록 설정되지 않았습니다.
 
 ### <a name="allowed-from"></a>허용 위치
@@ -1324,7 +1324,7 @@ status = nx_igmp_multicast_interface_leave
 - nxd_ipv6_multicast_interface_leave
 
 ## <a name="nx_igmp_multicast_join"></a>nx_igmp_multicast_join
-IP 인스턴스를 지정된 멀티캐스트 그룹에 조인
+IP 인스턴스를 지정된 멀티캐스트 그룹에 가입합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -1335,7 +1335,7 @@ UINT nx_igmp_multicast_join(
 ```
 ### <a name="description"></a>Description
 
-이 서비스는 IP 인스턴스를 지정된 멀티캐스트 그룹에 조인합니다. 동일한 그룹이 조인된 횟수를 추적하도록 내부 카운터가 유지 관리됩니다. 호스트가 그룹을 조인하려는 것을 나타내는, 네트워크에서 송신된 첫 번째 조인 요청인 경우 드라이버에서 IGMP 보고서 송신 명령이 실행됩니다. 조인 후에는 IGMP 구성 요소가 이 그룹 주소를 사용하는 IP 패킷을 수신할 수 있으며 이 IP는 해당 멀티캐스트 그룹의 멤버임을 라우터에 보고합니다. IGMP 그룹 멤버 자격 보고를 송신하지 않고 IPv4 멀티캐스트 그룹에 조인하려면 애플리케이션에서 서비스 ***nx_ipv4_multicast_interface_join*** 을 사용해야 합니다.
+이 서비스는 IP 인스턴스를 지정된 멀티캐스트 그룹에 가입합니다. 동일한 그룹이 가입된 횟수를 추적하도록 내부 카운터가 유지 관리됩니다. 호스트가 그룹을 가입하려는 것을 나타내는, 네트워크에서 송신된 첫 번째 가입 요청인 경우 드라이버에서 IGMP 보고서 송신 명령이 실행됩니다. 조인 후에는 IGMP 구성 요소가 이 그룹 주소를 사용하는 IP 패킷을 수신할 수 있으며 이 IP는 해당 멀티캐스트 그룹의 멤버임을 라우터에 보고합니다. IGMP 그룹 멤버 자격 보고를 송신하지 않고 IPv4 멀티캐스트 그룹에 조인하려면 애플리케이션에서 서비스 ***nx_ipv4_multicast_interface_join*** 을 사용해야 합니다.
 
 > [!NOTE]  
 > 기본 디바이스가 아닌 디바이스에서 멀티캐스트 그룹을 조인하려면 **nx_igmp_multicast_interface_join** 서비스를 사용합니다.
@@ -1343,16 +1343,16 @@ UINT nx_igmp_multicast_join(
 ### <a name="parameters"></a>매개 변수
 
 - **ip_ptr** 이전에 만든 IP 인스턴스에 대한 포인터입니다.
-- **group_address** 조인할 클래스 D IP 멀티캐스트 그룹 주소입니다.
+- **group_address** 가입할 클래스 D IP 멀티캐스트 그룹 주소입니다.
 
 ### <a name="return-values"></a>반환 값 
 
-- **NX_SUCCESS**(0x00) 멀티캐스트 그룹 조인에 성공했습니다.
-- **NX_NO_MORE_ENTRIES**(0x17) 멀티캐스트 그룹을 더 이상 조인할 수 없습니다. 최대값이 초과되었습니다.
+- **NX_SUCCESS**(0x00) 멀티캐스트 그룹 가입에 성공했습니다.
+- **NX_NO_MORE_ENTRIES**(0x17) 멀티캐스트 그룹을 더 이상 가입할 수 없습니다. 최댓값이 초과되었습니다.
 - **NX_INVALID_INTERFACE**(0x4C) 디바이스 인덱스가 잘못된 네트워크 인터페이스를 가리킵니다.
 - **NX_IP_ADDRESS_ERROR**(0x21) 잘못된 IP 그룹 주소입니다.
-- **NX_PTR_ERROR**(0x07) IP 포인터가 잘못되었습니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_PTR_ERROR**(0x07) 잘못된 IP 포인터입니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 
 ### <a name="allowed-from"></a>허용 위치
@@ -1388,7 +1388,7 @@ status = nx_igmp_multicast_join(&ip_0, IP_ADDRESS(224,0,0,200);
 - nxd_ipv6_multicast_interface_leave
 
 ## <a name="nx_igmp_multicast_leave"></a>nx_igmp_multicast_leave
-IP 인스턴스를 지정된 멀티캐스트 그룹에서 탈퇴
+IP 인스턴스가 지정된 멀티캐스트 그룹에서 탈퇴하도록 합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -1404,16 +1404,16 @@ UINT nx_igmp_multicast_leave(
 ### <a name="parameters"></a>매개 변수
 
 - **ip_ptr** 이전에 만든 IP 인스턴스에 대한 포인터입니다.
-- **group_address** 탈퇴할 멀티캐스트 그룹입니다.
+- **group_address** 나갈 멀티캐스트 그룹입니다.
 
 ### <a name="return-values"></a>반환 값  
 
-- **NX_SUCCESS**(0x00) 멀티캐스트 그룹 조인에 성공했습니다.
-- **NX_ENTRY_NOT_FOUND**(0x16) 이전 조인 요청을 찾을 수 없습니다.
+- **NX_SUCCESS**(0x00) 멀티캐스트 그룹 가입에 성공했습니다.
+- **NX_ENTRY_NOT_FOUND**(0x16) 이전 가입 요청을 찾을 수 없습니다.
 - **NX_INVALID_INTERFACE**(0x4C) 디바이스 인덱스가 잘못된 네트워크 인터페이스를 가리킵니다.
 - **NX_IP_ADDRESS_ERROR**(0x21) 잘못된 IP 그룹 주소입니다.
-- **NX_PTR_ERROR**(0x07) IP 포인터가 잘못되었습니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_PTR_ERROR**(0x07) 잘못된 IP 포인터입니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 
 ### <a name="allowed-from"></a>허용 위치
@@ -1448,7 +1448,7 @@ status = nx_igmp_multicast_leave(&ip_0, IP_ADDRESS(224,0,0,200);
 - nxd_ipv6_multicast_interface_leave
 
 ## <a name="nx_ip_address_change_notifiy"></a>nx_ip_address_change_notifiy
-IP 주소가 변경되면 애플리케이션에 알림
+IP 주소가 변경되면 애플리케이션에 알립니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -1465,14 +1465,14 @@ UINT nx_ip_address_change_notify(
 ### <a name="parameters"></a>매개 변수
 
 - **ip_ptr** 이전에 만든 IP 인스턴스에 대한 포인터입니다.
-- **change_notify** IP 변경 알림 함수를 가리키는 포인터입니다. 이 매개 변수가 NX_NULL이면 IP 주소 변경 알림이 사용하지 않도록 설정됩니다.
-- **additional_info** IP 주소가 변경되면 알림 함수에도 제공되는 선택적 추가 정보를 가리키는 포인터입니다.
+- **change_notify** IP 변경 알림 함수에 대한 포인터입니다. 이 매개 변수가 NX_NULL이면 IP 주소 변경 알림이 사용하지 않도록 설정됩니다.
+- **additional_info** IP 주소가 변경되면 알림 함수에도 제공되는 선택적 추가 정보에 대한 포인터입니다.
 
 ### <a name="return-values"></a>반환 값  
 
 - **NX_SUCCESS**(0x00) IP 주소 변경 알림에 성공했습니다.
-- **NX_PTR_ERROR**(0x07) IP 포인터가 잘못되었습니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_PTR_ERROR**(0x07) 잘못된 IP 포인터입니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 
 ### <a name="allowed-from"></a>허용 위치
 
@@ -1540,14 +1540,14 @@ UINT nx_ip_address_get(
 ### <a name="parameters"></a>매개 변수 
 
 - **ip_ptr** 이전에 만든 IP 인스턴스에 대한 포인터입니다.
-- **ip_address** IP 주소 대상을 가리키는 포인터입니다.
-- **network_mask** 네트워크 마스크 대상을 가리키는 포인터입니다.
+- **ip_address** IP 주소 대상에 대한 포인터입니다.
+- **network_mask** 네트워크 마스크 대상에 대한 포인터입니다.
 
 ### <a name="return-values"></a>반환 값 
 
 - **NX_SUCCESS**(0x00) IP 주소 가져오기에 성공했습니다.
 - **NX_PTR_ERROR**(0x07) 잘못된 IP 또는 반환 변수 포인터입니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 
 ### <a name="allowed-from"></a>허용 위치
 
@@ -1620,9 +1620,9 @@ UINT nx_ip_address_set(
 ### <a name="return-values"></a>반환 값
 
 - **NX_SUCCESS**(0x00) IP 주소 설정에 성공했습니다.
-- **NX_IP_ADDRESS_ERROR**(0x21) IP 주소가 잘못되었습니다.
-- **NX_PTR_ERROR**(0x07) IP 포인터가 잘못되었습니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_IP_ADDRESS_ERROR**(0x21) 잘못된 IP 주소입니다.
+- **NX_PTR_ERROR**(0x07) 잘못된 IP 포인터입니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 
 ### <a name="allowed-from"></a>허용 위치
 
@@ -1736,7 +1736,7 @@ status = nx_ip_auxiliary_packet_pool_set(&ip_0, &small_pool);
 - nx_packet_transmit_release
 
 ## <a name="nx_ip_create"></a>nx_ip_create
-IP 인스턴스 만들기
+IP 인스턴스를 만듭니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -1757,13 +1757,13 @@ UINT nx_ip_create(
 
 ### <a name="parameters"></a>매개 변수
 
-- **ip_ptr** 새 IP 인스턴스를 만들 제어 블록을 가리키는 포인터입니다.
+- **ip_ptr** 새 IP 인스턴스를 만들 제어 블록에 대한 포인터입니다.
 - **name** 새 IP 인스턴스의 이름입니다.
 - **ip_address** 새 IP 인스턴스의 IP 주소입니다.
 - **network_mask** 서브넷 및 슈퍼넷 지정에 사용할 IP 주소의 네트워크 부분을 나타내는 마스크입니다.
 - **default_pool** 이전에 만든 NetX Duo 패킷 풀의 제어 블록을 가리키는 포인터입니다.
 - **ip_network_driver** IP 패킷 송신 및 수신에 사용되는 사용자 제공 네트워크 드라이버입니다.
-- **memory_ptr** IP 도우미 스레드 스택 영역의 메모리 영역을 가리키는 포인터입니다.
+- **memory_ptr** IP 도우미 스레드 스택 영역의 메모리 영역에 대한 포인터입니다.
 - **memory_size** IP 도우미 스레드 스택의 메모리 영역 바이트 수입니다.
 - **priority** IP 도우미 스레드 우선 순위입니다.
 
@@ -1773,7 +1773,7 @@ UINT nx_ip_create(
 - **NX_NOT_IMPLEMENTED**(0x4A) NetX Duo 라이브러리가 잘못 구성되었습니다.
 - **NX_PTR_ERROR**(0x07) 잘못된 IP, 네트워크 드라이버 함수 포인터, 패킷 풀 또는 메모리 포인터입니다.
 - **NX_SIZE_ERROR**(0x09) 제공된 스택 크기가 너무 작습니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_IP_ADDRESS_ERROR**(0x21) 제공된 IP 주소가 잘못되었습니다.
 - **NX_OPTION_ERROR**(0x21) 제공된 IP 스레드 우선 순위가 잘못되었습니다.
 
@@ -1827,7 +1827,7 @@ status = nx_ip_create(&ip_0, "NetX IP Instance ip_0",
 - nxd_ipv6_stateless_address_autoconfig_enable
 
 ## <a name="nx_ip_delete"></a>nx_ip_delete
-이전에 만든 IP 인스턴스 삭제
+이전에 만든 IP 인스턴스를 삭제합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -1846,8 +1846,8 @@ UINT nx_ip_delete(NX_IP *ip_ptr);
 
 - **NX_SUCCESS**(0x00) IP 삭제에 성공했습니다.
 - **NX_SOCKETS_BOUND**(0x28) 이 IP 인스턴스는 여전히 UDP 또는 TCP 소켓과 바인딩되어 있습니다. IP 인스턴스를 삭제하려면 먼저 모든 소켓을 바인딩 해제하고 삭제해야 합니다.
-- **NX_PTR_ERROR**(0x07) IP 포인터가 잘못되었습니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_PTR_ERROR**(0x07) 잘못된 IP 포인터입니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 
 ### <a name="allowed-from"></a>허용 위치
 
@@ -1893,7 +1893,7 @@ status = nx_ip_delete(&ip_0);
 - nxd_ipv6_stateless_address_autoconfig_enable
 
 ## <a name="nx_ip_driver_direct_command"></a>nx_ip_driver_direct_command
-네트워크 드라이버에 대해 명령 실행
+네트워크 드라이버에 대해 명령을 실행합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -1922,14 +1922,14 @@ UINT nx_ip_driver_direct_command
     - NX_LINK_GET_TX_COUNT(15)
     - NX_LINK_GET_ALLOC_ERRORS(16)
     - NX_LINK_USER_COMMAND(50)
-- **return_value_ptr** 호출자의 반환 변수를 가리키는 포인터입니다.
+- **return_value_ptr** 호출자의 반환 변수에 대한 포인터입니다.
 
 ### <a name="return-values"></a>반환 값  
 
 - **NX_SUCCESS**(0x00) 네트워크 드라이버 직접 명령이 성공했습니다.
 - **NX_UNHANDLED_COMMAND**(0x44) 처리되지 않거나 구현되지 않은 네트워크 드라이버 명령입니다.
 - **NX_PTR_ERROR**(0x07) 잘못된 IP 또는 반환 값 포인터입니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_INVALID_INTERFACE**(0x4C) 잘못된 인터페이스 인덱스입니다.
 
 ### <a name="allowed-from"></a>허용 위치
@@ -1980,7 +1980,7 @@ status = nx_ip_driver_direct_command(&ip_0, NX_LINK_GET_STATUS,
 - nxd_ipv6_stateless_address_autoconfig_enable
 
 ## <a name="nx_ip_driver_interface_direct_command"></a>nx_ip_driver_interface_direct_command
-네트워크 드라이버에 대해 명령 실행
+네트워크 드라이버에 대해 명령을 실행합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -2008,7 +2008,7 @@ UINT nx_ip_driver_interface_direct_command(
     - NX_LINK_GET_ALLOC_ERRORS(16)
     - NX_LINK_USER_COMMAND(50)
 - **interface_index** 명령을 송신해야 하는 대상 네트워크 인터페이스 인덱스입니다.
-- **return_value_ptr** 호출자의 반환 변수를 가리키는 포인터입니다.
+- **return_value_ptr** 호출자의 반환 변수에 대한 포인터입니다.
 
 ### <a name="return-values"></a>반환 값  
 
@@ -2016,7 +2016,7 @@ UINT nx_ip_driver_interface_direct_command(
 - **NX_UNHANDLED_COMMAND**(0x44) 처리되지 않거나 구현되지 않은 네트워크 드라이버 명령입니다.
 - **NX_INVALID_INTERFACE**(0x4C) 잘못된 인터페이스 인덱스입니다.
 - **NX_PTR_ERROR**(0x07) 잘못된 IP 또는 반환 값 포인터입니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 
 ### <a name="allowed-from"></a>허용 위치
 
@@ -2072,7 +2072,7 @@ status = nx_ip_driver_interface_direct_command(&ip_0,
 - nxd_ipv6_stateless_address_autoconfig_enable
 
 ## <a name="nx_ip_forwarding_disable"></a>nx_ip_forwarding_disable  
-IP 전달을 사용하지 않도록 설정
+IP 패킷 전달을 사용하지 않도록 설정합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -2090,8 +2090,8 @@ UINT nx_ip_forwarding_disable(NX_IP *ip_ptr);
 ### <a name="return-values"></a>반환 값 
 
 - **NX_SUCCESS**(0x00) IP 전달을 사용하지 않도록 설정하는 데 성공했습니다.
-- **NX_PTR_ERROR**(0x07) IP 포인터가 잘못되었습니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_PTR_ERROR**(0x07) 잘못된 IP 포인터입니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 
 ### <a name="allowed-from"></a>허용 위치
 
@@ -2137,7 +2137,7 @@ status = nx_ip_forwarding_disable(&ip_0);
 - nxd_ipv6_stateless_address_autoconfig_enable
 
 ## <a name="nx_ip_forwarding_enable"></a>nx_ip_forwarding_enable
-IP 패킷 전달 사용하도록 설정
+IP 패킷 전달을 사용하도록 설정합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -2155,8 +2155,8 @@ UINT nx_ip_forwarding_enable(NX_IP *ip_ptr);
 ### <a name="return-values"></a>반환 값  
 
 - **NX_SUCCESS**(0x00) IP 전달을 사용하도록 설정하는 데 성공했습니다.
-- **NX_PTR_ERROR**(0x07) IP 포인터가 잘못되었습니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_PTR_ERROR**(0x07) 잘못된 IP 포인터입니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 
 ### <a name="allowed-from"></a>허용 위치
 
@@ -2202,7 +2202,7 @@ status = nx_ip_forwarding_enable(&ip_0);
 - nxd_ipv6_stateless_address_autoconfig_enable
 
 ## <a name="nx_ip_fragment_disable"></a>nx_ip_fragment_disable
-IP 패킷 조각화를 사용하지 않도록 설정
+IP 패킷 조각화를 사용하지 않도록 설정합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -2220,8 +2220,8 @@ UINT nx_ip_fragment_disable(NX_IP *ip_ptr);
 ### <a name="return-values"></a>반환 값  
 
 - **NX_SUCCESS**(0x00) IP 조각화를 사용하지 않도록 설정하는 데 성공했습니다.
-- **NX_PTR_ERROR**(0x07) IP 포인터가 잘못되었습니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_PTR_ERROR**(0x07) 잘못된 IP 포인터입니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) IP 인스턴스에서 IP 조각화가 사용하도록 설정되지 않았습니다.
 
 ### <a name="allowed-from"></a>허용 위치
@@ -2269,7 +2269,7 @@ status = nx_ip_fragment_disable(&ip_0);
 - nxd_ipv6_stateless_address_autoconfig_enable
 
 ## <a name="nx_ip_fragment_enable"></a>nx_ip_fragment_enable
-IP 패킷 조각화를 사용하도록 설정
+IP 패킷 조각화를 사용하도록 설정합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -2287,7 +2287,7 @@ UINT nx_ip_fragment_enable(NX_IP *ip_ptr);
 ### <a name="return-values"></a>반환 값  
 
 - **NX_SUCCESS**(0x00) IP 조각화를 사용하도록 설정하는 데 성공했습니다.
-- **NX_PTR_ERROR**(0x07) IP 포인터가 잘못되었습니다.
+- **NX_PTR_ERROR**(0x07) 잘못된 IP 포인터입니다.
 - **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
 - **NX_NOT_ENABLED**(0x14) NetX Duo에 IP 조각화 기능이 컴파일되어 있지 않습니다.
 
@@ -2436,7 +2436,7 @@ status = nx_ip_gateway_address_get(&ip_0, &ip_address);
 - nxd_ipv6_default_router_number_of_entries_get
 
 ## <a name="nx_ip_gateway_address_set"></a>nx_ip_gateway_address_set
-게이트웨이 IP 주소 설정
+게이트웨이 IP 주소를 설정합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -2457,9 +2457,9 @@ UINT nx_ip_gateway_address_set(
 ### <a name="return-values"></a>반환 값
 
 - **NX_SUCCESS**(0x00) 게이트웨이 IP 주소 설정에 성공했습니다.
-- **NX_PTR_ERROR**(0x07) IP 인스턴스 포인터가 잘못되었습니다.
-- **NX_IP_ADDRESS_ERROR**(0x21) IP 주소가 잘못되었습니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_PTR_ERROR**(0x07) 잘못된 IP 인스턴스 포인터입니다.
+- **NX_IP_ADDRESS_ERROR**(0x21) 잘못된 IP 주소입니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 
 ### <a name="allowed-from"></a>허용 위치
 
@@ -2493,7 +2493,7 @@ status = nx_ip_gateway_address_set(&ip_0, IP_ADDRESS(1,2,3,99);
 - nxd_ipv6_default_router_number_of_entries_get
 
 ## <a name="nx_ip_info_get"></a>nx_ip_info_get
-IP 활동에 대한 정보 검색
+IP 활동에 대한 정보를 검색합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -2521,22 +2521,22 @@ UINT nx_ip_info_get(
 ### <a name="parameters"></a>매개 변수
 
 - **ip_ptr** 이전에 만든 IP 인스턴스에 대한 포인터입니다.
-- **ip_total_packets_sent** 송신된 총 IP 패킷 수 대상을 가리키는 포인터입니다.
-- **ip_total_bytes_sent** 송신된 총 바이트 수 대상을 가리키는 포인터입니다.
-- **ip_total_packets_received** 총 IP 수신 패킷 수 대상을 가리키는 포인터입니다.
-- **ip_total_bytes_received** 수신된 총 IP 바이트 수 대상을 가리키는 포인터입니다.
-- **ip_invalid_packets** 잘못된 총 IP 패킷 수 대상을 가리키는 포인터입니다.
-- **ip_receive_packets_dropped** 삭제된 총 수신 패킷 수 대상을 가리키는 포인터입니다.
-- **ip_receive_checksum_errors** 수신 패킷의 총 체크섬 오류 수 대상을 가리키는 포인터입니다.
-- **ip_send_packets_dropped** 삭제된 총 송신 패킷 수 대상을 가리키는 포인터입니다.
-- **ip_total_fragments_sent** 송신된 총 조각 수 대상을 가리키는 포인터입니다.
-- **ip_total_fragments_received** 수신된 총 조각 수 대상을 가리키는 포인터입니다.
+- **ip_total_packets_sent** 송신된 총 IP 패킷 수 대상에 대한 포인터입니다.
+- **ip_total_bytes_sent** 송신된 총 바이트 수 대상에 대한 포인터입니다.
+- **ip_total_packets_received** 총 IP 수신 패킷 수 대상에 대한 포인터입니다.
+- **ip_total_bytes_received** 수신된 총 IP 바이트 수 대상에 대한 포인터입니다.
+- **ip_invalid_packets** 잘못된 총 IP 패킷 수 대상에 대한 포인터입니다.
+- **ip_receive_packets_dropped** 삭제된 총 수신 패킷 수 대상에 대한 포인터입니다.
+- **ip_receive_checksum_errors** 수신 패킷의 총 체크섬 오류 수 대상에 대한 포인터입니다.
+- **ip_send_packets_dropped** 삭제된 총 송신 패킷 수 대상에 대한 포인터입니다.
+- **ip_total_fragments_sent** 송신된 총 조각 수 대상에 대한 포인터입니다.
+- **ip_total_fragments_received** 수신된 총 조각 수 대상에 대한 포인터입니다.
 
 ### <a name="return-values"></a>반환 값  
 
 - **NX_SUCCESS**(0x00) IP 정보 검색에 성공했습니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
-- **NX_PTR_ERROR**(0x07) IP 포인터가 잘못되었습니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
+- **NX_PTR_ERROR**(0x07) 잘못된 IP 포인터입니다.
 
 ### <a name="allowed-from"></a>허용 위치
 
@@ -2592,7 +2592,7 @@ status = nx_ip_info_get(&ip_0,
 - nxd_ipv6_stateless_address_autoconfig_enable
 
 ## <a name="nx_ip_interface_address_get"></a>nx_ip_interface_address_get
-인터페이스 IP 주소 검색
+인터페이스 IP 주소를 검색합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -2614,15 +2614,15 @@ UINT nx_ip_interface_address_get (
 
 - **ip_ptr** 이전에 만든 IP 인스턴스에 대한 포인터입니다.
 - **interface_index** 인터페이스 인덱스로, IP 인스턴스에 연결된 네트워크 인터페이스의 인덱스와 값이 동일합니다.
-- **ip_address** 디바이스 인터페이스 IP 주소 대상을 가리키는 포인터입니다.
-- **network_mask** 디바이스 인터페이스 네트워크 마스크 대상을 가리키는 포인터입니다.
+- **ip_address** 디바이스 인터페이스 IP 주소 대상에 대한 포인터입니다.
+- **network_mask** 디바이스 인터페이스 네트워크 마스크 대상에 대한 포인터입니다.
 
 ### <a name="return-values"></a>반환 값
 
 - **NX_SUCCESS**(0x00) IP 주소 가져오기에 성공했습니다.
 - **NX_INVALID_INTERFACE**(0x4C) 지정된 네트워크 인터페이스가 잘못되었습니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
-- **NX_PTR_ERROR**(0x07) IP 포인터가 잘못되었습니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
+- **NX_PTR_ERROR**(0x07) 잘못된 IP 포인터입니다.
 
 ### <a name="allowed-from"></a>허용 위치
 
@@ -2728,7 +2728,7 @@ status = nx_ip_interface_address_mapping_configure(&ip_0,
 - nx_ip_link_status_change_notify_set
 
 ## <a name="nx_ip_interface_address_set"></a>nx_ip_interface_address_set
-인터페이스 IP 주소 및 네트워크 마스크 설정
+인터페이스 IP 주소 및 네트워크 마스크를 설정합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -2757,7 +2757,7 @@ UINT nx_ip_interface_address_set(
 
 - **NX_SUCCESS**(0x00) IP 주소 설정에 성공했습니다.
 - **NX_INVALID_INTERFACE**(0x4C) 지정된 네트워크 인터페이스가 잘못되었습니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_PTR_ERROR**(0x07) 잘못된 포인터입니다.
 - **NX_IP_ADDRESS_ERROR**(0x21) 잘못된 IP 주소입니다.
 
@@ -2799,7 +2799,7 @@ status = nx_ip_interface_address_set(ip_ptr, INTERFACE_INDEX,
 - nx_ip_link_status_change_notify_set
 
 ## <a name="nx_ip_interface_attach"></a>nx_ip_interface_attach
-IP 인스턴스에 네트워크 인터페이스 연결
+IP 인스턴스에 네트워크 인터페이스를 연결합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -2825,9 +2825,9 @@ IP 스레드가 아직 실행되고 있지 않으면 보조 인터페이스가 *
 ### <a name="parameters"></a>매개 변수 
 
 - **ip_ptr** 이전에 만든 IP 인스턴스에 대한 포인터입니다.
-- **interface_name** 인터페이스 이름 문자열을 가리키는 포인터입니다.
-- **ip_address** 디바이스 IP 주소입니다(호스트 바이트 순서).
-- **network_mask** 디바이스 네트워크 마스크입니다(호스트 바이트 순서).
+- **interface_name** 인터페이스 이름 문자열에 대한 포인터입니다.
+- **ip_address** 호스트 바이트 순서대로 표시된 디바이스 IP 주소입니다.
+- **network_mask** 호스트 바이트 순서대로 표시된 디바이스 네트워크 마스크입니다.
 - **ip_link_driver** 인터페이스 이더넷 드라이버입니다.
 
 ### <a name="return-values"></a>반환 값  
@@ -2835,7 +2835,7 @@ IP 스레드가 아직 실행되고 있지 않으면 보조 인터페이스가 *
 - **NX_SUCCESS**(0x00) 항목이 고정 라우팅 테이블에 추가됩니다.
 - **NX_NO_MORE_ENTRIES**(0x17) 최대 인터페이스 수입니다. NX_MAX_PHYSICAL_INTERFACES를 초과했습니다. IPv6를 사용하도록 설정하는 경우 이 오류는 드라이버에 IPv6 멀티캐스트 작업을 처리할 수 있을만큼 충분한 리소스가 없을 수도 있음을 나타낼 수도 있습니다.
 - **NX_DUPLICATED_ENTRY**(0x52) 제공된 IP 주소는 이 IP 인스턴스에서 이미 사용되고 있습니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_PTR_ERROR**(0x07) 잘못된 포인터 입력입니다.
 - **NX_IP_ADDRESS_ERROR**(0x21) 잘못된 IP 주소 입력입니다.
 
@@ -3071,7 +3071,7 @@ status = nx_ip_interface_detach(&IP_0, INTERFACE_INDEX);
 - nx_ip_link_status_change_notify_set
 
 ## <a name="nx_ip_interface_info_get"></a>nx_ip_interface_info_get
-네트워크 인터페이스 매개 변수 검색
+네트워크 인터페이스 매개 변수를 검색합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -3097,12 +3097,12 @@ UINT nx_ip_interface_info_get(
 
 - **ip_ptr** 이전에 만든 IP 인스턴스에 대한 포인터입니다.
 - **interface_index** 네트워크 인터페이스를 지정하는 인덱스입니다.
-- **interface_name** 네트워크 인터페이스 이름이 포함된 버퍼를 가리키는 포인터입니다.
-- **ip_address** 인터페이스 IP 주소 대상을 가리키는 포인터입니다.
-- **network_mask** 네트워크 마스크 대상을 가리키는 포인터입니다.
-- **mtu_size** 이 인터페이스의 최대 전송 단위 대상을 가리키는 포인터입니다.
-- **physical_address_msw** 디바이스 MAC 주소의 상위 16비트 대상을 가리키는 포인터입니다.
-- **physical_address_lsw** 디바이스 MAC 주소의 하위 32비트 대상을 가리키는 포인터입니다.
+- **interface_name** 네트워크 인터페이스 이름이 포함된 버퍼에 대한 포인터입니다.
+- **ip_address** 인터페이스 IP 주소 대상에 대한 포인터입니다.
+- **network_mask** 네트워크 마스크 대상에 대한 포인터입니다.
+- **mtu_size** 이 인터페이스의 최대 전송 단위 대상에 대한 포인터입니다.
+- **physical_address_msw** 디바이스 MAC 주소의 상위 16비트 대상에 대한 포인터입니다.
+- **physical_address_lsw** 디바이스 MAC 주소의 하위 32비트 대상에 대한 포인터입니다.
 
 ### <a name="return-values"></a>반환 값   
 
@@ -3359,7 +3359,7 @@ status = nx_ip_interface_physical_address_set(&ip_0,
 - nx_ip_link_status_change_notify_set
 
 ## <a name="nx_ip_interface_status_check"></a>nx_ip_interface_status_check
-IP 인스턴스의 상태 확인
+IP 인스턴스의 상태를 확인합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -3399,7 +3399,7 @@ UINT nx_ip_interface_status_check(
 - **NX_NOT_SUCCESSFUL**(0x43) 지정된 시간 제한 내에 상태 요청이 충족되지 않았습니다.
 - **NX_PTR_ERROR**(0x07) IP 포인터가 잘못되었거나 잘못된 상태였거나, 실제 상태 포인터가 잘못되었습니다.
 - **NX_OPTION_ERROR**(0x0a) 필요한 상태 옵션이 잘못되었습니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_INVALID_INTERFACE**(0x4C) Interface_index가 범위를 벗어났습니다. 또는 인터페이스가 잘못되었습니다.
 
 ### <a name="allowed-from"></a>허용 위치
@@ -3437,7 +3437,7 @@ status = nx_ip_interface_status_check(&ip_0, 1, NX_IP_LINK_ENABLED,
 - nx_ip_link_status_change_notify_set
 
 ## <a name="nx_ip_link_status_change_notify_set"></a>nx_ip_link_status_change_notify_set
-링크 상태 변경 알림 콜백 함수 설정
+링크 상태 변경 알림 콜백 함수를 설정합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -3448,7 +3448,7 @@ UINT nx_ip_link_status_change_notify_set(
 ```
 ### <a name="description"></a>Description
 
-이 서비스는 링크 상태 변경 알림 콜백 함수를 구성합니다. 기본 또는 보조 인터페이스 상태가 변경되는 경우(예: IP 주소가 변경되는 경우) 사용자 제공 link_status_change_notify 루틴이 호출됩니다. link_status_change_notify가 NULL인 경우 링크 상태 변경 알림 콜백 기능이 사용하지 않도록 설정됩니다.
+이 서비스는 링크 상태 변경 알림 콜백 함수를 구성합니다. 기본 또는 보조 인터페이스 상태가 변경되는 경우(예: IP 주소가 변경되는 경우) 사용자 제공 *link_status_change_notify* 루틴이 호출됩니다. *link_status_change_notify* 가 NULL인 경우 링크 상태 변경 알림 콜백 기능이 사용하지 않도록 설정됩니다.
 
 ### <a name="parameters"></a>매개 변수
 
@@ -3602,7 +3602,7 @@ status = nx_ip_max_payload_size_find(&ip_0,
 - nxd_ipv6_stateless_address_autoconfig_enable
 
 ## <a name="nx_ip_raw_packet_disable"></a>nx_ip_raw_packet_disable
-원시 패킷 송신/수신을 사용하지 않도록 설정
+원시 패킷 송신/수신을 사용하지 않도록 설정합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -3620,8 +3620,8 @@ UINT nx_ip_raw_packet_disable(NX_IP *ip_ptr);
 ### <a name="return-values"></a>반환 값 
 
 - **NX_SUCCESS**(0x00) IP 원시 패킷을 사용하지 않도록 설정하는 데 성공했습니다.
-- **NX_PTR_ERROR**(0x07) IP 포인터가 잘못되었습니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_PTR_ERROR**(0x07) 잘못된 IP 포인터입니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 
 ### <a name="allowed-from"></a>허용 위치
 
@@ -3651,7 +3651,7 @@ status = nx_ip_raw_packet_disable(&ip_0);
 - nxd_ip_raw_packet_source_send
 
 ## <a name="nx_ip_raw_packet_enable"></a>nx_ip_raw_packet_enable
-원시 패킷 처리를 사용하도록 설정
+원시 패킷 처리를 사용하도록 설정합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -3669,8 +3669,8 @@ UINT nx_ip_raw_packet_enable(NX_IP *ip_ptr);
 ### <a name="return-values"></a>반환 값 
 
 - **NX_SUCCESS**(0x00) IP 원시 패킷을 사용하도록 설정하는 데 성공했습니다.
-- **NX_PTR_ERROR**(0x07) IP 포인터가 잘못되었습니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_PTR_ERROR**(0x07) 잘못된 IP 포인터입니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 
 ### <a name="allowed-from"></a>허용 위치
 
@@ -3771,7 +3771,7 @@ status = nx_ip_raw_packet_filter_set(&ip_0,
 - nxd_ip_raw_packet_source_send
 
 ## <a name="nx_ip_raw_packet_receive"></a>nx_ip_raw_packet_receive
-원시 IP 패킷 수신
+원시 IP 패킷을 수신합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -3793,7 +3793,7 @@ UINT nx_ip_raw_packet_receive(
 - **ip_ptr** 이전에 만든 IP 인스턴스에 대한 포인터입니다.
 - **packet_ptr** 수신된 원시 IP 패킷이 배치될 포인터를 가리키는 포인터입니다.
 - **wait_option** 사용할 수 있는 패킷이 없는 경우 서비스가 작동하는 방식을 정의합니다. 대기 옵션은 다음과 같이 정의됩니다.
-   - **NX_NO_WAIT**(0x00000000)
+   - **NX_NO_WAIT** (0x00000000)
    - **NX_WAIT_FOREVER**(0xFFFFFFFF)
    - **틱 단위의 시간 제한**(0x00000001~0xFFFFFFFE)
 
@@ -3836,7 +3836,7 @@ status = nx_ip_raw_packet_receive(&ip_0, &packet_ptr, 4);
 - nxd_ip_raw_packet_source_send
 
 ## <a name="nx_ip_raw_packet_send"></a>nx_ip_raw_packet_send
-원시 IP 패킷 송신
+원시 IP 패킷을 송신합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -3861,7 +3861,7 @@ UINT nx_ip_raw_packet_send(
 ### <a name="parameters"></a>매개 변수
 
 - **ip_ptr** 이전에 만든 IP 인스턴스에 대한 포인터입니다.
-- **packet_ptr** 송신할 원시 IP 패킷을 가리키는 포인터입니다.
+- **packet_ptr** 송신할 원시 IP 패킷에 대한 포인터입니다.
 - **destination_ip** 대상 IP 주소로, 특정 호스트 IP 주소나 네트워크 브로드캐스트, 내부 루프백, 멀티캐스트 주소일 수 있습니다.
 - **type_of_service** 전송할 서비스 유형을 정의합니다. 올바른 값은 다음과 같습니다.
     - **NX_IP_NORMAL**(0x00000000)
@@ -3873,13 +3873,13 @@ UINT nx_ip_raw_packet_send(
 ### <a name="return-values"></a>반환 값  
 
 - **NX_SUCCESS**(0x00) IP 원시 패킷 송신에 성공했습니다.
-- **NX_IP_ADDRESS_ERROR**(0x21) IP 주소가 잘못되었습니다.
+- **NX_IP_ADDRESS_ERROR**(0x21) 잘못된 IP 주소입니다.
 - **NX_NOT_ENABLED**(0x14) 원시 IP 기능이 사용하도록 설정되지 않았습니다.
 - **NX_OPTION_ERROR**(0x0A) 잘못된 유형의 서비스입니다.
 - **NX_UNDERFLOW**(0x02) 공간이 부족하여 패킷에서 IP 헤더를 앞에 추가할 수 없습니다.
 - **NX_OVERFLOW**(0x03) 패킷 뒤에 추가 포인터가 잘못되었습니다.
 - **NX_PTR_ERROR**(0x07) 잘못된 IP 또는 패킷 포인터입니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 
 ### <a name="allowed-from"></a>허용 위치
 
@@ -3937,8 +3937,8 @@ UINT nx_ip_raw_packet_source_send(
 
 ### <a name="parameters"></a>매개 변수  
 
-- **ip_ptr** 이전에 만든 IP 작업을 가리키는 포인터입니다.
-- **packet_ptr** 전송할 패킷을 가리키는 포인터입니다.
+- **ip_ptr** 이전에 만든 IP 작업에 대한 포인터입니다.
+- **packet_ptr** 전송할 패킷에 대한 포인터입니다.
 - **destination_ip** 패킷을 송신할 IP 주소입니다.
 - **address_index** 패킷을 송신할 인터페이스 주소 인덱스입니다.
 - **type_of_service** 패킷 서비스 유형입니다.
@@ -3948,7 +3948,7 @@ UINT nx_ip_raw_packet_source_send(
 - **NX_SUCCESS**(0x00) 패킷이 성공적으로 전송되었습니다.
 - **NX_IP_ADDRESS_ERROR**(0x21) 사용할 수 있는 적절한 발신 인터페이스가 없습니다.
 - **NX_NOT_ENABLED**(0x14) 원시 IP 패킷 처리가 사용하도록 설정되지 않았습니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_PTR_ERROR**(0x07) 잘못된 포인터 입력입니다.
 - **NX_OPTION_ERROR**(0x0A) 잘못된 유형의 서비스가 지정되었습니다.
 - **NX_OVERFLOW**(0x03) 잘못된 패킷 앞에 추가 포인터입니다.
@@ -4016,7 +4016,7 @@ UINT nx_ip_raw_receive_queue_max_set(
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화 및 스레드
+초기화, 스레드
 
 ### <a name="preemption-possible"></a>가능한 선점
 
@@ -4046,7 +4046,7 @@ status = nx_ip_raw_receive_queue_max_set (&ip_0,
 - nxd_ip_raw_packet_source_send
 
 ## <a name="nx_ip_static_route_add"></a>nx_ip_static_route_add
-라우팅 테이블에 고정 경로 추가
+라우팅 테이블에 고정 경로를 추가합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -4067,9 +4067,9 @@ UINT nx_ip_static_route_add(
 ### <a name="parameters"></a>매개 변수 
 
 - **ip_ptr** 이전에 만든 IP 인스턴스에 대한 포인터입니다.
-- **network_address** 대상 네트워크 주소입니다(호스트 바이트 순서). 
-- **net_mask** 대상 네트워크 마스크입니다(호스트 바이트 순서).
-- **next_hop** 대상 네트워크의 다음 홉 주소입니다(호스트 바이트 순서).
+- **network_address** 호스트 바이트 순서대로 표시된 대상 네트워크 주소입니다. 
+- **net_mask** 호스트 바이트 순서대로 표시된 대상 네트워크 마스크입니다.
+- **next_hop** 호스트 바이트 순서대로 표시된 대상 네트워크의 다음 홉 주소입니다.
 
 ### <a name="return-values"></a>반환 값  
 
@@ -4077,7 +4077,7 @@ UINT nx_ip_static_route_add(
 - **NX_OVERFLOW**(0x03) 고정 라우팅 테이블이 꽉 찼습니다.
 - **NX_NOT_SUPPORTED**(0x4B) 이 기능은 컴파일되어 있지 않습니다.
 - **NX_IP_ADDRESS_ERROR**(0x21) 로컬 인터페이스를 통해 다음 홉에 직접 액세스할 수 없습니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_PTR_ERROR**(0x07) 잘못된 ip_ptr 포인터입니다.
 
 ### <a name="allowed-from"></a>허용 위치
@@ -4114,7 +4114,7 @@ status = nx_ip_static_route_add(ip_ptr, IP_ADDRESS(192,168,1,0),
 - nxd_ipv6_default_router_number_of_entries_get
 
 ## <a name="nx_ip_static_route_delete"></a>nx_ip_static_route_delete
-라우팅 테이블에서 고정 경로 삭제
+라우팅 테이블에서 고정 경로를 삭제합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -4134,7 +4134,7 @@ UINT nx_ip_static_route_delete(
 ### <a name="parameters"></a>매개 변수
 
 - **ip_ptr** 이전에 만든 IP 인스턴스에 대한 포인터입니다.
-- **network_address** 대상 네트워크 주소입니다(호스트 바이트 순서).
+- **network_address** 호스트 바이트 순서대로 표시된 대상 네트워크 주소입니다.
 - **net_mask** 대상 네트워크 마스크입니다(호스트 바이트 순서).
 
 ### <a name="return-values"></a>반환 값  
@@ -4143,7 +4143,7 @@ UINT nx_ip_static_route_delete(
 - **NX_NOT_SUCCESSFUL**(0X43) 라우팅 테이블에서 항목을 찾을 수 없습니다.
 - **NX_NOT_SUPPORTED**(0x4B) 이 기능은 컴파일되어 있지 않습니다.
 - **NX_PTR_ERROR**(0x07) 잘못된 ip_ptr 포인터입니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 
 ### <a name="allowed-from"></a>허용 위치
 
@@ -4179,7 +4179,7 @@ status = nx_ip_static_route_delete(ip_ptr,
 - nxd_ipv6_default_router_number_of_entries_get
 
 ## <a name="nx_ip_status_check"></a>nx_ip_status_check
-IP 인스턴스의 상태 확인
+IP 인스턴스의 상태를 확인합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -4219,7 +4219,7 @@ UINT nx_ip_status_check(
 - **NX_NOT_SUCCESSFUL**(0x43) 지정된 시간 제한 내에 상태 요청이 충족되지 않았습니다.
 - **NX_PTR_ERROR**(0x07) IP 포인터가 잘못되었거나 잘못된 상태였거나, 실제 상태 포인터가 잘못되었습니다.
 - **NX_OPTION_ERROR**(0x0a) 필요한 상태 옵션이 잘못되었습니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 
 ### <a name="allowed-from"></a>허용 위치
 
@@ -4289,7 +4289,7 @@ UINT nx_ipv4_multicast_interface_join(
 
 ### <a name="return-values"></a>반환 값
 
-- **NX_SUCCESS**(0x00) 멀티캐스트 그룹 조인에 성공했습니다.
+- **NX_SUCCESS**(0x00) 멀티캐스트 그룹 가입에 성공했습니다.
 - **NX_NO_MORE_ENTRIES**(0x17) 멀티캐스트 그룹을 더 이상 조인할 수 없습니다. 최대값이 초과되었습니다.
 - **NX_PTR_ERROR**(0X07) IP 인스턴스에 대한 포인터가 잘못되었거나 IP 인스턴스가 잘못되었습니다.
 - **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
@@ -4397,7 +4397,7 @@ status = nx_ipv4_multicast_interface_leave
 - nxd_ipv6_multicast_interface_leave
 
 ## <a name="nx_packet_allocate"></a>nx_packet_allocate
-지정된 풀에서 패킷 할당
+지정된 풀에서 패킷을 할당합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -4418,14 +4418,14 @@ UINT nx_packet_allocate(
 - **packet_ptr** 할당된 패킷 포인터의 포인터를 가리키는 포인터입니다.
 - **packet_type** 요청된 패킷의 유형을 정의합니다. 지원되는 패킷 유형 목록은 3장의 63페이지에서 “패킷 풀”을 참조하세요.
 - **wait_option** 패킷 풀에서 사용할 수 있는 패킷이 없는 경우의 틱 단위 대기 시간을 정의합니다. 대기 옵션은 다음과 같이 정의됩니다.
-  - **NX_NO_WAIT**(0x00000000)
+  - **NX_NO_WAIT** (0x00000000)
   - **NX_WAIT_FOREVER**(0xFFFFFFFF)
   - **틱 단위의 시간 제한**(0x00000001~0xFFFFFFFE)
 
 ### <a name="return-values"></a>반환 값 
 
 - **NX_SUCCESS**(0x00) 패킷 할당에 성공했습니다.
-- **NX_NO_PACKET**(0x01) 사용 가능한 패킷이 없습니다.
+- **NX_NO_PACKET**(0x01) 사용할 수 있는 패킷이 없습니다.
 - **NX_WAIT_ABORTED**(0x1A) 요청된 일시 중단이 tx_thread_wait_abort 호출에 의해 중단되었습니다.
 - **NX_INVALID_PARAMETERS**(0x4D) 패킷 크기가 프로토콜을 지원할 수 없습니다.
 - **NX_OPTION_ERROR**(0x0A) 잘못된 패킷 유형입니다.
@@ -4468,7 +4468,7 @@ status = nx_packet_allocate(&pool_0, &packet_ptr,
 - nx_packet_transmit_release
 
 ## <a name="nx_packet_copy"></a>nx_packet_copy
-패킷 복사
+패킷을 복사합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -4481,15 +4481,15 @@ UINT nx_packet_copy(
 ```
 ### <a name="description"></a>Description
 
-이 서비스는 제공된 패킷 풀에서 할당된 하나 이상의 새 패킷에 제공된 패킷의 정보를 복사합니다. 성공하면 새 패킷을 가리키는 포인터가 **new_packet_ptr** 에서 가리키는 대상에 반환됩니다.
+이 서비스는 제공된 패킷 풀에서 할당된 하나 이상의 새 패킷에 제공된 패킷의 정보를 복사합니다. 성공하면 새 패킷에 대한 포인터가 **new_packet_ptr** 에서 가리키는 대상에 반환됩니다.
 
 ### <a name="parameters"></a>매개 변수
 
-- **packet_ptr** 원본 패킷을 가리키는 포인터입니다.
-- **new_packet_ptr** 패킷의 새 복사본에 대한 포인터를 반환할 위치 대상을 가리키는 포인터입니다.
-- **pool_ptr** 복사본에 대해 패킷을 하나 이상 할당하는 데 사용되는, 이전에 만든 패킷 풀을 가리키는 포인터입니다.
+- **packet_ptr** 원본 패킷에 대한 포인터입니다.
+- **new_packet_ptr** 패킷의 새 복사본에 대한 포인터를 반환할 위치 대상에 대한 포인터입니다.
+- **pool_ptr** 복사본에 대해 패킷을 하나 이상 할당하는 데 사용되는, 이전에 만든 패킷 풀에 대한 포인터입니다.
 - **wait_option** 사용할 수 있는 패킷이 없는 경우 서비스가 대기하는 방식을 정의합니다. 대기 옵션은 다음과 같이 정의됩니다.
-    - **NX_NO_WAIT**(0x00000000)
+    - **NX_NO_WAIT** (0x00000000)
     - **NX_WAIT_FOREVER**(0xFFFFFFFF)
     - **틱 단위의 시간 제한**(0x00000001~0xFFFFFFFE)
 
@@ -4507,7 +4507,7 @@ UINT nx_packet_copy(
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화, 스레드, 타이머 및 ISR
+초기화, 스레드, 타이머, ISR
 
 ### <a name="preemption-possible"></a>가능한 선점
 
@@ -4540,7 +4540,7 @@ status = nx_packet_copy(old_packet, &new_copy_ptr, &pool_0, 20);
 - nx_packet_transmit_release
 
 ## <a name="nx_packet_data_append"></a>nx_packet_data_append
-패킷 끝에 데이터 추가
+패킷 끝에 데이터를 추가합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -4553,23 +4553,23 @@ UINT nx_packet_data_append(
 ```
 ### <a name="description"></a>Description
 
-이 서비스는 지정된 패킷 끝에 데이터를 추가합니다. 제공된 데이터 영역은 패킷으로 복사됩니다. 사용할 수 있는 메모리가 부족하며 연결된 패킷 기능이 사용하도록 설정된 경우 패킷을 하나 이상 할당하여 요청을 충족합니다. 연결된 패킷 기능이 사용하도록 설정되지 않는 경우 NX_SIZE_ERROR가 반환됩니다.
+이 서비스는 지정된 패킷 끝에 데이터를 추가합니다. 제공된 데이터 영역은 패킷으로 복사됩니다. 사용할 수 있는 메모리가 부족하며 연결된 패킷 기능이 사용하도록 설정된 경우 패킷을 하나 이상 할당하여 요청을 충족합니다. 연결된 패킷 기능이 사용하도록 설정되지 않는 경우 *NX_SIZE_ERROR* 가 반환됩니다.
 
 ### <a name="parameters"></a>매개 변수
 
 - **packet_ptr** 패킷 포인터입니다.
-- **data_start** 패킷 뒤에 추가할 사용자 데이터 영역 시작 부분을 가리키는 포인터입니다.
+- **data_start** 패킷 뒤에 추가할 사용자 데이터 영역 시작 부분에 대한 포인터입니다.
 - **data_size** 사용자 데이터 영역 크기입니다.
-- **pool_ptr** 현재 패킷에 공간이 충분하지 않은 경우 다른 패킷을 할당할 패킷 풀을 가리키는 포인터입니다.
+- **pool_ptr** 현재 패킷에 공간이 충분하지 않은 경우 다른 패킷을 할당할 패킷 풀에 대한 포인터입니다.
 - **wait_option** 사용할 수 있는 패킷이 없는 경우 서비스가 작동하는 방식을 정의합니다. 대기 옵션은 다음과 같이 정의됩니다.
-    - **NX_NO_WAIT**(0x00000000)
+    - **NX_NO_WAIT** (0x00000000)
     - **NX_WAIT_FOREVER**(0xFFFFFFFF)
     - **틱 단위의 시간 제한**(0x00000001~0xFFFFFFFE)
 
 ### <a name="return-values"></a>반환 값
 
-- **NX_SUCCESS** (0x00) 패킷 뒤에 추가에 성공했습니다.
-- **NX_NO_PACKET**(0x01) 사용 가능한 패킷이 없습니다.
+- **NX_SUCCESS**(0x00) 패킷 뒤에 추가에 성공했습니다.
+- **NX_NO_PACKET**(0x01) 사용할 수 있는 패킷이 없습니다.
 - **NX_WAIT_ABORTED**(0x1A) 요청된 일시 중단이 tx_thread_wait_abort 호출에 의해 중단되었습니다.
 - **NX_INVALID_PARAMETERS**(0x4D) 패킷 크기가 프로토콜을 지원할 수 없습니다.
 - **NX_UNDERFLOW**(0x02) 앞에 추가 포인터가 페이로드 시작보다 먼저입니다.
@@ -4580,7 +4580,7 @@ UINT nx_packet_data_append(
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화, 스레드, 타이머 및 ISR(애플리케이션 네트워크 드라이버)
+초기화, 스레드, 타이머, ISR(애플리케이션 네트워크 드라이버)입니다.
 
 ### <a name="preemption-possible"></a>가능한 선점
 
@@ -4612,7 +4612,7 @@ status = nx_packet_data_append(packet_ptr, "abcd", 4, &pool_0, 5);
 
 
 ## <a name="nx_packet_data_extract_offset"></a>nx_packet_data_extract_offset
-오프셋을 통해 패킷에서 데이터 추출
+오프셋을 통해 패킷에서 데이터를 추출합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -4630,21 +4630,21 @@ UINT nx_packet_data_extract_offset(
 
 ### <a name="parameters"></a>매개 변수
 
-- **packet_ptr** 추출할 패킷을 가리키는 포인터입니다.
+- **packet_ptr** 추출할 패킷에 대한 포인터입니다.
 - **offset** 현재 앞에 추가 포인터의 오프셋입니다.
-- **buffer_start** 저장 버퍼 시작 부분을 가리키는 포인터입니다.
+- **buffer_start** 저장 버퍼 시작 부분에 대한 포인터입니다.
 - **buffer_length** 복사할 바이트 수입니다.
 - **bytes_copied** 실제로 복사된 바이트 수입니다.
 
 ### <a name="return-values"></a>반환 값
 
-- **NX_SUCCESS** (0x00) 패킷 복사에 성공했습니다.
+- **NX_SUCCESS**(0x00) 패킷 복사에 성공했습니다.
 - **NX_PACKET_OFFSET_ERROR**(0x53) 잘못된 오프셋 값을 제공했습니다.
 - **NX_PTR_ERROR**(0x07) 잘못된 패킷 포인터 또는 버퍼 포인터입니다.
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화, 스레드, 타이머 및 ISR
+초기화, 스레드, 타이머, ISR
 
 ### <a name="preemption-possible"></a>가능한 선점
 
@@ -4674,7 +4674,7 @@ status = nx_packet_data_extract_offset(my_packet, 0, &data[0], 10,
 - nx_packet_transmit_release
 
 ## <a name="nx_packet_data_retrieve"></a>nx_packet_data_retrieve
-패킷에서 데이터 검색
+패킷에서 데이터를 검색합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -4695,9 +4695,9 @@ UINT nx_packet_data_retrieve(
 
 ### <a name="parameters"></a>매개 변수
 
-- **packet_ptr** 원본 패킷을 가리키는 포인터입니다.
-- **buffer_start** 버퍼 영역의 시작 부분을 가리키는 포인터입니다.
-- **bytes_copied** 복사된 바이트 수 대상을 가리키는 포인터입니다.
+- **packet_ptr** 원본 패킷에 대한 포인터입니다.
+- **buffer_start** 버퍼 영역의 시작 부분에 대한 포인터입니다.
+- **bytes_copied** 복사된 바이트 수 대상에 대한 포인터입니다.
 
 ### <a name="return-values"></a>반환 값
 
@@ -4707,7 +4707,7 @@ UINT nx_packet_data_retrieve(
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화, 스레드, 타이머 및 ISR
+초기화, 스레드, 타이머, ISR
 
 ### <a name="preemption-possible"></a>가능한 선점
 
@@ -4741,7 +4741,7 @@ status = nx_packet_data_retrieve(packet_ptr, buffer, &bytes_copied);
 - nx_packet_transmit_release
 
 ## <a name="nx_packet_length_get"></a>nx_packet_length_get
-패킷 데이터의 길이 가져오기
+패킷 데이터의 길이를 가져옵니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -4756,7 +4756,7 @@ UINT nx_packet_length_get(
 
 ### <a name="parameters"></a>매개 변수
 
-- **packet_ptr** 패킷을 가리키는 포인터입니다.
+- **packet_ptr** 패킷에 대한 포인터입니다.
 - **length** 패킷 길이 대상입니다.
 
 ### <a name="return-values"></a>반환 값  
@@ -4766,7 +4766,7 @@ UINT nx_packet_length_get(
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화, 스레드, 타이머 및 ISR
+초기화, 스레드, 타이머, ISR
 
 ### <a name="preemption-possible"></a>가능한 선점
 
@@ -4796,7 +4796,7 @@ status = nx_packet_length_get(my_packet, &my_length);
 - nx_packet_transmit_release
 
 ## <a name="nx_packet_pool_create"></a>nx_packet_pool_create
-지정된 메모리 영역에 패킷 풀 만들기
+지정된 메모리 영역에 패킷 풀을 만듭니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -4814,10 +4814,10 @@ UINT nx_packet_pool_create(
 
 ### <a name="parameters"></a>매개 변수
 
-- **pool_ptr** 패킷 풀 제어 블록을 가리키는 포인터입니다.
-- **name** 패킷 풀의 애플리케이션 이름을 가리키는 포인터입니다.
+- **pool_ptr** 패킷 풀 제어 블록에 대한 포인터입니다.
+- **name** 패킷 풀의 애플리케이션 이름에 대한 포인터입니다.
 - **payload_size** 풀에 있는 각 패킷의 바이트 수입니다. 이 값은 40바이트 이상이어야 하며 4로 균등하게 나뉘어야 합니다.
-- **memory_ptr** 패킷 풀을 배치할 메모리 영역을 가리키는 포인터입니다. 이 포인터는 ULONG 경계에 맞춰야 합니다.
+- **memory_ptr** 패킷 풀을 배치할 메모리 영역에 대한 포인터입니다. 이 포인터는 ULONG 경계에 맞춰야 합니다.
 - **memory_size** 풀 메모리 영역의 크기입니다.
 
 ### <a name="return-values"></a>반환 값 
@@ -4825,7 +4825,7 @@ UINT nx_packet_pool_create(
 - **NX_SUCCESS**(0x00) 패킷 풀을 만드는 데 성공했습니다.
 - **NX_PTR_ERROR**(0x07) 잘못된 풀 또는 메모리 포인터입니다.
 - **NX_SIZE_ERROR**(0x09) 잘못된 블록 또는 메모리 크기입니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 
 ### <a name="allowed-from"></a>허용 위치
 
@@ -4862,7 +4862,7 @@ status = nx_packet_pool_create(&pool_0, "Default Pool", 128,
 - nx_packet_transmit_release
 
 ## <a name="nx_packet_pool_delete"></a>nx_packet_pool_delete
-이전에 만든 패킷 풀 삭제
+이전에 만든 패킷 풀을 삭제합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -4881,7 +4881,7 @@ UINT  nx_packet_pool_delete(NX_PACKET_POOL *pool_ptr);
 
 - **NX_SUCCESS**(0x00) 패킷 풀 삭제에 성공했습니다.
 - **NX_PTR_ERROR**(0x07) 잘못된 풀 포인터입니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 
 ### <a name="allowed-from"></a>허용 위치
 
@@ -4917,7 +4917,7 @@ status = nx_packet_pool_delete(&pool_0);
 - nx_packet_transmit_release
 
 ## <a name="nx_packet_pool_info_get"></a>nx_packet_pool_info_get
-패킷 풀에 대한 정보 검색
+패킷 풀에 대한 정보를 검색합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -4939,22 +4939,22 @@ UINT nx_packet_pool_info_get(
 
 ### <a name="parameters"></a>매개 변수
 
-- **pool_ptr** 이전에 만든 패킷 풀을 가리키는 포인터입니다.
-- **total_packets** 풀의 총 패킷 수 대상을 가리키는 포인터입니다.
-- **free_packets** 현재 사용 가능한 총 패킷 수 대상을 가리키는 포인터입니다.
-- **empty_pool_requests** 풀이 비어 있는 경우의 총 할당 요청 수 대상을 가리키는 포인터입니다.
-- **empty_pool_suspensions** 비어 있는 풀의 총 일시 중단 수 대상을 가리키는 포인터입니다.
-- **invalid_packet_releases** 잘못된 총 패킷 해제 수 대상을 가리키는 포인터입니다.
+- **pool_ptr** 이전에 만든 패킷 풀에 대한 포인터입니다.
+- **total_packets** 풀의 총 패킷 수 대상에 대한 포인터입니다.
+- **free_packets** 현재 사용 가능한 총 패킷 수 대상에 대한 포인터입니다.
+- **empty_pool_requests** 풀이 비어 있는 경우의 총 할당 요청 수 대상에 대한 포인터입니다.
+- **empty_pool_suspensions** 비어 있는 풀의 총 일시 중단 수 대상에 대한 포인터입니다.
+- **invalid_packet_releases** 잘못된 총 패킷 해제 수 대상에 대한 포인터입니다.
 
 ### <a name="return-values"></a>반환 값 
 
 - **NX_SUCCESS**(0x00) 패킷 풀 정보를 검색하는 데 성공했습니다.
-- **NX_PTR_ERROR**(0x07) IP 포인터가 잘못되었습니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_PTR_ERROR**(0x07) 잘못된 IP 포인터입니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화, 스레드 및 타이머
+초기화, 스레드, 타이머
 
 ### <a name="preemption-possible"></a>가능한 선점
 
@@ -5013,7 +5013,7 @@ UINT nx_packet_pool_low_watermark_set(
 - **NX_SUCCESS**(0x00) 하위 워터마크 값을 설정했습니다.
 - **NX_NOT_SUPPORTED**(0x4B) 하위 워터마크 기능은 Netx Duo에 기본 제공되지 않습니다.
 - **NX_PTR_ERROR**(0x07) 잘못된 풀 포인터입니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 
 ### <a name="allowed-from"></a>허용 위치
 
@@ -5048,7 +5048,7 @@ status = nx_packet_pool_create(&pool_0, 2);
 - nx_packet_transmit_release
 
 ## <a name="nx_packet_release"></a>nx_packet_release
-이전에 할당된 패킷 해제
+이전에 할당된 패킷을 해제합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -5075,7 +5075,7 @@ UINT nx_packet_release(NX_PACKET *packet_ptr);
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화, 스레드, 타이머 및 ISR(애플리케이션 네트워크 드라이버)
+초기화, 스레드, 타이머, ISR(애플리케이션 네트워크 드라이버)입니다.
 
 ### <a name="preemption-possible"></a>가능한 선점
 
@@ -5106,7 +5106,7 @@ status = nx_packet_release(packet_ptr);
 - nx_packet_transmit_release
 
 ## <a name="nx_packet_transmit_release"></a>nx_packet_transmit_release
-전송된 패킷 해제
+전송된 패킷을 해제합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -5133,7 +5133,7 @@ TCP가 아닌 패킷의 경우 이 서비스는 지정된 패킷에 연결된 �
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화, 스레드, 타이머, 애플리케이션 네트워크 드라이버(ISR 포함)
+초기화, 스레드, 타이머, 애플리케이션 네트워크 드라이버(ISR 포함)입니다.
 
 ### <a name="preemption-possible"></a>가능한 선점
 
@@ -5165,7 +5165,7 @@ status = nx_packet_transmit_release(packet_ptr);
 - nx_packet_release
 
 ## <a name="nx_rarp_disable"></a>nx_rarp_disable
-RARP(역주소 확인 프로토콜)를 사용하지 않도록 설정
+RARP(역주소 확인 프로토콜)를 사용하지 않도록 설정합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -5185,8 +5185,8 @@ UINT nx_rarp_disable(NX_IP *ip_ptr);
 
 - **NX_SUCCESS**(0x00) RARP를 사용하지 않도록 설정하는 데 성공했습니다.
 - **NX_NOT_ENABLED**(0x14) RARP가 사용하지 않도록 설정되지 않았습니다.
-- **NX_PTR_ERROR**(0x07) IP 포인터가 잘못되었습니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_PTR_ERROR**(0x07) 잘못된 IP 포인터입니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 
 ### <a name="allowed-from"></a>허용 위치
 
@@ -5210,7 +5210,7 @@ status = nx_rarp_disable(&ip_0);
 - nx_rarp_info_get
 
 ## <a name="nx_rarp_enable"></a>nx_rarp_enable
-RARP(역주소 확인 프로토콜)를 사용하도록 설정
+RARP(역주소 확인 프로토콜)를 사용하도록 설정합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -5230,8 +5230,8 @@ UINT nx_rarp_enable(NX_IP *ip_ptr);
 - **NX_SUCCESS**(0x00) RARP를 사용하도록 설정하는 데 성공했습니다.
 - **NX_IP_ADDRESS_ERROR**(0x21) IP 주소가 이미 유효합니다.
 - **NX_ALREADY_ENABLED**(0x15) RARP가 이미 사용하도록 설정되었습니다.
-- **NX_PTR_ERROR**(0x07) IP 포인터가 잘못되었습니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_PTR_ERROR**(0x07) 잘못된 IP 포인터입니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 
 ### <a name="allowed-from"></a>허용 위치
 
@@ -5256,7 +5256,7 @@ status = nx_rarp_enable(&ip_0);
 - nx_rarp_info_get
 
 ## <a name="nx_rarp_info_get"></a>nx_rarp_info_get
-RARP 활동에 대한 정보 검색
+RARP 활동에 대한 정보를 검색합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -5277,16 +5277,16 @@ UINT nx_rarp_info_get(
 ### <a name="parameters"></a>매개 변수
 
 - **ip_ptr** 이전에 만든 IP 인스턴스에 대한 포인터입니다.
-- **rarp_requests_sent** 송신된 총 RARP 요청 수 대상을 가리키는 포인터입니다.
-- **rarp_responses_received** 수신된 총 RARP 응답 수 대상을 가리키는 포인터입니다.
-- **rarp_invalid_messages** 잘못된 총 메시지 수 대상을 가리키는 포인터입니다.
+- **rarp_requests_sent** 송신된 총 RARP 요청 수 대상에 대한 포인터입니다.
+- **rarp_responses_received** 수신된 총 RARP 응답 수 대상에 대한 포인터입니다.
+- **rarp_invalid_messages** 잘못된 총 메시지 수 대상에 대한 포인터입니다.
 
 ### <a name="return-values"></a>반환 값
 
 - **NX_SUCCESS**(0x00) RARP 정보 검색에 성공했습니다.
-- **NX_PTR_ERROR**(0x07) IP 포인터가 잘못되었습니다.
+- **NX_PTR_ERROR**(0x07) 잘못된 IP 포인터입니다.
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 
 ### <a name="allowed-from"></a>허용 위치
 
@@ -5327,11 +5327,11 @@ VOID nx_system_initialize(VOID);
 
 ### <a name="parameters"></a>매개 변수
 
-None
+없음
 
 ### <a name="return-values"></a>반환 값
 
-None
+없음
 
 ### <a name="allowed-from"></a>허용 위치
 
@@ -5379,7 +5379,7 @@ nx_system_initialize();
 - nxd_ipv6_stateless_address_autoconfig_enable
 
 ## <a name="nx_tcp_client_socket_bind"></a>nx_tcp_client_socket_bind
-클라이언트 TCP 소켓을 TCP 포트에 바인딩
+클라이언트 TCP 소켓을 TCP 포트에 바인딩합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -5398,7 +5398,7 @@ UINT nx_tcp_client_socket_bind(
 - **socket_ptr** 이전에 만든 TCP 소켓 인스턴스를 가리키는 포인터입니다.
 - **port** 바인딩할 포트 번호(1-0xFFFF)입니다. 포트 번호가 NX_ANY_PORT (0x0000)인 경우 IP 인스턴스는 가능한 다음 포트를 검색하여 바인딩에 사용합니다.
 - **wait_option** 포트가 이미 다른 소켓에 바인딩되어 있는 경우 서비스가 작동하는 방식을 정의합니다. 대기 옵션은 다음과 같이 정의됩니다.
-- **NX_NO_WAIT**(0x00000000)
+- **NX_NO_WAIT** (0x00000000)
 - **NX_WAIT_FOREVER**(0xFFFFFFFF)
 - **틱 단위의 시간 제한**(0x00000001~0xFFFFFFFE)
 
@@ -5411,7 +5411,7 @@ UINT nx_tcp_client_socket_bind(
 - **NX_WAIT_ABORTED**(0x1A) 요청된 일시 중단이 tx_thread_wait_abort 호출에 의해 중단되었습니다.
 - **NX_INVALID_PORT**(0x46) 잘못된 포트입니다.
 - **NX_PTR_ERROR**(0x07) 잘못된 소켓 포인터입니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 
 ### <a name="allowed-from"></a>허용 위치
@@ -5458,7 +5458,7 @@ status = nx_tcp_client_socket_bind(&client_socket, 12, 7);
 - nxd_tcp_socket_peer_info_get
 
 ## <a name="nx_tcp_client_socket_connect"></a>nx_tcp_client_socket_connect
-클라이언트 TCP 소켓 연결
+클라이언트 TCP 소켓을 연결합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -5475,11 +5475,11 @@ UINT nx_tcp_client_socket_connect(
 
 ### <a name="parameters"></a>매개 변수
 
-- **socket_ptr** 이전에 만든 TCP 소켓 인스턴스를 가리키는 포인터입니다.
+- **socket_ptr** 이전에 만든 TCP 소켓 인스턴스에 대한 포인터입니다.
 - **server_ip** 서버의 IP 주소입니다.
 - **server_port** 연결할 서버 포트 번호**(1-0xFFFF)입니다.
 - **wait_option** 연결이 설정되는 동안 서비스가 작동하는 방식을 정의합니다. 대기 옵션은 다음과 같이 정의됩니다.
-    - **NX_NO_WAIT**(0x00000000)
+    - **NX_NO_WAIT** (0x00000000)
     - **NX_WAIT_FOREVER**(0xFFFFFFFF)
     - **틱 단위의 시간 제한**(0x00000001~0xFFFFFFFE)
 
@@ -5494,7 +5494,7 @@ UINT nx_tcp_client_socket_connect(
 - **NX_IP_ADDRESS_ERROR**(0x21) 잘못된 서버 IP 주소입니다.
 - **NX_INVALID_PORT**(0x46) 잘못된 포트입니다.
 - **NX_PTR_ERROR**(0x07) 잘못된 소켓 포인터입니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 
 ### <a name="allowed-from"></a>허용 위치
@@ -5546,7 +5546,7 @@ status = nx_tcp_client_socket_connect(&client_socket,
 - nxd_tcp_socket_peer_info_get
 
 ## <a name="nx_tcp_client_socket_port_get"></a>nx_tcp_client_socket_port_get
-클라이언트 TCP 소켓에 바인딩된 포트 번호 가져오기
+클라이언트 TCP 소켓에 바인딩된 포트 번호를 가져옵니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -5561,15 +5561,15 @@ UINT nx_tcp_client_socket_port_get(
 
 ### <a name="parameters"></a>매개 변수
 
-- **socket_ptr** 이전에 만든 TCP 소켓 인스턴스를 가리키는 포인터입니다.
-- **port_ptr** 반환 포트 번호 대상을 가리키는 포인터입니다. 유효한 포트 번호는 (1-0xFFFF)입니다.
+- **socket_ptr** 이전에 만든 TCP 소켓 인스턴스에 대한 포인터입니다.
+- **port_ptr** 반환 포트 번호 대상에 대한 포인터입니다. 유효한 포트 번호는 (1-0xFFFF)입니다.
 
 ### <a name="return-values"></a>반환 값
 
 - **NX_SUCCESS**(0x00) 소켓 바인딩에 성공했습니다.
 - **NX_NOT_BOUND**(0x24) 이 소켓은 포트에 바인딩되지 않았습니다.
 - **NX_PTR_ERROR**(0x07) 잘못된 소켓 포인터 또는 포트 반환 포인터입니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 
 ### <a name="allowed-from"></a>허용 위치
@@ -5616,7 +5616,7 @@ status = nx_tcp_client_socket_port_get(&client_socket, &port);
 - nxd_tcp_socket_peer_info_get
 
 ## <a name="nx_tcp_client_socket_unbind"></a>nx_tcp_client_socket_unbind
-TCP 포트에서 TCP 클라이언트 소켓 바인딩 해제
+TCP 포트에서 TCP 클라이언트 소켓 바인딩을 해제합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -5629,7 +5629,7 @@ UINT nx_tcp_client_socket_unbind(NX_TCP_SOCKET *socket_ptr);
 
 ### <a name="parameters"></a>매개 변수
 
-- **socket_ptr** 이전에 만든 TCP 소켓 인스턴스를 가리키는 포인터입니다.
+- **socket_ptr** 이전에 만든 TCP 소켓 인스턴스에 대한 포인터입니다.
 
 ### <a name="return-values"></a>반환 값 
 
@@ -5637,7 +5637,7 @@ UINT nx_tcp_client_socket_unbind(NX_TCP_SOCKET *socket_ptr);
 - **NX_NOT_BOUND**(0x24) 소켓이 어떤 포트에도 바인딩되지 않았습니다.
 - **NX_NOT_CLOSED**(0x35) 소켓이 연결 해제되지 않았습니다.
 - **NX_PTR_ERROR**(0x07) 잘못된 소켓 포인터입니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 
 ### <a name="allowed-from"></a>허용 위치
@@ -5702,8 +5702,8 @@ UINT nx_tcp_enable(NX_IP *ip_ptr);
 
 - **NX_SUCCESS**(0x00) TCP를 사용하도록 설정하는 데 성공했습니다.
 - **NX_ALREADY_ENABLED**(0x15) TCP는 이미 사용하도록 설정되었습니다.
-- **NX_PTR_ERROR**(0x07) IP 포인터가 잘못되었습니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_PTR_ERROR**(0x07) 잘못된 IP 포인터입니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 
 ### <a name="allowed-from"></a>허용 위치
 
@@ -5747,7 +5747,7 @@ status = nx_tcp_enable(&ip_0);
 - nxd_tcp_socket_peer_info_get
 
 ## <a name="nx_tcp_free_port_find"></a>nx_tcp_free_port_find
-사용할 수 있는 다음 TCP 포트 찾기
+사용할 수 있는 다음 TCP 포트를 찾습니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -5768,14 +5768,14 @@ UINT nx_tcp_free_port_find(
 
 - **ip_ptr** 이전에 만든 IP 인스턴스에 대한 포인터입니다.
 - **port** 검색을 시작할 포트 번호(1-0xFFFF)입니다.
-- **free_port_ptr** 사용 가능한 포트 반환 값 대상을 가리키는 포인터입니다.
+- **free_port_ptr** 사용 가능한 포트 반환 값 대상에 대한 포인터입니다.
 
 ### <a name="return-values"></a>반환 값  
 
 - **NX_SUCCESS**(0x00) 사용 가능한 포트를 찾는 데 성공했습니다.
 - **NX_NO_FREE_PORTS**(0x45) 사용 가능한 포트를 찾을 수 없습니다.
-- **NX_PTR_ERROR**(0x07) IP 포인터가 잘못되었습니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_PTR_ERROR**(0x07) 잘못된 IP 포인터입니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 - **NX_INVALID_PORT**(0x46) 지정된 포트 번호가 잘못되었습니다.
 
@@ -5823,7 +5823,7 @@ status = nx_tcp_free_port_find(&ip_0, 12, &free_port);
 - nxd_tcp_socket_peer_info_get
 
 ## <a name="nx_tcp_info_get"></a>nx_tcp_info_get
-TCP 활동에 대한 정보 검색
+TCP 활동에 대한 정보를 검색합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -5852,23 +5852,23 @@ UINT nx_tcp_info_get(
 ### <a name="parameters"></a>매개 변수
 
 - **ip_ptr** 이전에 만든 IP 인스턴스에 대한 포인터입니다.
-- **tcp_packets_sent** 송신된 총 TCP 패킷 수 대상을 가리키는 포인터입니다.
-- **tcp_bytes_sent** 송신된 총 TCP 바이트 수 대상을 가리키는 포인터입니다.
-- **tcp_packets_received** 수신된 총 TCP 패킷 수 대상을 가리키는 포인터입니다.
-- **tcp_bytes_received** 수신된 총 TCP 바이트 수 대상을 가리키는 포인터입니다.
-- **tcp_invalid_packets** 잘못된 총 TCP 패킷 수 대상을 가리키는 포인터입니다.
-- **tcp_receive_packets_dropped** 삭제된 총 TCP 수신 패킷 수 대상을 가리키는 포인터입니다.
-- **tcp_checksum_errors** 체크섬 오류가 있는 총 TCP 패킷 수 대상을 가리키는 포인터입니다.
-- **tcp_connections** 총 TCP 연결 수 대상을 가리키는 포인터입니다.
-- **tcp_disconnections** 총 TCP 연결 해제 수 대상을 가리키는 포인터입니다.
-- **tcp_connections_dropped** 삭제된 총 TCP 연결 수 대상을 가리키는 포인터입니다.
-- **tcp_retransmit_packets** 재전송된 총 TCP 패킷 수 대상을 가리키는 포인터입니다.
+- **tcp_packets_sent** 송신된 총 TCP 패킷 수 대상에 대한 포인터입니다.
+- **tcp_bytes_sent** 송신된 총 TCP 바이트 수 대상에 대한 포인터입니다.
+- **tcp_packets_received** 수신된 총 TCP 패킷 수 대상에 대한 포인터입니다.
+- **tcp_bytes_received** 수신된 총 TCP 바이트 수 대상에 대한 포인터입니다.
+- **tcp_invalid_packets** 잘못된 총 TCP 패킷 수 대상에 대한 포인터입니다.
+- **tcp_receive_packets_dropped** 삭제된 총 TCP 수신 패킷 수 대상에 대한 포인터입니다.
+- **tcp_checksum_errors** 체크섬 오류가 있는 총 TCP 패킷 수 대상에 대한 포인터입니다.
+- **tcp_connections** 총 TCP 연결 수 대상에 대한 포인터입니다.
+- **tcp_disconnections** 총 TCP 연결 해제 수 대상에 대한 포인터입니다.
+- **tcp_connections_dropped** 삭제된 총 TCP 연결 수 대상에 대한 포인터입니다.
+- **tcp_retransmit_packets** 재전송된 총 TCP 패킷 수 대상에 대한 포인터입니다.
 
 ### <a name="return-values"></a>반환 값 
 
-- **NX_SUCCESS** (0x00) TCP 정보 검색에 성공했습니다.
-- **NX_PTR_ERROR**(0x07) IP 포인터가 잘못되었습니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_SUCCESS**(0x00) TCP 정보 검색에 성공했습니다.
+- **NX_PTR_ERROR**(0x07) 잘못된 IP 포인터입니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 
 ### <a name="allowed-from"></a>허용 위치
@@ -5925,7 +5925,7 @@ status = nx_tcp_info_get(&ip_0,
 - nxd_tcp_socket_peer_info_get
 
 ## <a name="nx_tcp_server_socket_accept"></a>nx_tcp_server_socket_accept
-TCP 연결 수락
+TCP 연결을 수락합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -5946,9 +5946,9 @@ UINT nx_tcp_server_socket_accept(
 
 ### <a name="parameters"></a>매개 변수
 
-- **socket_ptr** TCP 서버 소켓 제어 블록을 가리키는 포인터입니다.
+- **socket_ptr** TCP 서버 소켓 제어 블록에 대한 포인터입니다.
 - **wait_option** 연결이 설정되는 동안 서비스가 작동하는 방식을 정의합니다. 대기 옵션은 다음과 같이 정의됩니다.
-    - **NX_NO_WAIT**(0x00000000)
+    - **NX_NO_WAIT** (0x00000000)
     - **NX_WAIT_FOREVER**(0xFFFFFFFF)
     - **틱 단위의 시간 제한**(0x00000001~0xFFFFFFFE)
 
@@ -5959,7 +5959,7 @@ UINT nx_tcp_server_socket_accept(
 - **NX_IN_PROGRESS**(0x37) 대기하도록 지정되지 않았으며, 연결하려고 시도하는 중입니다.
 - **NX_WAIT_ABORTED**(0x1A) 요청된 일시 중단이 tx_thread_wait_abort 호출에 의해 중단되었습니다.
 - **NX_PTR_ERROR**(0x07) 소켓 포인터 오류입니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 
 ### <a name="allowed-from"></a>허용 위치
@@ -6094,7 +6094,7 @@ UINT status, i;
 - nxd_tcp_socket_peer_info_get
 
 ## <a name="nx_tcp_server_socket_listen"></a>nx_tcp_server_socket_listen
-TCP 포트에서 클라이언트 연결 수신 대기를 사용하도록 설정
+TCP 포트에서 클라이언트 연결 수신 대기를 사용하도록 설정합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -6120,7 +6120,7 @@ UINT nx_tcp_server_socket_listen(
 
 - **ip_ptr** 이전에 만든 IP 인스턴스에 대한 포인터입니다.
 - **port** 수신 대기할 포트 번호(1-0xFFFF)입니다.
-- **socket_ptr** 연결에 사용할 소켓을 가리키는 포인터입니다.
+- **socket_ptr** 연결에 사용할 소켓에 대한 포인터입니다.
 - **listen_queue_size** 큐에 대기될 수 있는 클라이언트 연결 요청 수입니다.
 - **listen_callback** 연결이 수신되면 호출할 애플리케이션 함수입니다. NULL을 지정하면 수신 대기 콜백 기능을 사용하지 않도록 설정합니다.
 
@@ -6133,7 +6133,7 @@ UINT nx_tcp_server_socket_listen(
 - **NX_DUPLICATE_LISTEN**(0x34) 이 포트의 활성 수신 대기 요청이 이미 있습니다.
 - **NX_INVALID_PORT**(0x46) 잘못된 포트가 지정되었습니다.
 - **NX_PTR_ERROR**(0x07) 잘못된 IP 또는 소켓 포인터입니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 
 ### <a name="allowed-from"></a>허용 위치
@@ -6268,7 +6268,7 @@ UINT status, i;
 - nxd_tcp_socket_peer_info_get
 
 ## <a name="nx_tcp_server_socket_relisten"></a>nx_tcp_server_socket_relisten
-TCP 포트에서 클라이언트 연결을 위해 다시 수신 대기
+TCP 포트에서 클라이언트 연결을 위해 다시 수신 대기합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -6300,7 +6300,7 @@ UINT nx_tcp_server_socket_relisten(
 - **NX_CONNECTION_PENDING**(0x48) 큐에 대기된 연결 요청이 있었고 이 호출 중에 처리되었던 것을 제외하면 NX_SUCCESS와 동일합니다.
 - **NX_INVALID_PORT**(0x46) 잘못된 포트가 지정되었습니다.
 - **NX_PTR_ERROR**(0x07) 잘못된 IP 또는 수신 대기 콜백 포인터입니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 
 ### <a name="allowed-from"></a>허용 위치
@@ -6437,7 +6437,7 @@ UINT status, i;
 - nxd_tcp_socket_peer_info_get
 
 ## <a name="nx_tcp_server_socket_unaccept"></a>nx_tcp_server_socket_unaccept
-수신 대기 포트와 소켓 간 연결 제거
+수신 대기 포트와 소켓 간 연결을 제거합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -6450,14 +6450,14 @@ UINT nx_tcp_server_socket_unaccept(NX_TCP_SOCKET *socket_ptr);
 
 ### <a name="parameters"></a>매개 변수
 
-- **socket_ptr** 이전에 설정한 서버 소켓 인스턴스를 가리키는 포인터입니다.
+- **socket_ptr** 이전에 설정한 서버 소켓 인스턴스에 대한 포인터입니다.
 
 ### <a name="return-values"></a>반환 값  
 
 - **NX_SUCCESS**(0x00) 서버 소켓을 수락하지 않는 데 성공했습니다.
 - **NX_NOT_LISTEN_STATE**(0x36) 서버 소켓이 부적절한 상태이며 연결 해제되었을 수 있습니다.
 - **NX_PTR_ERROR**(0x07) 잘못된 소켓 포인터입니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 
 ### <a name="allowed-from"></a>허용 위치
@@ -6591,7 +6591,7 @@ UINT       status, i;
 - nxd_tcp_socket_peer_info_get
 
 ## <a name="nx_tcp_server_socket_unlisten"></a>nx_tcp_server_socket_unlisten
-TCP 포트에서 클라이언트 연결 수신 대기를 사용하지 않도록 설정
+TCP 포트에서 클라이언트 연결 수신 대기를 사용하지 않도록 설정합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -6614,8 +6614,8 @@ UINT nx_tcp_server_socket_unlisten(
 - **NX_SUCCESS**(0x00) TCP 수신 대기를 사용하지 않도록 설정하는 데 성공했습니다.
 - **NX_ENTRY_NOT_FOUND**(0x16) 지정된 포트의 수신 대기가 사용하도록 설정되지 않았습니다.
 - **NX_INVALID_PORT**(0x46) 잘못된 포트가 지정되었습니다.
-- **NX_PTR_ERROR**(0x07) IP 포인터가 잘못되었습니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_PTR_ERROR**(0x07) 잘못된 IP 포인터입니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 
 ### <a name="allowed-from"></a>허용 위치
@@ -6750,7 +6750,7 @@ UINT status, i;
 - nxd_tcp_socket_peer_info_get
 
 ## <a name="nx_tcp_socket_bytes_available"></a>nx_tcp_socket_bytes_available
-검색에 사용할 수 있는 바이트 수를 가져오기
+검색에 사용할 수 있는 바이트 수를 가져옵니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -6765,16 +6765,16 @@ UINT nx_tcp_socket_bytes_available(
 
 ### <a name="parameters"></a>매개 변수
 
-- **socket_ptr** 이전에 만들고 연결한 TCP 소켓을 가리키는 포인터입니다.
-- **bytes_available** 사용할 수 있는 바이트 대상을 가리키는 포인터입니다.
+- **socket_ptr** 이전에 만들고 연결한 TCP 소켓에 대한 포인터입니다.
+- **bytes_available** 사용할 수 있는 바이트 대상에 대한 포인터입니다.
 
 ### <a name="return-values"></a>반환 값
 
-- **NX_SUCCESS** (0x00) 서비스가 성공적으로 실행되었습니다. 읽을 수 있는 바이트 수가 호출자에게 반환됩니다.
+- **NX_SUCCESS**(0x00) 서비스가 성공적으로 실행되었습니다. 읽을 수 있는 바이트 수가 호출자에게 반환됩니다.
 - **NX_NOT_CONNECTED**(0x38) 소켓이 연결된 상태가 아닙니다.
 - **NX_PTR_ERROR**(0x07) 잘못된 포인터입니다.
 - **NX_NOT_ENABLED**(0x14) TCP가 사용하도록 설정되지 않았습니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 
 ### <a name="allowed-from"></a>허용 위치
 
@@ -6819,7 +6819,7 @@ status = nx_tcp_socket_bytes_available(&my_socket,&bytes_available);
 - nxd_tcp_socket_peer_info_get
 
 ## <a name="nx_tcp_socket_create"></a>nx_tcp_socket_create
-TCP 클라이언트 또는 서버 소켓 만들기
+TCP 클라이언트 또는 서버 소켓을 만듭니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -6845,7 +6845,7 @@ UINT nx_tcp_socket_create(
 ### <a name="parameters"></a>매개 변수
 
 - **ip_ptr** 이전에 만든 IP 인스턴스에 대한 포인터입니다.
-- **socket_ptr** 새 TCP 소켓 제어 블록을 가리키는 포인터입니다.
+- **socket_ptr** 새 TCP 소켓 제어 블록에 대한 포인터입니다.
 - **name** 이 TCP 소켓의 애플리케이션 이름입니다.
 - **type_of_service** 전송할 서비스 유형을 정의합니다. 올바른 값은 다음과 같습니다.
     - **NX_IP_NORMAL**(0x00000000)
@@ -6864,7 +6864,7 @@ UINT nx_tcp_socket_create(
 - **NX_SUCCESS**(0x00) TCP 클라이언트 소켓 만들기에 성공했습니다.
 - **NX_OPTION_ERROR**(0x0A) type-of-service, fragment, window size 또는 time-tolive 옵션이 잘못되었습니다.
 - **NX_PTR_ERROR**(0x07) 잘못된 IP 또는 소켓 포인터입니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 
 ### <a name="allowed-from"></a>허용 위치
@@ -6918,7 +6918,7 @@ status = nx_tcp_socket_create(&ip_0, &client_socket,
 - nxd_tcp_socket_peer_info_get
 
 ## <a name="nx_tcp_socket_delete"></a>nx_tcp_socket_delete
-TCP 소켓 삭제
+TCP 소켓을 삭제합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -6940,7 +6940,7 @@ UINT nx_tcp_socket_delete(NX_TCP_SOCKET *socket_ptr);
 - **NX_NOT_CREATED**(0x27) 소켓이 만들어지지 않았습니다.
 - **NX_STILL_BOUND**(0x42) 소켓이 여전히 바인딩되어 있습니다.
 - **NX_PTR_ERROR**(0x07) 잘못된 소켓 포인터입니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 
 ### <a name="allowed-from"></a>허용 위치
@@ -6985,7 +6985,7 @@ status = nx_tcp_socket_delete(&client_socket);
 - nxd_tcp_socket_peer_info_get
 
 ## <a name="nx_tcp_socket_disconnect"></a>nx_tcp_socket_disconnect
-클라이언트 및 서버 소켓 연결 해제
+클라이언트 및 서버 소켓 연결을 해제합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -7000,9 +7000,9 @@ UINT nx_tcp_socket_disconnect(
 
 ### <a name="parameters"></a>매개 변수
 
-- **socket_ptr** 이전에 연결된 클라이언트 또는 서버 소켓 인스턴스를 가리키는 포인터입니다.
+- **socket_ptr** 이전에 연결된 클라이언트 또는 서버 소켓 인스턴스에 대한 포인터입니다.
 - **wait_option** 연결 해제가 진행 중인 동안 서비스가 작동하는 방식을 정의합니다. 대기 옵션은 다음과 같이 정의됩니다.
-    - **NX_NO_WAIT**(0x00000000)
+    - **NX_NO_WAIT** (0x00000000)
     - **NX_WAIT_FOREVER**(0xFFFFFFFF)
     - **틱 단위의 시간 제한**(0x00000001~0xFFFFFFFE)
 
@@ -7010,10 +7010,10 @@ UINT nx_tcp_socket_disconnect(
 
 - **NX_SUCCESS**(0x00) 소켓 연결 해제에 성공했습니다.
 - **NX_NOT_CONNECTED**(0x38) 지정된 소켓이 연결되어 있지 않습니다.
-- **NX_IN_PROGRESS**(0X37) 대기 안 함으로 지정되었으므로 연결 해제가 진행 중입니다.
+- **NX_IN_PROGRESS**(0x37) 대기 안 함으로 지정되었으므로 연결 해제가 진행 중입니다.
 - **NX_WAIT_ABORTED**(0x1A) 요청된 일시 중단이 tx_thread_wait_abort 호출에 의해 중단되었습니다.
 - **NX_PTR_ERROR**(0x07) 잘못된 소켓 포인터입니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 
 ### <a name="allowed-from"></a>허용 위치
@@ -7061,7 +7061,7 @@ status = nx_tcp_socket_disconnect(&client_socket, 400);
 - nxd_tcp_socket_peer_info_get
 
 ## <a name="nx_tcp_socket_disconnect_complete_notify"></a>nx_tcp_socket_disconnect_complete_notify
-TCP 연결 해제 완료 알림 콜백 함수 설치
+TCP 연결 해제 완료 알림 콜백 함수를 설치합니다.
  
 ### <a name="prototype"></a>프로토타입  
 
@@ -7076,7 +7076,7 @@ UINT nx_tcp_socket_disconnect_complete_notify(
 
 ### <a name="parameters"></a>매개 변수
 
-- **socket_ptr** 이전에 연결된 클라이언트 또는 서버 소켓 인스턴스를 가리키는 포인터입니다.
+- **socket_ptr** 이전에 연결된 클라이언트 또는 서버 소켓 인스턴스에 대한 포인터입니다.
 - **tcp_disconnect_complete_notify** 설치할 콜백 함수입니다.
 
 ### <a name="return-values"></a>반환 값  
@@ -7116,7 +7116,7 @@ status = nx_tcp_socket_disconnect_complete_notify(&client_socket,
 - nx_tcp_socket_window_update_notify_set
 
 ## <a name="nx_tcp_socket_establish_notify"></a>nx_tcp_socket_establish_notify
-TCP 설정 알림 콜백 함수 설정
+TCP 설정 알림 콜백 함수를 설정합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -7131,7 +7131,7 @@ UINT nx_tcp_socket_establish_notify(
 
 ### <a name="parameters"></a>매개 변수
 
-- **socket_ptr** 이전에 연결된 클라이언트 또는 서버 소켓 인스턴스를 가리키는 포인터입니다.
+- **socket_ptr** 이전에 연결된 클라이언트 또는 서버 소켓 인스턴스에 대한 포인터입니다.
 - **tcp_establish_notify** TCP 연결이 설정된 후 호출되는 콜백 함수입니다.
 
 ### <a name="return-values"></a>반환 값 
@@ -7139,7 +7139,7 @@ UINT nx_tcp_socket_establish_notify(
 - **NX_SUCCESS**(0x00) 알림 함수를 성공적으로 설정했습니다.
 - **NX_NOT_SUPPORTED** (0x4B) 확장된 알림 기능은 NetX Duo 라이브러리에 기본 제공되어 있지 않습니다. 
 - **NX_PTR_ERROR**(0x07) 잘못된 소켓 포인터입니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) 애플리케이션에서 TCP를 사용하도록 설정하지 않았습니다.
 
 ### <a name="allowed-from"></a>허용 위치
@@ -7173,7 +7173,7 @@ status = nx_tcp_socket_establish_notify(&client_socket, callback);
 - nx_tcp_socket_window_update_notify_set
 
 ## <a name="nx_tcp_socket_info_get"></a>nx_tcp_socket_info_get
-TCP 소켓 활동에 대한 정보 검색
+TCP 소켓 활동에 대한 정보를 검색합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -7201,24 +7201,24 @@ UINT nx_tcp_socket_info_get(
 
 ### <a name="parameters"></a>매개 변수
 
-- **socket_ptr** 이전에 만든 TCP 소켓 인스턴스를 가리키는 포인터입니다.
-- **tcp_packets_sent** 소켓의 송신된 총 TCP 패킷 수 대상을 가리키는 포인터입니다.
-- **tcp_bytes_sent** 소켓의 송신된 총 TCP 바이트 수 대상을 가리키는 포인터입니다.
-- **tcp_packets_received** 소켓의 수신된 총 TCP 패킷 수 대상을 가리키는 포인터입니다.
-- **tcp_bytes_received** 소켓의 수신된 총 TCP 바이트 수 대상을 가리키는 포인터입니다.
-- **tcp_retransmit_packets** 총 TCP 패킷 재전송 수 대상을 가리키는 포인터입니다.
-- **tcp_packets_queued** 소켓의 큐에 대기된 총 TCP 패킷 수 대상을 가리키는 포인터입니다.
-- **tcp_checksum_errors** 소켓의 체크섬 오류가 있는 총 TCP 패킷 수 대상을 가리키는 포인터입니다.
-- **tcp_socket_state** 소켓의 현재 상태 대상을 가리키는 포인터입니다.
-- **tcp_transmit_queue_depth** 여전히 큐에서 ACK를 대기 중인 총 전송 패킷 수 대상을 가리키는 포인터입니다.
-- **tcp_transmit_window** 현재 전송 창 크기 대상을 가리키는 포인터입니다.
-- **tcp_receive_window** 현재 수신 창 크기 대상을 가리키는 포인터입니다.
+- **socket_ptr** 이전에 만든 TCP 소켓 인스턴스에 대한 포인터입니다.
+- **tcp_packets_sent** 소켓의 송신된 총 TCP 패킷 수 대상에 대한 포인터입니다.
+- **tcp_bytes_sent** 소켓의 송신된 총 TCP 바이트 수 대상에 대한 포인터입니다.
+- **tcp_packets_received** 소켓의 수신된 총 TCP 패킷 수 대상에 대한 포인터입니다.
+- **tcp_bytes_received** 소켓의 수신된 총 TCP 바이트 수 대상에 대한 포인터입니다.
+- **tcp_retransmit_packets** 총 TCP 패킷 재전송 수 대상에 대한 포인터입니다.
+- **tcp_packets_queued** 소켓의 큐에 대기된 총 TCP 패킷 수 대상에 대한 포인터입니다.
+- **tcp_checksum_errors** 소켓의 체크섬 오류가 있는 총 TCP 패킷 수 대상에 대한 포인터입니다.
+- **tcp_socket_state** 소켓의 현재 상태 대상에 대한 포인터입니다.
+- **tcp_transmit_queue_depth** 여전히 큐에서 ACK를 대기 중인 총 전송 패킷 수 대상에 대한 포인터입니다.
+- **tcp_transmit_window** 현재 전송 창 크기 대상에 대한 포인터입니다.
+- **tcp_receive_window** 현재 수신 창 크기 대상에 대한 포인터입니다.
 
 ### <a name="return-values"></a>반환 값  
 
 - **NX_SUCCESS**(0x00) TCP 소켓 정보 검색에 성공했습니다.
 - **NX_PTR_ERROR**(0x07) 잘못된 소켓 포인터입니다. 
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 
 ### <a name="allowed-from"></a>허용 위치
@@ -7275,7 +7275,7 @@ status = nx_tcp_socket_info_get(&socket_0,
 - nxd_tcp_socket_peer_info_get
 
 ## <a name="nx_tcp_socket_mss_get"></a>nx_tcp_socket_mss_get
-소켓의 MSS 가져오기
+소켓의 MSS를 가져옵니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -7290,7 +7290,7 @@ UINT nx_tcp_socket_mss_get(
 
 ### <a name="parameters"></a>매개 변수
 
-- **socket_ptr** 이전에 만든 소켓을 가리키는 포인터입니다.
+- **socket_ptr** 이전에 만든 소켓에 대한 포인터입니다.
 - **mss** MSS 반환 대상입니다.
 
 ### <a name="return-values"></a>반환 값  
@@ -7302,7 +7302,7 @@ UINT nx_tcp_socket_mss_get(
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화 및 스레드
+초기화, 스레드
 
 ### <a name="preemption-possible"></a>가능한 선점
 
@@ -7333,7 +7333,7 @@ status = nx_tcp_socket_mss_get(&my_socket, &mss_value);
 - nx_tcp_socket_window_update_notify_set
 
 ## <a name="nx_tcp_socket_mss_peer_get"></a>nx_tcp_socket_mss_peer_get
-피어 TCP 소켓의 MSS 가져오기
+피어 TCP 소켓의 MSS를 가져옵니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -7348,7 +7348,7 @@ UINT nx_tcp_socket_mss_peer_get(
 
 ### <a name="parameters"></a>매개 변수
 
-- **socket_ptr** 이전에 만들고 연결한 소켓을 가리키는 포인터입니다.
+- **socket_ptr** 이전에 만들고 연결한 소켓에 대한 포인터입니다.
 - **mss** MSS를 반환하는 대상입니다.
 
 ### <a name="return-values"></a>반환 값 
@@ -7391,7 +7391,7 @@ status = nx_tcp_socket_mss_peer_get(&my_socket, &mss_value);
 - nx_tcp_socket_window_update_notify_set
 
 ## <a name="nx_tcp_socket_mss_set"></a>nx_tcp_socket_mss_set
-소켓의 MSS 설정
+소켓의 MSS를 설정합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -7408,7 +7408,7 @@ TCP 소켓이 연결 프로세스를 시작하기 전에 이 서비스를 사용
 
 ### <a name="parameters"></a>매개 변수
 
-- **socket_ptr** 이전에 만든 소켓을 가리키는 포인터입니다.
+- **socket_ptr** 이전에 만든 소켓에 대한 포인터입니다.
 - **mss** 설정할 MSS 값입니다.
 
 ### <a name="return-values"></a>반환 값  
@@ -7422,7 +7422,7 @@ TCP 소켓이 연결 프로세스를 시작하기 전에 이 서비스를 사용
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화 및 스레드
+초기화, 스레드
 
 ### <a name="preemption-possible"></a>가능한 선점
 
@@ -7453,7 +7453,7 @@ status = nx_tcp_socket_mss_set(&my_socket, 1000);
 - nx_tcp_socket_window_update_notify_set
 
 ## <a name="nx_tcp_socket_peer_info_get"></a>nx_tcp_socket_peer_info_get
-피어 TCP 소켓에 대한 정보 검색
+피어 TCP 소켓에 대한 정보를 검색합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -7469,17 +7469,17 @@ UINT nx_tcp_socket_peer_info_get(
 
 ### <a name="parameters"></a>매개 변수
 
-- **socket_ptr** 이전에 만든 TCP 소켓을 가리키는 포인터입니다.
-- **peer_ip_address** 피어 IP 주소 대상을 가리키는 포인터입니다(호스트 바이트 순서).
-- **peer_port** 피어 포트 번호 대상을 가리키는 포인터입니다(호스트 바이트 순서).
+- **socket_ptr** 이전에 만든 TCP 소켓에 대한 포인터입니다.
+- **peer_ip_address** 호스트 바이트 순서대로 표시된 피어 IP 주소 대상에 대한 포인터입니다.
+- **peer_port** 호스트 바이트 순서대로 표시된 피어 포트 번호 대상에 대한 포인터입니다.
 
 ### <a name="return-values"></a>반환 값  
 
-- **NX_SUCCESS** (0x00) 서비스가 성공적으로 실행되었습니다. 피어 IP 주소와 포트 번호는 호출자에게 반환됩니다.
+- **NX_SUCCESS**(0x00) 서비스가 성공적으로 실행되었습니다. 피어 IP 주소와 포트 번호는 호출자에게 반환됩니다.
 - **NX_NOT_CONNECTED**(0x38) 소켓이 연결된 상태가 아닙니다.
 - **NX_PTR_ERROR**(0x07) 잘못된 포인터입니다.
 - **NX_NOT_ENABLED**(0x14) TCP가 사용하도록 설정되지 않았습니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 
 ### <a name="allowed-from"></a>허용 위치
 
@@ -7580,7 +7580,7 @@ status = nxd_tcp_socket_queue_depth_notify_set(&tcp_socket,
 - nx_tcp_socket_window_update_notify_set
 
 ## <a name="nx_tcp_socket_receive"></a>nx_tcp_socket_receive
-TCP 소켓에서 데이터 수신
+TCP 소켓에서 데이터를 수신합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -7599,10 +7599,10 @@ UINT nx_tcp_socket_receive(
 
 ### <a name="parameters"></a>매개 변수
 
-- **socket_ptr** 이전에 만든 TCP 소켓 인스턴스를 가리키는 포인터입니다.
+- **socket_ptr** 이전에 만든 TCP 소켓 인스턴스에 대한 포인터입니다.
 - **packet_ptr** TCP 패킷 포인터를 가리키는 포인터입니다.
 - **wait_option** 현재 이 소켓에 큐에 대기된 데이터가 없는 경우 서비스가 작동하는 방식을 정의합니다. 대기 옵션은 다음과 같이 정의됩니다.
-    - **NX_NO_WAIT**(0x00000000)
+    - **NX_NO_WAIT** (0x00000000)
     - **NX_WAIT_FOREVER**(0xFFFFFFFF)
     - **틱 단위의 시간 제한**(0x00000001~0xFFFFFFFE)
 
@@ -7614,7 +7614,7 @@ UINT nx_tcp_socket_receive(
 - **NX_WAIT_ABORTED**(0x1A) 요청된 일시 중단이 tx_thread_wait_abort 호출에 의해 중단되었습니다.
 - **NX_NOT_CONNECTED**(0x38) 소켓이 더 이상 연결되어 있지 않습니다.
 - **NX_PTR_ERROR**(0x07) 잘못된 소켓 또는 반환 패킷 포인터입니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 
 ### <a name="allowed-from"></a>허용 위치
@@ -7662,7 +7662,7 @@ status = nx_tcp_socket_receive(&client_socket, &packet_ptr, 200);
 - nxd_tcp_socket_peer_info_get
 
 ## <a name="nx_tcp_socket_receive_notify"></a>nx_tcp_socket_receive_notify
-수신된 패킷을 애플리케이션에 알림
+수신된 패킷에 대해 애플리케이션에 알립니다.
 
 ### <a name="prototype"></a>프로토타입   
 
@@ -7677,14 +7677,14 @@ UINT nx_tcp_socket_receive_notify(
 
 ### <a name="parameters"></a>매개 변수
 
-- **socket_ptr** TCP 소켓을 가리키는 포인터입니다.
+- **socket_ptr** TCP 소켓에 대한 포인터입니다.
 - **tcp_receive_notify** 소켓에 하나 이상의 패킷이 수신되면 호출되는 애플리케이션 콜백 함수 포인터입니다.
 
 ### <a name="return-values"></a>반환 값 
 
 - **NX_SUCCESS**(0x00) 소켓 수신 알림에 성공했습니다.
 - **NX_PTR_ERROR**(0x07) 잘못된 소켓 포인터입니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) TCP 기능이 사용하도록 설정되지 않았습니다.
 
 ### <a name="allowed-from"></a>허용 위치
@@ -7723,7 +7723,7 @@ status = nx_tcp_socket_receive_notify(&client_socket,
 - nx_tcp_socket_window_update_notify_set
 
 ## <a name="nx_tcp_socket_send"></a>nx_tcp_socket_send
-TCP 소켓을 통해 데이터 송신
+TCP 소켓을 통해 데이터를 송신합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -7742,10 +7742,10 @@ UINT nx_tcp_socket_send(
 
 ### <a name="parameters"></a>매개 변수
 
-- **socket_ptr** 이전에 연결된 TCP 소켓 인스턴스를 가리키는 포인터입니다.
+- **socket_ptr** 이전에 연결된 TCP 소켓 인스턴스에 대한 포인터입니다.
 - **packet_ptr** TCP 데이터 패킷 포인터입니다.
 - **wait_option** 요청이 수신기 창 크기를 초과하는 경우 서비스가 작동하는 방식을 정의합니다. 대기 옵션은 다음과 같이 정의됩니다.
-    - **NX_NO_WAIT**(0x00000000)
+    - **NX_NO_WAIT** (0x00000000)
     - **NX_WAIT_FOREVER**(0xFFFFFFFF)
     - **틱 단위의 시간 제한**(0x00000001~0xFFFFFFFE)
 
@@ -7761,7 +7761,7 @@ UINT nx_tcp_socket_send(
 - **NX_TX_QUEUE_DEPTH**(0x49) 최대 전송 큐 크기에 도달했습니다.
 - **NX_OVERFLOW**(0x03) 패킷 뒤에 추가 포인터가 잘못되었습니다.
 - **NX_PTR_ERROR**(0x07) 잘못된 소켓 포인터입니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 - **NX_UNDERFLOW**(0x02) 패킷 앞에 추가 포인터가 잘못되었습니다.
 
@@ -7810,7 +7810,7 @@ status = nx_tcp_socket_send(&client_socket, packet_ptr, 200);
 - nxd_tcp_socket_peer_info_get
 
 ## <a name="nx_tcp_socket_state_wait"></a>nx_tcp_socket_state_wait
-TCP 소켓이 특정 상태가 될 때까지 대기
+TCP 소켓이 특정 상태가 될 때까지 대기합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -7826,7 +7826,7 @@ UINT nx_tcp_socket_state_wait(
 
 ### <a name="parameters"></a>매개 변수
 
-- **socket_ptr** 이전에 연결된 TCP 소켓 인스턴스를 가리키는 포인터입니다.
+- **socket_ptr** 이전에 연결된 TCP 소켓 인스턴스에 대한 포인터입니다.
 - **desired_state** 원하는 TCP 상태입니다. 유효한 TCP 소켓 상태는 다음과 같이 정의됩니다.
     - **NX_TCP_CLOSED**(0x01)
     - **NX_TCP_LISTEN_STATE**(0x02)
@@ -7849,7 +7849,7 @@ UINT nx_tcp_socket_state_wait(
 - **NX_PTR_ERROR**(0x07) 잘못된 소켓 포인터입니다.
 - **NX_NOT_SUCCESSFUL**(0x43) 지정된 대기 시간 내에 해당 상태가 되지 않았습니다.
 - **NX_WAIT_ABORTED**(0x1A) 요청된 일시 중단이 tx_thread_wait_abort 호출에 의해 중단되었습니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 - **NX_OPTION_ERROR**(0x0A) 원하는 소켓 상태가 잘못되었습니다.
 
@@ -7898,7 +7898,7 @@ status = nx_tcp_socket_state_wait(&client_socket,
 - nxd_tcp_socket_peer_info_get
 
 ## <a name="nx_tcp_socket_timed_wait_callback"></a>nx_tcp_socket_timed_wait_callback
-시간이 지정된 대기 상태 콜백 설치
+시간이 지정된 대기 상태 콜백을 설치합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -7913,7 +7913,7 @@ UINT nx_tcp_socket_timed_wait_callback(
 
 ### <a name="parameters"></a>매개 변수
 
-- **socket_ptr** 이전에 연결된 클라이언트 또는 서버 소켓 인스턴스를 가리키는 포인터입니다.
+- **socket_ptr** 이전에 연결된 클라이언트 또는 서버 소켓 인스턴스에 대한 포인터입니다.
 - **tcp_timed_wait_callback** 시간이 지정된 대기 콜백 함수입니다.
 
 ### <a name="return-values"></a>반환 값  
@@ -7921,7 +7921,7 @@ UINT nx_tcp_socket_timed_wait_callback(
 - **NX_SUCCESS**(0x00) 콜백 함수 소켓을 성공적으로 등록했습니다.
 - **NX_NOT_SUPPORTED**(0x4B) 확장 알림 기능을 사용하도록 설정하지 않은 상태로 NetX Duo 라이브러리가 빌드되었습니다.
 - **NX_PTR_ERROR**(0x07) 잘못된 소켓 포인터입니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) TCP 기능이 사용하도록 설정되지 않았습니다.
 
 ### <a name="allowed-from"></a>허용 위치
@@ -7955,7 +7955,7 @@ nx_tcp_socket_timed_wait_callback(&client_socket, callback);
 - nx_tcp_socket_window_update_notify_set
 
 ## <a name="nx_tcp_socket_transmit_configure"></a>nx_tcp_socket_transmit_configure
-소켓의 전송 매개 변수 구성
+소켓의 전송 매개 변수를 구성합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -7973,7 +7973,7 @@ UINT nx_tcp_socket_transmit_configure(
 
 ### <a name="parameters"></a>매개 변수
 
-- **socket_ptr** TCP 소켓을 가리키는 포인터입니다.
+- **socket_ptr** TCP 소켓에 대한 포인터입니다.
 - **max_queue_depth** 전송을 위해 큐에 대기될 수 있는 최대 패킷 수입니다.
 - **timeout** 패킷을 다시 송신하기 전에 ACK를 기다리는 ThreadX 타이머 틱 수입니다.
 - **max_retries** 허용되는 최대 재시도 수입니다.
@@ -7984,7 +7984,7 @@ UINT nx_tcp_socket_transmit_configure(
 - **NX_SUCCESS**(0x00) 전송 소켓 구성에 성공했습니다.
 - **NX_PTR_ERROR**(0x07) 잘못된 소켓 포인터입니다.
 - **NX_OPTION_ERROR**(0x0a) 잘못된 큐 깊이 옵션입니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) TCP 기능이 사용하도록 설정되지 않았습니다.
 
 ### <a name="allowed-from"></a>허용 위치
@@ -8022,7 +8022,7 @@ status = nx_tcp_socket_transmit_configure(&client_socket,12,100,20,1);
 - nx_tcp_socket_window_update_notify_set
 
 ## <a name="nx_tcp_socket_window_update_notify_set"></a>nx_tcp_socket_window_update_notify_set
-애플리케이션에 창 크기 업데이트 알림
+애플리케이션에 창 크기 업데이트에 대해 알립니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -8037,13 +8037,13 @@ UINT nx_tcp_socket_window_update_notify_set(
 
 ### <a name="parameters"></a>매개 변수
 
-- **socket_ptr** 이전에 만든 TCP 소켓을 가리키는 포인터입니다.
+- **socket_ptr** 이전에 만든 TCP 소켓에 대한 포인터입니다.
 - **tcp_window_update_notify** 창 크기가 변경되면 호출되는 콜백 루틴입니다. 값이 NULL이면 창 변경 업데이트를 사용하지 않도록 설정합니다.
 
 ### <a name="return-values"></a>반환 값  
 
 - **NX_SUCCESS**(0x00) 콜백 루틴이 소켓에 설치되었습니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_PTR_ERROR**(0x07) 잘못된 포인터입니다.
 - **NX_NOT_ENABLED**(0x14) TCP 기능이 사용하도록 설정되지 않았습니다.
 
@@ -8105,9 +8105,9 @@ UINT nx_udp_enable(NX_IP *ip_ptr);
 ### <a name="return-values"></a>반환 값
 
 - **NX_SUCCESS**(0x00) UDP를 사용하도록 설정하는 데 성공했습니다.
-- **NX_PTR_ERROR**(0x07) IP 포인터가 잘못되었습니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
-- **NX_ALREADY_ENABLED**(0x15) 이 구성 요소는 이미 사용하도록 설정되어 있습니다.
+- **NX_PTR_ERROR**(0x07) 잘못된 IP 포인터입니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
+- **NX_ALREADY_ENABLED**(0x15) 이 구성 요소는 이미 사용하도록 설정되었습니다.
 
 ### <a name="allowed-from"></a>허용 위치
 
@@ -8151,7 +8151,7 @@ status = nx_udp_enable(&ip_0);
 - nxd_udp_source_extract
 
 ## <a name="nx_udp_free_port_find"></a>nx_udp_free_port_find
-사용할 수 있는 다음 UDP 포트 찾기
+사용할 수 있는 다음 UDP 포트를 찾습니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -8172,14 +8172,14 @@ UINT nx_udp_free_port_find(
 
 - **ip_ptr** 이전에 만든 IP 인스턴스에 대한 포인터입니다.
 - **port** 검색을 시작할 포트 번호(1-0xFFFF)입니다.
-- **free_port_ptr** 사용 가능한 포트 반환 변수 대상을 가리키는 포인터입니다.
+- **free_port_ptr** 사용 가능한 포트 반환 변수 대상에 대한 포인터입니다.
 
 ### <a name="return-values"></a>반환 값  
 
 - **NX_SUCCESS**(0x00) 사용 가능한 포트를 찾는 데 성공했습니다.
 - **NX_NO_FREE_PORTS**(0x45) 사용 가능한 포트를 찾을 수 없습니다.
-- **NX_PTR_ERROR**(0x07) IP 포인터가 잘못되었습니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_PTR_ERROR**(0x07) 잘못된 IP 포인터입니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 - **NX_INVALID_PORT**(0x46) 지정된 포트 번호가 잘못되었습니다.
 
@@ -8226,7 +8226,7 @@ status = nx_udp_free_port_find(&ip_0, 12, &free_port);
 - nxd_udp_source_extract
 
 ## <a name="nx_udp_info_get"></a>nx_udp_info_get
-UDP 활동에 대한 정보 검색
+UDP 활동에 대한 정보를 검색합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -8251,24 +8251,24 @@ UINT nx_udp_info_get(
 ### <a name="parameters"></a>매개 변수
 
 - **ip_ptr** 이전에 만든 IP 인스턴스에 대한 포인터입니다.
-- **udp_packets_sent** 송신된 총 UDP 패킷 수 대상을 가리키는 포인터입니다.
-- **udp_bytes_sent** 송신된 총 UDP 바이트 수 대상을 가리키는 포인터입니다.
-- **udp_packets_received** 수신된 총 UDP 패킷 수 대상을 가리키는 포인터입니다.
-- **udp_bytes_received** 수신된 총 UDP 바이트 수 대상을 가리키는 포인터입니다.
-- **udp_invalid_packets** 잘못된 총 UDP 패킷 수 대상을 가리키는 포인터입니다.
-- **udp_receive_packets_dropped** 삭제된 총 UDP 수신 패킷 수 대상을 가리키는 포인터입니다.
-- **udp_checksum_errors** 체크섬 오류가 있는 총 UDP 패킷 수 대상을 가리키는 포인터입니다.
+- **udp_packets_sent** 송신된 총 UDP 패킷 수 대상에 대한 포인터입니다.
+- **udp_bytes_sent** 송신된 총 UDP 바이트 수 대상에 대한 포인터입니다.
+- **udp_packets_received** 수신된 총 UDP 패킷 수 대상에 대한 포인터입니다.
+- **udp_bytes_received** 수신된 총 UDP 바이트 수 대상에 대한 포인터입니다.
+- **udp_invalid_packets** 잘못된 총 UDP 패킷 수 대상에 대한 포인터입니다.
+- **udp_receive_packets_dropped** 삭제된 총 UDP 수신 패킷 수 대상에 대한 포인터입니다.
+- **udp_checksum_errors** 체크섬 오류가 있는 총 UDP 패킷 수 대상에 대한 포인터입니다.
 
 ### <a name="return-values"></a>반환 값
 
 - **NX_SUCCESS**(0x00) UDP 정보 검색에 성공했습니다.
-- **NX_PTR_ERROR**(0x07) IP 포인터가 잘못되었습니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_PTR_ERROR**(0x07) 잘못된 IP 포인터입니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화, 스레드 및 타이머
+초기화, 스레드, 타이머
 
 ### <a name="preemption-possible"></a>가능한 선점
 
@@ -8314,7 +8314,7 @@ status = nx_udp_info_get(&ip_0, &udp_packets_sent,
 - nxd_udp_source_extract
 
 ## <a name="nx_udp_packet_info_extract"></a>nx_udp_packet_info_extract
-UDP 패킷에서 네트워크 매개 변수 추출
+UDP 패킷에서 네트워크 매개 변수를 추출합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -8332,18 +8332,18 @@ UINT nx_udp_packet_info_extract(
 
 ### <a name="parameters"></a>매개 변수
 
-- **packet_ptr** 패킷을 가리키는 포인터입니다.
-- **ip_address** 송신기 IP 주소를 가리키는 포인터입니다.
-- **protocol** 프로토콜(UDP)을 가리키는 포인터입니다.
-- **port** 송신기 포트 번호를 가리키는 포인터입니다.
-- **interface_index** 수신 인터페이스 인덱스를 가리키는 포인터입니다.
+- **packet_ptr** 패킷에 대한 포인터입니다.
+- **ip_address** 송신기 IP 주소에 대한 포인터입니다.
+- **protocol** 프로토콜(UDP)에 대한 포인터입니다.
+- **port** 송신기 포트 번호에 대한 포인터입니다.
+- **interface_index** 수신 인터페이스 인덱스에 대한 포인터입니다.
 
 ### <a name="return-values"></a>반환 값  
 
 - **NX_SUCCESS**(0x00) 패킷 인터페이스 데이터를 성공적으로 추출했습니다.
 - **NX_INVALID_PACKET**(0x12) 패킷에 IPv4 프레임이 포함되어 있지 않습니다.
 - **NX_PTR_ERROR**(0x07) 잘못된 포인터 입력입니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 
 ### <a name="allowed-from"></a>허용 위치
 
@@ -8389,7 +8389,7 @@ status = nx_udp_packet_info_extract(packet_ptr, &ip_address,
 - nxd_udp_source_extract
 
 ## <a name="nx_udp_socket_bind"></a>nx_udp_socket_bind
-UDP 소켓을 UDP 포트에 바인딩
+UDP 소켓을 UDP 포트에 바인딩합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -8408,7 +8408,7 @@ UINT nx_udp_socket_bind(
 - **socket_ptr** 이전에 만든 UDP 소켓 인스턴스를 가리키는 포인터입니다.
 - **port** 바인딩할 포트 번호**(1-0xFFFF)입니다. 포트 번호가 NX_ANY_PORT**(0x0000)인 경우 IP 인스턴스는 가능한 다음 포트를 검색하여 바인딩에 사용합니다.
 - **wait_option** 포트가 이미 다른 소켓에 바인딩되어 있는 경우 서비스가 작동하는 방식을 정의합니다. 대기 옵션은 다음과 같이 정의됩니다.
-    - **NX_NO_WAIT**(0x00000000)
+    - **NX_NO_WAIT** (0x00000000)
     - **NX_WAIT_FOREVER**(0xFFFFFFFF)
     - **틱 단위의 시간 제한**(0x00000001~0xFFFFFFFE)
 
@@ -8421,7 +8421,7 @@ UINT nx_udp_socket_bind(
 - **NX_WAIT_ABORTED**(0x1A) 요청된 일시 중단이 tx_thread_wait_abort 호출에 의해 중단되었습니다.
 - **NX_INVALID_PORT**(0x46) 잘못된 포트가 지정되었습니다.
 - **NX_PTR_ERROR**(0x07) 잘못된 소켓 포인터입니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 
 ### <a name="allowed-from"></a>허용 위치
@@ -8468,7 +8468,7 @@ status = nx_udp_socket_bind(&udp_socket, 12, 300);
 - nxd_udp_source_extract
 
 ## <a name="nx_udp_socket_bytes_available"></a>nx_udp_socket_bytes_available
-검색에 사용할 수 있는 바이트 수를 가져오기
+검색에 사용할 수 있는 바이트 수를 가져옵니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -8483,8 +8483,8 @@ UINT nx_udp_socket_bytes_available(
 
 ### <a name="parameters"></a>매개 변수
 
-- **socket_ptr** 이전에 만든 UDP 소켓을 가리키는 포인터입니다.
-- **bytes_available** 사용할 수 있는 바이트 대상을 가리키는 포인터입니다.
+- **socket_ptr** 이전에 만든 UDP 소켓에 대한 포인터입니다.
+- **bytes_available** 사용할 수 있는 바이트 대상에 대한 포인터입니다.
 
 ### <a name="return-values"></a>반환 값 
 
@@ -8492,7 +8492,7 @@ UINT nx_udp_socket_bytes_available(
 - **NX_NOT_SUCCESSFUL**(0x43) 소켓이 포트에 바인딩되지 않았습니다.
 - **NX_PTR_ERROR**(0x07) 잘못된 포인터입니다.
 - **NX_NOT_ENABLED**(0x14) UDP 기능이 사용하도록 설정되지 않았습니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 
 ### <a name="allowed-from"></a>허용 위치
 
@@ -8537,7 +8537,7 @@ status = nx_udp_socket_bytes_available(&my_socket,
 - nxd_udp_source_extract
 
 ## <a name="nx_udp_socket_checksum_disable"></a>nx_udp_socket_checksum_disable
-UDP 소켓 체크섬을 사용하지 않도록 설정
+UDP 소켓 체크섬을 사용하지 않도록 설정합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -8554,14 +8554,14 @@ IPv6의 경우 UDP 체크섬이 필수이므로 이 서비스는 IPv6 네트워�
 
 ### <a name="parameters"></a>매개 변수
 
-- **socket_ptr** 이전에 만든 UDP 소켓 인스턴스를 가리키는 포인터입니다.
+- **socket_ptr** 이전에 만든 UDP 소켓 인스턴스에 대한 포인터입니다.
 
 ### <a name="return-values"></a>반환 값 
 
 - **NX_SUCCESS**(0x00) 소켓 체크섬을 사용하지 않도록 설정하는 데 성공했습니다.
 - **NX_NOT_BOUND**(0x24) 소켓이 바인딩되지 않았습니다.
 - **NX_PTR_ERROR**(0x07) 잘못된 소켓 포인터입니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 
 ### <a name="allowed-from"></a>허용 위치
@@ -8606,7 +8606,7 @@ status = nx_udp_socket_checksum_disable(&udp_socket);
 - nxd_udp_source_extract
 
 ## <a name="nx_udp_socket_checksum_enable"></a>nx_udp_socket_checksum_enable
-UDP 소켓 체크섬을 사용하도록 설정
+UDP 소켓 체크섬을 사용하도록 설정합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -8623,14 +8623,14 @@ UINT nx_udp_socket_checksum_enable(NX_UDP_SOCKET *socket_ptr);
 
 ### <a name="parameters"></a>매개 변수
 
-- **socket_ptr** 이전에 만든 UDP 소켓 인스턴스를 가리키는 포인터입니다.
+- **socket_ptr** 이전에 만든 UDP 소켓 인스턴스에 대한 포인터입니다.
 
 ### <a name="return-values"></a>반환 값  
 
 - **NX_SUCCESS**(0x00) 소켓 체크섬을 사용하도록 설정하는 데 성공했습니다.
 - **NX_NOT_BOUND**(0x24) 소켓이 바인딩되지 않았습니다.
 - **NX_PTR_ERROR**(0x07) 잘못된 소켓 포인터입니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 
 ### <a name="allowed-from"></a>허용 위치
@@ -8696,7 +8696,7 @@ UINT nx_udp_socket_create(
 ### <a name="parameters"></a>매개 변수
 
 - **ip_ptr** 이전에 만든 IP 인스턴스에 대한 포인터입니다.
-- **socket_ptr** 새 UDP 소켓 제어 블록을 가리키는 포인터입니다.
+- **socket_ptr** 새 UDP 소켓 제어 블록에 대한 포인터입니다.
 - **name** 이 UDP 소켓의 애플리케이션 이름입니다.
 - **type_of_service** 전송할 서비스 유형을 정의합니다. 올바른 값은 다음과 같습니다.
     - **NX_IP_NORMAL**(0x00000000)
@@ -8713,7 +8713,7 @@ UINT nx_udp_socket_create(
 - **NX_SUCCESS**(0x00) UDP 소켓 만들기에 성공했습니다.
 - **NX_OPTION_ERROR**(0x0A) type-of-service, fragment 또는 time-to-live 옵션이 잘못되었습니다.
 - **NX_PTR_ERROR**(0x07) 잘못된 IP 또는 소켓 포인터입니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 
 ### <a name="allowed-from"></a>허용 위치
@@ -8760,7 +8760,7 @@ status = nx_udp_socket_create(&ip_0, &udp_socket, "Sample UDP Socket",
 - nxd_udp_source_extract
 
 ## <a name="nx_udp_socket_delete"></a>nx_udp_socket_delete
-UDP 소켓 삭제
+UDP 소켓을 삭제합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -8773,14 +8773,14 @@ UINT nx_udp_socket_delete(NX_UDP_SOCKET *socket_ptr);
 
 ### <a name="parameters"></a>매개 변수
 
-- **socket_ptr** 이전에 만든 UDP 소켓 인스턴스를 가리키는 포인터입니다.
+- **socket_ptr** 이전에 만든 UDP 소켓 인스턴스에 대한 포인터입니다.
 
 ### <a name="return-values"></a>반환 값 
 
 - **NX_SUCCESS**(0x00) 소켓을 삭제하는 데 성공했습니다.
 - **NX_STILL_BOUND**(0x42) 소켓이 여전히 바인딩되어 있습니다.
 - **NX_PTR_ERROR**(0x07) 잘못된 소켓 포인터입니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 
 ### <a name="allowed-from"></a>허용 위치
@@ -8825,7 +8825,7 @@ status = nx_udp_socket_delete(&udp_socket);
 - nxd_udp_source_extract
 
 ## <a name="nx_udp_socket_info_get"></a>nx_udp_socket_info_get
-UDP 소켓 활동에 대한 정보 검색
+UDP 소켓 활동에 대한 정보를 검색합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -8851,23 +8851,23 @@ UINT nx_udp_socket_info_get(
 
 - **socket_ptr** 이전에 만든 UDP 소켓 인스턴스를 가리키는 포인터입니다.
 - **udp_packets_sent** 소켓의 송신된 총 UDP 패킷 수 대상을 가리키는 포인터입니다.
-- **udp_bytes_sent** 소켓의 송신된 총 UDP 바이트 수 대상을 가리키는 포인터입니다.
-- **udp_packets_received** 소켓의 수신된 총 UDP 패킷 수 대상을 가리키는 포인터입니다.
-- **udp_bytes_received** 소켓의 수신된 총 UDP 바이트 수 대상을 가리키는 포인터입니다.
-- **udp_packets_queued** 소켓의 큐에 대기된 총 UDP 패킷 수 대상을 가리키는 포인터입니다.
-- **udp_receive_packets_dropped** 큐 크기 초과로 인해 삭제된, 소켓의 총 UDP 수신 패킷 수 대상을 가리키는 포인터입니다.
-- **udp_checksum_errors** 소켓의 체크섬 오류가 있는 총 UDP 패킷 수 대상을 가리키는 포인터입니다.
+- **udp_bytes_sent** 소켓의 송신된 총 UDP 바이트 수 대상에 대한 포인터입니다.
+- **udp_packets_received** 소켓의 수신된 총 UDP 패킷 수 대상에 대한 포인터입니다.
+- **udp_bytes_received** 소켓의 수신된 총 UDP 바이트 수 대상에 대한 포인터입니다.
+- **udp_packets_queued** 소켓의 큐에 대기된 총 UDP 패킷 수 대상에 대한 포인터입니다.
+- **udp_receive_packets_dropped** 큐 크기 초과로 인해 삭제된, 소켓의 총 UDP 수신 패킷 수 대상에 대한 포인터입니다.
+- **udp_checksum_errors** 소켓의 체크섬 오류가 있는 총 UDP 패킷 수 대상에 대한 포인터입니다.
 
 ### <a name="return-values"></a>반환 값 
 
 - **NX_SUCCESS**(0x00) UDP 소켓 정보 검색에 성공했습니다.
 - **NX_PTR_ERROR**(0x07) 잘못된 소켓 포인터입니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화, 스레드 및 타이머
+초기화, 스레드, 타이머
 
 ### <a name="preemption-possible"></a>가능한 선점
 
@@ -8913,7 +8913,7 @@ status = nx_udp_socket_info_get(&socket_0,
 - nxd_udp_source_extract
 
 ## <a name="nx_udp_socket_port_get"></a>nx_udp_socket_port_get
-UDP 소켓에 바인딩된 포트 번호 선택
+UDP 소켓에 바인딩된 포트 번호를 선택합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -8928,15 +8928,15 @@ UINT nx_udp_socket_port_get(
 
 ### <a name="parameters"></a>매개 변수
 
-- **socket_ptr** 이전에 만든 UDP 소켓 인스턴스를 가리키는 포인터입니다.
-- **port_ptr** 반환 포트 번호 대상을 가리키는 포인터입니다. 유효한 포트 번호는 (1-0xFFFF)입니다.
+- **socket_ptr** 이전에 만든 UDP 소켓 인스턴스에 대한 포인터입니다.
+- **port_ptr** 반환 포트 번호 대상에 대한 포인터입니다. 유효한 포트 번호는 (1-0xFFFF)입니다.
 
 ### <a name="return-values"></a>반환 값 
 
 - **NX_SUCCESS**(0x00) 소켓 바인딩에 성공했습니다.
 - **NX_NOT_BOUND**(0x24) 이 소켓은 포트에 바인딩되지 않았습니다.
 - **NX_PTR_ERROR**(0x07) 잘못된 소켓 포인터 또는 포트 반환 포인터입니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 
 ### <a name="allowed-from"></a>허용 위치
@@ -8981,7 +8981,7 @@ status = nx_udp_socket_port_get(&udp_socket, &port);
 - nxd_udp_source_extract
 
 ## <a name="nx_udp_socket_receive"></a>nx_udp_socket_receive
-UDP 소켓에서 데이터그램 수신
+UDP 소켓에서 데이터그램을 수신합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -9000,10 +9000,10 @@ UINT nx_udp_socket_receive(
 
 ### <a name="parameters"></a>매개 변수
 
-- **socket_ptr** 이전에 만든 UDP 소켓 인스턴스를 가리키는 포인터입니다.
-- **packet_ptr** UDP 데이터그램 패킷 포인터를 가리키는 포인터입니다.
+- **socket_ptr** 이전에 만든 UDP 소켓 인스턴스에 대한 포인터입니다.
+- **packet_ptr** UDP 데이터그램 패킷 포인터에 대한 포인터입니다.
 - **wait_option** 현재 이 소켓에 큐에 대기된 데이터그램이 없는 경우 서비스가 작동하는 방식을 정의합니다. 대기 옵션은 다음과 같이 정의됩니다.
-    - **NX_NO_WAIT**(0x00000000)
+    - **NX_NO_WAIT** (0x00000000)
     - **NX_WAIT_FOREVER**(0xFFFFFFFF)
     - **틱 단위의 시간 제한**(0x00000001~0xFFFFFFFE)
 
@@ -9061,7 +9061,7 @@ status = nx_udp_socket_receive(&udp_socket, &packet_ptr, 500);
 - nxd_udp_source_extract
 
 ## <a name="nx_udp_socket_receive_notify"></a>nx_udp_socket_receive_notify
-수신된 각 패킷에 대해 애플리케이션에 알림
+수신된 각 패킷에 대해 애플리케이션에 알립니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -9076,7 +9076,7 @@ UINT nx_udp_socket_receive_notify(
 
 ### <a name="parameters"></a>매개 변수
 
-- **socket_ptr** UDP 소켓을 가리키는 포인터입니다.
+- **socket_ptr** UDP 소켓에 대한 포인터입니다.
 - **udp_receive_notify** 소켓에 패킷이 수신되면 호출되는 애플리케이션 콜백 함수 포인터입니다.
 
 ### <a name="return-values"></a>반환 값 
@@ -9086,7 +9086,7 @@ UINT nx_udp_socket_receive_notify(
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화, 스레드, 타이머 및 ISR
+초기화, 스레드, 타이머, ISR
 
 ### <a name="preemption-possible"></a>가능한 선점
 
@@ -9129,7 +9129,7 @@ status = nx_udp_socket_receive_notify(&udp_socket,
 - nxd_udp_source_extract
 
 ## <a name="nx_udp_socket_send"></a>nx_udp_socket_send
-UDP 데이터그램 송신
+UDP 데이터그램을 송신합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -9150,7 +9150,7 @@ UINT nx_udp_socket_send(
 
 ### <a name="parameters"></a>매개 변수
 
-- **socket_ptr** 이전에 만든 UDP 소켓 인스턴스를 가리키는 포인터입니다.
+- **socket_ptr** 이전에 만든 UDP 소켓 인스턴스에 대한 포인터입니다.
 - **packet_ptr** UDP 데이터그램 패킷 포인터입니다.
 - **ip_address** 대상 IP 주소입니다.
 - **port** 1에서 0xFFFF 사이의 유효한 대상 포트 번호입니다(호스트 바이트 순서).
@@ -9235,7 +9235,7 @@ UINT nx_udp_socket_source_send(
 ### <a name="parameters"></a>매개 변수 
 
 - **socket_ptr** 패킷을 전송할 소켓입니다.
-- **packet_ptr** 전송할 패킷을 가리키는 포인터입니다.
+- **packet_ptr** 전송할 패킷에 대한 포인터입니다.
 - **ip_address** 패킷을 송신할 대상 IP 주소입니다.
 - **port** 대상 포트입니다.
 - **address_index** 패킷을 송신할 인터페이스와 연결된 주소 인덱스입니다.
@@ -9244,12 +9244,12 @@ UINT nx_udp_socket_source_send(
 
 - **NX_SUCCESS**(0x00) 패킷이 성공적으로 송신되었습니다.
 - **NX_NOT_BOUND**(0x24) 소켓이 포트에 바인딩되지 않았습니다.
-- **NX_IP_ADDRESS_ERROR**(0x21) IP 주소가 잘못되었습니다.
+- **NX_IP_ADDRESS_ERROR**(0x21) 잘못된 IP 주소입니다.
 - **NX_NOT_ENABLED**(0x14) UDP 처리가 사용하도록 설정되지 않았습니다.
 - **NX_PTR_ERROR**(0x07) 잘못된 포인터입니다.
 - **NX_OVERFLOW**(0x03) 잘못된 패킷 뒤에 추가 포인터입니다.
 - **NX_UNDERFLOW**(0x02) 잘못된 패킷 앞에 추가 포인터입니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_INVALID_INTERFACE**(0x4C) 잘못된 주소 인덱스입니다.
 - **NX_INVALID_PORT**(0x46) 포트 번호가 최대 포트 번호를 초과합니다.
 
@@ -9315,14 +9315,14 @@ UINT nx_udp_socket_unbind(NX_UDP_SOCKET *socket_ptr);
 
 ### <a name="parameters"></a>매개 변수
 
-- **socket_ptr** 이전에 만든 UDP 소켓 인스턴스를 가리키는 포인터입니다.
+- **socket_ptr** 이전에 만든 UDP 소켓 인스턴스에 대한 포인터입니다.
 
 ### <a name="return-values"></a>반환 값 
 
 - **NX_SUCCESS**(0x00) 소켓을 바인딩 해제하는 데 성공했습니다.
 - **NX_NOT_BOUND**(0x24) 소켓이 어떤 포트에도 바인딩되지 않았습니다.
 - **NX_PTR_ERROR**(0x07) 잘못된 소켓 포인터입니다.
-- **NX_CALLER_ERROR**(0x11) 이 서비스 호출자가 잘못되었습니다.
+- **NX_CALLER_ERROR**(0x11) 이 서비스의 잘못된 호출자입니다.
 - **NX_NOT_ENABLED**(0x14) 이 구성 요소가 사용하도록 설정되지 않았습니다.
 
 ### <a name="allowed-from"></a>허용 위치
@@ -9367,7 +9367,7 @@ status = nx_udp_socket_unbind(&udp_socket);
 - nxd_udp_source_extract
 
 ## <a name="nx_udp_source_extract"></a>nx_udp_source_extract
-UDP 데이터그램에서 IP 및 송신 포트 추출
+UDP 데이터그램에서 IP 및 송신 포트를 추출합니다.
 
 ### <a name="prototype"></a>프로토타입  
 
@@ -11529,7 +11529,7 @@ UINT nxd_tcp_client_socket_connect(
 - **server_ip** IPv4 또는 IPv6 대상 주소를 가리키는 포인터입니다(호스트 바이트 순서).
 - **server_port** 연결할 서버 포트 번호(1-0xFFFF)입니다(호스트 바이트 순서).
 - **wait_option** 연결이 설정되는 동안 대기 옵션입니다. 대기 옵션은 다음과 같이 정의됩니다.
-    - **NX_NO_WAIT**(0x00000000)
+    - **NX_NO_WAIT** (0x00000000)
     - **NX_WAIT_FOREVER**(0xFFFFFFFF)
     - **틱 단위의 시간 제한**(0x00000001~0xFFFFFFFE)
 
@@ -11705,7 +11705,7 @@ UINT nxd_udp_packet_info_extract(
 
 ### <a name="parameters"></a>매개 변수
 
-- **packet_ptr** 패킷을 가리키는 포인터입니다.
+- **packet_ptr** 패킷에 대한 포인터입니다.
 - **ip_address** 송신기 IP 주소를 가리키는 포인터입니다.
 - **protocol** 반환될 프로토콜을 가리키는 포인터입니다.
 - **port** 송신기 포트 번호를 가리키는 포인터입니다.
@@ -11782,7 +11782,7 @@ UINT nxd_udp_socket_send(
 
 ### <a name="parameters"></a>매개 변수
 
-- **socket_ptr** 이전에 만든 UDP 소켓 인스턴스를 가리키는 포인터입니다.
+- **socket_ptr** 이전에 만든 UDP 소켓 인스턴스에 대한 포인터입니다.
 - **packet_ptr** UDP 데이터그램 패킷 포인터입니다.
 - **ip_address** 대상 IPv4 또는 IPv6 주소를 가리키는 포인터입니다.
 - **port** 1에서 0xFFFF 사이의 유효한 대상 포트 번호입니다(호스트 바이트 순서).
@@ -11893,7 +11893,7 @@ UINT nxd_udp_socket_source_send(
 
 ### <a name="parameters"></a>매개 변수
 
-- **socket_ptr** 이전에 만든 UDP 소켓 인스턴스를 가리키는 포인터입니다.
+- **socket_ptr** 이전에 만든 UDP 소켓 인스턴스에 대한 포인터입니다.
 - **packet_ptr** UDP 데이터그램 패킷 포인터입니다.
 - **ip_address** 대상 IPv4 또는 IPv6 주소 포트를 가리키는 포인터입니다. 유효한 대상 포트 번호는 1-0xFFFF 사이입니다(호스트 바이트 순서).
 - **address_index** 패킷에 사용할 원본 주소를 지정하는 인덱스입니다.

@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: e1bf85d363b07c81f226d494107eae9ba18114a7
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: a88dc75c3b01e8054f72b3e1475791f064eac0ded02b22ccd18dd46da8c7200a
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104810272"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116785042"
 ---
 # <a name="chapter-2---installation-and-use-of-azure-rtos-threadx"></a>2장 - Azure RTOS ThreadX 설치 및 사용
 
@@ -176,7 +176,7 @@ TX_INLINE_THREAD_RESUME_SUSPEND
 
 **TX_BYTE_POOL_ENABLE_PERFORMANCE_INFO**
 
-정의된 경우 이 옵션을 사용하여 바이트 풀에서 성능 정보를 수집할 수 있습니다. 이 옵션은 기본적으로 정의되지 않습니다.
+정의된 경우 이 옵션을 사용하여 바이트 풀에 대한 성능 정보를 수집할 수 있습니다. 이 옵션은 기본적으로 정의되지 않습니다.
 
 **TX_BYTE_POOL_ENABLE_PERFORMANCE_INFO**
 

@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 17438a20ad3da64c88c3d6bb19a4887c2c6e354e
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: f7a286118caf9bca9876d40ecdd176a3f4cb711e9cba39325808bfb6c09c2644
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104811610"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116799560"
 ---
 # <a name="chapter-1---introduction-to-azure-rtos-netx-dhcp-server"></a>1장 - Azure RTOS NetX DHCP 서버 소개
 
@@ -25,7 +25,7 @@ RARP는 IP 주소를 동적으로 할당하는 서비스를 제공하지만, 몇
 
 ## <a name="rarp-alternatives"></a>RARP 대안
 
-연구원들은 RARP의 결함을 극복하기 위해 BOOTP(부트스트랩 프로토콜)라고 하는 더 포괄적인 IP 주소 할당 메커니즘을 개발했습니다. 이 프로토콜에는 IP 주소를 동적으로 할당하고 중요한 추가 네트워크 정보도 제공하는 기능이 있습니다. 그러나 BOOTP는 정적 네트워크 구성을 위해 설계된다는 단점이 있습니다. 빠른 주소 할당 또는 자동 주소 할당을 허용하지 않습니다.
+연구원들은 RARP의 결함을 극복하기 위해 BOOTP(부트 스트랩 프로토콜)라고 하는 더 포괄적인 IP 주소 할당 메커니즘을 개발했습니다. 이 프로토콜에는 IP 주소를 동적으로 할당하고 중요한 추가 네트워크 정보도 제공하는 기능이 있습니다. 그러나 BOOTP는 정적 네트워크 구성을 위해 설계된다는 단점이 있습니다. 빠른 주소 할당 또는 자동 주소 할당을 허용하지 않습니다.
 
 여기서 DHCP(Dynamic Host Configuration Protocol)가 매우 유용합니다. DHCP는 지정된 기간 동안 클라이언트에 IP 주소를 “임대”하여 완전히 자동화된 IP 서버 할당과 완전한 동적 IP 주소 할당을 포함하도록 BOOTP의 기본 기능을 확장하도록 설계되었습니다. DHCP는 BOOTP와 같은 정적 방식으로 IP 주소를 할당하도록 구성할 수도 있습니다.
 

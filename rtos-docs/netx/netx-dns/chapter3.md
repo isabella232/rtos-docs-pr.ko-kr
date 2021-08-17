@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 18e059e79f9742eaaafffbf15b55b4b5063363f8
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 922d41dc374ccd782809404776f18f2aed8f5e3c34b7c9e143075c0ee5567220
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104811568"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116782493"
 ---
 # <a name="chapter-3---description-of-azure-rtos-netx-dns-client-services"></a>챕터 3 - Azure RTOS NetX DNS 클라이언트 서비스 설명
 
@@ -418,7 +418,7 @@ UINT     nx_dns_delete(NX_DNS *dns_ptr);
 - NX_PTR_ERROR: (0x07) 잘못된 IP 또는 DNS 클라이언트 포인터
 - NX_CALLER_ERROR: (0x11) 이 서비스의 잘못된 호출자
 
-### <a name="allowed-from"></a>허용되는 원본
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -1226,7 +1226,7 @@ UINT nx_dns_packet_pool_set(NX_DNS *dns_ptr, NX_PACKET_POOL *pool_ptr);
 - NX_PTR_ERROR: (0x07) 잘못된 IP 또는 DNS **클라이언트** 포인터
 - NX_CALLER_ERROR: (0x11) 이 서비스의 잘못된 호출자
 
-### <a name="allowed-from"></a>허용되는 원본
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 

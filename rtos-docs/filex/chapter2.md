@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 6703b10d8e0895984bb92d74d5dff809dca1a7f8
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 2f064fc65ef8445ea33590f23d5a040ed8b07c6c651ea4cf5c4aaef4b6c4fa7b
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104810326"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116783852"
 ---
 # <a name="chapter-2---installation-and-use-of-azure-rtos-filex"></a>2장 - Azure RTOS FileX 설치 및 사용
 
@@ -29,7 +29,7 @@ ms.locfileid: "104810326"
 
 ### <a name="debugging-tools"></a>디버깅 도구
 
-대부분의 개발 도구 디버거는 JTAG(IEEE 1149.1) 및 BDM(백그라운드 디버그 모드)과 같은 OCD(온칩 디버그) 연결을 통해 대상 하드웨어와 통신합니다. 디버거는 ICE(회로 내 에뮬레이션) 연결을 통해 대상 하드웨어와 통신하기도 합니다. OCD 및 ICE 연결 모두 대상 상주 소프트웨어에 대한 침입이 최소화된 강력한 솔루션을 제공합니다.
+대부분의 개발 도구 디버거는 JTAG(IEEE 1149.1) 및 BDM(백그라운드 디버그 모드)과 같은 OCD(온칩 디버그) 연결을 통해 대상 하드웨어와 통신합니다. 또한 디버거는 ICE(회로 내 에뮬레이션) 연결을 통해 대상 하드웨어와 통신합니다. OCD 및 ICE 연결 모두 대상 상주 소프트웨어에 대한 침입이 최소화된 강력한 솔루션을 제공합니다.
 
 ### <a name="required-hard-disk-space"></a>최소 하드 디스크 공간
 

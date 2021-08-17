@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 4432001b773b4ef4f99b1b34193e90863966aad4
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 71b964963968b0ec6fa3c8cc70cc46576e8ff33e2cfad0315182afe1f1afcc5b
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104812840"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116802161"
 ---
 # <a name="chapter-4---description-of-azure-rtos-threadx-smp-services"></a>4장 - Azure RTOS ThreadX SMP 서비스 설명
 
@@ -106,7 +106,7 @@ ms.locfileid: "104812840"
 - **tx_timer_smp_core_exclude_get**: 타이머의 현재 코어 제외 가져오기
 
 ## <a name="tx_block_allocate"></a>tx_block_allocate
-고정 크기의 메모리 블록 할당
+고정 크기 메모리 블록을 할당합니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -148,7 +148,7 @@ UINT tx_block_allocate(TX_BLOCK_POOL *pool_ptr, VOID **block_ptr,
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화, 스레드, 타이머 및 ISR
+초기화, 스레드, 타이머, ISR
 
 ### <a name="preemption-possible"></a>가능한 선점
 
@@ -182,7 +182,7 @@ status = tx_block_allocate(&my_pool, (VOID **) &memory_ptr,
 - tx_block_release
 
 ## <a name="tx_block_pool_create"></a>tx_block_pool_create
-고정 크기 메모리 블록의 풀 만들기
+고정 크기 메모리 블록 풀을 만듭니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -217,7 +217,7 @@ UINT tx_block_pool_create(TX_BLOCK_POOL *pool_ptr,
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화 및 스레드
+초기화, 스레드
 
 ### <a name="preemption-possible"></a>가능한 선점
 
@@ -253,7 +253,7 @@ status = tx_block_pool_create(&my_pool, "my_pool_name",
 
 ## <a name="tx_block_pool_delete"></a>tx_block_pool_delete
 
-메모리 블록 풀 삭제
+메모리 블록 풀을 삭제합니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -311,7 +311,7 @@ UINT           status;
 
 ## <a name="tx_block_pool_info_get"></a>tx_block_pool_info_get
 
-블록 풀에 대한 정보 검색
+블록 풀에 대한 정보를 검색합니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -346,7 +346,7 @@ UINT tx_block_pool_info_get(TX_BLOCK_POOL *pool_ptr, CHAR **name,
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화, 스레드, 타이머 및 ISR
+초기화, 스레드, 타이머, ISR
 
 ### <a name="example"></a>예제
 
@@ -383,7 +383,7 @@ status = tx_block_pool_info_get(&my_pool, &name,
 
 ## <a name="tx_block_pool_performance_info_get"></a>tx_block_pool_performance_info_get
 
-블록 풀 성능 정보 가져오기
+블록 풀 성능 정보를 가져옵니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -419,7 +419,7 @@ UINT tx_block_pool_performance_info_get(TX_BLOCK_POOL *pool_ptr,
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화, 스레드, 타이머 및 ISR
+초기화, 스레드, 타이머, ISR
 
 ### <a name="example"></a>예제
 
@@ -452,7 +452,7 @@ status = tx_block_pool_performance_info_get(&my_pool, &allocates,
 
 ## <a name="tx_block_pool_performance_system_info_get"></a>tx_block_pool_performance_system_info_get
 
-블록 풀 시스템 성능 정보 가져오기
+블록 풀 시스템 성능 정보를 가져옵니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -484,7 +484,7 @@ UINT tx_block_pool_performance_system_info_get(ULONG *allocates,
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화, 스레드, 타이머 및 ISR
+초기화, 스레드, 타이머, ISR
 
 ### <a name="example"></a>예제
 
@@ -514,7 +514,7 @@ status = tx_block_pool_performance_system_info_get(&allocates,
 
 ## <a name="tx_block_pool_prioritize"></a>tx_block_pool_prioritize
 
-블록 풀 일시 중단 목록 우선 순위 지정
+블록 풀 일시 중단 목록의 우선 순위를 지정합니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -523,7 +523,7 @@ UINT tx_block_pool_prioritize(TX_BLOCK_POOL *pool_ptr);
 ```
 ### <a name="description"></a>Description
 
-이 서비스는 일시 중단 목록 맨 앞에 있는, 이 풀의 메모리 블록에 대해 일시 중단된 스레드를 가장 높은 우선 순위로 지정합니다. 다른 모든 스레드는 일시 중단된 순서와 동일한 FIFO 순서로 유지됩니다.
+이 서비스는 일시 중단 목록 맨 앞에 있는, 이 풀의 메모리 블록 때문에 일시 중단된 스레드를 가장 높은 우선 순위로 지정합니다. 다른 모든 스레드는 일시 중단된 순서와 동일한 FIFO 순서로 유지됩니다.
 
 ### <a name="parameters"></a>매개 변수 
 
@@ -536,7 +536,7 @@ UINT tx_block_pool_prioritize(TX_BLOCK_POOL *pool_ptr);
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화, 스레드, 타이머 및 ISR
+초기화, 스레드, 타이머, ISR
 
 ### <a name="preemption-possible"></a>가능한 선점
 
@@ -568,7 +568,7 @@ status = tx_block_pool_prioritize(&my_pool);
 
 ## <a name="tx_block_release"></a>tx_block_release
 
-고정된 크기의 메모리 블록 해제
+고정된 크기의 메모리 블록을 해제합니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -593,7 +593,7 @@ UINT tx_block_release(VOID *block_ptr);
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화, 스레드, 타이머 및 ISR
+초기화, 스레드, 타이머, ISR
 
 ### <a name="preemption-possible"></a>가능한 선점
 
@@ -626,7 +626,7 @@ status = tx_block_release((VOID *) memory_ptr);
 
 ## <a name="tx_byte_allocate"></a>tx_byte_allocate
 
-메모리 바이트 할당
+메모리 바이트를 할당합니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -675,7 +675,7 @@ UINT tx_byte_allocate(TX_BYTE_POOL *pool_ptr,
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화 및 스레드
+초기화, 스레드
 
 ### <a name="preemption-possible"></a>가능한 선점
 
@@ -709,7 +709,7 @@ status =  tx_byte_allocate(&my_pool, (VOID **) &memory_ptr,
 
 ## <a name="tx_byte_pool_create"></a>tx_byte_pool_create
 
-메모리 바이트 풀 만들기
+메모리 바이트 풀을 만듭니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -739,7 +739,7 @@ UINT tx_byte_pool_create(TX_BYTE_POOL *pool_ptr,
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화 및 스레드
+초기화, 스레드
 
 ### <a name="preemption-possible"></a>가능한 선점
 
@@ -771,7 +771,7 @@ status =  tx_byte_pool_create(&my_pool, "my_pool_name",
 
 ## <a name="tx_byte_pool_delete"></a>tx_byte_pool_delete
 
-메모리 바이트 풀 삭제
+메모리 바이트 풀을 삭제합니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -827,7 +827,7 @@ status =   tx_byte_pool_delete(&my_pool);
 
 ## <a name="tx_byte_pool_info_get"></a>tx_byte_pool_info_get
 
-바이트 풀에 대한 정보 검색
+바이트 풀에 대한 정보를 검색합니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -862,7 +862,7 @@ UINT tx_byte_pool_info_get(TX_BYTE_POOL *pool_ptr, CHAR **name,
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화, 스레드, 타이머 및 ISR
+초기화, 스레드, 타이머, ISR
 
 ### <a name="preemption-possible"></a>가능한 선점
 
@@ -902,7 +902,7 @@ status =  tx_byte_pool_info_get(&my_pool, &name,
 
 ## <a name="tx_byte_pool_performance_info_get"></a>tx_byte_pool_performance_info_get
 
-바이트 풀 성능 정보 가져오기
+바이트 풀 성능 정보를 가져옵니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -941,7 +941,7 @@ UINT tx_byte_pool_performance_info_get(TX_BYTE_POOL *pool_ptr,
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화, 스레드, 타이머 및 ISR
+초기화, 스레드, 타이머, ISR
 
 ### <a name="example"></a>예제
 
@@ -978,7 +978,7 @@ status =  tx_byte_pool_performance_info_get(&my_pool,
 
 ## <a name="tx_byte_pool_performance_system_info_get"></a>tx_byte_pool_performance_system_info_get
 
-바이트 풀 시스템 성능 정보 가져오기
+바이트 풀 시스템 성능 정보를 가져옵니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -1014,7 +1014,7 @@ UINT  tx_byte_pool_performance_system_info_get(ULONG *allocates,
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화, 스레드, 타이머 및 ISR
+초기화, 스레드, 타이머, ISR
 
 ### <a name="example"></a>예제
 
@@ -1049,7 +1049,7 @@ tx_byte_pool_performance_system_info_get(&fragments_searched,
 
 ## <a name="tx_byte_pool_prioritize"></a>tx_byte_pool_prioritize
 
-바이트 풀 일시 중단 목록 우선 순위 지정
+바이트 풀 일시 중단 목록의 우선 순위를 지정합니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -1058,7 +1058,7 @@ UINT tx_byte_pool_prioritize(TX_BYTE_POOL *pool_ptr);
 ```
 ### <a name="description"></a>Description
 
-이 서비스는 일시 중단 목록 맨 앞에 있는, 이 풀의 메모리에 대해 일시 중단된 스레드를 가장 높은 우선 순위로 지정합니다. 다른 모든 스레드는 일시 중단된 순서와 동일한 FIFO 순서로 유지됩니다.
+이 서비스는 일시 중단 목록 맨 앞에 있는, 이 풀의 메모리 때문에 일시 중단된 스레드를 가장 높은 우선 순위로 지정합니다. 다른 모든 스레드는 일시 중단된 순서와 동일한 FIFO 순서로 유지됩니다.
 
 ### <a name="parameters"></a>매개 변수 
 
@@ -1071,7 +1071,7 @@ UINT tx_byte_pool_prioritize(TX_BYTE_POOL *pool_ptr);
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화, 스레드, 타이머 및 ISR
+초기화, 스레드, 타이머, ISR
 
 ### <a name="preemption-possible"></a>가능한 선점
 
@@ -1104,7 +1104,7 @@ status = tx_byte_pool_prioritize(&my_pool);
 
 ## <a name="tx_byte_release"></a>tx_byte_release
 
-바이트를 메모리 풀로 다시 해제
+바이트를 메모리 풀로 다시 해제합니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -1113,7 +1113,7 @@ UINT tx_byte_release(VOID *memory_ptr);
 ```
 ### <a name="description"></a>Description
 
-이 서비스는 이전에 할당된 메모리 영역을 연결된 풀로 다시 해제합니다. 이 풀에서 메모리를 대기하는 일시 중단된 스레드가 하나 이상 있는 경우 일시 중단된 각 스레드에는 메모리를 제공되고 해당 메모리가 고갈되거나 일시 중단된 스레드가 더 이상 없게 될 때까지 다시 시작됩니다. 일시 중단된 스레드에 메모리를 할당하는 이 프로세스는 항상 일시 중단된 첫 번째 스레드로 시작합니다.
+이 서비스는 이전에 할당된 메모리 영역을 연결된 풀로 다시 해제합니다. 이 풀의 메모리를 기다리는 일시 중단된 스레드가 하나 이상인 경우 해당 메모리가 고갈될 때까지 또는 일시 중단된 스레드가 더 이상 없을 때까지 일시 중단된 각 스레드에 메모리가 제공되고 스레드는 다시 시작됩니다. 일시 중단된 스레드에 메모리를 할당하는 이 프로세스는 항상 일시 중단된 첫 번째 스레드로 시작합니다.
 
 > [!IMPORTANT]
 > 애플리케이션은 메모리 영역이 해제된 후 사용하지 않도록 해야 합니다.
@@ -1130,7 +1130,7 @@ UINT tx_byte_release(VOID *memory_ptr);
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화 및 스레드
+초기화, 스레드
 
 ### <a name="preemption-possible"></a>가능한 선점
 
@@ -1161,7 +1161,7 @@ status =  tx_byte_release((VOID *) memory_ptr);
 
 ## <a name="tx_event_flags_create"></a>tx_event_flags_create
 
-이벤트 플래그 그룹 만들기
+이벤트 플래그 그룹을 만듭니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -1171,7 +1171,7 @@ UINT tx_event_flags_create(TX_EVENT_FLAGS_GROUP *group_ptr,
 ```
 ### <a name="description"></a>Description
 
-이 서비스는 32개의 이벤트 플래그 그룹을 만듭니다. 그룹의 모든 32개 이벤트 플래그는 0으로 초기화됩니다. 각 이벤트 플래그는 단일 비트로 표시됩니다.
+이 서비스는 32개의 이벤트 플래그로 된 그룹을 만듭니다. 그룹에 있는 32개의 이벤트 플래그 모두 0으로 초기화됩니다. 각 이벤트 플래그는 단일 비트로 표시됩니다.
 
 ### <a name="parameters"></a>매개 변수
 
@@ -1186,7 +1186,7 @@ UINT tx_event_flags_create(TX_EVENT_FLAGS_GROUP *group_ptr,
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화 및 스레드
+초기화, 스레드
 
 ### <a name="preemption-possible"></a>가능한 선점
 
@@ -1217,7 +1217,7 @@ status = tx_event_flags_create(&my_event_group,
 
 ## <a name="tx_event_flags_delete"></a>tx_event_flags_delete
 
-이벤트 플래그 그룹 삭제
+이벤트 플래그 그룹을 삭제합니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -1275,7 +1275,7 @@ status = tx_event_flags_delete(&my_event_flags_group);
 
 ## <a name="tx_event_flags_get"></a>tx_event_flags_get
 
-이벤트 플래그 그룹에서 이벤트 플래그 가져오기
+이벤트 플래그 그룹의 이벤트 플래그를 가져옵니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -1286,7 +1286,7 @@ UINT tx_event_flags_get(TX_EVENT_FLAGS_GROUP *group_ptr,
 ```
 ### <a name="description"></a>Description
 
-이 서비스는 지정된 이벤트 플래그 그룹에서 이벤트 플래그를 검색합니다. 각 이벤트 플래그 그룹에는 32개의 이벤트 플래그가 포함되어 있습니다. 각 이벤트 플래그는 단일 비트로 표시됩니다. 이 서비스는 입력 매개 변수에 의해 선택된 대로 다양한 이벤트 플래그 조합을 검색할 수 있습니다.
+이 서비스는 지정된 이벤트 플래그 그룹의 이벤트 플래그를 검색합니다. 각 이벤트 플래그 그룹에는 32개의 이벤트 플래그가 포함되어 있습니다. 각 플래그는 단일 비트로 표시됩니다. 이 서비스는 입력 매개 변수를 통해 선택한 대로 다양한 이벤트 플래그 조합을 검색할 수 있습니다.
 
 ### <a name="parameters"></a>매개 변수
 
@@ -1325,7 +1325,7 @@ UINT tx_event_flags_get(TX_EVENT_FLAGS_GROUP *group_ptr,
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화, 스레드, 타이머 및 ISR
+초기화, 스레드, 타이머, ISR
 
 ### <a name="preemption-possible"></a>가능한 선점
 
@@ -1394,7 +1394,7 @@ UINT tx_event_flags_info_get(TX_EVENT_FLAGS_GROUP *group_ptr,
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화, 스레드, 타이머 및 ISR
+초기화, 스레드, 타이머, ISR
 
 ### <a name="preemption-possible"></a>가능한 선점
 
@@ -1468,7 +1468,7 @@ UINT tx_event_flags_performance_info_get(TX_EVENT_FLAGS_GROUP
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화, 스레드, 타이머 및 ISR
+초기화, 스레드, 타이머, ISR
 
 ### <a name="example"></a>예제
 
@@ -1500,7 +1500,7 @@ status =  tx_event_flags_performance_info_get(&my_event_flag_group,
 
 ## <a name="tx_event_flags_performance_system_info_get"></a>tx_event_flags_performance_system_info_get
 
-성능 시스템 정보 검색
+성능 시스템 정보를 검색합니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -1532,7 +1532,7 @@ UINT  tx_event_flags_performance_system_info_get(ULONG *sets,
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화, 스레드, 타이머 및 ISR
+초기화, 스레드, 타이머, ISR
 
 ### <a name="example"></a>예제
 
@@ -1562,7 +1562,7 @@ status = tx_event_flags_performance_system_info_get(&sets, &gets,
 
 ## <a name="tx_event_flags_set"></a>tx_event_flags_set
 
-이벤트 플래그 그룹에 이벤트 플래그 설정
+이벤트 플래그 그룹에서 이벤트 플래그를 설정합니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -1572,7 +1572,7 @@ UINT tx_event_flags_set(TX_EVENT_FLAGS_GROUP *group_ptr,
 ```
 ### <a name="description"></a>Description
 
-이 서비스는 지정된 set_option에 따라 이벤트 플래그 그룹에서 이벤트 플래그를 설정하거나 지웁니다. 이제 이벤트 플래그 요청이 충족된 일시 중단된 모든 스레드가 다시 시작됩니다.
+이 서비스는 지정된 set-option에 따라 이벤트 플래그 그룹에서 이벤트 플래그를 설정하거나 지웁니다. 이제 해당 이벤트 플래그 요청이 충족된 모든 일시 중단된 스레드가 다시 시작됩니다.
 
 ### <a name="parameters"></a>매개 변수
 
@@ -1580,7 +1580,7 @@ UINT tx_event_flags_set(TX_EVENT_FLAGS_GROUP *group_ptr,
 - **flags_to_set**: 선택한 set_option에 따라 설정하거나 지울 이벤트 플래그를 지정합니다.
 - **set_option**: 지정된 이벤트 플래그를 그룹의 현재 이벤트 플래그에 AND로 연결할지 또는 OR로 연결할지를 지정합니다. 유효한 선택 항목은 다음과 같습니다.
     - **TX_AND**:(0x02)
-    - **TX_OR**:(0x00) TX_AND를 선택하면 지정된 이벤트 플래그가 그룹의 현재 이벤트 플래그에 **AND** 로 연결되도록 지정합니다. 이 옵션은 종종 그룹의 이벤트 플래그를 지우는 데 사용됩니다. 그렇지 않고 TX_OR이 지정된 경우 지정된 이벤트 플래그가 그룹의 현재 이벤트에 **OR** 로 연결됩니다.
+    - **TX_OR**:(0x00) TX_AND를 선택하면 지정된 이벤트 플래그가 그룹의 현재 이벤트 플래그에 **AND** 로 연결되도록 지정합니다. 이 옵션은 종종 그룹의 이벤트 플래그를 지우는 데 사용됩니다. 그러지 않고 TX_OR이 지정되면 지정된 이벤트 플래그가 그룹의 현재 이벤트에 **OR** 로 연결됩니다.
 
 ### <a name="return-values"></a>반환 값
 
@@ -1590,7 +1590,7 @@ UINT tx_event_flags_set(TX_EVENT_FLAGS_GROUP *group_ptr,
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화, 스레드, 타이머 및 ISR
+초기화, 스레드, 타이머, ISR
 
 ### <a name="preemption-possible"></a>가능한 선점
 
@@ -1622,7 +1622,7 @@ status =  tx_event_flags_set(&my_event_flags_group,
 
 ## <a name="tx_event_flags_set_notify"></a>tx_event_flags_set_notify
 
-이벤트 플래그가 설정되면 애플리케이션에 알림
+이벤트 플래그가 설정되면 애플리케이션에 알립니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -1649,7 +1649,7 @@ UINT tx_event_flags_set_notify(TX_EVENT_FLAGS_GROUP *group_ptr,
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화, 스레드, 타이머 및 ISR
+초기화, 스레드, 타이머, ISR
 
 ### <a name="example"></a>예제
 
@@ -1679,7 +1679,7 @@ void my_event_flags_set_notify(TX_EVENT_FLAGS_GROUP *group_ptr)
 
 ## <a name="tx_interrupt_control"></a>tx_interrupt_control
 
-인터럽트 사용 및 사용 안 함
+인터럽트를 사용하거나 사용하지 않도록 설정합니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -1706,7 +1706,7 @@ UINT tx_interrupt_control(UINT new_posture);
 
 ### <a name="allowed-from"></a>허용 위치
 
-스레드, 타이머 및 ISR
+스레드, 타이머, ISR
 
 ### <a name="preemption-possible"></a>가능한 선점
 
@@ -1732,7 +1732,7 @@ None
 
 ## <a name="tx_mutex_create"></a>tx_mutex_create
 
-상호 제외 뮤텍스 만들기
+상호 배제 뮤텍스를 만듭니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -1742,13 +1742,13 @@ UINT tx_mutex_create(TX_MUTEX *mutex_ptr,
 ```
 ### <a name="description"></a>Description
     
-이 서비스는 리소스 보호에 대한 스레드 간 상호 제외를 위해 뮤텍스를 만듭니다.
+이 서비스는 리소스 보호를 위해 스레드 간 상호 배제 뮤텍스를 만듭니다.
 
 ### <a name="parameters"></a>매개 변수
 
 - **mutex_ptr**: 뮤텍스 제어 블록을 가리키는 포인터입니다.
 - **name_ptr**: 뮤텍스 이름을 가리키는 포인터입니다.
-- **priority_inherit**: 이 뮤텍스가 우선 순위 상속을 지원하는지 여부를 지정합니다. 이 값이 TX_INHERIT인 경우 우선 순위 상속이 지원됩니다. 그러나 TX_NO_INHERIT를 지정하면 이 뮤텍스에서 우선 순위 상속을 지원하지 않습니다.
+- **priority_inherit**: 이 뮤텍스가 우선 순위 상속을 지원하는지 여부를 지정합니다. 이 값이 TX_INHERIT인 경우 우선 순위 상속이 지원됩니다. 하지만 TX_NO_INHERIT이 지정되면 이 뮤텍스에서 우선 순위 상속이 지원되지 않습니다.
 
 ### <a name="return-values"></a>반환 값
 
@@ -1759,7 +1759,7 @@ UINT tx_mutex_create(TX_MUTEX *mutex_ptr,
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화 및 스레드
+초기화, 스레드
 
 ### <a name="preemption-possible"></a>가능한 선점
 
@@ -1791,7 +1791,7 @@ status =  tx_mutex_create(&my_mutex,"my_mutex_name",
 
 ## <a name="tx_mutex_delete"></a>tx_mutex_delete
 
-상호 제외 뮤텍스 삭제
+상호 배제 뮤텍스를 삭제합니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -1848,7 +1848,7 @@ status =  tx_mutex_delete(&my_mutex);
 
 ## <a name="tx_mutex_get"></a>tx_mutex_get
 
-뮤텍스의 소유권 가져오기
+뮤텍스 소유권을 얻습니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -1857,7 +1857,7 @@ UINT tx_mutex_get(TX_MUTEX *mutex_ptr, ULONG wait_option);
 ```
 ### <a name="description"></a>Description
 
-이 서비스는 지정된 뮤텍스의 전용 소유권을 가져오려고 시도합니다. 호출 스레드가 뮤텍스를 이미 소유하고 있으면 내부 카운터가 증분되고 성공적인 상태가 반환됩니다.
+이 서비스는 지정된 뮤텍스의 배타적 소유권을 얻으려고 합니다. 호출 스레드가 뮤텍스를 이미 소유하고 있으면 내부 카운터가 증분되고 성공적인 상태가 반환됩니다.
 
 뮤텍스를 다른 스레드에서 소유하고 이 스레드가 더 높은 우선 순위를 가지며 뮤텍스 생성 시 우선 순위 상속이 지정된 경우 우선 순위가 낮은 스레드의 우선 순위가 호출 스레드의 우선 순위로 일시적으로 높아집니다.
 
@@ -1890,7 +1890,7 @@ UINT tx_mutex_get(TX_MUTEX *mutex_ptr, ULONG wait_option);
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화, 스레드 및 타이머
+초기화, 스레드, 타이머
 
 ### <a name="preemption-possible"></a>가능한 선점
 
@@ -1919,7 +1919,7 @@ status =  tx_mutex_get(&my_mutex, TX_WAIT_FOREVER);
 
 ## <a name="tx_mutex_info_get"></a>tx_mutex_info_get
 
-뮤텍스에 대한 정보 검색
+뮤텍스에 대한 정보를 검색합니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -1931,7 +1931,7 @@ UINT tx_mutex_info_get(TX_MUTEX *mutex_ptr, CHAR **name,
 ```
 ### <a name="description"></a>Description
 
-이 서비스는 지정된 뮤텍스에서 정보를 검색합니다.
+이 서비스는 지정된 뮤텍스의 정보를 검색합니다.
 
 ### <a name="parameters"></a>매개 변수
 
@@ -1953,7 +1953,7 @@ UINT tx_mutex_info_get(TX_MUTEX *mutex_ptr, CHAR **name,
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화, 스레드, 타이머 및 ISR
+초기화, 스레드, 타이머, ISR
 
 ### <a name="preemption-possible"></a>가능한 선점
 
@@ -1993,7 +1993,7 @@ status =  tx_mutex_info_get(&my_mutex, &name,
 
 ## <a name="tx_mutex_performance_info_get"></a>tx_mutex_performance_info_get
 
-뮤텍스 성능 정보 가져오기
+뮤텍스 성능 정보를 가져옵니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -2030,7 +2030,7 @@ UINT tx_mutex_performance_info_get(TX_MUTEX *mutex_ptr, ULONG *puts,
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화, 스레드, 타이머 및 ISR
+초기화, 스레드, 타이머, ISR
 
 ### <a name="example"></a>예제
 
@@ -2064,7 +2064,7 @@ status =  tx_mutex_performance_info_get(&my_mutex_ptr, &puts, &gets,
 
 ## <a name="tx_mutex_performance_system_info_get"></a>tx_mutex_performance_system_info_get
 
-뮤텍스 시스템 성능 정보 가져오기
+뮤텍스 시스템 성능 정보를 가져옵니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -2099,7 +2099,7 @@ UINT  tx_mutex_performance_system_info_get(ULONG *puts, ULONG *gets,
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화, 스레드, 타이머 및 ISR
+초기화, 스레드, 타이머, ISR
 
 ### <a name="example"></a>예제
 
@@ -2132,7 +2132,7 @@ status = tx_mutex_performance_system_info_get(&puts, &gets,
 
 ## <a name="tx_mutex_prioritize"></a>tx_mutex_prioritize
 
-뮤텍스 일시 중단 목록 우선 순위 지정
+뮤텍스 일시 중단 목록의 우선 순위를 지정합니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -2141,7 +2141,7 @@ UINT tx_mutex_prioritize(TX_MUTEX *mutex_ptr);
 ```
 ### <a name="description"></a>Description
 
-이 서비스는 뮤텍스트 소유권에 대해 일시 중단된 최고 우선 순위 스레드를 일시 중단 목록 맨 앞에 배치합니다. 다른 모든 스레드는 일시 중단된 순서와 동일한 FIFO 순서로 유지됩니다.
+이 서비스는 일시 중단 목록 맨 앞에 있는, 뮤텍스 소유권 때문에 일시 중단된 스레드를 가장 높은 우선 순위로 지정합니다. 다른 모든 스레드는 일시 중단된 순서와 동일한 FIFO 순서로 유지됩니다.
 
 ### <a name="parameters"></a>매개 변수 
 
@@ -2154,7 +2154,7 @@ UINT tx_mutex_prioritize(TX_MUTEX *mutex_ptr);
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화, 스레드, 타이머 및 ISR
+초기화, 스레드, 타이머, ISR
 
 ### <a name="preemption-possible"></a>가능한 선점
 
@@ -2188,7 +2188,7 @@ status = tx_mutex_prioritize(&my_mutex);
 
 ## <a name="tx_mutex_put"></a>tx_mutex_put
 
-뮤텍스의 소유권 해제
+뮤텍스 소유권을 해제합니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -2197,7 +2197,7 @@ UINT tx_mutex_put(TX_MUTEX *mutex_ptr);
 ```
 ### <a name="description"></a>Description
 
-이 서비스는 지정된 뮤텍스의 소유권 수를 감소시킵니다. 소유권 수가 0이면 뮤텍스를 사용할 수 있게 됩니다.
+이 서비스는 지정된 뮤텍스의 소유권 수를 줄입니다. 소유권 수가 0이면 뮤텍스를 사용할 수 있게 됩니다.
 
 > [!IMPORTANT]
 > 뮤텍스를 만드는 동안 우선 순위 상속이 선택된 경우 해제 스레드 우선 순위가 처음에 뮤텍스의 소유권을 얻었을 때의 우선 순위로 복원됩니다. 뮤텍스를 소유하는 동안 해제 스레드에 적용되는 다른 모든 우선 순위 변경 작업은 실행 취소할 수 있습니다.
@@ -2215,7 +2215,7 @@ UINT tx_mutex_put(TX_MUTEX *mutex_ptr);
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화, 스레드 및 타이머
+초기화, 스레드, 타이머
 
 ### <a name="preemption-possible"></a>가능한 선점
 
@@ -2244,7 +2244,7 @@ status =  tx_mutex_put(&my_mutex);
 
 ## <a name="tx_queue_create"></a>tx_queue_create
 
-메시지 큐 만들기
+메시지 큐를 만듭니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -2278,7 +2278,7 @@ UINT tx_queue_create(TX_QUEUE *queue_ptr, CHAR *name_ptr,
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화 및 스레드
+초기화, 스레드
 
 ### <a name="preemption-possible"></a>가능한 선점
 
@@ -2315,7 +2315,7 @@ status = tx_queue_create(&my_queue, "my_queue_name",
 
 ## <a name="tx_queue_delete"></a>tx_queue_delete
 
-메시지 큐 삭제
+메시지 큐를 삭제합니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -2378,7 +2378,7 @@ status = tx_queue_delete(&my_queue);
 
 ## <a name="tx_queue_flush"></a>tx_queue_flush
 
-메시지 큐의 메시지 비우기
+메시지 큐의 메시지를 비웁니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -2387,7 +2387,7 @@ UINT tx_queue_flush(TX_QUEUE *queue_ptr);
 ```
 ### <a name="description"></a>Description
 
-이 서비스는 지정된 메시지 큐에 저장된 모든 메시지를 삭제합니다. 메시지 큐가 가득 차면 모든 일시 중단된 스레드의 메시지가 삭제됩니다. 일시 중단된 각 스레드는 메시지 전송이 성공했음을 나타내는 반환 상태로 다시 시작됩니다. 큐가 비어 있으면 이 서비스는 아무 작업도 수행하지 않습니다.
+이 서비스는 지정된 메시지 큐에 저장된 모든 메시지를 삭제합니다. 메시지 큐가 가득 차면 모든 일시 중단된 스레드의 메시지가 삭제됩니다. 일시 중단된 각 스레드는 메시지 송신이 성공했음을 나타내는 반환 상태로 다시 시작됩니다. 큐가 비어 있으면 이 서비스는 아무 작업도 수행하지 않습니다.
 
 ### <a name="parameters"></a>매개 변수 
 
@@ -2400,7 +2400,7 @@ UINT tx_queue_flush(TX_QUEUE *queue_ptr);
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화, 스레드, 타이머 및 ISR
+초기화, 스레드, 타이머, ISR
 
 ### <a name="preemption-possible"></a>가능한 선점
 
@@ -2435,7 +2435,7 @@ status =  tx_queue_flush(&my_queue);
 
 ## <a name="tx_queue_front_send"></a>tx_queue_front_send
 
-메시지를 큐 맨 앞으로 보내기
+메시지를 큐 맨 앞으로 송신합니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -2445,7 +2445,7 @@ UINT tx_queue_front_send(TX_QUEUE *queue_ptr,
 ```
 ### <a name="description"></a>Description
 
-이 서비스는 메시지를 지정된 메시지 큐의 맨 앞 위치로 보냅니다. 메시지는 소스 포인터로 지정된 메모리 영역에서 큐의 맨 앞으로 **복사됩니다**.
+이 서비스는 메시지를 지정된 메시지 큐의 맨 앞 위치로 송신합니다. 메시지는 원본 포인터로 지정된 메모리 영역의 큐 맨 앞으로 **복사됩니다**.
 
 ### <a name="parameters"></a>매개 변수
 
@@ -2474,7 +2474,7 @@ UINT tx_queue_front_send(TX_QUEUE *queue_ptr,
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화, 스레드, 타이머 및 ISR
+초기화, 스레드, 타이머, ISR
 
 ### <a name="preemption-possible"></a>가능한 선점
 
@@ -2512,7 +2512,7 @@ status = tx_queue_front_send(&my_queue, my_message,
 
 ## <a name="tx_queue_info_get"></a>tx_queue_info_get
 
-큐에 대한 정보 검색
+큐에 대한 정보를 검색합니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -2546,7 +2546,7 @@ UINT tx_queue_info_get(TX_QUEUE *queue_ptr, CHAR **name,
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화, 스레드, 타이머 및 ISR
+초기화, 스레드, 타이머, ISR
 
 ### <a name="preemption-possible"></a>가능한 선점
 
@@ -2589,7 +2589,7 @@ status = tx_queue_info_get(&my_queue, &name,
 
 ## <a name="tx_queue_performance_info_get"></a>tx_queue_performance_info_get
 
-큐 성능 정보 가져오기
+큐 성능 정보를 가져옵니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -2627,7 +2627,7 @@ UINT  tx_queue_performance_info_get(TX_QUEUE *queue_ptr,
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화, 스레드, 타이머 및 ISR
+초기화, 스레드, 타이머, ISR
 
 ### <a name="example"></a>예제
 
@@ -2664,7 +2664,7 @@ status = tx_queue_performance_info_get(&my_queue, &messages_sent,
 
 ## <a name="tx_queue_performance_system_info_get"></a>tx_queue_performance_system_info_get
 
-큐 시스템 성능 정보 가져오기
+큐 시스템 성능 정보를 가져옵니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -2700,7 +2700,7 @@ UINT  tx_queue_performance_system_info_get(ULONG *messages_sent,
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화, 스레드, 타이머 및 ISR
+초기화, 스레드, 타이머, ISR
 
 ### <a name="example"></a>예제
 
@@ -2736,7 +2736,7 @@ status = tx_queue_performance_system_info_get(&messages_sent,
 
 ## <a name="tx_queue_prioritize"></a>tx_queue_prioritize
 
-큐 일시 중단 목록 우선 순위 지정
+큐 일시 중단 목록의 우선 순위를 지정합니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -2746,7 +2746,7 @@ UINT tx_queue_prioritize(TX_QUEUE *queue_ptr);
 
 ### <a name="description"></a>Description
 
-이 서비스는 이 큐에 있는 메시지에 대해 일시 중단된 최고 우선 순위 스레드(또는 메시지)를 일시 중단 목록 맨 앞에 배치합니다. 다른 모든 스레드는 일시 중단된 순서와 동일한 FIFO 순서로 유지됩니다.
+이 서비스는 일시 중단 목록 맨 앞에 있는, 이 큐의 메시지(또는 메시지 배치) 때문에 일시 중단된 스레드를 가장 높은 우선 순위로 지정합니다. 다른 모든 스레드는 일시 중단된 순서와 동일한 FIFO 순서로 유지됩니다.
 
 ### <a name="parameters"></a>매개 변수 
 
@@ -2759,7 +2759,7 @@ UINT tx_queue_prioritize(TX_QUEUE *queue_ptr);
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화, 스레드, 타이머 및 ISR
+초기화, 스레드, 타이머, ISR
 
 ### <a name="preemption-possible"></a>가능한 선점
 
@@ -2795,7 +2795,7 @@ status = tx_queue_prioritize(&my_queue);
 
 ## <a name="tx_queue_receive"></a>tx_queue_receive
 
-메시지 큐에서 메시지 가져오기
+메시지 큐에서 메시지를 가져옵니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -2837,7 +2837,7 @@ UINT tx_queue_receive(TX_QUEUE *queue_ptr,
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화, 스레드, 타이머 및 ISR
+초기화, 스레드, 타이머, ISR
 
 ### <a name="preemption-possible"></a>가능한 선점
 
@@ -2875,7 +2875,7 @@ status =  tx_queue_receive(&my_queue, my_message,
 
 ## <a name="tx_queue_send"></a>tx_queue_send
 
-메시지 큐로 메시지 보내기
+메시지를 메시지 큐로 송신합니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -2885,7 +2885,7 @@ UINT tx_queue_send(TX_QUEUE *queue_ptr,
 ```
 ### <a name="description"></a>Description
 
-이 서비스는 메시지를 지정된 메시지 큐로 보냅니다. 보낸 메시지는 소스 포인터로 지정된 메모리 영역에서 큐로 **복사됩니다**.
+이 서비스는 메시지를 지정된 메시지 큐로 송신합니다. 송신된 메시지는 원본 포인터로 지정된 메모리 영역에서 큐로 **복사됩니다**.
 
 ### <a name="parameters"></a>매개 변수
 
@@ -2914,7 +2914,7 @@ UINT tx_queue_send(TX_QUEUE *queue_ptr,
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화, 스레드, 타이머 및 ISR
+초기화, 스레드, 타이머, ISR
 
 ### <a name="preemption-possible"></a>가능한 선점
 
@@ -2950,7 +2950,7 @@ status =  tx_queue_send(&my_queue, my_message, TX_NO_WAIT);
 
 ## <a name="tx_queue_send_notify"></a>tx_queue_send_notify 
 
-메시지가 큐에 전송될 때 애플리케이션에 알림
+메시지가 큐로 송신되면 애플리케이션에 알립니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -2960,7 +2960,7 @@ UINT  tx_queue_send_notify(TX_QUEUE *queue_ptr,
 ```
 ### <a name="description"></a>Description
 
-이 서비스는 지정된 큐에 메시지를 보낼 때마다 호출되는 알림 콜백 함수를 등록합니다. 알림 콜백의 처리는 애플리케이션에 의해 정의됩니다.
+이 서비스는 메시지가 지정된 큐로 송신될 때마다 호출되는 알림 콜백 함수를 등록합니다. 알림 콜백의 처리는 애플리케이션에 의해 정의됩니다.
 
 > [!NOTE]
 > 애플리케이션의 큐 보내기 알림 콜백은 일시 중단 옵션을 사용하여 ThreadX SMP API를 호출할 수 없습니다.
@@ -2978,7 +2978,7 @@ UINT  tx_queue_send_notify(TX_QUEUE *queue_ptr,
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화, 스레드, 타이머 및 ISR
+초기화, 스레드, 타이머, ISR
 
 ### <a name="example"></a>예제
 
@@ -3011,7 +3011,7 @@ void my_queue_send_notify(TX_QUEUE *queue_ptr)
 
 ## <a name="tx_semaphore_ceiling_put"></a>tx_semaphore_ceiling_put 
 
-상한을 지정하여 계산 세마포에 인스턴스 배치
+최댓값이 있는 가산 세마포에 인스턴스를 배치합니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -3037,7 +3037,7 @@ UINT  tx_semaphore_ceiling_put(TX_SEMAPHORE *semaphore_ptr,
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화, 스레드, 타이머 및 ISR
+초기화, 스레드, 타이머, ISR
 
 ### <a name="example"></a>예제
 
@@ -3064,7 +3064,7 @@ status = tx_semaphore_ceiling_put(&my_semaphore, 7);
 
 ## <a name="tx_semaphore_create"></a>tx_semaphore_create
 
-계산 세마포 만들기
+가산 세마포를 만듭니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -3074,7 +3074,7 @@ UINT tx_semaphore_create(TX_SEMAPHORE *semaphore_ptr,
 ```
 ### <a name="description"></a>Description
 
-이 서비스는 스레드 간 동기화에 대한 계산 세마포를 만듭니다. 초기 세마포 수는 입력 매개 변수로 지정됩니다.
+이 서비스는 스레드 간 동기화에 사용되는 가산 세마포를 만듭니다. 초기 세마포 개수는 입력 매개 변수로 지정됩니다.
 
 ### <a name="parameters"></a>매개 변수 
 
@@ -3090,7 +3090,7 @@ UINT tx_semaphore_create(TX_SEMAPHORE *semaphore_ptr,
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화 및 스레드
+초기화, 스레드
 
 ### <a name="preemption-possible"></a>가능한 선점
 
@@ -3126,7 +3126,7 @@ status = tx_semaphore_create(&my_semaphore,
 
 ## <a name="tx_semaphore_delete"></a>tx_semaphore_delete
 
-계산 세마포 삭제
+가산 세마포를 삭제합니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -3135,7 +3135,7 @@ UINT tx_semaphore_delete(TX_SEMAPHORE *semaphore_ptr);
 ```
 ### <a name="description"></a>Description
 
-이 서비스는 지정된 계산 세마포를 삭제합니다. 세마포 인스턴스 대기를 일시 중단한 모든 스레드가 다시 시작되고 TX_DELETED 반환 상태가 지정됩니다.
+이 서비스는 지정된 가산 세마포를 삭제합니다. 세마포 인스턴스 대기를 일시 중단한 모든 스레드가 다시 시작되고 TX_DELETED 반환 상태가 지정됩니다.
 
 > [!IMPORTANT]
 > 애플리케이션은 세마포를 삭제하기 전에 이 세마포에 대한 알림 추가 콜백이 완료(또는 사용하지 않도록 설정)되었는지 확인해야 합니다. 또한 애플리케이션은 나중에 삭제된 세마포를 사용하지 않도록 해야 합니다.
@@ -3185,7 +3185,7 @@ status = tx_semaphore_delete(&my_semaphore);
 
 ## <a name="tx_semaphore_get"></a>tx_semaphore_get
 
-계산 세마포에서 인스턴스 가져오기
+가산 세마포에서 인스턴스를 가져옵니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -3222,7 +3222,7 @@ UINT tx_semaphore_get(TX_SEMAPHORE *semaphore_ptr,
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화, 스레드, 타이머 및 ISR
+초기화, 스레드, 타이머, ISR
 
 ### <a name="preemption-possible"></a>가능한 선점
 
@@ -3257,7 +3257,7 @@ status =  tx_semaphore_get(&my_semaphore, TX_WAIT_FOREVER);
 
 ## <a name="tx_semaphore_info_get"></a>tx_semaphore_info_get
 
-세마포에 대한 정보 검색
+세마포에 대한 정보를 검색합니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -3291,7 +3291,7 @@ UINT tx_semaphore_info_get(TX_SEMAPHORE *semaphore_ptr,
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화, 스레드, 타이머 및 ISR
+초기화, 스레드, 타이머, ISR
 
 ### <a name="preemption-possible"></a>가능한 선점
 
@@ -3332,7 +3332,7 @@ status =  tx_semaphore_info_get(&my_semaphore, &name,
 
 ## <a name="tx_semaphore_performance_info_get"></a>tx_semaphore_performance_info_get 
 
-세마포 성능 정보 가져오기
+세마포 성능 정보를 가져옵니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -3367,7 +3367,7 @@ UINT  tx_semaphore_performance_info_get(TX_SEMAPHORE *semaphore_ptr,
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화, 스레드, 타이머 및 ISR
+초기화, 스레드, 타이머, ISR
 
 ### <a name="example"></a>예제
 
@@ -3400,7 +3400,7 @@ status =  tx_semaphore_performance_info_get(&my_semaphore, &puts,
 
 ## <a name="tx_semaphore_performance_system_info_get"></a>tx_semaphore_performance_system_info_get 
 
-세마포 시스템 성능 정보 가져오기
+세마포 시스템 성능 정보를 가져옵니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -3432,7 +3432,7 @@ UINT tx_semaphore_performance_system_info_get(ULONG *puts,
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화, 스레드, 타이머 및 ISR
+초기화, 스레드, 타이머, ISR
 
 ### <a name="example"></a>예제
 
@@ -3464,7 +3464,7 @@ status = tx_semaphore_performance_system_info_get(&puts, &gets,
 
 ## <a name="tx_semaphore_prioritize"></a>tx_semaphore_prioritize
 
-세마포 일시 중단 목록 우선 순위 지정
+세마포 일시 중단 목록의 우선 순위를 지정합니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -3473,7 +3473,7 @@ UINT tx_semaphore_prioritize(TX_SEMAPHORE *semaphore_ptr);
 ```
 ### <a name="description"></a>Description
 
-이 서비스는 세마포 인스턴스에 대해 일시 중단된 최고 우선 순위 스레드를 일시 중단 목록 맨 앞에 배치합니다. 다른 모든 스레드는 일시 중단된 순서와 동일한 FIFO 순서로 유지됩니다.
+이 서비스는 일시 중단 목록 맨 앞에 있는, 세마포 인스턴스 때문에 일시 중단된 스레드를 가장 높은 우선 순위로 지정합니다. 다른 모든 스레드는 일시 중단된 순서와 동일한 FIFO 순서로 유지됩니다.
 
 ### <a name="parameters"></a>매개 변수 
 
@@ -3486,7 +3486,7 @@ UINT tx_semaphore_prioritize(TX_SEMAPHORE *semaphore_ptr);
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화, 스레드, 타이머 및 ISR
+초기화, 스레드, 타이머, ISR
 
 ### <a name="preemption-possible"></a>가능한 선점
 
@@ -3517,7 +3517,7 @@ status =  tx_semaphore_prioritize(&my_semaphore);
 
 ## <a name="tx_semaphore_put"></a>tx_semaphore_put
 
-계산 세마포에 인스턴스 배치
+가산 세마포에 인스턴스를 배치합니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -3542,7 +3542,7 @@ UINT tx_semaphore_put(TX_SEMAPHORE *semaphore_ptr);
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화, 스레드, 타이머 및 ISR
+초기화, 스레드, 타이머, ISR
 
 ### <a name="preemption-possible"></a>가능한 선점
 
@@ -3575,7 +3575,7 @@ status =  tx_semaphore_put(&my_semaphore);
 
 ## <a name="tx_semaphore_put_notify"></a>tx_semaphore_put_notify
 
-세마포가 배치될 때 애플리케이션에 알림
+세마포가 배치되면 애플리케이션에 알립니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -3585,7 +3585,7 @@ UINT  tx_semaphore_put_notify(TX_SEMAPHORE *semaphore_ptr,
 ```
 ### <a name="description"></a>Description
 
-이 서비스는 지정된 세마포를 배치할 때마다 호출되는 알림 콜백 함수를 등록합니다. 알림 콜백의 처리는 애플리케이션에 의해 정의됩니다.
+이 서비스는 지정된 세마포가 배치될 때마다 호출되는 알림 콜백 함수를 등록합니다. 알림 콜백의 처리는 애플리케이션에 의해 정의됩니다.
 
 > [!NOTE]
 > 애플리케이션의 세마포 알림 콜백은 일시 중단 옵션을 사용하여 ThreadX SMP API를 호출할 수 없습니다.
@@ -3603,7 +3603,7 @@ UINT  tx_semaphore_put_notify(TX_SEMAPHORE *semaphore_ptr,
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화, 스레드, 타이머 및 ISR
+초기화, 스레드, 타이머, ISR
 
 ### <a name="example"></a>예제
 
@@ -3637,7 +3637,7 @@ void my_semaphore_put_notify(TX_SEMAPHORE *semaphore_ptr)
 
 ## <a name="tx_thread_create"></a>tx_thread_create
 
-애플리케이션 스레드 만들기
+애플리케이션 스레드를 만듭니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -3651,7 +3651,7 @@ UINT tx_thread_create(TX_THREAD *thread_ptr,
 ```
 ### <a name="description"></a>Description
 
-이 서비스는 지정된 작업 진입 함수에서 실행을 시작하는 애플리케이션 스레드를 만듭니다. 스택, 우선 순위, 선점 임계값 및 시간 조각은 입력 매개 변수로 지정된 특성입니다. 또한 스레드의 초기 실행 상태도 지정됩니다.
+이 서비스는 지정된 작업 항목 함수에서 실행되기 시작하는 애플리케이션 스레드를 만듭니다. 스택, 우선 순위, 선점 임계값, 시간 조각과 같은 특성은 입력 매개 변수를 통해 지정됩니다. 또한 스레드의 초기 실행 상태도 지정됩니다.
 
 ### <a name="parameters"></a>매개 변수
 
@@ -3662,13 +3662,13 @@ UINT tx_thread_create(TX_THREAD *thread_ptr,
 - **stack_start**: 스택 메모리 영역의 시작 주소입니다. 
 - **stack_size**: 스택 메모리 영역의 바이트 수입니다. 스레드의 스택 영역은 최악의 함수 호출 중첩 및 로컬 변수 사용을 처리할 수 있을 만큼 충분히 커야 합니다.
 - **priority**: 스레드의 숫자 우선 순위입니다. 유효한 값의 범위는 0에서 (TX_MAX_PRIORITES-1)까지입니다. 여기서 값 0은 가장 높은 우선 순위를 나타냅니다.
-- **preempt_threshold**: 사용하지 않도록 설정된 선점의 가장 높은 우선 순위 수준(0-(TX_MAX_PRIORITIES-1))입니다. 우선 순위가 이 수준보다 높아야만 이 스레드를 선점할 수 있습니다. 이 값은 지정한 우선 순위보다 작거나 같아야 합니다. 스레드 우선 순위와 값이 같으면 선점 임계값이 사용하지 않도록 설정됩니다.
-- **time_slice**: 같은 우선 순위의 다른 준비 스레드를 실행할 수 있을 때까지 이 스레드를 실행할 수 있는 타이머 틱의 수입니다. 선점 임계값을 사용하면 시간 조각화를 사용할 수 없습니다. 유효한 시간 조각 값의 범위는 1에서 0xFFFFFFFF까지입니다. **TX_NO_TIME_SLICE** 값(값 0)을 사용하면 이 스레드의 시간 조각화가 사용하지 않도록 설정됩니다.
+- **preempt_threshold**: 사용하지 않도록 설정된 선점의 가장 높은 우선 순위 수준(0-(TX_MAX_PRIORITIES-1))입니다. 우선 순위가 이 수준보다 높아야만 이 스레드를 선점할 수 있습니다. 이 값은 지정한 우선 순위 이하여야 합니다. 스레드 우선 순위와 값이 같으면 선점 임계값이 사용하지 않도록 설정됩니다.
+- **time_slice**: 같은 우선 순위의 다른 준비 스레드를 실행할 수 있을 때까지 이 스레드를 실행할 수 있는 타이머 틱의 수입니다. 선점 임계값을 사용하면 시간 조각화를 사용할 수 없습니다. 유효한 시간 조각 값 범위는 1-0xFFFFFFFF(포함)입니다. **TX_NO_TIME_SLICE** 값(값 0)을 사용하면 이 스레드의 시간 조각화가 사용하지 않도록 설정됩니다.
 
     > [!IMPORTANT]
     > 시간 조각화를 사용하면 약간의 시스템 오버헤드가 발생합니다. 시간 조각화는 여러 스레드가 동일한 우선 순위를 공유하는 경우에만 유용하기 때문에 고유한 우선 순위를 갖는 스레드에 시간 조각을 할당해서는 안됩니다.
 
-- **auto_start**: 스레드가 즉시 시작되는지 또는 일시 중단된 상태가 되는지를 지정합니다. 유효한 옵션은 **TX_AUTO_START**(0x01) 및 **TX_DONT_START**(0x00)입니다. TX_DONT_START를 지정하면 애플리케이션은 나중에 스레드를 실행하기 위해 tx_thread_resume을 호출해야 합니다.
+- **auto_start**: 스레드가 즉시 시작되는지 또는 일시 중단된 상태가 되는지를 지정합니다. 유효한 옵션은 **TX_AUTO_START**(0x01) 및 **TX_DONT_START**(0x00)입니다. TX_DONT_START를 지정하면 애플리케이션은 나중에 tx_thread_resume을 호출해야 스레드를 실행할 수 있습니다.
 
 ### <a name="return-values"></a>반환 값
 
@@ -3683,7 +3683,7 @@ UINT tx_thread_create(TX_THREAD *thread_ptr,
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화 및 스레드
+초기화, 스레드
 
 ### <a name="preemption-possible"></a>가능한 선점
 
@@ -3751,7 +3751,7 @@ VOID my_thread_entry (ULONG initial_input)
 
 ## <a name="tx_thread_delete"></a>tx_thread_delete
 
-애플리케이션 스레드 삭제
+애플리케이션 스레드를 삭제합니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -3778,7 +3778,7 @@ UINT tx_thread_delete(TX_THREAD *thread_ptr);
 
 ### <a name="allowed-from"></a>허용 위치
 
-스레드 및 타이머
+스레드, 타이머
 
 ### <a name="preemption-possible"></a>가능한 선점
 
@@ -3820,7 +3820,7 @@ status =  tx_thread_delete(&my_thread);
 
 ## <a name="tx_thread_entry_exit_notify"></a>tx_thread_entry_exit_notify
 
-스레드 입력 및 종료 시 애플리케이션에 알림
+스레드 진입 및 종료 시 애플리케이션에 알립니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -3830,7 +3830,7 @@ UINT  tx_thread_entry_exit_notify(TX_THREAD *thread_ptr,
 ```
 ### <a name="description"></a>Description
 
-이 서비스는 지정된 스레드를 진입하거나 종료할 때마다 호출되는 알림 콜백 함수를 등록합니다. 알림 콜백의 처리는 애플리케이션에 의해 정의됩니다.
+이 서비스는 지정된 스레드에 진입하거나 종료할 때마다 호출되는 알림 콜백 함수를 등록합니다. 알림 콜백의 처리는 애플리케이션에 의해 정의됩니다.
 
 > [!NOTE]
 > 애플리케이션의 알림 진입/종료 알림 콜백은 일시 중단 옵션을 사용하여 ThreadX SMP API를 호출할 수 없습니다.
@@ -3848,7 +3848,7 @@ UINT  tx_thread_entry_exit_notify(TX_THREAD *thread_ptr,
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화, 스레드, 타이머 및 ISR
+초기화, 스레드, 타이머, ISR
 
 ### <a name="example"></a>예제
 
@@ -3896,7 +3896,7 @@ void my_entry_exit_notify(TX_THREAD *thread_ptr, UINT condition)
 
 ## <a name="tx_thread_identify"></a>tx_thread_identify
 
-현재 실행 중인 스레드에 대한 포인터 검색
+현재 실행 중인 스레드에 대한 포인터를 검색합니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -3905,14 +3905,14 @@ TX_THREAD* tx_thread_identify(VOID);
 ```
 ### <a name="description"></a>Description
 
-이 서비스는 현재 실행 중인 스레드를 가리키는 포인터를 반환합니다. 스레드가 실행되고 있지 않으면 이 서비스는 null 포인터를 반환합니다.
+이 서비스는 현재 실행 중인 스레드에 대한 포인터를 반환합니다. 스레드가 실행되고 있지 않으면 이 서비스는 null 포인터를 반환합니다.
 
 > [!IMPORTANT]
 > 이 서비스를 ISR에서 호출하는 경우 반환 값은 실행 중인 인터럽트 처리기 이전에 실행되는 스레드를 나타냅니다.
 
 ### <a name="parameters"></a>매개 변수
 
-None
+없음
 
 ### <a name="return-values"></a>반환 값
 
@@ -3920,7 +3920,7 @@ None
 
 ### <a name="allowed-from"></a>허용 위치
 
-스레드 및 ISR
+스레드, ISR
 
 ### <a name="preemption-possible"></a>가능한 선점
 
@@ -3962,7 +3962,7 @@ my_thread_ptr =  tx_thread_identify();
 
 ## <a name="tx_thread_info_get"></a>tx_thread_info_get
 
-스레드에 대한 정보 검색
+스레드에 대한 정보를 검색합니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -4013,7 +4013,7 @@ UINT tx_thread_info_get(TX_THREAD *thread_ptr, CHAR **name,
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화, 스레드, 타이머 및 ISR
+초기화, 스레드, 타이머, ISR
 
 ### <a name="preemption-possible"></a>가능한 선점
 
@@ -4064,7 +4064,7 @@ status =  tx_thread_info_get(&my_thread, &name,
 
 ## <a name="tx_thread_performance_info_get"></a>tx_thread_performance_info_get 
 
-스레드 성능 정보 가져오기
+스레드 성능 정보를 가져옵니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -4108,7 +4108,7 @@ UINT  tx_thread_performance_info_get(TX_THREAD *thread_ptr,
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화, 스레드, 타이머 및 ISR
+초기화, 스레드, 타이머, ISR
 
 ### <a name="example"></a>예제
 
@@ -4159,7 +4159,7 @@ status = tx_thread_performance_info_get(&my_thread, &resumptions,
 
 ## <a name="tx_thread_performance_system_info_get"></a>tx_thread_performance_system_info_get 
 
-스레드 시스템 성능 정보 가져오기
+스레드 시스템 성능 정보를 가져옵니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -4202,7 +4202,7 @@ UINT tx_thread_performance_system_info_get(ULONG *resumptions,
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화, 스레드, 타이머 및 ISR
+초기화, 스레드, 타이머, ISR
 
 ### <a name="example"></a>예제
 
@@ -4253,7 +4253,7 @@ status = tx_thread_performance_system_info_get(&resumptions,
 
 ## <a name="tx_thread_preemption_change"></a>tx_thread_preemption_change
 
-애플리케이션 스레드의 선점 임계값 변경
+애플리케이션 스레드의 선점 임계값을 변경합니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -4284,7 +4284,7 @@ UINT tx_thread_preemption_change(TX_THREAD *thread_ptr,
 
 ### <a name="allowed-from"></a>허용 위치
 
-스레드 및 타이머
+스레드, 타이머
 
 ### <a name="preemption-possible"></a>가능한 선점
 
@@ -4330,7 +4330,7 @@ status = tx_thread_preemption_change(&my_thread,
 
 ## <a name="tx_thread_priority_change"></a>tx_thread_priority_change
 
-애플리케이션 스레드의 우선 순위 변경
+애플리케이션 스레드의 우선 순위를 변경합니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -4361,7 +4361,7 @@ UINT tx_thread_priority_change(TX_THREAD *thread_ptr,
 
 ### <a name="allowed-from"></a>허용 위치
 
-스레드 및 타이머
+스레드, 타이머
 
 ### <a name="preemption-possible"></a>가능한 선점
 
@@ -4404,7 +4404,7 @@ status = tx_thread_priority_change(&my_thread,
 
 ## <a name="tx_thread_relinquish"></a>tx_thread_relinquish
 
-다른 애플리케이션 스레드에 대한 제어권 포기
+다른 애플리케이션 스레드로 제어를 양도합니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -4420,11 +4420,11 @@ VOID tx_thread_relinquish(VOID);
 
 ### <a name="parameters"></a>매개 변수
 
-None
+없음
 
 ### <a name="return-values"></a>반환 값
 
-None
+없음
 
 ### <a name="allowed-from"></a>허용 위치
 
@@ -4495,7 +4495,7 @@ VOID my_second_thread(ULONG thread_input)
 
 ## <a name="tx_thread_reset"></a>tx_thread_reset
 
-스레드 다시 설정
+스레드를 다시 설정합니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -4504,7 +4504,7 @@ UINT tx_thread_reset(TX_THREAD *thread_ptr);
 ```
 ### <a name="description"></a>Description
 
-이 서비스는 지정된 스레드를 스레드 생성 시 정의된 진입점에서 실행되도록 다시 설정합니다. 다시 설정하려면 스레드가 **TX_COMPLETED** 또는 **TX_TERMINATED** 상태여야 합니다.
+이 서비스는 지정된 스레드가 스레드를 만들 때 정의한 진입점에서 실행되도록 다시 설정합니다. 다시 설정하려면 스레드가 **TX_COMPLETED** 또는 **TX_TERMINATED** 상태여야 합니다.
 
 > [!IMPORTANT]
 > 다시 실행하려면 스레드를 다시 시작해야 합니다.
@@ -4556,7 +4556,7 @@ status = tx_thread_reset(&my_thread);
 
 ## <a name="tx_thread_resume"></a>tx_thread_resume
 
-일시 중단된 애플리케이션 스레드 다시 시작
+일시 중단된 애플리케이션 스레드를 다시 시작합니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -4565,7 +4565,7 @@ UINT tx_thread_resume(TX_THREAD *thread_ptr);
 ```
 ### <a name="description"></a>Description
 
-이 서비스는 이전에 ***tx_thread_suspend*** 호출로 일시 중단된 스레드의 실행을 다시 시작하거나 준비합니다. 또한 이 서비스는 자동 시작 없이 생성된 스레드를 다시 시작합니다.
+이 서비스는 이전에 ***tx_thread_suspend*** 호출로 일시 중단된 스레드의 실행을 다시 시작하거나 준비합니다. 이 서비스는 자동 시작 없이 생성된 스레드도 다시 시작합니다.
 
 ### <a name="parameters"></a>매개 변수
 
@@ -4580,7 +4580,7 @@ UINT tx_thread_resume(TX_THREAD *thread_ptr);
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화, 스레드, 타이머 및 ISR
+초기화, 스레드, 타이머, ISR
 
 ### <a name="preemption-possible"></a>가능한 선점
 
@@ -4620,7 +4620,7 @@ status =  tx_thread_resume(&my_thread);
 
 ## <a name="tx_thread_sleep"></a>tx_thread_sleep
 
-지정된 시간 동안 현재 스레드 일시 중단
+지정된 시간 동안 현재 스레드 일시 중단합니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -4629,7 +4629,7 @@ UINT tx_thread_sleep(ULONG timer_ticks);
 ```
 ### <a name="description"></a>Description
 
-이 서비스는 지정된 수의 타이머 틱 동안 호출 스레드가 일시 중단되도록 합니다. 타이머 틱과 연결된 실제 시간의 양은 애플리케이션마다 다릅니다. 이 서비스는 애플리케이션 스레드에서만 호출할 수 있습니다.
+이 서비스는 지정된 타이머 틱 수 기간 동안 호출 스레드가 일시 중단되도록 합니다. 타이머 틱과 연결된 실제 시간의 양은 애플리케이션마다 다릅니다. 이 서비스는 애플리케이션 스레드에서만 호출할 수 있습니다.
 
 ### <a name="parameters"></a>매개 변수
 
@@ -4782,7 +4782,7 @@ UINT  tx_thread_smp_core_get(void);
 
 ### <a name="parameters"></a>매개 변수
 
-None
+없음
 
 ### <a name="return-values"></a>반환 값
 
@@ -4808,7 +4808,7 @@ core = tx_thread_smp_core_get();
 
 ## <a name="tx_thread_stack_error_notify"></a>tx_thread_stack_error_notify
 
-스레드 스택 오류 알림 콜백 등록
+스레드 스택 오류 알림 콜백을 등록합니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -4833,7 +4833,7 @@ UINT tx_thread_stack_error_notify(VOID (*error_handler)(TX_THREAD *));
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화, 스레드, 타이머 및 ISR
+초기화, 스레드, 타이머, ISR
 
 ### <a name="example"></a>예제
 
@@ -4868,7 +4868,7 @@ status =  tx_thread_stack_error_notify(my_stack_error_handler);
 
 ## <a name="tx_thread_suspend"></a>tx_thread_suspend
 
-애플리케이션 스레드 일시 중단
+애플리케이션 스레드를 일시 중단합니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -4897,7 +4897,7 @@ UINT tx_thread_suspend(TX_THREAD *thread_ptr);
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화, 스레드, 타이머 및 ISR
+초기화, 스레드, 타이머, ISR
 
 ### <a name="preemption-possible"></a>가능한 선점
 
@@ -4937,7 +4937,7 @@ status = tx_thread_suspend(&my_thread);
 
 ## <a name="tx_thread_terminate"></a>tx_thread_terminate
 
-애플리케이션 스레드 종료
+애플리케이션 스레드를 종료합니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -4966,7 +4966,7 @@ UINT tx_thread_terminate(TX_THREAD *thread_ptr);
 
 ### <a name="allowed-from"></a>허용 위치
 
-스레드 및 타이머
+스레드, 타이머
 
 ### <a name="preemption-possible"></a>가능한 선점
 
@@ -5006,7 +5006,7 @@ status =  tx_thread_terminate(&my_thread);
 
 ## <a name="tx_thread_time_slice_change"></a>tx_thread_time_slice_change
 
-애플리케이션 스레드의 시간 조각 변경
+애플리케이션 스레드의 시간 조각을 변경합니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -5036,7 +5036,7 @@ UINT tx_thread_time_slice_change(TX_THREAD *thread_ptr,
 
 ### <a name="allowed-from"></a>허용 위치
 
-스레드 및 타이머
+스레드, 타이머
 
 ### <a name="preemption-possible"></a>가능한 선점
 
@@ -5083,7 +5083,7 @@ status = tx_thread_time_slice_change(&my_thread, 20,
 
 ## <a name="tx_thread_wait_abort"></a>tx_thread_wait_abort
 
-지정된 스레드의 일시 중단 중단
+지정된 스레드의 일시 중단을 중단합니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -5110,7 +5110,7 @@ UINT tx_thread_wait_abort(TX_THREAD *thread_ptr);
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화, 스레드, 타이머 및 ISR
+초기화, 스레드, 타이머, ISR
 
 ### <a name="preemption-possible"></a>가능한 선점
 
@@ -5160,14 +5160,14 @@ ULONG tx_time_get(VOID);
 ```
 ### <a name="description"></a>Description
 
-이 서비스는 내부 시스템 클록의 내용을 반환합니다. 각 타이머 틱은 내부 시스템 클록을 1씩 늘립니다. 초기화하는 동안 시스템 클록이 0으로 설정되며 서비스 ***tx_time_set*** 에 따라 특정 값으로 변경될 수 있습니다.
+이 서비스는 내부 시스템 클록의 콘텐츠를 반환합니다. 각 타이머 틱은 내부 시스템 클록을 1씩 늘립니다. 초기화하는 동안 시스템 클록이 0으로 설정되며 서비스 ***tx_time_set*** 에 따라 특정 값으로 변경될 수 있습니다.
 
 > [!IMPORTANT]
 > 각 타이머 틱이 나타내는 실제 시간은 애플리케이션마다 다릅니다.
 
 ### <a name="parameters"></a>매개 변수
 
-None
+없음
 
 ### <a name="return-values"></a>반환 값
 
@@ -5175,7 +5175,7 @@ None
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화, 스레드, 타이머 및 ISR
+초기화, 스레드, 타이머, ISR
 
 ### <a name="preemption-possible"></a>가능한 선점
 
@@ -5198,7 +5198,7 @@ current_time =  tx_time_get();
 
 ## <a name="tx_time_set"></a>tx_time_set
 
-현재 시간 설정
+현재 시간을 설정합니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -5218,11 +5218,11 @@ VOID tx_time_set(ULONG new_time);
 
 ### <a name="return-values"></a>반환 값
 
-None
+없음
 
 ### <a name="allowed-from"></a>허용 위치
 
-스레드, 타이머 및 ISR
+스레드, 타이머, ISR
 
 ### <a name="preemption-possible"></a>가능한 선점
 
@@ -5243,7 +5243,7 @@ tx_time_set(0x1234);
 
 ## <a name="tx_timer_activate"></a>tx_timer_activate
 
-애플리케이션 타이머 활성화
+애플리케이션 타이머를 활성화합니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -5269,7 +5269,7 @@ UINT tx_timer_activate(TX_TIMER *timer_ptr);
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화, 스레드, 타이머 및 ISR
+초기화, 스레드, 타이머, ISR
 
 ### <a name="preemption-possible"></a>가능한 선점
 
@@ -5300,7 +5300,7 @@ status = tx_timer_activate(&my_timer);
 
 ## <a name="tx_timer_change"></a>tx_timer_change
 
-애플리케이션 타이머 변경
+애플리케이션 타이머를 변경합니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -5333,7 +5333,7 @@ UINT tx_timer_change(TX_TIMER *timer_ptr,
 
 ### <a name="allowed-from"></a>허용 위치
 
-스레드, 타이머 및 ISR
+스레드, 타이머, ISR
 
 ### <a name="preemption-possible"></a>가능한 선점
 
@@ -5368,7 +5368,7 @@ status = tx_timer_activate(&my_timer);
 
 ## <a name="tx_timer_create"></a>tx_timer_create
 
-애플리케이션 타이머 만들기
+애플리케이션 타이머를 만듭니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -5380,7 +5380,7 @@ UINT tx_timer_create(TX_TIMER *timer_ptr, CHAR *name_ptr,
 ```
 ### <a name="description"></a>Description
 
-이 서비스는 지정된 만료 함수 및 주기에 따라 애플리케이션 타이머를 만듭니다.
+이 서비스는 지정된 만료 함수 및 정기 설정을 사용하여 애플리케이션 타이머를 만듭니다.
 
 ### <a name="parameters"></a>매개 변수
 
@@ -5394,7 +5394,7 @@ UINT tx_timer_create(TX_TIMER *timer_ptr, CHAR *name_ptr,
    > [!NOTE]
    > 만료된 일회성 타이머를 다시 활성화하려면 먼저 tx_timer_change를 통해 다시 설정해야 합니다.
 
-- **auto_activate**: 만드는 동안 타이머가 자동으로 활성화되는지 여부를 결정합니다. 이 값이 **TX_AUTO_ACTIVATE**(0x01)이면 타이머가 활성 상태가 됩니다. 그렇지 않고 **TX_NO_ACTIVATE**(0x00) 값을 선택하면 타이머가 비활성 상태로 만들어집니다. 이 경우 타이머를 실제로 시작하려면 후속 **_tx_timer_activate_** 서비스 호출이 필요합니다.
+- **auto_activate**: 만드는 동안 타이머가 자동으로 활성화되는지 여부를 결정합니다. 이 값이 **TX_AUTO_ACTIVATE**(0x01)이면 타이머가 활성 상태가 됩니다. 그러지 않고 **TX_NO_ACTIVATE**(0x00) 값을 선택하면 타이머가 비활성 상태로 만들어집니다. 이 경우 타이머를 실제로 시작하려면 후속 **_tx_timer_activate_** 서비스 호출이 필요합니다.
 
 ### <a name="return-values"></a>반환 값
 
@@ -5406,7 +5406,7 @@ UINT tx_timer_create(TX_TIMER *timer_ptr, CHAR *name_ptr,
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화 및 스레드
+초기화, 스레드
 
 ### <a name="preemption-possible"></a>가능한 선점
 
@@ -5443,7 +5443,7 @@ status =  tx_timer_create(&my_timer,"my_timer_name",
 
 ## <a name="tx_timer_deactivate"></a>tx_timer_deactivate
 
-애플리케이션 타이머 비활성화
+애플리케이션 타이머를 비활성화합니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -5453,7 +5453,7 @@ UINT tx_timer_deactivate(TX_TIMER *timer_ptr);
 
 ### <a name="description"></a>Description
 
-이 서비스는 지정된 애플리케이션 타이머를 비활성화합니다. 타이머가 이미 비활성화된 경우 이 서비스는 영향을 주지 않습니다.
+이 서비스는 지정된 애플리케이션 타이머를 비활성화합니다. 타이머가 이미 비활성화되어 있는 경우에는 이 서비스가 아무런 영향을 미치지 않습니다.
 
 ### <a name="parameters"></a>매개 변수 
 
@@ -5466,7 +5466,7 @@ UINT tx_timer_deactivate(TX_TIMER *timer_ptr);
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화, 스레드, 타이머 및 ISR
+초기화, 스레드, 타이머, ISR
 
 ### <a name="preemption-possible"></a>가능한 선점
 
@@ -5497,7 +5497,7 @@ status =  tx_timer_deactivate(&my_timer);
 
 ## <a name="tx_timer_delete"></a>tx_timer_delete
 
-애플리케이션 타이머 삭제
+애플리케이션 타이머를 삭제합니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -5554,7 +5554,7 @@ status =  tx_timer_delete(&my_timer);
 
 ## <a name="tx_timer_info_get"></a>tx_timer_info_get
 
-애플리케이션 타이머에 대한 정보 검색
+애플리케이션 타이머에 대한 정보를 검색합니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -5587,7 +5587,7 @@ UINT tx_timer_info_get(TX_TIMER *timer_ptr, CHAR **name,
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화, 스레드, 타이머 및 ISR
+초기화, 스레드, 타이머, ISR
 
 ### <a name="preemption-possible"></a>가능한 선점
 
@@ -5627,7 +5627,7 @@ status =  tx_timer_info_get(&my_timer, &name,
 
 ## <a name="tx_timer_performance_info_get"></a>tx_timer_performance_info_get 
 
-타이머 성능 정보 가져오기
+타이머 성능 정보를 가져옵니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -5664,7 +5664,7 @@ UINT  tx_timer_performance_info_get(TX_TIMER *timer_ptr,
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화, 스레드, 타이머 및 ISR
+초기화, 스레드, 타이머, ISR
 
 ### <a name="example"></a>예제
 
@@ -5697,7 +5697,7 @@ status =  tx_timer_performance_info_get(&my_timer, &activates,
 
 ## <a name="tx_timer_performance_system_info_get"></a>tx_timer_performance_system_info_get 
 
-타이머 시스템 성능 정보 가져오기
+타이머 시스템 성능 정보를 가져옵니다.
 
 ### <a name="prototype"></a>프로토타입
 
@@ -5731,7 +5731,7 @@ UINT  tx_timer_performance_system_info_get(ULONG *activates,
 
 ### <a name="allowed-from"></a>허용 위치
 
-초기화, 스레드, 타이머 및 ISR
+초기화, 스레드, 타이머, ISR
 
 ### <a name="example"></a>예제
 

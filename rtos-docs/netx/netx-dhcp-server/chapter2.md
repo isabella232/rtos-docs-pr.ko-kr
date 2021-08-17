@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 034a4d74c566fbfe94981a42b7e06e7f2ee79d25
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 04cbf4c9529538c3b5db6f8045a28bbcad5861c6ce846a898fa3ba1c7d97b19f
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104811605"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116799577"
 ---
 # <a name="chapter-2---installation-and-use-of-the-azure-rtos-netx-dhcp-server"></a>챕터 2 - Azure RTOS NetX DHCP 서버 설치 및 사용
 

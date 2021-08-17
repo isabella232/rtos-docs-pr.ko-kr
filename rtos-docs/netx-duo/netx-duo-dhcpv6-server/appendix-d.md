@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/08/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 4472804dd223815a80438f283efd4e327ce51898
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 3ebb9683bd3183d5c6a72eab5730175b8e1713b75d285ac3417307c7cf5bde04
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104810866"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116783682"
 ---
 # <a name="appendix-d----azure-rtos-netx-duo-advanced-dhcpv6-server-example"></a>부록 D - Azure RTOS NetX Duo Advanced DHCPv6 서버 예제
 

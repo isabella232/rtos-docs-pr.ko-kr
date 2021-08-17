@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: a246bf997bfb51136c6a3802fe6b099d6a9002a4
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 6ccaeeb152bbd623d2ea702a4a29dbbadb98dc5b252bba9977d553a056da6b2a
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104812157"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116798846"
 ---
 # <a name="appendix-a---azure-rtos-threadx-smp-api-services"></a>부록 A - Azure RTOS ThreadX SMP API 서비스
 

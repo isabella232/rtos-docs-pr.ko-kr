@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 07/24/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: c784843e4d3f11ee306e866223c0a19bfcba3b85
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: e5f50419be3171d3df8544d1b34d603822f339785923f8a8199dc5b5ddcac281
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104811809"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116801756"
 ---
 # <a name="chapter-1---introduction-to-http-and-https"></a>1장 - HTTP 및 HTTPS 소개
 

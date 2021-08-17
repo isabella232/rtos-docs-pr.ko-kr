@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: reference
 ms.service: rtos
-ms.openlocfilehash: f14f27167a95a1b9d3ebbdf0d903be7b043ccb28
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: f4994a5014d3691b4a78f225fb68b475bf5a8cdab630162a94130f321be09da5
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104810513"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116782441"
 ---
 # <a name="appendix-a-azure-rtos-netx-secure-dtls-returnerror-codes"></a>부록 A: Azure RTOS NetX Secure DTLS 반환/오류 코드
 

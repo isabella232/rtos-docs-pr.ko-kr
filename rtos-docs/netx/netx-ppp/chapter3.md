@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: f24d7366d27a8223b069a54ef7b93f6b3e38bf3a
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 980348b5c50acfb82b2d8fda8786a1d48bf59c69e7949b6f62b64515b59bf42d
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104811467"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116798761"
 ---
 # <a name="chapter-3---description-of-azure-rtos-netx-point-to-point-protocol-ppp-services"></a>3장 - Azure RTOS NetX PPP(지점 간 프로토콜) 서비스 설명
 
@@ -27,21 +27,21 @@ ms.locfileid: "104811467"
 - **nx_ppp_dns_address_get**: *DNS IP 주소 가져오기*
 - **nx_ppp_dns_address_set**: *DNS 서버 IP 주소 설정*
 - **nx_ppp_secondary_dns_address_get**: *보조 DNS 서버 IP 주소 가져오기*
-- **nx_ppp_secondary_dns_address_set**: *보조_DNS 서버 IP 주소 설정*
+- **nx_ppp_secondary_dns_address_set**: *보조 DNS 서버 IP 주소 설정*
 - **nx_ppp_interface_index_get**: *IP 인터페이스 인덱스 가져오기*
 - **nx_ppp_ip_address_assign**: *IPCP에 대한 IP 주소 할당*
-- **nx_ppp_link_down_notify**: *링크 다운 시 애플리케이션에 알림*
-- **nx_ppp_link_up_notify**: *링크 연결 시 애플리케이션에 알림*
+- **nx_ppp_link_down_notify**: *연결 해제 시 애플리케이션에 알림*
+- **nx_ppp_link_up_notify**: *연결 사용 시 애플리케이션에 알림*
 - **nx_ppp_nak_authentication_notify**: *인증 NAK가 수신되면 애플리케이션에 알림*
 - **nx_ppp_pap_enable**: *PAP 인증 사용*
-- **nx_ppp_ping_request**: *LCP echo 요청 보내기*
+- **nx_ppp_ping_request**: *LCP 에코 요청 보내기*
 - **nx_ppp_raw_string_send**: *비 PPP 문자열 보내기*
 - **nx_ppp_restart**: *PPP 처리 다시 시작*
 - **nx_ppp_start**: *PPP 처리 시작*
 - **nx_ppp_status_get**: *현재 PPP 상태 가져오기*
 - **nx_ppp_stop**: *PPP 처리 중지*
 - **nx_ppp_packet_receive**: *PPP 패킷 수신*
-- **nx_ppp_packet_send_set**: *PPP 패킷 송신 기능 설정*
+- **nx_ppp_packet_send_set**: *PPP 패킷 전송 함수 설정*
 
 ## <a name="nx_ppp_byte_receive"></a>nx_ppp_byte_receive
 
@@ -53,19 +53,19 @@ ms.locfileid: "104811467"
 UINT nx_ppp_byte_receive(NX_PPP *ppp_ptr, UCHAR byte);
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>설명
 
 이 서비스는 일반적으로 수신 바이트를 PPP로 전송하기 위해 애플리케이션의 직렬 드라이버 ISR(인터럽트 서비스 루틴)에서 호출됩니다. 이 루틴은 호출되면 수신 바이트를 순환 바이트 버퍼에 배치하고 처리를 위해 적절한 PPP 스레드에 알립니다.
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
 - **ppp_ptr**: PPP 제어 블록에 대한 포인터입니다.
-- **byte**: 직렬 디바이스에서 받은 바이트
+- **byte**: 직렬 디바이스에서 받은 바이트입니다.
 
 ### <a name="return-values"></a>반환 값
 
 - **NX_SUCCESS**: (0x00) PPP 바이트를 성공적으로 수신했습니다.
-- **NX_PPP_BUFFER_FULL**: (0xB1) PPP 직렬 버퍼가 이미 꽉 찼습니다.
+- **NX_PPP_BUFFER_FULL**: (0xB1) PPP 직렬 버퍼가 이미 가득 찼습니다.
 - NX_PTR_ERROR: (0x07) 잘못된 PPP 포인터입니다.
 
 ### <a name="allowed-from"></a>허용 위치
@@ -92,9 +92,9 @@ CHAP 챌린지 생성
 UINT nx_ppp_chap_challenge(NX_PPP *ppp_ptr);
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>설명
 
-이 서비스는 PPP 연결이 이미 설정되고 실행된 후 CHAP 챌린지를 시작합니다. 이렇게 하면 애플리케이션이 정기적으로 연결의 신뢰성을 확인하는 기능을 제공합니다. 챌린지에 실패하면 PPP 링크가 닫힙니다.
+이 서비스는 PPP 연결이 이미 설정되고 실행된 후 CHAP 챌린지를 시작합니다. 이렇게 하면 애플리케이션이 정기적으로 연결의 신뢰성을 확인할 수 있습니다. 챌린지에 실패하면 PPP 링크가 닫힙니다.
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
@@ -103,7 +103,7 @@ UINT nx_ppp_chap_challenge(NX_PPP *ppp_ptr);
 ### <a name="return-values"></a>반환 값
 
 - **NX_SUCCESS**: (0x00) PPP 챌린지를 성공적으로 시작했습니다.
-- **NX_PPP_FAILURE**: (0xB0) 잘못된 PPP 챌린지, CHAP가 응답에만 사용하도록 설정되었습니다.
+- **NX_PPP_FAILURE**: (0xB0) 잘못된 PPP 챌린지입니다. CHAP가 응답에만 사용하도록 설정되었습니다.
 - **NX_NOT_IMPLEMENTED**: (0x80) CHAP 논리가 NX_PPP_DISABLE_CHAP를 통해 사용하지 않도록 설정되었습니다.
 - NX_PTR_ERROR: (0x07) 잘못된 PPP 포인터입니다.
 - NX_CALLER_ERROR: (0x11) 이 서비스의 호출자가 잘못되었습니다.
@@ -135,27 +135,27 @@ UINT nx_ppp_chap_enable(NX_PPP *ppp_ptr,
                         UINT (*get_verification_values)(CHAR *system,CHAR *name,CHAR *secret)); 
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>설명
 
 이 서비스는 지정된 PPP 인스턴스에 대해 CHAP(Challenge-Handshake 인증 프로토콜)를 사용하도록 설정합니다.
 
-“***get_challenge_values** _” 및 “_ *_get_verification_values_**” 함수 포인터를 지정하는 경우 이 PPP 인스턴스에 CHAP가 필요합니다. 그렇지 않으면 CHAP는 피어의 챌지 요청에만 응답합니다.
+“***get_challenge_values** _” 및 “_ *_get_verification_values_**” 함수 포인터를 지정하는 경우 이 PPP 인스턴스에 CHAP가 필요합니다. 그렇지 않으면 CHAP는 피어의 챌린지 요청에만 응답합니다.
 
-필요한 콜백 함수에서 다음과 같은 몇 가지 데이터 항목을 참조합니다. 데이터 항목 *비밀*, *이름* 및 *시스템* 은 최대 크기가 NX_PPP_NAME_SIZE-1인 NULL로 종료되는 문자열이어야 합니다. 데이터 항목 *rand_value* 는 최대 크기가 NX_PPP_VALUE_SIZE-1인 NULL로 종료되는 문자열이어야 합니다. 데이터 항목 *id* 는 단순 부호 없는 문자 형식입니다.
+필수 콜백 함수에서 다음과 같은 몇 가지 데이터 항목을 참조합니다. 데이터 항목 *secret*, *name* 및 *system* 은 최대 크기가 NX_PPP_NAME_SIZE-1인 NULL로 종료되는 문자열이어야 합니다. 데이터 항목 *rand_value* 는 최대 크기가 NX_PPP_VALUE_SIZE-1인 NULL로 종료되는 문자열이어야 합니다. 데이터 항목 *id* 는 단순 부호 없는 문자 형식입니다.
 
 >[!NOTE]
-> 이 함수는 *nx_ppp_create* 후에 호출해야 하지만 nx_ip_create 또는 *nx_ip_interface_attach* 이전에 호출해야 합니다.
+> 이 함수는 *nx_ppp_create* 이후, nx_ip_create 또는 *nx_ip_interface_attach* 이전에 호출해야 합니다.
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
 - **ppp_ptr**: PPP 제어 블록에 대한 포인터입니다.
-- **get_challenge_values**: 챌린지에 사용되는 값을 검색하는 애플리케이션 함수에 대한 포인터입니다. *rand_value*, *id* 및 *비밀* 값을 제공된 대상에 복사해야 합니다.
-- **get_responder_values**: 챌린지에 응답하는 데 사용되는 값을 검색하는 애플리케이션 함수에 대한 포인터입니다. *시스템*, *이름* 및 *비밀* 값을 제공된 대상에 복사해야 합니다.
-- **get_verification_values**: 챌린지 응답을 확인하는 데 사용된 값을 검색하는 애플리케이션 함수에 대한 포인터입니다. *시스템*, *이름* 및 *비밀* 값을 제공된 대상에 복사해야 합니다.
+- **get_challenge_values**: 챌린지에 사용되는 값을 검색하는 애플리케이션 함수에 대한 포인터입니다. *rand_value*, *id* 및 *secret* 값을 제공된 대상에 복사해야 합니다.
+- **get_responder_values**: 챌린지에 응답하는 데 사용되는 값을 검색하는 애플리케이션 함수에 대한 포인터입니다. *system*, *name* 및 *secret* 값을 제공된 대상에 복사해야 합니다.
+- **get_verification_values**: 챌린지 응답을 확인하는 데 사용된 값을 검색하는 애플리케이션 함수에 대한 포인터입니다. *system*, *name* 및 *secret* 값을 제공된 대상에 복사해야 합니다.
 
 ### <a name="return-values"></a>반환 값
 
-- **NX_SUCCESS**: (0x00) PPP CHAP를 성공적으로 사용하도록 설정함
+- **NX_SUCCESS**: (0x00) PPP CHAP를 성공적으로 사용하도록 설정했습니다.
 - **NX_NOT_IMPLEMENTED**: (0x80) CHAP 논리가 NX_PPP_DISABLE_CHAP를 통해 사용하지 않도록 설정되었습니다.
 - NX_PTR_ERROR: (0x07) PPP 포인터나 콜백 함수 포인터가 잘못되었습니다. *get_challenge_values* 가 지정된 경우 *get_verification_values* 함수도 제공해야 합니다.
 - NX_CALLER_ERROR: (0x11) 이 서비스의 호출자가 잘못되었습니다.
@@ -266,7 +266,7 @@ UINT  nx_ppp_create(NX_PPP *ppp_ptr, CHAR *name, NX_IP *ip_ptr,
                     void (*ppp_byte_send)(UCHAR byte));
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>설명
 
 이 서비스는 지정된 NetX IP 인스턴스에 대한 PPP 인스턴스를 만듭니다.
 
@@ -279,7 +279,7 @@ UINT  nx_ppp_create(NX_PPP *ppp_ptr, CHAR *name, NX_IP *ip_ptr,
 - **name**: 이 PPP 인스턴스의 이름입니다.
 - **ip_ptr**: 아직 생성되지 않은 IP 인스턴스의 제어 블록에 대한 포인터입니다.
 - **stack_memory_ptr**: PPP 스레드의 스택 영역 시작에 대한 포인터입니다.
-- **stack_size** 스레드의 스택에 있는 크기(바이트)입니다.
+- **stack_size** 스레드 스택의 크기(바이트)입니다.
 - **pool_ptr** 기본 패킷 풀에 대한 포인터입니다.
 - **thread_priority**: 내부 PPP 스레드의 우선 순위(1-31)입니다.
 - **ppp_invalid_packet_handler**: 모든 비 PPP 패킷에 대한 애플리케이션 처리기에 대한 함수 포인터입니다. NetX PPP는 일반적으로 초기화하는 동안 이 루틴을 호출합니다. 애플리케이션이 모뎀 명령에 응답하거나 Windows XP의 경우 NetX PPP 애플리케이션이 Windows XP에서 전송하는 초기 "클라이언트"에 "클라이언트 서버"로 응답하여 PPP를 시작할 수 있는 위치입니다.
@@ -317,7 +317,7 @@ PPP 인스턴스 삭제
 UINT nx_ppp_delete(NX_PPP *ppp_ptr);
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>설명
 
 이 서비스는 이전에 만든 PPP 인스턴스를 삭제합니다.
 
@@ -396,19 +396,19 @@ status =  nx_ppp_dns_address_get(&my_ppp, &my_dns_address);
 UINT nx_ppp_secondary_dns_address_get(NX_PPP *ppp_ptr, ULONG *dns_address_ptr);
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>설명
 
-이 서비스는 IPCP 핸드셰이크의 피어에서 제공된 보조 DNS IP 주소를 검색합니다. 피어가 IP 주소를 제공하지 않은 경우 IP 주소 0이 반환됩니다.
+이 서비스는 IPCP 핸드셰이크의 피어에서 제공한 보조 DNS IP 주소를 검색합니다. 피어가 IP 주소를 제공하지 않은 경우 IP 주소 0이 반환됩니다.
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
 - **ppp_ptr**: PPP 제어 블록에 대한 포인터입니다.
-- **dns_address_ptr**: 보조 DNS 서버 주소에 대한 대상
+- **dns_address_ptr**: 보조 DNS 서버 주소의 대상입니다.
 
 ### <a name="return-values"></a>반환 값
 
 - **NX_SUCCESS**: (0x00) DNS 주소를 성공적으로 가져왔습니다.
-- **NX_PPP_NOT_ESTABLISHED**: (0xB5) PPP가 피어 협상을 완료하지 못했습니다.
+- **NX_PPP_NOT_ESTABLISHED**: (0xB5) PPP가 피어와 협상을 완료하지 못했습니다.
 - NX_PTR_ERROR: (0x07) 잘못된 PPP 포인터입니다.
 
 ### <a name="allowed-from"></a>허용 위치
@@ -436,19 +436,19 @@ status =  nx_ppp_secondary_dns_address_get(&my_ppp, &my_dns_address);
 UINT nx_ppp_dns_address_set(NX_PPP *ppp_ptr, ULONG dns_address);
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>설명
 
-이 서비스는 DNS 서버 IP 주소를 설정합니다. 피어가 IPCP 상태에서 DNS 서버 옵션 요청을 보내는 경우 이 호스트는 정보를 제공합니다.
+이 서비스는 DNS 서버 IP 주소를 설정합니다. 피어가 IPCP 상태에서 DNS 서버 옵션 요청을 보내면 이 호스트가 정보를 제공합니다.
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
 - **ppp_ptr**: PPP 제어 블록에 대한 포인터입니다.
-- **dns_address**: DNS 서버 주소
+- **dns_address**: DNS 서버 주소입니다.
 
 ### <a name="return-values"></a>반환 값
 
 - **NX_SUCCESS**: (0x00) DNS 주소를 성공적으로 설정했습니다.
-- **NX_PPP_NOT_ESTABLISHED**: (0xB5) PPP가 피어 협상을 완료하지 못했습니다.
+- **NX_PPP_NOT_ESTABLISHED**: (0xB5) PPP가 피어와 협상을 완료하지 못했습니다.
 - NX_PTR_ERROR: (0x07) 잘못된 PPP 포인터입니다.
 
 ### <a name="allowed-from"></a>허용 위치
@@ -478,19 +478,19 @@ status =  nx_ppp_dns_address_set(&my_ppp, my_dns_address);
 UINT nx_ppp_secondary_dns_address_set(NX_PPP *ppp_ptr, ULONG dns_address);
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>설명
 
-이 서비스는 보조 DNS 서버 IP 주소를 설정합니다. 피어가 IPCP 상태에서 보조 DNS 서버 옵션 요청을 보내는 경우 이 호스트는 정보를 제공합니다.
+이 서비스는 보조 DNS 서버 IP 주소를 설정합니다. 피어가 IPCP 상태에서 보조 DNS 서버 옵션 요청을 보내면 이 호스트가 정보를 제공합니다.
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
 - **ppp_ptr**: PPP 제어 블록에 대한 포인터입니다.
-- **dns_address**: 보조 DNS 서버 주소
+- **dns_address**: 보조 DNS 서버 주소입니다.
 
 ### <a name="return-values"></a>반환 값
 
 - **NX_SUCCESS**: (0x00) DNS 주소를 성공적으로 설정했습니다. 
-- **NX_PPP_NOT_ESTABLISHED**: (0xB5) PPP가 피어 협상을 완료하지 못했습니다.
+- **NX_PPP_NOT_ESTABLISHED**: (0xB5) PPP가 피어와 협상을 완료하지 못했습니다.
 - NX_PTR_ERROR: (0x07) 잘못된 PPP 포인터입니다.
 
 ### <a name="allowed-from"></a>허용 위치
@@ -518,14 +518,14 @@ IP 인터페이스 인덱스 가져오기
 UINT nx_ppp_interface_index_get(NX_PPP *ppp_ptr, UINT *index_ptr);
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>설명
 
 이 서비스는 이 PPP 인스턴스와 연결된 IP 인터페이스 인덱스를 검색합니다. 이는 PPP 인스턴스가 IP 인스턴스의 기본 인터페이스가 아닌 경우에만 유용합니다.
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
 - **ppp_ptr**: PPP 제어 블록에 대한 포인터입니다.
-- **index_ptr**: 인터페이스 인덱스의 대상
+- **index_ptr**: 인터페이스 인덱스의 대상입니다.
 
 ### <a name="return-values"></a>반환 값
 
@@ -594,7 +594,7 @@ IP_ADDRESS(256,2,2,188));
 
 ## <a name="nx_ppp_link_down_notify"></a>nx_ppp_link_down_notify
 
-링크 다운 시 애플리케이션에 알림
+연결 해제 시 애플리케이션에 알림
 
 ### <a name="prototype"></a>프로토타입
 
@@ -603,18 +603,18 @@ UINT nx_ppp_link_down_notify(NX_PPP *ppp_ptr,
                              VOID (*link_down_callback)(NX_PPP *ppp_ptr));
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>설명
 
-이 서비스는 지정된 PPP 인스턴스를 사용하여 애플리케이션의 링크 다운 알림 콜백을 등록합니다. NULL이 아닌 경우 링크가 중단될 때마다 애플리케이션의 링크 다운 콜백 함수가 호출됩니다.
+이 서비스는 지정된 PPP 인스턴스에 애플리케이션의 연결 해제 알림 콜백을 등록합니다. NULL이 아닌 경우 연결이 해제될 때마다 애플리케이션의 연결 해제 콜백 함수가 호출됩니다.
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
 - **ppp_ptr**: PPP 제어 블록에 대한 포인터입니다.
-- **link_down_callback**: 애플리케이션의 링크 다운 알림 함수 포인터입니다. NULL인 경우 링크 다운 알림이 사용되지 않습니다.
+- **link_down_callback**: 애플리케이션의 연결 해제 알림 함수 포인터입니다. NULL인 경우 연결 해제 알림이 사용되지 않습니다.
 
 ### <a name="return-values"></a>반환 값
 
-- **NX_SUCCESS**: (0x00) 링크 다운 알림 콜백을 성공적으로 등록했습니다.
+- **NX_SUCCESS**: (0x00) 연결 해제 알림 콜백을 성공적으로 등록했습니다.
 - NX_PTR_ERROR: (0x07) 잘못된 PPP 포인터입니다.
 
 ### <a name="allowed-from"></a>허용 위치
@@ -641,7 +641,7 @@ VOID my_link_down_callback(NX_PPP *ppp_ptr)
 ```
 ## <a name="nx_ppp_link_up_notify"></a>nx_ppp_link_up_notify
 
-링크 연결 시 애플리케이션에 알림
+연결 사용 시 애플리케이션에 알림
 
 ### <a name="prototype"></a>프로토타입
 
@@ -649,18 +649,18 @@ VOID my_link_down_callback(NX_PPP *ppp_ptr)
 UINT nx_ppp_link_up_notify(NX_PPP *ppp_ptr, 
                            VOID (*link_up_callback)(NX_PPP *ppp_ptr));
 ```
-### <a name="description"></a>Description
+### <a name="description"></a>설명
 
-이 서비스는 지정된 PPP 인스턴스를 사용하여 애플리케이션의 링크 연결 알림 콜백을 등록합니다. NULL이 아닌 경우 링크가 연결될 때마다 애플리케이션의 링크 연결 콜백 함수가 호출됩니다.
+이 서비스는 지정된 PPP 인스턴스에 애플리케이션의 연결 사용 알림 콜백을 등록합니다. NULL이 아닌 경우 연결이 사용될 때마다 애플리케이션의 연결 사용 콜백 함수가 호출됩니다.
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
 - **ppp_ptr**: PPP 제어 블록에 대한 포인터입니다.
-- **link_up_callback**: 애플리케이션의 링크 연결 알림 함수 포인터입니다. NULL인 경우 링크 연결 알림이 사용되지 않습니다.**
+- **link_up_callback**: 애플리케이션의 연결 사용 알림 함수 포인터입니다. NULL인 경우 연결 사용 알림이 사용되지 않습니다.**
 
 ### <a name="return-values"></a>반환 값
 
-- **NX_SUCCESS**: (0x00) 링크 연결 알림 콜백을 성공적으로 등록했습니다.
+- **NX_SUCCESS**: (0x00) 연결 사용 알림 콜백을 성공적으로 등록했습니다.
 - NX_PTR_ERROR: (0x07) 잘못된 PPP 포인터입니다.
 
 ### <a name="allowed-from"></a>허용 위치
@@ -696,9 +696,9 @@ UINT    nx_ppp_nak_authentication_notify(NX_PPP *ppp_ptr,
                                          void (*nak_authentication_notify)(void));
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>설명
 
-이 서비스는 지정된 PPP 인스턴스를 사용하여 애플리케이션의 인증 nak 알림 콜백을 등록합니다. NULL이 아닌 경우 이 콜백 함수는 PPP 인스턴스가 인증 중에 NAK를 받을 때마다 호출됩니다.
+이 서비스는 지정된 PPP 인스턴스에 애플리케이션의 인증 nak 알림 콜백을 등록합니다. NULL이 아닌 경우 이 콜백 함수는 PPP 인스턴스가 인증 중에 NAK를 받을 때마다 호출됩니다.
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
@@ -744,20 +744,20 @@ UINT  nx_ppp_pap_enable(NX_PPP *ppp_ptr,
                         UINT (*verify_login)(CHAR *name, CHAR *password));
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>설명
 
-이 서비스는 지정된 PPP 인스턴스에 대해 PAP(암호 인증 프로토콜)를 사용하도록 설정합니다. "***Verify_login***" 함수 포인터를 지정하는 경우 이 PPP 인스턴스에 PAP가 필요합니다. 그렇지 않으면 PAP는 LCP 협상 중에 지정된 피어의 PAP 요구 사항에만 응답합니다.
+이 서비스는 지정된 PPP 인스턴스에 PAP(암호 인증 프로토콜)를 사용하도록 설정합니다. "***verify_login***" 함수 포인터를 지정하는 경우 이 PPP 인스턴스에 PAP가 필요합니다. 그렇지 않으면 PAP는 LCP 협상 중에 지정된 피어의 PAP 요구 사항에만 응답합니다.
 
-필요한 콜백 함수에서 다음과 같은 몇 가지 데이터 항목을 참조합니다. 데이터 항목 *이름* 은 최대 크기가 NX_PPP_NAME_SIZE-1인 NULL로 종료되는 문자열이어야 합니다. 데이터 항목 *암호* 는 최대 크기가 NX_PPP_PASSWORD_SIZE-1인 NULL로 종료되는 문자열이어야 합니다.
+필수 콜백 함수에서 다음과 같은 몇 가지 데이터 항목을 참조합니다. 데이터 항목 *name* 은 최대 크기가 NX_PPP_NAME_SIZE-1인 NULL로 종료되는 문자열이어야 합니다. 데이터 항목 *password* 는 최대 크기가 NX_PPP_PASSWORD_SIZE-1인 NULL로 종료되는 문자열이어야 합니다.
 
 >[!NOTE]
-> 이 함수는 *nx_ppp_create* 후에 호출해야 하지만 *nx_ip_create* 또는 *nx_ip_interface_attach* 이전에 호출해야 합니다.
+> 이 함수는 *nx_ppp_create* 이후, *nx_ip_create* 또는 *nx_ip_interface_attach* 이전에 호출해야 합니다.
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
 - **ppp_ptr**: PPP 제어 블록에 대한 포인터입니다.
-- **generate_login**: 피어에서 인증을 위한 *이름* 및 *암호* 를 생성하는 애플리케이션 함수에 대한 포인터입니다. *이름* 및 *암호* 값을 제공된 대상에 복사해야 합니다.
-- **verify_login**: 피어에서 제공한 *이름* 및 *암호* 를 확인하는 애플리케이션 함수에 대한 포인터입니다. 이 루틴은 제공된 *이름* 및 *암호* 를 비교해야 합니다. 이 루틴이 NX_SUCCESS를 반환하는 경우 이름과 암호가 올바르고 PPP가 다음 단계로 진행할 수 있습니다. 그렇지 않으면 이 루틴은 NX_PPP_ERROR를 반환하고 PPP는 다른 이름과 암호를 대기하기만 합니다.
+- **generate_login**: 피어에서 인증을 위한 *name* 및 *password* 를 생성하는 애플리케이션 함수에 대한 포인터입니다. *name* 및 *password* 값을 제공된 대상에 복사해야 합니다.
+- **verify_login**: 피어에서 제공한 *name* 및 *password* 를 확인하는 애플리케이션 함수에 대한 포인터입니다. 이 루틴은 제공된 *name* 및 *password* 를 비교해야 합니다. 이 루틴이 NX_SUCCESS를 반환하는 경우 name 및 password가 올바른 것이며, PPP가 다음 단계로 진행할 수 있습니다. 그렇지 않으면 이 루틴은 NX_PPP_ERROR를 반환하고 PPP는 다른 이름과 암호를 기다리기만 합니다.
 
 ### <a name="return-values"></a>반환 값
 
@@ -825,19 +825,19 @@ UINT  nx_ppp_ping_request(NX_PPP *ppp_ptr, CHAR *data,
 
 이 서비스는 LCP ping 요청을 보내고 PPP 디바이스가 echo 응답을 대기하고 있음을 플래그 지정합니다. 요청이 전송되는 즉시 서비스가 반환됩니다. 응답을 기다리지 않습니다. 
 
-일치하는 echo 응답이 수신되면 PPP 스레드 태스크가 플래그를 지웁니다. PPP 디바이스는 PPP 협상의 LCP 부분을 완료해야 합니다.
+일치하는 에코 응답이 수신되면 PPP 스레드 태스크가 플래그를 지웁니다. PPP 디바이스는 PPP 협상의 LCP 부분을 완료해야 합니다.
 
 이 서비스는 링크 상태에 대한 하드웨어 폴링을 쉽게 수행할 수 없는 PPP 설정에 유용합니다.
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
 - **ppp_ptr**: PPP 제어 블록에 대한 포인터입니다.
-- **data**: echo 요청에서 보낼 데이터에 대한 포인터입니다.
-- **data_size**: LCP echo 메시지를 보내기 위해 대기하는 wait_option 시간을 보낼 데이터의 크기입니다.
+- **data**: 에코 요청에서 보낼 데이터에 대한 포인터입니다.
+- **data_size**: LCP 에코 메시지를 보내기 위해 대기하는 wait_option 시간을 보낼 데이터의 크기입니다.
 
 ### <a name="return-values"></a>반환 값
 
-- **NX_SUCCESS**: (0x00) echo 요청을 성공적으로 보냈습니다.
+- **NX_SUCCESS**: (0x00) 에코 요청을 성공적으로 보냈습니다.
 - **NX_PPP_NOT_ESTABLISHED**: (0xB5) PPP 연결이 설정되지 않았습니다.
 - NX_PTR_ERROR: (0x07) PPP 포인터나 애플리케이션 함수 포인터가 잘못되었습니다.
 - NX_CALLER_ERROR (0x11) 이 서비스의 호출자가 잘못되었습니다.
@@ -877,7 +877,7 @@ while(my_ppp.nx_ppp_lcp_echo_reply_id > 0)
 UINT  nx_ppp_raw_sting_send(NX_PPP *ppp_ptr, CHAR *string_ptr);
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>설명
 
 이 서비스는 PPP 인터페이스가 아닌 비 PPP ASCII 문자열을 직접 보냅니다. 이는 일반적으로 PPP가 모뎀 제어 정보를 포함하는 비 PPP 패킷을 수신한 후에 사용됩니다.
 
@@ -916,9 +916,9 @@ PPP 처리 다시 시작
 UINT  nx_ppp_restart(NX_PPP *ppp_ptr);
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>설명
 
-이 서비스는 PPP 처리를 다시 시작합니다. 일반적으로 링크 다운 콜백에서 또는 통신이 손실되었다는 비 PPP 모뎀 메시지에서 링크를 다시 설정해야 하는 경우에 호출됩니다.
+이 서비스는 PPP 처리를 다시 시작합니다. 일반적으로 연결 해제 콜백 또는 통신이 끊겼음을 알리는 비 PPP 모뎀 메시지로 인해 연결을 다시 설정해야 하는 경우에 호출됩니다.
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
@@ -953,7 +953,7 @@ PPP 처리 시작
 UINT  nx_ppp_start(NX_PPP *ppp_ptr);
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>설명
 
 이 서비스는 PPP 처리를 시작합니다. 일반적으로 nx_ppp_stop()을 호출한 후에 호출됩니다.
 
@@ -993,14 +993,14 @@ status =  nx_ppp_start(&my_ppp);
 ```c
 UINT  nx_ppp_status_get(NX_PPP *ppp_ptr, UINT *status_ptr);
 ```
-### <a name="description"></a>Description
+### <a name="description"></a>설명
 
 이 서비스는 지정된 PPP 인스턴스의 현재 상태를 가져옵니다.
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
 - **ppp_ptr**: PPP 제어 블록에 대한 포인터입니다.
-- **status_ptr**: PPP 상태에 대한 대상, 가능한 상태 값은 다음과 같습니다.
+- **status_ptr**: PPP 상태의 대상입니다. 가능한 상태 값은 다음과 같습니다.
     - **NX_PPP_STATUS_ESTABLISHED**
     - **NX_PPP_STATUS_LCP_IN_PROGRESS**
     - **NX_PPP_STATUS_LCP_FAILED**
@@ -1012,7 +1012,7 @@ UINT  nx_ppp_status_get(NX_PPP *ppp_ptr, UINT *status_ptr);
     - **NX_PPP_STATUS_IPCP_FAILED**
 
 >[!NOTE]
-> 상태는 API가 NX_SUCCESS를 반환하는 경우에만 유효합니다. 또한 *_FAILED 상태 값이 반환되는 경우 애플리케이션에서 다시 시작할 때까지 PPP 처리가 효과적으로 중지됩니다.
+> 이 상태는 API가 NX_SUCCESS를 반환하는 경우에만 유효합니다. 또한 *_FAILED 상태 값이 반환되는 경우 애플리케이션에서 다시 시작할 때까지 PPP 처리가 사실상 중지됩니다.
 
 ### <a name="return-values"></a>반환 값
 
@@ -1038,7 +1038,7 @@ status =  nx_ppp_status_get(&my_ppp, &ppp_status);
 ```
 ## <a name="nx_ppp_stop"></a>nx_ppp_stop
 
-PPP 처리 시작
+PPP 처리 중지
 
 ### <a name="prototype"></a>프로토타입
 
@@ -1046,7 +1046,7 @@ PPP 처리 시작
 UINT  nx_ppp_stop(NX_PPP *ppp_ptr);
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>설명
 
 이 서비스는 PPP 처리를 중지합니다. 또한 사용자는 필요에 따라 nx_ppp_start()를 호출하여 PPP 처리를 시작할 수 있습니다.
 
@@ -1084,7 +1084,7 @@ UINT  nx_ppp_packet_receive(NX_PPP *ppp_ptr, NX_PACKET *packet_ptr);
 
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>설명
 
 이 서비스는 PPP 패킷을 수신합니다.
 
@@ -1114,7 +1114,7 @@ status =  nx_ppp_packet_receive(&my_ppp, packet_ptr);
 ```
 ## <a name="nx_ppp_packet_send_set"></a>nx_ppp_packet_send_set
 
-PPP 패킷 송신 기능 설정
+PPP 패킷 전송 함수 설정
 
 ### <a name="prototype"></a>프로토타입
 
@@ -1124,9 +1124,9 @@ UINT  nx_ppp_packet_send_set(NX_PPP *ppp_ptr,
 
 ```
 
-### <a name="description"></a>Description
+### <a name="description"></a>설명
 
-이 서비스는 PPP 패킷 송신 기능을 설정합니다.
+이 서비스는 PPP 패킷 전송 기능을 설정합니다.
 
 ### <a name="input-parameters"></a>입력 매개 변수
 

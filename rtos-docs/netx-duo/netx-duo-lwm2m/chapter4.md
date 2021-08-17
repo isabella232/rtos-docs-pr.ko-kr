@@ -6,12 +6,12 @@ ms.author: v-condav
 ms.date: 01/22/2021
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 825a215ba756b39b6d76e6cc773c288e8b8aab01
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 0956cb43f4fcd87d5bd4d90b2288ce6f8d5295ee0be8b8a9f4719ad842e00b2a
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104810746"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116783444"
 ---
 # <a name="chapter-4--description-of-lwm2m-client-services"></a>챕터 4 - LWM2M 클라이언트 서비스 설명
 
@@ -2276,7 +2276,7 @@ UINT nx_lwm2m_client_session_delete(NX_LWM2M_CLIENT_SESSION *session_ptr);
 
 ### <a name="description"></a>Description
 
-이 서비스는 LWM2M 클라이언트 세션을 삭제합니다.
+이 서비스는 LWM2M Client 세션을 삭제합니다.
 
 nx_lwm2m_client_delete를 호출하여 LWM2M 클라이언트를 삭제하면 클라이언트에 연결된 모든 세션도 삭제됩니다.
 

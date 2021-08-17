@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: d17736a613ca3cd69dcc7a00a5ec16ee680093b4
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 7f3b22675ea7bf98f653c9299fb3cef74b9b5f6588ff3328d46b989c96d77c4c
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104811718"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116801277"
 ---
 # <a name="appendix-b---azure-rtos-netx-constants"></a>부록 B - Azure RTOS NetX 상수
 

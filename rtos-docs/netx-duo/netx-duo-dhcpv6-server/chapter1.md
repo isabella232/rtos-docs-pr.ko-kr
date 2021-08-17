@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/08/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 6cf7baa91b1804876b97b1d75d1872d1120ad028
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 14a9d76731d949e3556a019756caf38b4ef440abfa4cfb927c47607e5712d9ac
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104810860"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116783658"
 ---
 # <a name="chapter-1---introduction-to-azure-rtos-netx-duo-dhcpv6-server"></a>챕터 1 - Azure RTOS NetX Duo DHCPv6 서버 소개
 

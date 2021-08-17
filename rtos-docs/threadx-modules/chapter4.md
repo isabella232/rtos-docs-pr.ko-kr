@@ -6,12 +6,12 @@ description: 이 문서에는 모듈에 사용할 수 있는 추가 API가 요�
 ms.date: 07/15/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: b5804e2dbb8d08a272abc85a583576f43b7204c1
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 1c7590d0ccddc606a6cacdfeb3b3a99631e125554b524c4ce65c8154e65a20ee
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104810303"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116799135"
 ---
 # <a name="chapter-4---module-apis"></a>4장 - 모듈 API
 

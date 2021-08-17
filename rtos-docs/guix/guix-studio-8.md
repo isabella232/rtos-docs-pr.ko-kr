@@ -6,12 +6,12 @@ ms.author: kemaxwel
 ms.date: 9/30/2020
 ms.service: rtos
 ms.topic: article
-ms.openlocfilehash: 374471df85c4cd0fffae5b5cc7ad31d2237877f2
-ms.sourcegitcommit: 62cfdf02628530807f4d9c390d6ab623e2973fee
+ms.openlocfilehash: d57aa4034aaa6bbb3b29e79ba2b38443822ea5ce554b62af9e3c9ea874614488
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2021
-ms.locfileid: "115178285"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116785468"
 ---
 # <a name="chapter-8-notes-on-editing-specific-widget-types"></a>챕터 8: 특정 위젯 형식 편집에 관한 참고 사항
 

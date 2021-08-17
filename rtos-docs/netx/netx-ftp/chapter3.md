@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: b05d03c45607c45acf32474cf8e40861532c5fae
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 1aec01088236dcae359c0273a0206c10ea09201eb486478ebd678529413badae
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104811538"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116799458"
 ---
 # <a name="chapter-3---description-of-azure-rtos-netx-ftp-services"></a>3장 - Azure RTOS NetX FTP 서비스 설명
 
@@ -160,7 +160,7 @@ UINT nx_ftp_client_delete(NX_FTP_CLIENT *ftp_client_ptr);
 - NX_PTR_ERROR: (0x16) 잘못된 FTP 포인터입니다.
 - NX_CALLER_ERROR: (0x11) 이 서비스의 호출자가 잘못되었습니다.
 
-### <a name="allowed-from"></a>허용되는 원본
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -205,7 +205,7 @@ UINT nx_ftp_client_directory_create(NX_FTP_CLIENT *ftp_client_ptr,
 - NX_PTR_ERROR: (0x07) 잘못된 FTP 포인터입니다. 
 - NX_CALLER_ERROR: (0x11) 이 서비스의 호출자가 잘못되었습니다.
 
-### <a name="allowed-from"></a>허용되는 원본
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -251,7 +251,7 @@ UINT nx_ftp_client_directory_default_set(NX_FTP_CLIENT *ftp_client_ptr,
 - NX_PTR_ERROR: (0x07) 잘못된 FTP 포인터입니다. 
 - NX_CALLER_ERROR: (0x11) 이 서비스의 호출자가 잘못되었습니다.
 
-### <a name="allowed-from"></a>허용되는 원본
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -296,7 +296,7 @@ UINT nx_ftp_client_directory_delete(NX_FTP_CLIENT *ftp_client_ptr,
 - NX_PTR_ERROR: (0x07) 잘못된 FTP 포인터입니다. 
 - NX_CALLER_ERROR: (0x11) 이 서비스의 호출자가 잘못되었습니다.
 
-### <a name="allowed-from"></a>허용되는 원본
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -345,7 +345,7 @@ UINT nx_ftp_client_directory_listing_get(NX_FTP_CLIENT *ftp_client_ptr,
 - NX_PTR_ERROR: (0x07) 잘못된 FTP 포인터입니다.
 - NX_CALLER_ERROR: (0x11) 이 서비스의 호출자가 잘못되었습니다.
 
-### <a name="allowed-from"></a>허용되는 원본
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -394,7 +394,7 @@ UINT nx_ftp_client_directory_listing_continue(NX_FTP_CLIENT
 - NX_PTR_ERROR: (0x07) 잘못된 FTP 포인터입니다.
 - NX_CALLER_ERROR: (0x11) 이 서비스의 호출자가 잘못되었습니다.
 
-### <a name="allowed-from"></a>허용되는 원본
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -440,7 +440,7 @@ UINT nx_ftp_client_disconnect(NX_FTP_CLIENT *ftp_client_ptr,
 - NX_PTR_ERROR: (0x07) 잘못된 FTP 포인터입니다.
 - NX_CALLER_ERROR: (0x11) 이 서비스의 호출자가 잘못되었습니다.
 
-### <a name="allowed-from"></a>허용되는 원본
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -484,7 +484,7 @@ UINT nx_ftp_client_file_close(NX_FTP_CLIENT *ftp_client_ptr,
 - NX_PTR_ERROR: (0x07) 잘못된 FTP 포인터입니다.
 - NX_CALLER_ERROR: (0x11) 이 서비스의 호출자가 잘못되었습니다.
 
-### <a name="allowed-from"></a>허용되는 원본
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -529,7 +529,7 @@ UINT nx_ftp_client_file_delete(NX_FTP_CLIENT *ftp_client_ptr,
 - NX_PTR_ERROR: (0x07) 잘못된 FTP 포인터입니다.
 - NX_CALLER_ERROR: (0x11) 이 서비스의 호출자가 잘못되었습니다.
 
-### <a name="allowed-from"></a>허용되는 원본
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -578,7 +578,7 @@ UINT nx_ftp_client_file_open(NX_FTP_CLIENT *ftp_client_ptr,
 - NX_PTR_ERROR: (0x07) 잘못된 FTP 포인터입니다.
 - NX_CALLER_ERROR: (0x11) 이 서비스의 호출자가 잘못되었습니다.
 
-### <a name="allowed-from"></a>허용되는 원본
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -629,7 +629,7 @@ UINT nx_ftp_client_file_read(NX_FTP_CLIENT *ftp_client_ptr,
 - NX_PTR_ERROR: (0x07) 잘못된 FTP 포인터입니다.
 - NX_CALLER_ERROR: (0x11) 이 서비스의 호출자가 잘못되었습니다.
 
-### <a name="allowed-from"></a>허용되는 원본
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -692,7 +692,7 @@ UINT nx_ftp_client_file_rename(NX_FTP_CLIENT *ftp_ptr, CHAR *filename,
 - NX_PTR_ERROR: (0x07) 잘못된 FTP 포인터입니다.
 - NX_CALLER_ERROR: (0x11) 이 서비스의 호출자가 잘못되었습니다.
 
-### <a name="allowed-from"></a>허용되는 원본
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -738,7 +738,7 @@ UINT nx_ftp_client_file_write(NX_FTP_CLIENT *ftp_client_ptr,
 - NX_PTR_ERROR: (0x07) 잘못된 FTP 포인터입니다.
 - NX_CALLER_ERROR: (0x11) 이 서비스의 호출자가 잘못되었습니다.
 
-### <a name="allowed-from"></a>허용되는 원본
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -878,7 +878,7 @@ UINT nx_ftp_server_delete(NX_FTP_SERVER *ftp_server_ptr);
 - NX_PTR_ERROR: (0x16) 잘못된 FTP 포인터입니다.
 - NX_CALLER_ERROR: (0x11) 이 서비스의 호출자가 잘못되었습니다.
 
-### <a name="allowed-from"></a>허용되는 원본
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 
@@ -953,7 +953,7 @@ UINT nx_ftp_server_stop(NX_FTP_SERVER *ftp_server_ptr);
 - NX_PTR_ERROR: (0x16) 잘못된 FTP 포인터입니다.
 - NX_CALLER_ERROR: (0x11) 이 서비스의 호출자가 잘못되었습니다.
 
-### <a name="allowed-from"></a>허용되는 원본
+### <a name="allowed-from"></a>허용 위치
 
 스레드
 

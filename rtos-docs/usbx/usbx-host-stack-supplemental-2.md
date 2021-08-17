@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 5/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 39f3a71c28dd14e0093f72d1a3b1ff6837c6f1f7
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 28e733e37b06da7053f238e23e2b8b8046df2dd9940e50cd0321ccf15c27ec47
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104812930"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116802110"
 ---
 # <a name="chapter-2-usbx-host-classes-api"></a>2장: USBX 호스트 클래스 API
 
@@ -210,7 +210,7 @@ UINT ux_host_class_printer_device_id_get(
 - **UX_TRANSFER_NOT_READY**: (0x25) 디바이스 상태가 잘못되었습니다. ATTACHED, ADDRESSED 또는 CONFIGURED여야 합니다.
 - **UX_TRANSFER_STALL**: (0x21) 전송이 중단되었습니다.
 - **TX_WAIT_ABORTED** (0x1A) 일시 중단이 다른 스레드, 타이머 또는 ISR에 의해 취소되었습니다.
-- **TX_SEMAPHORE_ERROR** (0x0C) 잘못된 가산 세마포 포인터입니다.
+- **TX_SEMAPHORE_ERROR**(0x0C) 잘못된 가산 세마포 포인터입니다.
 - **TX_WAIT_ERROR** (0x04) 비스레드의 호출에서 TX_NO_WAIT 이외의 대기 옵션이 지정되었습니다.
 
 ### <a name="example"></a>예제

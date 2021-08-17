@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: b44822b9d8f16208cf470a84013be5a5ff833325
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 163893119837a46479b3f346c2bd47d200de2af75232f91a23bbc3f64e20ea50
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104811353"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116782917"
 ---
 # <a name="chapter-5---io-drivers-for-azure-rtos-filex"></a>5장 - Azure RTOS FileX용 I/O 드라이버
 
@@ -93,8 +93,7 @@ FileX는 I/O 드라이버에 대한 쓰기 요청을 실행하여 실제 미디�
 |fx_media_driver_sectors|쓸 섹터 수|
 |fx_media_driver_buffer|쓸 섹터의 원본 버퍼|
 |fx_media_driver_system_write| 시스템 섹터(FAT 또는 디렉터리 섹터)가 요청된 경우 FX_TRUE로 설정합니다. 그 밖에 파일 데이터 섹터가 요청된 경우 FX_FALSE입니다.|
-|fx_media_driver_sector_type|다음과 같이 요청된 섹터의 명시적 형식을 정의합니다.
-FX_FAT_SECTOR (2) FX_DIRECTORY_SECTOR (3) FX_DATA_SECTOR (4)|
+|fx_media_driver_sector_type|다음과 같이 요청된 섹터의 명시적 형식을 정의합니다.<br> <br>FX_FAT_SECTOR (2) <br> FX_DIRECTORY_SECTOR (3) <br>FX_DATA_SECTOR (4).|
 
 ### <a name="driver-flush"></a>드라이버 플러시
 

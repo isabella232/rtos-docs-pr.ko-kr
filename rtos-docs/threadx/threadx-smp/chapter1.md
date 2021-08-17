@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 06/04/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 67bdb9076272fa3671ec9321baec609b291c04b8
-ms.sourcegitcommit: e3d42e1f2920ec9cb002634b542bc20754f9544e
+ms.openlocfilehash: 9b9fb7b08691930abcf57df77fff27e619bb7a554a6235d4e234889b7c80945e
+ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104811388"
+ms.lasthandoff: 08/07/2021
+ms.locfileid: "116802249"
 ---
 # <a name="chapter-1-introduction-to-azure-rtos-threadx-smp"></a>1장 - Azure RTOS ThreadX SMP 소개
 
@@ -55,7 +55,7 @@ ThreadX SMP는 주로 ANSI C로 작성됩니다. 커널 크기를 기본 대상 
   - 기본 제공 시스템 추적
   - 방대한 프로세서 지원
   - 방대한 개발 도구 지원
-  - 완전히 endian 중립
+  - 완전한 endian 중립
 
 ### <a name="not-a-black-box"></a>블랙 박스가 아님
 대부분의 ThreadX SMP 배포에는 전체 C 소스 코드와 프로세서별 어셈블리 언어가 포함됩니다. 따라서 많은 상용 커널에서 발생하는 “블랙 박스” 문제를 없앨 수 있습니다. ThreadX SMP를 사용하면 애플리케이션 개발자는 GUIX를 사용하여 커널이 수행하는 작업을 정확하게 파악할 수 있기 때문에 모든 것이 명확합니다!
@@ -79,7 +79,7 @@ SG-TÜV Saar에는 ISO 26262 표준에 따라 안전이 중요한 자동차 시�
 ![TÜV 인증](media/image2.png)
 
 최대 SIL 4의 IEC 61508  
-최대 SW 안전 등급 C의 IEC 62304  
+최대 SW 안전 클래스 C의 IEC 62304  
 ISO 26262 ASIL D  
 EN 50128 SW-SIL 4  
 
@@ -111,7 +111,7 @@ ThreadX SMP 인증 팩™은 ThreadX SMP 기반 제품이 안전이 중요한 �
 시간 제약 조건이 애플리케이션 소프트웨어에 적용되는 경우 이것을 ‘실시간’ 소프트웨어라고 합니다. 기본적으로 정확한 시간 내에 처리를 수행해야 하는 소프트웨어를 ‘실시간’ 소프트웨어라고 합니다. 포함된 애플리케이션은 본질적으로 외부 이벤트와 상호 작용하기 때문에 거의 항상 실시간입니다.
 
 ### <a name="multitasking"></a>멀티태스킹  
-앞서 언급했듯이 포함된 애플리케이션에는 전용 용도가 있습니다. 이러한 목적을 달성하기 위해 소프트웨어에서는 다양한 ‘작업’을 수행해야 합니다. 작업은 특정 업무를 수행하는 애플리케이션의 부분적으로 독립된 부분입니다. 일부 작업이 다른 작업보다 더 중요한 경우도 있습니다. 포함된 애플리케이션에서 발생하는 주요 문제 중 하나는 다양한 애플리케이션 작업 간에 프로세서를 할당하는 것입니다. 경쟁 작업 간의 이러한 처리 할당이 ThreadX SMP의 주요 목적입니다.
+앞서 언급했듯이 포함된 애플리케이션에는 전용 용도가 있습니다. 이러한 목적을 달성하기 위해 소프트웨어에서는 다양한 작업을 수행해야 합니다. 작업은 특정 업무를 수행하는 애플리케이션의 부분적으로 독립된 부분입니다. 일부 작업이 다른 작업보다 더 중요한 경우도 있습니다. 포함된 애플리케이션에서 발생하는 주요 문제 중 하나는 다양한 애플리케이션 작업 간에 프로세서를 할당하는 것입니다. 경쟁 작업 간의 이러한 처리 할당이 ThreadX SMP의 주요 목적입니다.
 
 ### <a name="tasks-vs-threads"></a>작업 및 스레드 
 작업에 대한 또 다른 차이점을 파악해야 합니다. 작업이라는 용어는 다양한 방법으로 사용됩니다. 경우에 따라 별도로 로드 가능한 프로그램을 의미합니다. 내부 프로그램 세그먼트를 나타내는 경우도 있습니다.
