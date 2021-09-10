@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: c9b5e0ea82319bd369318cca753cf1db222ca29b0b4db3da150642ca007f1191
-ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
+ms.openlocfilehash: 8f45d32afcc2edbd5b851f1b7fb03e7fa2430ebc
+ms.sourcegitcommit: 20a136b06a25e31bbde718b4d12a03ddd8db9051
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2021
-ms.locfileid: "116789868"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123552367"
 ---
 # <a name="chapter-1---introduction-to-azure-rtos-netx-duo"></a>1장 - Azure RTOS NetX Duo 소개
 
@@ -35,7 +35,7 @@ NetX Duo는 TCP/IP의 패킷 기반의 복사 없는 구현을 제공합니다. 
 
 <em>UDP Fast Path Technology</em>을 사용하여 NetX Duo는 가능한 가장 빠른 UDP 처리를 제공합니다. 송신 측에서는 선택적 UDP 체크섬을 비롯한 UDP 처리가 <em>**nx_udp_socket_send**</em> 서비스에 포함되어 있습니다. 내부 NetX Duo IP 전송 루틴을 통해 패킷을 전송할 준비가 될 때까지 추가 함수 호출이 수행되지 않습니다. 이 루틴은 또한 플랫이므로(즉, 함수 호출 중첩이 최소임) 패킷이 애플리케이션의 네트워크 드라이버로 신속하게 디스패치됩니다. UDP 패킷이 수신되면 NetX Duo 패킷 수신 처리는 해당 UDP 소켓의 수신 큐에 직접 패킷을 배치하거나 일시 중단되어 UDP 소켓의 수신 큐에서 수신 패킷을 대기하는 첫 번째 스레드에 제공합니다. 추가 ThreadX 컨텍스트 전환은 필요하지 않습니다.
 
-### <a name="ansi-c-source-cod"></a>ANSI C 소스 코드
+### <a name="ansi-c-source-code"></a>ANSI C 소스 코드
 
 NetX Duo는 완전히 ANSI C로 작성되었으며 ANSI C 컴파일러와 ThreadX를 지원하는 모든 프로세서 아키텍처에 실제로 즉시 이식할 수 있습니다. 
 
