@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 32af483db1f97b45bfe3d334b8c79d984dedc8470a37ce1d4164331549b6954c
-ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
+ms.openlocfilehash: c96e6e422ea570085f5d7c6aeaaaa697a2393b5e
+ms.sourcegitcommit: 20a136b06a25e31bbde718b4d12a03ddd8db9051
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2021
-ms.locfileid: "116788965"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123552384"
 ---
 # <a name="chapter-3---functional-components-of-azure-rtos-netx-duo"></a>3장 - Azure RTOS NetX Duo의 기능 구성 요소
 
@@ -191,7 +191,7 @@ NetX Duo 패킷 풀은 고정 크기의 메모리 블록으로 구성되므로 �
 
 패킷 헤더의 필드는 다음과 같이 정의됩니다. 이 표는 *NX_PACKET* 구조에 있는 모든 멤버의 포괄적인 목록은 아닙니다.
 
-|패킷 헤더 | 용도 |
+|패킷 헤더 | 목적 |
 |---|---|
 |***nx_packet_pool_owner***|이 필드는 이 특정 패킷을 소유한 패킷 풀을 가리킵니다. 패킷이 해제되면 이 특정 풀로 해제됩니다. 각 패킷 내부의 풀 소유권을 통해 데이터그램이 여러 패킷 풀에서 여러 패킷을 소유할 수 있습니다.|
 |***nx_packet_next** _|이 필드는 동일한 프레임 내의 다음 패킷을 가리킵니다. NULL인 경우 프레임의 일부인 추가 패킷이 없습니다. 이 필드는 전체 패킷을 다시 어셈블할 수 있을 때까지 조각난 패킷을 보관하는 데도 사용됩니다. _*_NX_DISABLE_PACKET_CHAIN_**이 정의되면 제거됩니다.|
@@ -316,7 +316,7 @@ NetX Duo는 IPv4 프로토콜(RFC 791) 및 IPv6 프로토콜(RFC 2460)을 모두
 
 IPv4 헤더의 필드는 다음과 같이 정의됩니다.
 
-|IPv4&nbsp;헤더&nbsp;필드 |용도 |
+|IPv4&nbsp;헤더&nbsp;필드 |목적 |
 |---|---|
 |***4비트 버전*** |이 필드에는 이 헤더가 나타내는 IP 버전이 포함되어 있습니다. NetX Duo에서 지원하는 IP 버전 4의 경우 이 필드의 값은 4입니다. |
 |***4비트 헤더 길이*** |이 필드는 IP 헤더에 있는 32비트 단어 수를 지정합니다. 옵션 단어가 없을 경우 이 필드의 값은 5입니다. |
@@ -511,7 +511,7 @@ NetX Duo는 로컬 IPv4 네트워크에 있는 다른 노드의 ARP 요청에도
 
 **그림 6. ARP 패킷 형식**
 
-| 요청/응답&nbsp;필드 | 용도 |
+| 요청/응답&nbsp;필드 | 목적 |
 |---|---|
 | ***프로토콜 크기*** | 이 1바이트 필드에는 IP 주소에 대해 4인 IP 주소 크기가 포함됩니다. |
 | ***작업 코드*** | 이 2바이트 필드에는 이 ARP 패킷에 대한 작업이 포함됩니다. ARP 요청은 0x0001 값으로 지정되고, ARP 응답은 0x0002 값으로 표시됩니다. |
@@ -623,7 +623,7 @@ NetX Duo에서 ICMPv4 메시지를 처리하려면 먼저 애플리케이션이 
 
 다음은 ICMPv4 헤더 형식에 대한 설명입니다.
 
-|헤더 필드 |용도 |
+|헤더 필드 |목적 |
 |---|---|
 |**형식** |이 필드에서는 ICMPv4 메시지(31-24비트)를 지정합니다. 가장 일반적인 메시지:<br />- 0: 에코 응답<br />- 3: 대상에 연결할 수 없음<br />- 8: 에코 요청<br />- 11: 시간 초과<br />- 12: 매개 변수 문제 |
 |‘코드’ |이 필드는 형식 필드의 컨텍스트에 따라 값이 달라집니다(23-16비트). 에코 요청 또는 응답의 경우 코드는 0으로 설정됩니다.|
@@ -680,9 +680,9 @@ NetX Duo에서 멀티캐스팅 작업을 수행하려면 먼저 애플리케이�
 
 다음은 IGMP 헤더 형식에 대한 설명입니다.
 
-|헤더 필드|용도|
+|헤더 필드|목적|
 |---|---|
-|**Version** |이 필드는 IGMP 버전을 지정합니다(31-28비트).|
+|**버전** |이 필드는 IGMP 버전을 지정합니다(31-28비트).|
 |**형식** |이 필드는 IGMP 메시지 유형을 지정합니다(27-24비트).|
 |**최대 응답 시간** |IGMP 버전 1에서 사용되지 않습니다. IGMP 버전 2에서 이 필드는 최대 응답 시간으로 사용됩니다.|
 |**Checksum** |이 필드에는 IGMP 버전으로 시작하는 IGMP 메시지의 1의 보수 합계에 대한 16비트 체크섬이 포함됩니다(0-15비트).|
@@ -851,7 +851,7 @@ IPv6 헤더가 IPv4 헤더에서 수정되었습니다. 패킷을 할당할 때 
 
 **그림 9. IPv6 헤더 형식**
 
-|IP 헤더 | 용도 |
+|IP 헤더 | 목적 |
 |---|---|
 |버전 |IP 버전의 4비트 필드입니다. IPv6 네트워크의 경우 이 필드의 값은 6이어야 하며 IPv4 네트워크의 경우 4여야 합니다.|
 |트래픽 클래스 |트래픽 클래스 정보를 저장하는 8비트 필드입니다. 이 필드는 NetX Duo에서 사용되지 않습니다.|
@@ -1094,7 +1094,7 @@ UDP는 전송 중인 애플리케이션의 데이터 앞에 간단한 패킷 헤
 
 다음은 UDP 헤더 형식에 대한 설명입니다.
 
-|헤더 필드 |용도 |
+|헤더 필드 |목적 |
 |---|---|
 |**16비트 소스 포트 번호** |이 필드에는 UDP 패킷을 전송할 포트가 포함되어 있습니다. 유효한 UDP 포트의 범위는 1에서 0xFFFF까지입니다. |
 |**16비트 대상 포트 번호** |이 필드에는 패킷을 전송할 UDP 포트가 포함되어 있습니다. 유효한 UDP 포트의 범위는 1에서 0xFFFF까지입니다. |
@@ -1192,7 +1192,7 @@ TCP(Transmission Control Protocol)는 두 네트워크 멤버(RFC 793) 간의 �
 
 다음은 TCP 헤더 형식에 대한 설명입니다.
 
-|헤더&nbsp;필드 |용도 |
+|헤더&nbsp;필드 |목적 |
 |------|------|
 | **16비트 소스 포트 번호** | 이 필드에는 TCP 패킷이 전송되는 포트가 포함되어 있습니다. 유효한 TCP 포트 범위는 1에서 0xFFFF까지입니다. |
 | **16비트 대상 포트** | 이 필드에는 패킷이 전송되는 TCP 포트가 포함되어 있습니다. 유효한 TCP 포트 범위는 1에서 0xFFFF까지입니다. |
@@ -1388,3 +1388,84 @@ TCP 수신 패킷 처리(IP 도우미 스레드에서 호출)는 다양한 연�
 
 ### <a name="tcp-socket-control-block-nx_tcp_socket"></a>TCP 소켓 제어 블록 NX_TCP_SOCKET      
 각 TCP 소켓의 특징은 연결된 *NX_TCP_SOCKET* 제어 블록에서 찾을 수 있습니다. 여기에는 IP 데이터 구조에 대한 링크, 네트워크 연결 인터페이스, 바인딩된 포트, 수신 패킷 큐와 같은 유용한 정보가 포함됩니다. 이 구조는 ***nx_api.h*** 파일에서 정의됩니다.
+
+## <a name="tcpip-offload"></a>TCP/IP 오프로드
+이 기능을 통해 NetX Duo는 하드웨어에서 TCP/IP 서비스를 제공하는 네트워크 인터페이스 카드를 지원할 수 있습니다. 특정 WiFi 모듈은 모듈에서 TCP/IP 처리를 제공하고 MCU의 애플리케이션은 TCP/IP 스택에 액세스하기 위해 API를 통해 패킷을 보내고 받습니다. 이 기능을 사용하면 개발자가 네이티브 NetX Duo 애플리케이션을 직접 실행할 수 있습니다.
+
+TCP/IP 오프로드 기능을 사용하려면 `NX_ENABLE_TCPIP_OFFLOAD` 및 `NX_ENABLE_INTERFACE_CAPABILITY`를 정의하여 NetX Duo를 빌드해야 합니다.
+
+### <a name="tcpip-offload-handler"></a>TCP/IP 오프로드 처리기
+NetX Duo는 TCP 또는 UDP 소켓 작업을 처리하는 콜백 함수를 통해 네트워크 드라이버와 통신합니다. 콜백 함수는 `NX_INTERFACE_STRUCT`에 정의되어 있습니다. 네트워크 드라이버는 `NX_LINK_ENABLE` 드라이버 명령 중에 TCP/IP 콜백 기능을 설정해야 합니다. TCP/IP 콜백 함수의 프로토타입은 다음과 같습니다.
+
+``` C
+UINT (*nx_interface_tcpip_offload_handler)(struct NX_IP_STRUCT *ip_ptr,
+                                           struct NX_INTERFACE_STRUCT *interface_ptr,
+                                           VOID *socket_ptr, UINT operation, NX_PACKET *packet_ptr,
+                                           NXD_ADDRESS *local_ip, NXD_ADDRESS *remote_ip,
+                                           UINT local_port, UINT *remote_port, UINT wait_option);
+```
+매개 변수에 대한 설명.
+* `ip_ptr` - IP 인스턴스에 대한 포인터
+* `interface_ptr` - 인터페이스에 대한 포인터
+* `socket_ptr` - `NX_TCP_SOCKET` 또는 `NX_UDP_SOCKET`에 대한 포인터로, `operation` 값에 따라 다름
+* `operation` - 현재 함수 호출 작업. 값은 아래와 같이 정의됩니다.
+``` C
+#define NX_TCPIP_OFFLOAD_TCP_CLIENT_SOCKET_CONNECT  0
+#define NX_TCPIP_OFFLOAD_TCP_SERVER_SOCKET_LISTEN   1
+#define NX_TCPIP_OFFLOAD_TCP_SERVER_SOCKET_ACCEPT   2
+#define NX_TCPIP_OFFLOAD_TCP_SERVER_SOCKET_UNLISTEN 3
+#define NX_TCPIP_OFFLOAD_TCP_SOCKET_DISCONNECT      4
+#define NX_TCPIP_OFFLOAD_TCP_SOCKET_SEND            5
+#define NX_TCPIP_OFFLOAD_UDP_SOCKET_BIND            6
+#define NX_TCPIP_OFFLOAD_UDP_SOCKET_UNBIND          7
+#define NX_TCPIP_OFFLOAD_UDP_SOCKET_SEND            8
+```
+* `packet_ptr` - 패킷에 대한 포인터. 값은 `operation`이 `TCP_SOCKET_SEND` 또는 `UDP_SOCKET_SEND`인 경우에 설정됩니다.
+* `local_ip` -로컬 IP 주소에 대한 포인터. 값은 `operation`이 `UDP_SOCKET_SEND`인 경우에 설정됩니다.
+* `remote_ip` -원격 IP 주소에 대한 포인터. 값은 `operation`이 `TCP_CLIENT_SOCKET_CONNECT` 또는 `UDP_SOCKET_SEND`인 경우에 설정됩니다. 작업이 `TCP_SERVER_SOCKET_ACCEPT`인 경우 이 값은 콜백 함수에 의해 반환되어야 합니다.
+* `local_port` - 로컬 포트. 값은 `operation`이 `TCP_CLIENT_SOCKET_CONNECT`, `TCP_SERVER_SOCKET_LISTEN`, `TCP_SERVER_SOCKET_ACCEPT`, `TCP_SERVER_SOCKET_UNLISTEN` 또는 UDP인 경우에 설정됩니다.
+* `remote_port` - 원격 포트. 값은 `operation`이 `TCP_CLIENT_SOCKET_CONNECT` 또는 `UDP_SOCKET_SEND`인 경우에 설정됩니다. 작업이 `TCP_SERVER_SOCKET_ACCEPT`인 경우 이 값은 콜백 함수에 의해 반환되어야 합니다.
+* `wait_option` - 틱 단위의 대기 옵션입니다. 값은 모든 작업에 대해 설정됩니다.
+
+### <a name="tcpip-offload-context"></a>TCP/IP 오프로드 컨텍스트
+TCP/IP 오프로드 드라이버에서 사용할 `NX_TCP_SOCKET` 구조에 포인터가 추가되었습니다.
+```
+typedef struct NX_TCP_SOCKET_STRUCT
+{
+    // ...
+
+    /* This pointer is designed to be accessed by TCP/IP offload directly.  */
+    VOID *nx_tcp_socket_tcpip_offload_context;
+} NX_TCP_SOCKET;
+```
+
+TCP/IP 오프로드 드라이버에서 사용할 `NX_UDP_SOCKET` 구조에 포인터가 추가되었습니다.
+```
+typedef struct NX_UDP_SOCKET_STRUCT
+{
+    // ...
+
+    /* This pointer is designed to be accessed by TCP/IP offload directly.  */
+    VOID *nx_udp_socket_tcpip_offload_context;
+} NX_UDP_SOCKET;
+```
+
+### <a name="apis-for-tcpip-offload-network-driver"></a>TCP/IP 오프로드 네트워크 드라이버용 API
+``` C
+/* Invoked when TCP packet is receive or connection error.  */
+VOID _nx_tcp_socket_driver_packet_receive(NX_TCP_SOCKET *socket_ptr, NX_PACKET *packet_ptr);
+
+/* Invoked when TCP connection is establish.  */
+UINT _nx_tcp_socket_driver_establish(NX_TCP_SOCKET *socket_ptr, NX_INTERFACE *interface_ptr, UINT remote_port);
+
+/* Invoked when UDP packet is receive.  */
+VOID _nx_udp_socket_driver_packet_receive(NX_UDP_SOCKET *socket_ptr, NX_PACKET *packet_ptr,
+                                          NXD_ADDRESS *local_ip, NXD_ADDRESS *remote_ip, UINT remote_port);
+```
+### <a name="tcpip-offload-driver"></a>TCP/IP 오프로드 드라이버
+각 IP 인터페이스에는 드라이버 함수가 필요합니다. NetX Duo 드라이버 함수를 개발하는 방법에 대한 자세한 내용은 [5장](chapter5.md#tcpip-offload-driver-guidance)을 참조하세요.
+
+### <a name="tcpip-offload-known-limitations"></a>TCP/IP 오프로드의 알려진 제한 사항
+- TCP 및 UDP 소켓만 지원됩니다.
+- DHCP는 일반적으로 NetX Duo가 아닌 언더레이어 TCP/IP 스택에 의해 수행됩니다.
+- 언더레이어 TCP/IP 스택의 기타 제한 사항

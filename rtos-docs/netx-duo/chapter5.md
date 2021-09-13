@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: a0d18929f33f15a342e8fb8b3d01d4ce934d6ec7dc287707f960adb36fb4f44b
-ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
+ms.openlocfilehash: 7d30e14ce1865e2fbce4a6e00cff787c859b32be
+ms.sourcegitcommit: 20a136b06a25e31bbde718b4d12a03ddd8db9051
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2021
-ms.locfileid: "116788850"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123552418"
 ---
 # <a name="chapter-5---azure-rtos-netx-duo-network-drivers"></a>5장 - Azure RTOS NetX Duo 네트워크 드라이버
 
@@ -503,3 +503,59 @@ IP 인스턴스는 다음 명령 중 하나를 통해 네트워크 패킷을 전
 이러한 명령을 처리할 때 네트워크 드라이버는 적절한 이더넷 프레임 헤더를 미리 추가한 다음 전송을 위한 기본 하드웨어로 보내야 합니다. 전송 프로세스 중에 네트워크 드라이버에는 패킷 버퍼 영역의 단독 소유권이 있습니다. 따라서 데이터가 전송되고 있는 경우(또는 데이터가 드라이버 내부 전송 버퍼로 복사된 후) 네트워크 드라이버는 먼저 앞에 있는 포인터를 이더넷 헤더를 지나 IP 헤더로 이동하고(그에 따라 패킷 길이 조정), ***nx_packet_transmit_release()*** 서비스를 호출하여 패킷 버퍼를 릴리스해야 합니다. 데이터 전송 후 패킷을 해제하지 않으면 패킷이 누출됩니다.
 
 네트워크 디바이스 드라이버는 들어오는 데이터 패킷도 처리해야 합니다. RAM 드라이버 예제에서 수신된 패킷은 ***_nx_ram_network_driver_receive()*** 함수에서 처리됩니다. 디바이스가 이더넷 프레임을 수신하면 드라이버는 NX_PACKET 구조에 데이터를 저장해야 합니다. NetX Duo는 IP 헤더가 4바이트 맞춤 주소에서 시작한다고 가정합니다. 이더넷 헤더의 길이가 14바이트이기 때문에 드라이버는 IP 헤더가 4바이트 맞춤 주소에서 시작하도록 하기 위해 이더넷 헤더의 시작 부분을 2바이트 맞춤 주소로 저장해야 합니다.
+
+## <a name="tcpip-offload-driver-guidance"></a>TCP/IP 오프로드 드라이버 지침
+TCP/IP 오프로드 기능의 경우 각 IP 인터페이스에 드라이버 함수가 필요합니다. 네트워크 드라이버에 대한 추가 작업 목록은 다음과 같습니다.
+
+* `NX_LINK_INITIALIZE` 명령의 경우,
+  * TCP/IP 오프로드 수신 이벤트를 처리하는 드라이버 스레드를 만듭니다.
+* `NX_LINK_INTERFACE_ATTACH` 명령의 경우,
+  * 기능을 드라이버 인터페이스로 설정합니다. 아래 샘플 코드를 참조하세요.
+``` C
+driver_req_ptr -> nx_ip_driver_interface -> nx_interface_capability_flag = NX_INTERFACE_CAPABILITY_TCPIP_OFFLOAD;
+```
+* `NX_LINK_ENABLE` 명령의 경우,
+  * 드라이버 스레드를 시작합니다.
+  * TCP/IP 콜백 함수를 드라이버 인터페이스로 설정합니다. 아래 샘플 코드를 참조하세요.
+``` C
+driver_req_ptr -> nx_ip_driver_interface -> nx_interface_tcpip_offload_handler = _nx_driver_tcpip_handler;
+```
+* `NX_LINK_DISABLE` 명령의 경우,
+  * 드라이버 스레드 중지
+  * 드라이버 인터페이스의 TCP/IP 콜백 함수를 지웁니다.
+* `NX_LINK_UNINITIALIZE` 명령의 경우,
+  * 드라이버 스레드 삭제
+
+### <a name="tcpip-offload-driver-thread"></a>TCP/IP 오프로드 드라이버 스레드
+드라이버 스레드의 목적은 들어오는 TCP 또는 UDP 패킷을 수신하는 것입니다. 드라이버 스레드에는 일반적으로 들어오는 TCP 또는 UDP 패킷이 사용 가능한지 또는 연결이 설정되었는지 확인하기 위한 while 루프가 있습니다. 데이터를 사용할 수 있으면 TCP 또는 UDP 패킷을 NetX Duo에 전달합니다. `nx_packet_data_start`와 `nx_packet_prepend_ptr` 사이의 공간은 TCP/IP 헤더를 삽입하기에 충분해야 합니다. TCP 소켓의 경우, `NX_TCP_PACKET` 형식의 패킷을 할당합니다. UDP 소켓의 경우, `NX_UDP_PACKET` 형식의 패킷을 할당합니다. `nx_packet_append_ptr`에서 `nx_packet_data_end`까지 들어오는 데이터를 입력합니다. `nx_packet_append_ptr`의 데이터에는 TCP 또는 UDP 페이로드만 포함되어야 합니다. TCP/IP 헤더를 패킷에 채워서는 **안 됩니다.** 패킷 길이를 조정하고 수신 인터페이스를 설정한 다음, TCP 패킷은 `_nx_tcp_socket_driver_packet_receive`, UDP 패킷은 `_nx_udp_socket_driver_packet_receive`를 호출합니다. TCP 연결이 종료되면 패킷이 NULL로 설정된 `_nx_tcp_socket_driver_packet_receive`를 호출합니다. 연결이 설정되면 `_nx_tcp_socket_driver_establish`를 호출합니다.
+
+### <a name="tcpip-offload-driver-handler"></a>TCP/IP 오프로드 드라이버 처리기
+TCP/IP 서비스를 사용하는 네트워크 인터페이스에 대해 다음 드라이버 명령이 필요합니다. 
+* `NX_TCPIP_OFFLOAD_TCP_CLIENT_SOCKET_CONNECT` 작업의 경우,
+  * 필요한 경우 리소스를 할당합니다.
+  * 로컬 TCP 포트에 바인딩하고 서버에 연결합니다.
+  * 연결이 설정되면 성공을 반환합니다. 연결이 진행 중이면 `NX_IN_PROGRESS`를 반환합니다. 또는 실패를 반환합니다.
+* `NX_TCPIP_OFFLOAD_TCP_SERVER_SOCKET_LISTEN` 작업의 경우,
+  * 중복 수신 대기를 먼저 확인합니다. 동일한 포트에서 여러 번 호출할 수 있습니다. `nx_tcp_server_socket_listen`에서 먼저 수신 대기한 후, `nx_tcp_server_socket_relisten`에서 수신 대기합니다.
+  * 필요한 경우 리소스를 할당합니다.
+  * 로컬 TCP 포트를 수신 대기합니다.
+* `NX_TCPIP_OFFLOAD_TCP_SERVER_SOCKET_ACCEPT` 작업의 경우,
+  * 필요한 경우 리소스를 할당합니다.
+  * 연결을 수락합니다.
+* `NX_TCPIP_OFFLOAD_TCP_SERVER_SOCKET_UNLISTEN` 작업의 경우,
+  * 로컬 포트에서 수신 대기하는 TCP 소켓을 찾습니다.
+  * 수신 대기 소켓을 찾으면 이를 닫습니다.
+* `NX_TCPIP_OFFLOAD_TCP_SOCKET_DISCONNECT` 작업의 경우,
+  * TCP/IP 오프로드 연결을 닫습니다.
+  * 로컬 TCP 포트의 바인딩을 해제합니다.
+  * 연결 중에 만든 리소스를 정리합니다.
+* `NX_TCPIP_OFFLOAD_TCP_SOCKET_SEND` 작업의 경우,
+  * TCP/IP 오프로드를 통해 데이터를 보냅니다. MSS 또는 패킷 체인 상황보다 큰 패킷 길이를 처리하도록 준비합니다.
+* `NX_TCPIP_OFFLOAD_UDP_SOCKET_BIND` 작업의 경우,
+  * 필요한 경우 리소스를 할당합니다.
+  * 로컬 UDP 포트에 바인딩합니다.
+* `NX_TCPIP_OFFLOAD_UDP_SOCKET_UNBIND` 작업의 경우,
+  * 로컬 UDP 포트의 바인딩을 해제합니다.
+  * 바인딩 중에 만든 리소스를 정리합니다.
+* `NX_TCPIP_OFFLOAD_UDP_SOCKET_SEND` 작업의 경우,
+  * TCP/IP 오프로드를 통해 데이터를 보냅니다. MTU 또는 패킷 체인 상황보다 큰 패킷 길이를 처리하도록 준비합니다.

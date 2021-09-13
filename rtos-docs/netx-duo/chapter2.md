@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: 32a9efaac3c85d415316fba2e9536cc40939f1f6debcbe3e2fa588de613a694d
-ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
+ms.openlocfilehash: 08697d7155c79a7850f834af2e7e88f461d48188
+ms.sourcegitcommit: 20a136b06a25e31bbde718b4d12a03ddd8db9051
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2021
-ms.locfileid: "116788833"
+ms.lasthandoff: 09/07/2021
+ms.locfileid: "123552350"
 ---
 # <a name="chapter-2---installation-and-use-of-azure-rtos-netx-duo"></a>2장 - Azure RTOS NetX Duo 설치 및 사용
 
@@ -21,7 +21,7 @@ ms.locfileid: "116788833"
 
 임베디드 개발은 일반적으로 Windows 또는 Linux(Unix) 호스트 컴퓨터에서 수행됩니다. 애플리케이션이 컴파일되고 연결된 후 호스트에서 실행 파일이 생성되면 실행을 위해 대상 하드웨어로 다운로드됩니다.
 
-일반적으로 대상 다운로드는 개발 도구의 디버거 내에서 수행됩니다. 다운로드 후 디버거는 대상 실행 제어(이동, 중지, 중단점 등) 뿐만 아니라 메모리 및 프로세서 레지스터에 대한 액세스를 제공합니다.
+일반적으로 대상 다운로드는 개발 도구의 디버거 내에서 수행됩니다. 다운로드 후 디버거는 대상 실행 제어(이동, 중지, 중단점 등)뿐만 아니라 메모리 및 프로세서 레지스터에 대한 액세스를 제공해야 합니다.
 
 대부분의 개발 도구 디버거는 JTAG(IEEE 1149.1) 및 BDM(백그라운드 디버그 모드)과 같은 OCD(온-칩 디버그) 연결을 통해 대상 하드웨어와 통신합니다. 또한 디버거는 ICE(회로 내 에뮬레이션) 연결을 통해 대상 하드웨어와 통신합니다. OCD와 ICE 연결은 모두 대상 상주 소프트웨어에 대한 최소 침입으로 강력한 솔루션을 제공합니다.
 
@@ -182,6 +182,7 @@ NetX Duo를 사용하여 NetX Duo 라이브러리 및 애플리케이션을 빌�
 |NX_IP_RAW_MAX_QUEUE_DEPTH | 원시 패킷 수신 큐에서 원시 IP 패킷 수를 제어하는 기호를 큐에 대기시킬 수 있습니다. 기본적으로 값은 20으로 설정됩니다.| 
 |NX_IP_ROUTING_TABLE_SIZE | 정의된 경우 지정된 대상 주소에 대한 나가는 인터페이스 및 다음 홉 주소 목록에 해당하는 IPv4 고정 라우팅 테이블의 최대 항목 수를 설정합니다. 기본값은 8이며 ***nx_api.h** _에 정의됩니다. 이 기호는 _ *_NX_ENABLE_IP_STATIC_ROUTING_**이 정의된 경우에만 사용됩니다.|
 |NX_IPV4_MAX_REASSEMBLY_TIME | IPv4 조각을 리어셈블할 수 있는 최대 시간을 제어하는 기호입니다. NX_IP_MAX_REASSEMBLY_TIME에 정의된 값은 이 값을 덮어씁니다.|
+|NX_ENABLE_TCPIP_OFFLOAD | TCP/IP 오프로드 기능을 사용하도록 설정하는 기호입니다. 이 기능을 사용하려면 NX_ENABLE_INTERFACE_CAPABILITY를 정의해야 합니다.|
 
 ### <a name="packet-configuration-options"></a>패킷 구성 옵션
 
