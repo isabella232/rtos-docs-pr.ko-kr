@@ -6,12 +6,12 @@ ms.author: philmea
 ms.date: 05/19/2020
 ms.topic: article
 ms.service: rtos
-ms.openlocfilehash: dabc1603423d8422ed6f8f540f8a06e80d14ec0098c886ca8731ac8ce981f15d
-ms.sourcegitcommit: 93d716cf7e3d735b18246d659ec9ec7f82c336de
+ms.openlocfilehash: 42ca29b0c3c4e45330b02e0b9eb93de422c8c235
+ms.sourcegitcommit: 74d1e48424370d565617f3a1e868150ab0bdbd88
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/07/2021
-ms.locfileid: "116783410"
+ms.lasthandoff: 10/01/2021
+ms.locfileid: "129319226"
 ---
 # <a name="chapter-4---description-of-azure-rtos-threadx-services"></a>4장 - Azure RTOS ThreadX 서비스 설명
 
@@ -266,6 +266,10 @@ UINT tx_block_pool_info_get(
 
 초기화, 스레드, 타이머, ISR
 
+### <a name="preemption-possible"></a>가능한 선점
+
+예
+
 ### <a name="example"></a>예제
 
 ```c
@@ -341,6 +345,10 @@ UINT tx_block_pool_performance_info_get(
 
 초기화, 스레드, 타이머, ISR
 
+### <a name="preemption-possible"></a>가능한 선점
+
+예
+
 ### <a name="example"></a>예제
 
 ```c
@@ -409,6 +417,10 @@ UINT tx_block_pool_performance_system_info_get(
 ### <a name="allowed-from"></a>허용되는 위치
 
 초기화, 스레드, 타이머, ISR
+
+### <a name="preemption-possible"></a>가능한 선점
+
+예
 
 ### <a name="example"></a>예제
 
@@ -500,12 +512,15 @@ next tx_block_release call will wake up this thread. */
 
 ```c
 UINT tx_block_release(VOID *block_ptr);
-``````
+```
 
 ### <a name="description"></a>Description
 
-이 서비스는 이전에 할당된 블록을 연결된 메모리 풀로 다시 해제합니다. 이 풀의 메모리 블록을 기다리는 일시 중단된 스레드가 하나 이상인 경우 일시 중단된 첫 번째 스레드에 이 메모리 블록이 제공되고 해당 스레드는 다시 시작됩니다.
+이 서비스는 이전에 할당된 블록을 연결된 메모리 풀로 다시 해제합니다. 이 풀의 메모리 블록을 기다리는 일시 중단된 스레드가 하나 이상인 경우 일시 중단된 첫 번째 스레드에 이 메모리 블록이 지정되고 해당 스레드는 다시 시작됩니다.
 
+>[!NOTE]
+> *애플리케이션은 데이터 누수 방지를 위해 메모리 블록을 해제하기 전에 지울 수 있습니다.*
+ 
 >[!IMPORTANT]
 >애플리케이션은 메모리 블록 영역이 풀로 다시 해제된 후에는 이 메모리 블록 영역을 사용하지 않도록 해야 합니다.
 
@@ -882,6 +897,10 @@ UINT tx_byte_pool_performance_info_get(
 
 초기화, 스레드, 타이머, ISR
 
+### <a name="preemption-possible"></a>가능한 선점
+
+예
+
 ### <a name="example"></a>예제
 
 ```c
@@ -959,6 +978,10 @@ UINT tx_byte_pool_performance_system_info_get(
 ### <a name="allowed-from"></a>허용되는 위치
 
  초기화, 스레드, 타이머, ISR
+
+### <a name="preemption-possible"></a>가능한 선점
+
+예
 
 ### <a name="example"></a>예제
 
@@ -1060,7 +1083,10 @@ UINT tx_byte_release(VOID *memory_ptr);
 
 ### <a name="description"></a>Description
 
-이 서비스는 이전에 할당된 메모리 영역을 연결된 풀로 다시 해제합니다. 이 풀의 메모리를 기다리는 일시 중단된 스레드가 하나 이상인 경우 해당 메모리가 고갈될 때까지 또는 일시 중단된 스레드가 더 이상 없을 때까지 일시 중단된 각 스레드에 메모리가 제공되고 스레드는 다시 시작됩니다. 일시 중단된 스레드에 메모리를 할당하는 이 프로세스는 항상 일시 중단된 첫 번째 스레드부터 시작됩니다.
+이 서비스는 이전에 할당된 메모리 영역을 연결된 풀로 다시 해제합니다. 이 풀의 메모리를 기다리는 일시 중단된 스레드가 하나 이상인 경우 해당 메모리가 고갈될 때까지 또는 일시 중단된 스레드가 더 이상 없을 때까지 일시 중단된 각 스레드에 메모리가 제공되고 스레드는 다시 시작됩니다. 일시 중단된 스레드에 메모리를 할당하는 이 프로세스는 항상 일시 중단된 첫 번째 스레드로 시작합니다.
+
+>[!NOTE]
+> *애플리케이션은 데이터 누수 방지를 위해 메모리 영역을 해제하기 전에 지울 수 있습니다.*
 
 > [!IMPORTANT]
 > 애플리케이션은 메모리 영역이 해제된 후에는 이 메모리 영역을 사용하지 않도록 해야 합니다.
@@ -1301,7 +1327,7 @@ status = tx_event_flags_get(&my_event_flags_group, 0x111,
 actual events obtained. */
 ```
 
-**참고 항목**
+### <a name="see-also"></a>참고 항목
 
 - tx_event_flags_create
 - tx_event_flags_delete
@@ -1311,11 +1337,11 @@ actual events obtained. */
 - tx_event_flags_set
 - tx_event_flags_set_notify
 
-### <a name="tx_event_flags_info_get"></a>tx_event_flags_info_get
+## <a name="tx_event_flags_info_get"></a>tx_event_flags_info_get
 
-이벤트 플래그 그룹에 대한 정보를 검색합니다.
+이벤트 플래그 그룹에 대한 정보 검색
 
-**프로토타입**
+### <a name="prototype"></a>프로토타입
 
 ```c
 UINT tx_event_flags_info_get(
@@ -1326,11 +1352,11 @@ UINT tx_event_flags_info_get(
     TX_EVENT_FLAGS_GROUP **next_group);
 ```
 
-**설명**
+### <a name="description"></a>Description
 
 이 서비스는 지정된 이벤트 플래그 그룹에 대한 정보를 검색합니다.
 
-**매개 변수**
+### <a name="parameters"></a>매개 변수
 
 - **group_ptr** 이벤트 플래그 그룹 제어 블록에 대한 포인터입니다.
 - **name** 이벤트 플래그 그룹의 이름에 대한 포인터 대상에 대한 포인터입니다.
@@ -1375,7 +1401,7 @@ status = tx_event_flags_info_get(&my_event_group, &name,
 /* If status equals TX_SUCCESS, the information requested is
 valid. */
 ```
-**참고 항목**
+### <a name="see-also"></a>참고 항목
 
 - tx_event_flags_create
 - tx_event_flags_delete
@@ -1426,6 +1452,10 @@ UINT tx_event_flags_performance_info_get(
 ### <a name="allowed-from"></a>허용되는 위치
 
 초기화, 스레드, 타이머, ISR
+
+### <a name="preemption-possible"></a>가능한 선점
+
+예
 
 ### <a name="example"></a>예제
 
@@ -1492,6 +1522,14 @@ UINT tx_event_flags_performance_system_info_get(
 - **TX_SUCCESS**(0x00) 이벤트 플래그 시스템 성능 가져오기에 성공했습니다.
 - **TX_FEATURE_NOT_ENABLED**(0xFF) 성능 정보를 사용하도록 설정하여 시스템을 컴파일하지 않았습니다.
 
+### <a name="allowed-from"></a>허용되는 위치
+
+초기화, 스레드, 타이머, ISR
+
+### <a name="preemption-possible"></a>가능한 선점
+
+예
+
 ### <a name="example"></a>예제
 
 ```c
@@ -1551,6 +1589,10 @@ UINT tx_event_flags_set(
 - **TX_GROUP_ERROR**(0x06) 잘못된 이벤트 플래그 그룹 포인터입니다.
 - **TX_OPTION_ERROR**(0x08) 잘못된 set-option이 지정되었습니다.
 
+### <a name="allowed-from"></a>허용되는 위치
+
+초기화, 스레드, 타이머, ISR
+
 ### <a name="preemption-possible"></a>가능한 선점
 
 예
@@ -1606,6 +1648,14 @@ UINT tx_event_flags_set_notify(
 - **TX_GROUP_ERROR**(0x06) 잘못된 이벤트 플래그 그룹 포인터입니다.
 - **TX_FEATURE_NOT_ENABLED**(0xFF) 시스템이 알림 기능을 사용하지 않도록 설정하여 컴파일되었습니다.
 
+### <a name="allowed-from"></a>허용되는 위치
+
+초기화, 스레드, 타이머, ISR
+
+### <a name="preemption-possible"></a>가능한 선점
+
+예
+
 ### <a name="example"></a>예제
 
 ```c
@@ -1659,7 +1709,7 @@ UINT tx_interrupt_control(UINT new_posture);
 ### <a name="return-values"></a>반환 값
 - **previous posture** 이 서비스는 이전 인터럽트 상태를 호출자에게 반환합니다. 이렇게 하면 서비스 사용자가 인터럽트를 사용하지 않도록 설정한 후 이전 상태를 복원할 수 있습니다.
 
-### <a name="allowed-from"></a>허용 위치
+### <a name="allowed-from"></a>허용되는 위치
 
 스레드, 타이머, ISR
 
@@ -1924,7 +1974,7 @@ UINT tx_mutex_info_get(
 
 예
 
-**예제**
+### <a name="example"></a>예제
 
 ```c
 TX_MUTEX my_mutex;
@@ -2004,6 +2054,10 @@ UINT tx_mutex_performance_info_get(
 
 초기화, 스레드, 타이머, ISR
 
+### <a name="preemption-possible"></a>가능한 선점
+
+예
+
 ### <a name="example"></a>예제
 
 ```c
@@ -2077,6 +2131,10 @@ UINT tx_mutex_performance_system_info_get(
 ### <a name="allowed-from"></a>허용되는 위치
 
 초기화, 스레드, 타이머, ISR
+
+### <a name="preemption-possible"></a>가능한 선점
+
+예
 
 ### <a name="example"></a>예제
 
@@ -2628,6 +2686,10 @@ UINT tx_queue_performance_info_get(
 
 초기화, 스레드, 타이머, ISR
 
+### <a name="preemption-possible"></a>가능한 선점
+
+예
+
 ### <a name="example"></a>예제
 
 ```c
@@ -2697,7 +2759,7 @@ UINT tx_queue_performance_system_info_get(
 > [!NOTE]
 > 매개 변수에 TX_NULL을 제공하는 것은 매개 변수가 필요하지 않음을 나타냅니다.
 
-**반환 값**
+### <a name="return-values"></a>반환 값
 
 - **TX_SUCCESS**(0x00) 큐 시스템 성능 가져오기에 성공했습니다.
 - **TX_FEATURE_NOT_ENABLED**(0xFF) 성능 정보를 사용하도록 설정하여 시스템을 컴파일하지 않았습니다.
@@ -2705,6 +2767,10 @@ UINT tx_queue_performance_system_info_get(
 ### <a name="allowed-from"></a>허용되는 위치
 
 초기화, 스레드, 타이머, ISR
+
+### <a name="preemption-possible"></a>가능한 선점
+
+예
 
 ### <a name="example"></a>예제
 
@@ -2938,7 +3004,7 @@ status = tx_queue_send(&my_queue, my_message, TX_NO_WAIT);
 queue. */
 ```
 
-**참고 항목**
+### <a name="see-also"></a>참고 항목
 
 - tx_queue_create
 - tx_queue_delete
@@ -2984,6 +3050,10 @@ UINT tx_queue_send_notify(
 ### <a name="allowed-from"></a>허용되는 위치
 
 초기화, 스레드, 타이머, ISR
+
+### <a name="preemption-possible"></a>가능한 선점
+
+예
 
 ### <a name="example"></a>예제
 
@@ -3045,6 +3115,10 @@ UINT tx_semaphore_ceiling_put(
 ### <a name="allowed-from"></a>허용되는 위치
 
 초기화, 스레드, 타이머, ISR
+
+### <a name="preemption-possible"></a>가능한 선점
+
+예
 
 ### <a name="example"></a>예제
 
@@ -3185,7 +3259,7 @@ status = tx_semaphore_delete(&my_semaphore);
 deleted. */
 ```
 
-**참고 항목**
+### <a name="see-also"></a>참고 항목
 
 - tx_semaphore_ceiling_put
 - tx_semaphore_create
@@ -3367,7 +3441,7 @@ UINT tx_semaphore_performance_info_get(
 > [!IMPORTANT]
 > ThreadX 라이브러리 및 애플리케이션은 이 서비스가 성능 정보를 반환하도록 정의된 ***TX_SEMAPHORE_ENABLE_PERFORMANCE_INFO** _를 사용하여 빌드되어야 합니다.
 
-**매개 변수**
+### <a name="parameters"></a>매개 변수
 
 -  **semaphore_ptr** 이전에 만든 세마포에 대한 포인터입니다.
 -  **puts** 이 세마포에서 수행된 넣기 요청 수 대상에 대한 포인터입니다.
@@ -3387,6 +3461,10 @@ UINT tx_semaphore_performance_info_get(
 ### <a name="allowed-from"></a>허용되는 위치
 
 초기화, 스레드, 타이머, ISR
+
+### <a name="preemption-possible"></a>가능한 선점
+
+예
 
 ### <a name="example"></a>예제
 
@@ -3457,6 +3535,10 @@ UINT tx_semaphore_performance_system_info_get(
 ### <a name="allowed-from"></a>허용되는 위치
 
 초기화, 스레드, 타이머, ISR
+
+### <a name="preemption-possible"></a>가능한 선점
+
+예
 
 ### <a name="example"></a>예제
 
@@ -3636,6 +3718,10 @@ UINT tx_semaphore_put_notify(
 
 초기화, 스레드, 타이머, ISR
 
+### <a name="preemption-possible"></a>가능한 선점
+
+예
+
 ### <a name="example"></a>예제
 
 ```c
@@ -3687,9 +3773,9 @@ UINT tx_thread_create(
 
 ### <a name="description"></a>Description
 
-이 서비스는 지정된 작업 항목 함수에서 실행되기 시작하는 애플리케이션 스레드를 만듭니다. 스택, 우선 순위, 선점 임계값, 시간 조각과 같은 특성은 입력 매개 변수를 통해 지정됩니다. 스레드의 초기 실행 상태도 지정됩니다.
+이 서비스는 지정된 작업 항목 함수에서 실행되기 시작하는 애플리케이션 스레드를 만듭니다. 스택, 우선 순위, 선점 임계값, 시간 조각과 같은 특성은 입력 매개 변수를 통해 지정됩니다. 또한 스레드의 초기 실행 상태도 지정됩니다.
 
-**매개 변수**
+### <a name="parameters"></a>매개 변수
 
 - **thread_ptr** 스레드 제어 블록에 대한 포인터입니다.
 - **name_ptr** 스레드 이름에 대한 포인터입니다.
@@ -3890,6 +3976,10 @@ UINT tx_thread_entry_exit_notify(
 
 초기화, 스레드, 타이머, ISR
 
+### <a name="preemption-possible"></a>가능한 선점
+
+예
+
 ### <a name="example"></a>예제
 
 ```c
@@ -3952,7 +4042,7 @@ TX_THREAD* tx_thread_identify(VOID);
 
 None
 
-### <a name="retuen-values"></a>반환 값
+### <a name="return-values"></a>반환 값
 
 - **thread pointer** 현재 실행 중인 스레드에 대한 포인터입니다. 실행 중인 스레드가 없는 경우 반환 값은 **TX_NULL** 입니다.
 
@@ -3965,9 +4055,6 @@ None
 예
 
 ### <a name="example"></a>예제
-
-TX_THREAD *my_thread_ptr;
-
 ```c
 TX_THREAD *my_thread_ptr;
 
@@ -4043,10 +4130,9 @@ UINT tx_thread_info_get(
 - **run_count** 스레드 실행 횟수 대상에 대한 포인터입니다.
 - **priority** 스레드 우선 순위 대상에 대한 포인터입니다.
 - **preemption_threshold** 스레드 선점 임계값 대상에 대한 포인터입니다.
-**time_slice** 스레드 시간 조각 대상에 대한 포인터입니다.
-**next_thread** 다음에 만들 스레드 포인터 대상에 대한 포인터입니다.
-
-**suspended_thread** 일시 중단 목록의 다음 스레드에 대한 포인터 대상에 대한 포인터입니다.
+- **time_slice** 스레드 시간 조각 대상에 대한 포인터입니다.
+- **next_thread** 다음에 만들 스레드 포인터 대상에 대한 포인터입니다.
+- **suspended_thread** 일시 중단 목록의 다음 스레드에 대한 포인터 대상에 대한 포인터입니다.
 
 > [!NOTE]
 > 매개 변수에 TX_NULL을 제공하는 것은 매개 변수가 필요하지 않음을 나타냅니다.
@@ -4164,6 +4250,10 @@ UINT tx_thread_performance_info_get(
 
 초기화, 스레드, 타이머, ISR
 
+### <a name="preemption-possible"></a>가능한 선점
+
+예
+
 ### <a name="example"></a>예제
 
 ```c
@@ -4267,6 +4357,10 @@ ThreadX 라이브러리 및 애플리케이션은 이 서비스가 성능 정보
 ### <a name="allowed-from"></a>허용되는 위치
 
 초기화, 스레드, 타이머, ISR
+
+### <a name="preemption-possible"></a>가능한 선점
+
+예
 
 ### <a name="example"></a>예제
 
@@ -4495,13 +4589,13 @@ VOID tx_thread_relinquish(VOID);
 
 ### <a name="parameters"></a>매개 변수
 
-없음
+None
 
 ### <a name="return-values"></a>반환 값
 
-없음
+None
 
-### <a name="allowed-from"></a>허용 위치
+### <a name="allowed-from"></a>허용되는 위치
 
 스레드
 
@@ -4509,7 +4603,7 @@ VOID tx_thread_relinquish(VOID);
 
 예
 
-### <a name="examples"></a>예
+### <a name="example"></a>예제
 
 ```c
 ULONG run_counter_1 = 0;
@@ -4601,10 +4695,11 @@ UINT tx_thread_reset(TX_THREAD *thread_ptr);
 
 스레드
 
+### <a name="preemption-possible"></a>가능한 선점
+
+예
+
 ### <a name="example"></a>예제
-
-TX_THREAD my_thread;
-
 ```c
 TX_THREAD my_thread;
 
@@ -4796,6 +4891,10 @@ UINT tx_thread_stack_error_notify(VOID (*error_handler)(TX_THREAD *));
 ### <a name="allowed-from"></a>허용되는 위치
 
 초기화, 스레드, 타이머, ISR
+
+### <a name="preemption-possible"></a>가능한 선점
+
+예
 
 ### <a name="example"></a>예제
 
@@ -5136,7 +5235,7 @@ ULONG tx_time_get(VOID);
 > [!NOTE]
 > 각 타이머 틱이 나타내는 실제 시간은 애플리케이션마다 다릅니다.
 
-**매개 변수**
+### <a name="parameters"></a>매개 변수
 
 None
 
@@ -5190,9 +5289,9 @@ VOID tx_time_set(ULONG new_time);
 
 ### <a name="return-values"></a>반환 값
 
-없음
+None
 
-### <a name="allowed-from"></a>허용 위치
+### <a name="allowed-from"></a>허용되는 위치
 
 스레드, 타이머, ISR
 
@@ -5235,7 +5334,7 @@ UINT tx_timer_activate(TX_TIMER *timer_ptr);
 
 - **timer_ptr** 이전에 만든 애플리케이션 타이머에 대한 포인터입니다.
 
-**반환 값**
+### <a name="return-values"></a>반환 값
 
 - **TX_SUCCESS**(0x00) 애플리케이션 타이머 활성화에 성공했습니다.
 - **TX_TIMER_ERROR**(0x15) 잘못된 애플리케이션 타이머 포인터입니다.
@@ -5662,6 +5761,10 @@ UINT tx_timer_performance_info_get(
 
 초기화, 스레드, 타이머, ISR
 
+### <a name="preemption-possible"></a>가능한 선점
+
+예
+
 ### <a name="example"></a>예제
 
 ```c
@@ -5714,7 +5817,7 @@ UINT tx_timer_performance_system_info_get(
 > [!IMPORTANT]
 > ThreadX 라이브러리 및 애플리케이션은 이 서비스가 성능 정보를 반환하도록 정의된 **TX_TIMER_ENABLE_PERFORMANCE_INFO** 를 사용하여 빌드되어야 합니다. 
 
-**매개 변수**
+### <a name="parameters"></a>매개 변수
 
 - **activates** 모든 타이머에서 수행되는 총 활성화 요청 수 대상에 대한 포인터입니다.
 - **reactivates** 모든 주기적인 타이머에서 수행되는 총 자동 다시 활성화 수 대상에 대한 포인터입니다.
@@ -5733,6 +5836,10 @@ UINT tx_timer_performance_system_info_get(
 ### <a name="allowed-from"></a>허용되는 위치
 
 초기화, 스레드, 타이머, ISR
+
+### <a name="preemption-possible"></a>가능한 선점
+
+예
 
 ### <a name="example"></a>예제
 
